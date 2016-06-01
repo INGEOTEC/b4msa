@@ -6,5 +6,5 @@ Sabino Miranda-Jimenez
 Eric S. Tellez
 Daniela Moctezuma
 Ranyart R. Suarez
-Oscar Sanchez
+Oscar S. Siordia
 Elio Villaseñor
