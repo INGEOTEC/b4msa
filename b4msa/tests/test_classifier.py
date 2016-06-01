@@ -14,5 +14,5 @@
 
 
 def test_classifier():
-    from classifier import Classifier
+    from b4msa.classifier import Classifier
     Classifier()
