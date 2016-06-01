@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.5"
+
+before_install:
+  - pip install coverage
+  - pip install coveralls
+  - python setup.py build_ext --inplace
+
+script: nosetests --with-coverage --cover-package=b4msa
+
+after_success: coveralls || echo "Coveralls upload failed"
