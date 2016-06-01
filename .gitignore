@@ -1,0 +1,10 @@
+*.c
+*~
+build
+*.pyc
+*.so
+MANIFEST
+RGP.egg-info
+TODO
+dist
+.coverage
