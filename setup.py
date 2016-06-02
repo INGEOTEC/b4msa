@@ -35,7 +35,7 @@ setup(
     # author_email="mgraffg@ieee.org",
     # cmdclass={"build_ext": build_ext, "clean": Clean},
     # ext_modules=ext_modules,
-    # packages=['EvoDAG', 'EvoDAG/tests'],
+    packages=['b4msa', 'b4msa/tests'],
     # include_package_data=True,
     # zip_safe=False,
     # package_data={'': ['*.pxd']},

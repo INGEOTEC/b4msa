@@ -13,5 +13,13 @@
 # limitations under the License.
 from sklearn.svm import LinearSVC
 
+
 class Classifier(object):
-    pass
+    def __init__(self):
+        pass
+
+    def fit(self, X, y):
+        pass
+
+    def predict(self, X):
+        pass
