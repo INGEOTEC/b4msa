@@ -37,3 +37,21 @@ def test_texmodel():
     tw = [x for x in tweet_iterator(fname)]
     text = TextModel([x['text'] for x in tw])
     assert isinstance(text[tw[0]['text']], list)
+
+
+def test_params():
+    import itertools
+    import os
+    from b4msa.textmodel import OPTION_NONE, OPTION_GROUP, OPTION_DELETE
+    from b4msa.textmodel import TextModel, tweet_iterator
+    l = [OPTION_NONE, OPTION_GROUP, OPTION_DELETE]
+    params = dict(strip_diac=[True, False], usr_option=l,
+                  url_option=l)
+    params = sorted(params.items())
+    fname = os.path.dirname(__file__) + '/text.json'
+    tw = [x for x in tweet_iterator(fname)]
+    text = [x['text'] for x in tw]
+    for x in itertools.product(*[x[1] for x in params]):
+        args = dict(zip([x[0] for x in params], x))
+        ins = TextModel(text, **args)
+        assert isinstance(ins[text[0]], list)

@@ -174,46 +174,46 @@ def get_model(basename, data, labels, args):
     return model
 
 
-if __name__ == '__main__':
-    filename = sys.argv[1]
-    params = dict(
-        strip_diac=[False, True],
-        usr_option=[OPTION_DELETE, OPTION_GROUP, OPTION_NONE],
-        url_option=[OPTION_DELETE, OPTION_GROUP, OPTION_NONE],
-        lc=[False, True],
-        token_list=[1, 2, 3, 4, 5, 6, 7],
-        language_dependent=[]
-    )
+# if __name__ == '__main__':
+#     filename = sys.argv[1]
+#     params = dict(
+#         strip_diac=[False, True],
+#         usr_option=[OPTION_DELETE, OPTION_GROUP, OPTION_NONE],
+#         url_option=[OPTION_DELETE, OPTION_GROUP, OPTION_NONE],
+#         lc=[False, True],
+#         token_list=[1, 2, 3, 4, 5, 6, 7],
+#         language_dependent=[]
+#     )
 
-    data, labels = [], []
-    for i, tweet in enumerate(tweet_iterator(filename)):
-        data.append(tweet['text'])
-        labels.append(tweet['klass'])
+#     data, labels = [], []
+#     for i, tweet in enumerate(tweet_iterator(filename)):
+#         data.append(tweet['text'])
+#         labels.append(tweet['klass'])
 
-        if random.random() < 0.005:
-            logging.info("#{1}, text: {0}".format(data[-1], i+1))
+#         if random.random() < 0.005:
+#             logging.info("#{1}, text: {0}".format(data[-1], i+1))
 
-        if i == 10000:
-            break
+#         if i == 10000:
+#             break
 
-    sample = []
-    # for i in range(128):
-    np.random.seed(0)  # just to produce *locally* reproducible performances
-    for i in range(10):
-        kwargs = {}
-        for k, v in sorted(params.items()):
-            if len(v) == 0:
-                continue
+#     sample = []
+#     # for i in range(128):
+#     np.random.seed(0)  # just to produce *locally* reproducible performances
+#     for i in range(10):
+#         kwargs = {}
+#         for k, v in sorted(params.items()):
+#             if len(v) == 0:
+#                 continue
     
-            if k == 'token_list':
-                # kwargs[k] = sorted(np.random.sample(v, 3))
-                x = list(v)
-                np.random.shuffle(x)
-                kwargs[k] = sorted(x[:3])
-            else:
-                kwargs[k] = np.random.choice(v)
+#             if k == 'token_list':
+#                 # kwargs[k] = sorted(np.random.sample(v, 3))
+#                 x = list(v)
+#                 np.random.shuffle(x)
+#                 kwargs[k] = sorted(x[:3])
+#             else:
+#                 kwargs[k] = np.random.choice(v)
 
-        sample.append(kwargs)
+#         sample.append(kwargs)
 
-    for kwargs in sample:
-        get_model(filename, data, labels, kwargs)
+#     for kwargs in sample:
+#         get_model(filename, data, labels, kwargs)
