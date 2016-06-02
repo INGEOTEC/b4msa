@@ -15,6 +15,16 @@
 
 def test_tweet_iterator():
     import os
+    import gzip
     from b4msa.textmodel import tweet_iterator
-    dirname = os.path.dirname(__file__)
-    [x for x in tweet_iterator(dirname + '/text.json')]
+    fname = os.path.dirname(__file__) + '/text.json'
+    a = [x for x in tweet_iterator(fname)]
+    fname_gz = fname + '.gz'
+    with open(fname, 'r') as fpt:
+        with gzip.open(fname_gz, 'w') as fpt2:
+            fpt2.write(fpt.read().encode('ascii'))
+    b = [x for x in tweet_iterator(fname_gz)]
+    assert len(a) == len(b)
+    for a0, b0 in zip(a, b):
+        assert a0['text'] == b0['text']
+    os.unlink(fname_gz)
