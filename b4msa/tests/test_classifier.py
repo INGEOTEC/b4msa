@@ -16,5 +16,5 @@
 def test_classifier():
     from b4msa.classifier import Classifier
     c = Classifier()
-    c.fit({}, [])
+    c.fit([{'text': 'excelente trabajo'}], ['P'])
     c.predict({'text': 'Excelente b4msa'})
