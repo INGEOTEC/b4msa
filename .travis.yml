@@ -27,7 +27,7 @@ notifications:
         - eric.tellez@infotec.mx
         - elio.villasenor@infotec.mx
         - sabino.miranda@infotec.mx
-        - ranyart@dep.fie.umich.mx
+        - ranyart.rodrigo@gmail.com
         - dmoctezuma@centrogeo.edu.mx
         - oscar.sanchez@centrogeo.edu.mx
     on_success: change  # options: [always|never|change] default: always
