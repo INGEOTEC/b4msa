@@ -7,6 +7,7 @@ import unicodedata
 import gzip
 import random
 import logging
+import numpy as np
 from gensim import corpora, models
 from gensim.models.tfidfmodel import TfidfModel
 import pickle
@@ -76,7 +77,7 @@ OPTION_NONE = 'none'
 OPTION_GROUP = 'group'
 OPTION_DELETE = 'delete'
 
-class Model:
+class TextModel:
     def __init__(self,
                  docs,
                  strip_diac=True,
@@ -134,7 +135,7 @@ def get_filename(basename, kwargs):
     return "-".join(L)
     
 
-def read_model(modelfile):
+def load_model(modelfile):
     logging.info("Loading model {0}".format(modelfile))
     with open(modelfile, 'rb') as f:
         return pickle.load(f)
@@ -151,11 +152,11 @@ def get_model(basename, data, labels, args):
             os.mkdir("models")
 
         args['docs'] = data
-        model = Model(**args)
+        model = TextModel(**args)
         with open(modelfile, 'wb') as f:
             pickle.dump(model, f)
     else:
-        model = read_model(modelfile)
+        model = load_model(modelfile)
 
     return model
 
@@ -184,17 +185,20 @@ if __name__ == '__main__':
 
     sample = []
     # for i in range(128):
+    np.random.seed(0)  # just to produce *locally* reproducible performances
     for i in range(10):
         kwargs = {}
-        # random.seed(0)  # just to produce *locally* reproducible performances
-        for k, v in params.items():
+        for k, v in sorted(params.items()):
             if len(v) == 0:
                 continue
     
             if k == 'token_list':
-                kwargs[k] = sorted(random.sample(v, 3))
+                # kwargs[k] = sorted(np.random.sample(v, 3))
+                x = list(v)
+                np.random.shuffle(x)
+                kwargs[k] = sorted(x[:3])
             else:
-                kwargs[k] = random.choice(v)
+                kwargs[k] = np.random.choice(v)
 
         sample.append(kwargs)
 
