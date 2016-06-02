@@ -10,6 +10,7 @@ before_install:
   - pip install coverage
   - pip install coveralls
   - pip install scikit-learn
+  - pip install nose
   - python setup.py build_ext --inplace
 
 script: nosetests --with-coverage --cover-package=b4msa
@@ -17,7 +18,7 @@ script: nosetests --with-coverage --cover-package=b4msa
 after_success: coveralls || echo "Coveralls upload failed"
 
 notifications:
-    emais:
+    emails:
       recipients:
         - mario.graff@infotec.mx
         - mgraffg@ieee.org
