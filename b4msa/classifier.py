@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from sklearn.svm import LinearSVC
+from b4msa.textmodel import TextModel, tweet_iterator
 
 
 class Classifier(object):
@@ -23,3 +24,30 @@ class Classifier(object):
 
     def predict(self, X):
         pass
+
+class SVC(object):
+    def __init__(self):
+        self.svc = LinearSVC()
+
+    def fit(self, fname):
+        tw = [x for x in tweet_iterator(fname)]
+        self.text = TextModel([x['text'] for x in tw])
+        X = []
+        y = []
+        for l in tw:
+            # print(l)
+            X.append(self.text[l['text']])
+            y.append(l['klass'])
+        X = corpus2csc(self.X).T
+        y = np.argmax(label_binarize(self.y, classes=['NEG','NEU','POS']),axis=1)
+        svc.fit(X, y)
+        return self
+
+    def predict(self, newText):
+        Xnew = []
+        tw_new = [x for x in tweet_iterator(newText)]
+        for l in tw_new:
+            Xnew.append(self.text[l['text']])
+        Xnew = corpus2csc(Xnew).T
+        ynew = svc.predict(Xnew)
+        return ynew
