@@ -12,6 +12,7 @@ before_install:
   - pip install numpy
   - pip install scipy 
   - pip install scikit-learn
+  - pip install gensim
   - pip install nose
   - python setup.py build_ext --inplace
 
