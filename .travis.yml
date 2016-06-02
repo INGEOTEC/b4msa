@@ -9,6 +9,7 @@ before_install:
   - export PATH=/home/travis/miniconda3/bin:$PATH
   - pip install coverage
   - pip install coveralls
+  - pip install numpy
   - pip install scikit-learn
   - pip install nose
   - python setup.py build_ext --inplace
