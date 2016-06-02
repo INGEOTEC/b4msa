@@ -20,7 +20,7 @@ script: nosetests --with-coverage --cover-package=b4msa
 after_success: coveralls || echo "Coveralls upload failed"
 
 notifications:
-    emails:
+    email:
       recipients:
         - mario.graff@infotec.mx
         - mgraffg@ieee.org
