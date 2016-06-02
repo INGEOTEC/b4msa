@@ -30,7 +30,7 @@ def test_tweet_iterator():
     os.unlink(fname_gz)
 
 
-def text_texmodel():
+def test_texmodel():
     from b4msa.textmodel import TextModel, tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
