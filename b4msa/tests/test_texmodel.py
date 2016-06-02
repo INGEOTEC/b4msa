@@ -28,3 +28,12 @@ def test_tweet_iterator():
     for a0, b0 in zip(a, b):
         assert a0['text'] == b0['text']
     os.unlink(fname_gz)
+
+
+def text_texmodel():
+    from b4msa.textmodel import TextModel, tweet_iterator
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    tw = [x for x in tweet_iterator(fname)]
+    text = TextModel([x['text'] for x in tw])
+    assert isinstance(text[tw[0]['text']], list)

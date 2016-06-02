@@ -90,6 +90,7 @@ OPTION_NONE = 'none'
 OPTION_GROUP = 'group'
 OPTION_DELETE = 'delete'
 
+
 class TextModel:
     def __init__(self,
                  docs,
@@ -98,8 +99,7 @@ class TextModel:
                  url_option=OPTION_GROUP,
                  lc=True,
                  token_list=[1, 2, 3, 4, 5, 6, 7],
-                 language_dependent=[]
-    ):
+                 language_dependent=[]):
         self.strip_diac = strip_diac
         self.usr_option = usr_option
         self.url_option = url_option
