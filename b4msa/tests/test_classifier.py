@@ -18,3 +18,13 @@ def test_classifier():
     c = Classifier()
     c.fit([{'text': 'excelente trabajo'}], ['P'])
     c.predict({'text': 'Excelente b4msa'})
+
+def test_SVC_classifier():
+    from b4msa.classifier import SVC
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    # print(fname)
+    c = SVC()
+    c.fit(fname)
+    y = c.predict(fname)
+    assert((y == c.y).all())

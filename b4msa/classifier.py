@@ -13,6 +13,10 @@
 # limitations under the License.
 from sklearn.svm import LinearSVC
 from b4msa.textmodel import TextModel, tweet_iterator
+from gensim.matutils import corpus2csc
+import numpy as np
+# from sklearn.preprocessing import label_binarize
+from sklearn import preprocessing
 
 
 class Classifier(object):
@@ -32,15 +36,18 @@ class SVC(object):
     def fit(self, fname):
         tw = [x for x in tweet_iterator(fname)]
         self.text = TextModel([x['text'] for x in tw])
-        X = []
-        y = []
+        self.X = []
+        self.y = []
         for l in tw:
             # print(l)
-            X.append(self.text[l['text']])
-            y.append(l['klass'])
-        X = corpus2csc(self.X).T
-        y = np.argmax(label_binarize(self.y, classes=['NEG','NEU','POS']),axis=1)
-        svc.fit(X, y)
+            self.X.append(self.text[l['text']])
+            self.y.append(l['klass'])
+        self.X = corpus2csc(self.X).T
+        le = preprocessing.LabelEncoder()
+        le.fit(self.y)
+        self.y = le.transform(self.y)
+        # self.y = np.argmax(label_binarize(self.y, classes=['NEG','NEU','POS']),axis=1)
+        self.svc.fit(self.X, self.y)
         return self
 
     def predict(self, newText):
@@ -49,5 +56,5 @@ class SVC(object):
         for l in tw_new:
             Xnew.append(self.text[l['text']])
         Xnew = corpus2csc(Xnew).T
-        ynew = svc.predict(Xnew)
+        ynew = self.svc.predict(Xnew)
         return ynew
