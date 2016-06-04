@@ -16,7 +16,8 @@
 def test_tweet_iterator():
     import os
     import gzip
-    from b4msa.textmodel import tweet_iterator
+    from b4msa.utils import tweet_iterator
+    
     fname = os.path.dirname(__file__) + '/text.json'
     a = [x for x in tweet_iterator(fname)]
     fname_gz = fname + '.gz'
@@ -31,22 +32,24 @@ def test_tweet_iterator():
 
 
 def test_texmodel():
-    from b4msa.textmodel import TextModel, tweet_iterator
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
-    tw = [x for x in tweet_iterator(fname)]
+    tw = list(tweet_iterator(fname))
     text = TextModel([x['text'] for x in tw])
     assert isinstance(text[tw[0]['text']], list)
 
 
 def test_params():
-    import itertools
     import os
-    from b4msa.textmodel import OPTION_NONE, OPTION_GROUP, OPTION_DELETE
-    from b4msa.textmodel import TextModel, tweet_iterator
-    l = [OPTION_NONE, OPTION_GROUP, OPTION_DELETE]
-    params = dict(strip_diac=[True, False], usr_option=l,
-                  url_option=l)
+    import itertools
+    from b4msa.params import basic_options
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import tweet_iterator
+
+    params = dict(strip_diac=[True, False], usr_option=basic_options,
+                  url_option=basic_options)
     params = sorted(params.items())
     fname = os.path.dirname(__file__) + '/text.json'
     tw = [x for x in tweet_iterator(fname)]

@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from sklearn.svm import LinearSVC
-from b4msa.textmodel import TextModel, tweet_iterator
+from b4msa.textmodel import TextModel
+from b4msa.utils import tweet_iterator
 from gensim.matutils import corpus2csc
 import numpy as np
 # from sklearn.preprocessing import label_binarize
