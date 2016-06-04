@@ -1,4 +1,4 @@
-# Copyright 2016 Mario Graff (https://github.com/mgraffg)
+# Copyright 2016 Mario Graff (https://github.com/mgraffg) and Ranyart R. Suarez (https://github.com/RanyartRodrigo)
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,23 @@
 # limitations under the License.
 
 
-def test_classifier():
-    from b4msa.classifier import Classifier
-    c = Classifier()
-    c.fit([{'text': 'excelente trabajo'}], ['P'])
-    c.predict({'text': 'Excelente b4msa'})
-
-def test_SVC_classifier():
+def test_SVC_predict_from_file():
     from b4msa.classifier import SVC
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     # print(fname)
     c = SVC()
     c.fit(fname)
-    y = c.predict(fname)
-    assert((y == c.y).all())
+    y = c.predict_from_file(fname)
+    for i in y:
+        assert i in ['POS', 'NEU', 'NEG']
+
+
+def test_SVC_predict():
+    from b4msa.classifier import SVC
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = SVC()
+    c.fit(fname)
+    y = c.predict(dict(text='Excelente dia b4msa'))
+    assert y == 'POS'

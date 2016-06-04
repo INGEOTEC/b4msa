@@ -1,4 +1,4 @@
-# Copyright 2016 Mario Graff (https://github.com/mgraffg)
+# Copyright 2016 Ranyart R. Suarez (https://github.com/RanyartRodrigo) and Mario Graff (https://github.com/mgraffg)
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,47 +15,36 @@ from sklearn.svm import LinearSVC
 from b4msa.textmodel import TextModel
 from b4msa.utils import tweet_iterator
 from gensim.matutils import corpus2csc
-import numpy as np
-# from sklearn.preprocessing import label_binarize
 from sklearn import preprocessing
 
-
-class Classifier(object):
-    def __init__(self):
-        pass
-
-    def fit(self, X, y):
-        pass
-
-    def predict(self, X):
-        pass
 
 class SVC(object):
     def __init__(self):
         self.svc = LinearSVC()
+        self.num_terms = None
 
     def fit(self, fname):
         tw = [x for x in tweet_iterator(fname)]
         self.text = TextModel([x['text'] for x in tw])
-        self.X = []
-        self.y = []
+        X = []
+        y = []
         for l in tw:
-            # print(l)
-            self.X.append(self.text[l['text']])
-            self.y.append(l['klass'])
-        self.X = corpus2csc(self.X).T
-        le = preprocessing.LabelEncoder()
-        le.fit(self.y)
-        self.y = le.transform(self.y)
-        # self.y = np.argmax(label_binarize(self.y, classes=['NEG','NEU','POS']),axis=1)
-        self.svc.fit(self.X, self.y)
+            X.append(self.text[l['text']])
+            y.append(l['klass'])
+        X = corpus2csc(X).T
+        self.num_terms = X.shape[1]
+        self.le = preprocessing.LabelEncoder()
+        self.le.fit(y)
+        y = self.le.transform(y)
+        self.svc.fit(X, y)
         return self
 
+    def predict_from_file(self, fname):
+        hy = [self.predict(x) for x in tweet_iterator(fname)]
+        return hy
+
     def predict(self, newText):
-        Xnew = []
-        tw_new = [x for x in tweet_iterator(newText)]
-        for l in tw_new:
-            Xnew.append(self.text[l['text']])
-        Xnew = corpus2csc(Xnew).T
+        Xnew = [self.text[newText['text']]]
+        Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
         ynew = self.svc.predict(Xnew)
-        return ynew
+        return self.le.inverse_transform(ynew)[0]
