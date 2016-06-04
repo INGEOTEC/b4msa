@@ -21,44 +21,74 @@ base_params = dict(
 _base_params = sorted(base_params.items())
 
 
-def sample_param_space(n, q=3):
-    for i in range(n):
-        kwargs = {}
-        for k, v in _base_params:
-            if len(v) == 0:
+class ParameterSelection:
+    def __init__(self):
+        pass
+
+    def sample_param_space(self, n, q=3):
+        for i in range(n):
+            kwargs = {}
+            for k, v in _base_params:
+                if len(v) == 0:
+                    continue
+
+                if k == 'token_list':
+                    x = list(v)
+                    np.random.shuffle(x)
+                    kwargs[k] = sorted(x[:q])
+                else:
+                    print(v)
+                    kwargs[k] = np.random.choice(v)
+
+            yield kwargs
+
+    def expand_neighbors(self, s):
+        for k, v in s.items():
+            if v in (True, False):
+                x = s.copy()
+                x[k] = not v
+                yield x
+            elif v in basic_options:
+                for _v in basic_options:
+                    if _v != v:
+                        x = s.copy()
+                        x[k] = _v
+                        yield x
+            elif k == 'token_list':
+                for _v in base_params[k]:
+                    if _v not in v:
+                        x = s.copy()
+                        x[k] = x[k].copy()
+                        x[k].append(_v)
+                        yield x
+
+    def search(self, fun_score, bsize=32, qinitial=3):
+        tabu = set()  # memory for tabu search
+        best = (0, None)
+        # initial approximation, montecarlo based process
+        for conf in self.sample_param_space(bsize, q=qinitial):
+            code = get_filename(conf)
+            if code in tabu:
                 continue
-    
-            if k == 'token_list':
-                x = list(v)
-                np.random.shuffle(x)
-                kwargs[k] = sorted(x[:q])
-            else:
-                print(v)
-                kwargs[k] = np.random.choice(v)
 
-        yield kwargs
+            tabu.add(code)
+            best = max(best, (fun_score(conf), conf))
 
+        # second approximation, hill climbing process
+        while True:
+            bscore = best[0]
+            for conf in self.expand_neighbors(best[1]):
+                code = get_filename(conf)
+                if code in tabu:
+                    continue
 
-def expand_neighbors(s):
-    for k, v in s.items():
-        if v in (True, False):
-            x = s.copy()
-            x[k] = not v
-            yield x
-        elif v in basic_options:
-            for _v in basic_options:
-                if _v != v:
-                    x = s.copy()
-                    x[k] = _v
-                    yield x
-        elif k == 'token_list':
-            for _v in base_params[k]:
-                if _v not in v:
-                    x = s.copy()
-                    x[k] = x[k].copy()
-                    x[k].append(_v)
-                    yield x
+                tabu.add(code)
+                best = max(best, (fun_score(conf), conf))
 
+            if bscore == best[0]:
+                break
+
+        return best
 
 def get_filename(kwargs, basename=None):
     L = []
@@ -70,31 +100,3 @@ def get_filename(kwargs, basename=None):
 
     return "-".join(L)
 
-
-def search_conf(fun_score, bsize=32, qinitial=3):
-    tabu = set()  # memory for tabu search
-    best = (0, None)
-    # initial approximation, montecarlo based process
-    for conf in sample_param_space(bsize, q=qinitial):
-        code = get_filename(conf)
-        if code in tabu:
-            continue
-
-        tabu.add(code)
-        best = max(best, (fun_score(conf), conf))
-
-    # second approximation, hill climbing process
-    while True:
-        bscore = best[0]
-        for conf in expand_neighbors(best):
-            code = get_filename(conf)
-            if code in tabu:
-                continue
-
-            tabu.add(code)
-            best = max(best, (fun_score(conf), conf))
-
-        if bscore == best[0]:
-            break
-
-    return best

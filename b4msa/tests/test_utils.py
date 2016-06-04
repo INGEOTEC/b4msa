@@ -4,13 +4,10 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
                     level=logging.INFO)
 
 def test_params():
-    from b4msa.params import sample_param_space, expand_neighbors
-    n = 64
-    x = list(sample_param_space(n, 3))
-    for _x in x:
-        logging.info("============= {0} ==========".format(_x))
-        for y in expand_neighbors(_x):
-            logging.info(y)
+    from b4msa.params import ParameterSelection
+    import numpy as np
+    sel = ParameterSelection()
+    sel.search(lambda x: np.random.random(), bsize=64, qinitial=3)
 
 
 def test_read_data_labels():
