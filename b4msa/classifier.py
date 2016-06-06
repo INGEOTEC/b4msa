@@ -20,9 +20,6 @@ from sklearn import preprocessing
 
 
 class SVC(object):
-    # def __init__(self):
-    #     self.svc = LinearSVC()
-
     def __init__(self, model):
         self.svc = LinearSVC()
         self.model = model
@@ -40,19 +37,22 @@ class SVC(object):
     def predict(self, Xnew):
         Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
         ynew = self.svc.predict(Xnew)
-        # return ynew
         return self.le.inverse_transform(ynew)
-        
+
     def predict_text(self, text):
         y = self.predict([self.model[text]])
         print((text, y))
         return y[0]
 
-    def fit_file(self, fname, get_tweet='text', get_klass='klass', maxitems=1e100):
-        X, y = read_data_labels(fname, get_klass=get_klass, get_tweet=get_tweet, maxitems=maxitems)
+    def fit_file(self, fname, get_tweet='text',
+                 get_klass='klass', maxitems=1e100):
+        X, y = read_data_labels(fname, get_klass=get_klass,
+                                get_tweet=get_tweet, maxitems=maxitems)
         self.fit([self.model[x] for x in X], y)
         return self
 
     def predict_file(self, fname, get_tweet='text', maxitems=1e100):
-        hy = [self.predict_text(x) for x in read_data(fname, get_tweet=get_tweet, maxitems=maxitems)]
+        hy = [self.predict_text(x)
+              for x in read_data(fname, get_tweet=get_tweet,
+                                 maxitems=maxitems)]
         return hy
