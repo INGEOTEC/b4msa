@@ -8,11 +8,18 @@ A Baseline for Multilingual Sentiment Analysis (B4MSA)
 Predict a training set using B4MSA
 ==================================
 
-Let us assume that B4MSA is installed only for a particular user.
+Let us assume that B4MSA is installed and on the PATH, then the
+stratisfied k-fold can be computed as follows:
 
 .. code:: bash
 
-    ~/.local/bin/b4msa -k 2 text.json
+    b4msa -k 2 text.json
+
+Note: it is recommended to install the following package
+
+.. code:: bash
+
+    pip install tqdm
 
 Install B4MSA
 -------------
