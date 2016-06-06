@@ -36,10 +36,7 @@ setup(
     # cmdclass={"build_ext": build_ext, "clean": Clean},
     # ext_modules=ext_modules,
     packages=['b4msa', 'b4msa/tests'],
-    # include_package_data=True,
-    # zip_safe=False,
-    # package_data={'': ['*.pxd']},
-    # install_requires=['cython >= 0.19.2', 'numpy >= 1.6.2'],
+    include_package_data=True,
     # entry_points={
     #     'console_scripts': ['EvoDAG=EvoDAG.command_line:main'],
     # }
