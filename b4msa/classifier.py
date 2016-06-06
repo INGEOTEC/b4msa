@@ -64,15 +64,22 @@ class SVC(object):
                       maxitems=1e100):
         from sklearn import cross_validation
         from b4msa.textmodel import TextModel
+        try:
+            from tqdm import tqdm
+        except ImportError:
+            def tqdm(x, **kwargs):
+                return x
+
         X, y = read_data_labels(fname, get_klass=get_klass,
                                 get_tweet=get_tweet, maxitems=maxitems)
         le = preprocessing.LabelEncoder().fit(y)
         y = np.array(le.transform(y))
         hy = np.zeros(len(y), dtype=np.int)
-        for tr, ts in cross_validation.StratifiedKFold(y,
-                                                       n_folds=n_folds,
-                                                       shuffle=True,
-                                                       random_state=seed):
+        xv = cross_validation.StratifiedKFold(y,
+                                              n_folds=n_folds,
+                                              shuffle=True,
+                                              random_state=seed)
+        for tr, ts in tqdm(xv, total=n_folds):
             t = TextModel([X[x] for x in tr])
             m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
             hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
