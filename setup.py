@@ -37,7 +37,7 @@ setup(
     # ext_modules=ext_modules,
     packages=['b4msa', 'b4msa/tests'],
     include_package_data=True,
-    # entry_points={
-    #     'console_scripts': ['EvoDAG=EvoDAG.command_line:main'],
-    # }
+    entry_points={
+        'console_scripts': ['b4msa=b4msa.command_line:main'],
+    }
 )
