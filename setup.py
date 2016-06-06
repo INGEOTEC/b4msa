@@ -15,10 +15,14 @@ from setuptools import setup
 import b4msa
 
 
+with open('README.rst') as fpt:
+    long_desc = fpt.read()
+
+
 setup(
     name="b4msa",
     description="""Baselines for Multilingual Sentiment Analysis""",
-    # long_description=long_desc,
+    long_description=long_desc,
     version=b4msa.__version__,
     classifiers=[
         "Development Status :: 3 - Alpha",
