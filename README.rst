@@ -45,7 +45,8 @@ B4MSA needs the following dependencies.
     pip install gensim
     pip install nose
 
-In order to install B4MSA use the following: \* Clone the repository
+| In order to install B4MSA use the following:
+| \* Clone the repository
 
 .. code:: bash
 

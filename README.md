@@ -42,7 +42,7 @@ pip install gensim
 pip install nose
 ```
 
-In order to install B4MSA use the following:
+In order to install B4MSA use the following:   
 * Clone the repository  
 ```bash   
 git clone  https://github.com/INGEOTEC/b4msa.git
