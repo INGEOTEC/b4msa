@@ -40,3 +40,12 @@ def test_SVC_predict():
     c.fit_file(fname)
     y = c.predict_text('Excelente dia b4msa')
     assert y == 'POS'
+
+
+def test_kfold():
+    import os
+    from b4msa.classifier import SVC
+    fname = os.path.dirname(__file__) + '/text.json'
+    hy = SVC.predict_kfold(fname, n_folds=2)
+    for x in hy:
+        assert x in ['POS', 'NEU', 'NEG']

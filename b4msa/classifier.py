@@ -14,6 +14,7 @@
 # limitations under the License.
 from sklearn.svm import LinearSVC
 # from b4msa.textmodel import TextModel
+import numpy as np
 from b4msa.utils import read_data_labels, read_data
 from gensim.matutils import corpus2csc
 from sklearn import preprocessing
@@ -41,7 +42,6 @@ class SVC(object):
 
     def predict_text(self, text):
         y = self.predict([self.model[text]])
-        print((text, y))
         return y[0]
 
     def fit_file(self, fname, get_tweet='text',
@@ -56,3 +56,24 @@ class SVC(object):
               for x in read_data(fname, get_tweet=get_tweet,
                                  maxitems=maxitems)]
         return hy
+
+    @classmethod
+    def predict_kfold(cls, fname, n_folds=10, seed=0,
+                      get_tweet='text',
+                      get_klass='klass',
+                      maxitems=1e100):
+        from sklearn import cross_validation
+        from b4msa.textmodel import TextModel
+        X, y = read_data_labels(fname, get_klass=get_klass,
+                                get_tweet=get_tweet, maxitems=maxitems)
+        le = preprocessing.LabelEncoder().fit(y)
+        y = np.array(le.transform(y))
+        hy = np.zeros(len(y), dtype=np.int)
+        for tr, ts in cross_validation.StratifiedKFold(y,
+                                                       n_folds=n_folds,
+                                                       shuffle=True,
+                                                       random_state=seed):
+            t = TextModel([X[x] for x in tr])
+            m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
+            hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
+        return le.inverse_transform(hy)

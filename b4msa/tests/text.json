@@ -1,4 +1,6 @@
 {"text": "buenos dia b4msa", "klass": "POS"}
-{"text": "las vascas me deprimen", "klass": "NEG"}
 {"text": "excelente dia", "klass": "POS"}
+{"text": "las vascas me deprimen", "klass": "NEG"}
+{"text": "odio los lunes", "klass": "NEG"}
 {"text": "la computadora", "klass": "NEU"}
+{"text": "la mesa", "klass": "NEU"}
