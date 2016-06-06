@@ -1,3 +1,6 @@
+# author: Eric S. Tellez <eric.tellez@infotec.mx>
+# under the same terms than the multilingual benchmark
+
 import numpy as np
 
 import logging
@@ -99,4 +102,3 @@ def get_filename(kwargs, basename=None):
         L.append("{0}={1}".format(k, v).replace(" ", ""))
 
     return "-".join(L)
-

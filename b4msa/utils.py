@@ -52,8 +52,7 @@ def get_tweet(line):
     return json.loads(line)
 
 
-def read_data_labels(filename, maxitems=1e100,
-                     get_tweet='text', get_klass='klass'):
+def read_data_labels(filename, get_tweet='text', get_klass='klass', maxitems=1e100):
     data, labels = [], []
     count = 0
     for tweet in tweet_iterator(filename):
@@ -64,5 +63,18 @@ def read_data_labels(filename, maxitems=1e100,
         labels.append(y)
         if count == maxitems:
             break
+
     return data, labels
 
+
+def read_data(filename, get_tweet='text', maxitems=1e100):
+    data = []
+    count = 0
+    for tweet in tweet_iterator(filename):
+        count += 1
+        x = get_tweet(tweet) if callable(get_tweet) else tweet[get_tweet]
+        data.append(x)
+        if count == maxitems:
+            break
+
+    return data
