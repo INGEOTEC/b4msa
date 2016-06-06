@@ -33,20 +33,20 @@ class SVC(object):
         self.num_terms = X.shape[1]
         self.le = preprocessing.LabelEncoder()
         self.le.fit(y)
-        y = self.le.transform(self)
+        y = self.le.transform(y)
         self.svc.fit(X, y)
         return self
 
     def predict(self, Xnew):
-        Xnew = corpus2csc(Xnew).T
+        Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
         ynew = self.svc.predict(Xnew)
         # return ynew
-        self.le.inverse_transform(ynew)
-
+        return self.le.inverse_transform(ynew)
+        
     def predict_text(self, text):
-        Xnew = [self.model[text]]
-        Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
-        return self.predict(Xnew)[0]
+        y = self.predict([self.model[text]])
+        print((text, y))
+        return y[0]
 
     def fit_file(self, fname, get_tweet='text', get_klass='klass', maxitems=1e100):
         X, y = read_data_labels(fname, get_klass=get_klass, get_tweet=get_tweet, maxitems=maxitems)

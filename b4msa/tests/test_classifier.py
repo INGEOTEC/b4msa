@@ -15,21 +15,28 @@
 
 def test_SVC_predict_from_file():
     from b4msa.classifier import SVC
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import read_data_labels
     import os
     fname = os.path.dirname(__file__) + '/text.json'
-    # print(fname)
-    c = SVC()
-    c.fit(fname)
-    y = c.predict_from_file(fname)
+    X, y = read_data_labels(fname)
+    t = TextModel(X)
+    c = SVC(t)
+    c.fit_file(fname)
+    y = c.predict_file(fname)
     for i in y:
         assert i in ['POS', 'NEU', 'NEG']
 
 
 def test_SVC_predict():
     from b4msa.classifier import SVC
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import read_data_labels
     import os
     fname = os.path.dirname(__file__) + '/text.json'
-    c = SVC()
-    c.fit(fname)
-    y = c.predict(dict(text='Excelente dia b4msa'))
+    X, y = read_data_labels(fname)
+    t = TextModel(X)
+    c = SVC(t)
+    c.fit_file(fname)
+    y = c.predict_text('Excelente dia b4msa')
     assert y == 'POS'
