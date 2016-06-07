@@ -28,7 +28,7 @@ in the PATH.
 wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
 chmod 755 miniconda.sh
 ./miniconda.sh -b
-export PATH=/home/travis/miniconda3/bin:$PATH
+export PATH=/home/$USER/miniconda3/bin:$PATH
 ```
 
 B4MSA needs the following dependencies.
