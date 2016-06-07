@@ -53,11 +53,3 @@ cd b4msa
 ```bash   
 python setup.py install
 ```
-
-* To install only for the use then  
-```bash   
-python setup.py install --user
-```
-
-
-
