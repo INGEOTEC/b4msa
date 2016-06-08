@@ -93,7 +93,7 @@ class ParameterSelection:
             while True:
                 bscore = best[0]
                 L = []
-                logging.info("XXXXX> {0}".format(best))
+
                 for conf in self.expand_neighbors(best[1]):
                     code = get_filename(conf)
                     if code in tabu:
