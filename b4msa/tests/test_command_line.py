@@ -22,6 +22,7 @@ def test_command_line():
     sys.argv = ['b4msa', '-k', '2', fname]
     c.main()
 
+
 def test_nparams():
     from b4msa.command_line import CommandLine
     import os

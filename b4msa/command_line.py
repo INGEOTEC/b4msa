@@ -21,6 +21,7 @@ class CommandLine(object):
         self.parser = argparse.ArgumentParser(description='b4msa')
         self.training_set()
         self.predict_kfold()
+        self.param_set()
 
     def predict_kfold(self):
         pa = self.parser.add_argument
