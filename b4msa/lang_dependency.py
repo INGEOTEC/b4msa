@@ -122,7 +122,7 @@ class LangDependency():
             text = self.spanish_negation(text)
         if self.lang == "english":
             text = self.english_negation(text)
-		if self.lang == "italian":
+        if self.lang == "italian":
             text = self.italian_negation(text)
         return text
 
