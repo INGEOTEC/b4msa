@@ -63,6 +63,7 @@ class ParameterSelection:
                         x = s.copy()
                         x[k] = x[k].copy()
                         x[k].append(_v)
+                        x[k].sort()
                         yield x
 
     def search(self, fun_score, bsize=32, qinitial=3,
