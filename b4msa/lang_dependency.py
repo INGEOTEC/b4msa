@@ -122,6 +122,8 @@ class LangDependency():
             text = self.spanish_negation(text)
         if self.lang == "english":
             text = self.english_negation(text)
+		if self.lang == "italian":
+            text = self.italian_negation(text)
         return text
 
     def spanish_negation(self, text):
@@ -158,6 +160,34 @@ class LangDependency():
         return text
 
     def english_negation(self, text):
+        """
+        Standarizes negation sentences, nouns are also considering with the operator "without"
+        Negative markers
+        1. Not-negatior (not, n't)
+        2. N-negator (never, neither, nobody, no, none, nor, nothing 
+        3. Negative affix: this kind of negation is not dealt (-dis-confort, -a-symmetrical, -in-consistent) 
+        """
+        
+        """
+        VERBS
+        not to VERB  => to no_VERB
+        AUXn't VERB  => AUX no_VERB
+        not VERB => no_VERB
+        
+        NOUNS
+        
+        no NOUN => no_NOUN
+        
+        ADJECTIVE
+
+        BE_VERB not (prep) ADJ => BE_VERB prep no_ADJ 
+       
+        """        
+        #pronouns = "me|you|he|she|it|us|them"
+
+        return text
+		
+	def italian_negation(self, text):
         """
         Standarizes negation sentences, nouns are also considering with the operator "without"
         Negative markers
