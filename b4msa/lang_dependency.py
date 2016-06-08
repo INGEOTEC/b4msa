@@ -49,12 +49,13 @@ _sNEUTRAL_EMOTICON = "_neutro"
 
 
 class LangDependencyError(Exception):
-    def  __init__(self, message):
+    def __init__(self, message):
         self.message = message
+
     def __str__(self):
         return repr(self.message)
- 
-  
+
+
 class LangDependency():
     """
     Define a  set of functions to change text using laguage dependent transformations, e.g., 
@@ -63,19 +64,20 @@ class LangDependency():
     - among others
     """
 
-    def __init__(self, lang="spanish" ):
+    def __init__(self, lang="spanish"):
         self.hshStopWords = {}
         self._sStopWords = ""
         self.hshNegationRules = None
-        self.reNegationRules = None      
-        self.languages = ["spanish", "english", "italian","german"]
+        self.reNegationRules = None
+        self.languages = ["spanish", "english", "italian", "german"]
         self.lang = lang
-       
-        if self.lang in self.languages:
+
+        if self.lang not in self.languages:
             raise LangDependencyError("Language not supported: " + lang)
-        
-        if self.lang in SnowballStemmer.languages:
-            raise LangDependencyError("Language stemming  not supported : " + lang)              
+
+        if self.lang not in SnowballStemmer.languages:
+            raise LangDependencyError("Language stemming  not supported : "
+                                      + lang)
         self.stemmer = SnowballStemmer(self.lang)
 
     def load_stopwords(self, fileName):
