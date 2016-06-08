@@ -3,7 +3,6 @@
 
 import numpy as np
 import logging
-from multiprocessing import Pool
 
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
@@ -66,15 +65,16 @@ class ParameterSelection:
                         x[k].append(_v)
                         yield x
 
-    def search(self, fun_score, bsize=32, qinitial=3, hill_climbing=True, pool=None):
+    def search(self, fun_score, bsize=32, qinitial=3,
+               hill_climbing=True, pool=None):
         tabu = set()  # memory for tabu search
 
         # initial approximation, montecarlo based process
         def get_best(cand):
             if pool is None:
-                X = list(map(lambda x: fun_score(x[0], x[1]), cand))
+                X = list(map(fun_score, cand))
             else:
-                X = list(pool.map(lambda x: fun_score(x[0], x[1]), cand))
+                X = list(pool.map(fun_score, cand))
 
             # a list of tuples (score, conf)
             return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
@@ -111,6 +111,18 @@ class ParameterSelection:
         return best
 
 
+class Wrapper(object):
+    def __init__(self, fname, n_folds, cls):
+        self.n_folds = n_folds
+        self.fname = fname
+        self.cls = cls
+
+    def f(self, conf_code):
+        conf, code = conf_code
+        r = self.cls.predict_kfold(self.fname, self.n_folds, conf=conf)
+        return r
+
+                
 def get_filename(kwargs, basename=None):
     L = []
     if basename:

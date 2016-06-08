@@ -3,6 +3,7 @@ import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
                     level=logging.INFO)
 
+
 def test_params():
     from b4msa.params import ParameterSelection
     import numpy as np

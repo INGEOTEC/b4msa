@@ -64,8 +64,7 @@ class SVC(object):
     def predict_kfold(cls, fname, n_folds=10, seed=0, conf=None,
                       get_tweet='text',
                       get_klass='klass',
-                      maxitems=1e100
-    ):
+                      maxitems=1e100):
         from sklearn import cross_validation
         from sklearn.metrics import f1_score
         from b4msa.textmodel import TextModel
@@ -101,22 +100,12 @@ class SVC(object):
             return f1_score(np.array(y), np.array(hy), average='weighted')
 
     @classmethod
-    def predict_kfold_params(cls, fname, n_folds=10, n_params=16, qinitial=3, hill_climbing=True, pool=None):
-        from b4msa.params import ParameterSelection
+    def predict_kfold_params(cls, fname, n_folds=10, n_params=16,
+                             qinitial=3, hill_climbing=True, pool=None):
+        from b4msa.params import ParameterSelection, Wrapper
 
-        class func(object):
-            def __init__(self, fname, n_folds):
-                self.n_folds = n_folds
-                self.fname = fname
-
-            def F(self, conf, code):
-                # TODO: save or load if it was already computed using 'code'
-                logging.info("running file={0}, folds={1}, samplesize={2}, conf={3}".format(fname, n_folds, n_params, code))
-                r = cls.predict_kfold(self.fname, self.n_folds, conf=conf)
-                return r
-
-        f = func(fname, n_folds)
-        return ParameterSelection().search(f.F,
+        f = Wrapper(fname, n_folds, cls)
+        return ParameterSelection().search(f.f,
                                            bsize=n_params,
                                            qinitial=qinitial,
                                            hill_climbing=hill_climbing,

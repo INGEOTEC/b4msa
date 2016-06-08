@@ -41,3 +41,13 @@ def test_main():
     fname = os.path.dirname(__file__) + '/text.json'
     sys.argv = ['b4msa', '-k', '2', fname]
     main()
+
+
+def test_pool():
+    from b4msa.command_line import CommandLine
+    import os
+    import sys
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLine()
+    sys.argv = ['b4msa', '-k', '2', '-s', '11', '-n', '2', fname]
+    c.main()

@@ -28,7 +28,8 @@ class CommandLine(object):
     def predict_kfold(self):
         pa = self.parser.add_argument
         pa('-k', '--kfolds', dest='n_folds',
-           help='Predict the training set using stratified k-fold', type=int, default=5)
+           help='Predict the training set using stratified k-fold',
+           type=int, default=5)
 
     def training_set(self):
         cdn = 'File containing the training set on csv.'
@@ -45,8 +46,10 @@ class CommandLine(object):
            help="The minimum number of q-gram tokenizers per configuration")
         pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
            help="Number of processes to compute the best setup")
-        pa('-H', '--hillclimbing', dest='hill_climbing', default=False, action='store_true',
-           help="Determines if hillclimbing search is also perfomed to improve the selection of paramters")
+        pa('-H', '--hillclimbing', dest='hill_climbing', default=False,
+           action='store_true',
+           help="Determines if hillclimbing search is also perfomed" +
+           " to improve the selection of paramters")
 
     def main(self):
         self.data = self.parser.parse_args()
@@ -65,8 +68,7 @@ class CommandLine(object):
                                           n_params=self.data.samplesize,
                                           hill_climbing=self.data.hill_climbing,
                                           qinitial=self.data.qsize,
-                                          pool=pool
-            )
+                                          pool=pool)
             print("filename: {0}; score: {1}".format(filename, hy))
         # elif self.data.n_folds is not None:
         #  hy = SVC.predict_kfold(self.data.training_set,
