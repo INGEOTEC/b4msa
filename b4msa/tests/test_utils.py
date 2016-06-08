@@ -7,7 +7,7 @@ def test_params():
     from b4msa.params import ParameterSelection
     import numpy as np
     sel = ParameterSelection()
-    sel.search(lambda x: np.random.random(), bsize=64, qinitial=3)
+    sel.search(lambda conf, code: np.random.random(), bsize=64, qinitial=3)
 
 
 def test_read_data_labels():

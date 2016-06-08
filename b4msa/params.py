@@ -2,6 +2,8 @@
 # under the same terms than the multilingual benchmark
 
 import numpy as np
+import logging
+from multiprocessing import Pool
 
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
@@ -40,13 +42,12 @@ class ParameterSelection:
                     np.random.shuffle(x)
                     kwargs[k] = sorted(x[:q])
                 else:
-                    print(v)
                     kwargs[k] = np.random.choice(v)
 
             yield kwargs
 
     def expand_neighbors(self, s):
-        for k, v in s.items():
+        for k, v in sorted(s.items()):
             if v in (True, False):
                 x = s.copy()
                 x[k] = not v
@@ -65,30 +66,44 @@ class ParameterSelection:
                         x[k].append(_v)
                         yield x
 
-    def search(self, fun_score, bsize=32, qinitial=3, hill_climb=True):
+    def search(self, fun_score, bsize=32, qinitial=3, hill_climbing=True, pool=None):
         tabu = set()  # memory for tabu search
-        best = (0, None)
+
         # initial approximation, montecarlo based process
+        def get_best(cand):
+            if pool is None:
+                X = list(map(lambda x: fun_score(x[0], x[1]), cand))
+            else:
+                X = list(pool.map(lambda x: fun_score(x[0], x[1]), cand))
+
+            return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
+
+        L = []
         for conf in self.sample_param_space(bsize, q=qinitial):
             code = get_filename(conf)
             if code in tabu:
                 continue
 
             tabu.add(code)
-            best = max(best, (fun_score(conf), conf))
+            L.append((conf, code))
 
-        if hill_climb:
-        # second approximation, hill climbing process
+        best = get_best(L)
+        if hill_climbing:
+            # second approximation, hill climbing process
             while True:
                 bscore = best[0]
+                L = []
+                logging.info("XXXXX> {0}".format(best))
                 for conf in self.expand_neighbors(best[1]):
                     code = get_filename(conf)
                     if code in tabu:
                         continue
 
                     tabu.add(code)
-                    best = max(best, (fun_score(conf), conf))
+                    L.append((conf, code))
+                    # best = max(best, (fun_score(conf, code), conf))
 
+                best = max(best, get_best(L))
                 if bscore == best[0]:
                     break
 
