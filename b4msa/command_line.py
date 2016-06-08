@@ -34,7 +34,7 @@ class CommandLine(object):
     def training_set(self):
         cdn = 'File containing the training set on csv.'
         self.parser.add_argument('training_set',
-                                 nargs=1,  # '?'
+                                 nargs=1,
                                  default=None,
                                  help=cdn)
 
