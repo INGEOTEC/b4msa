@@ -124,6 +124,7 @@ class LangDependency():
             text = self.english_negation(text)
         if self.lang == "italian":
             text = self.italian_negation(text)
+
         return text
 
     def spanish_negation(self, text):
@@ -187,7 +188,7 @@ class LangDependency():
 
         return text
 		
-	def italian_negation(self, text):
+    def italian_negation(self, text):
         """
         Standarizes negation sentences, nouns are also considering with the operator "without"
         Negative markers
