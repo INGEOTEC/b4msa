@@ -14,6 +14,7 @@ before_install:
   - pip install scikit-learn
   - pip install gensim
   - pip install nose
+  - conda install --yes nltk
   - python setup.py build_ext --inplace
 
 script: nosetests --with-coverage --cover-package=b4msa
