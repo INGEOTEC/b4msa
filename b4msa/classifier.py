@@ -92,26 +92,25 @@ class SVC(object):
                 t = TextModel([X[x] for x in tr], **conf)
                 m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
                 hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
-            #return le.inverse_transform(hy)
+            # return le.inverse_transform(hy)
             return (np.array(hy) == np.array(y)).sum()/len(y)
 
-            
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=10):
-        from b4masa.params import ParameterSelection
-        import func
+        from b4msa.params import ParameterSelection
+
+        class func(object):
+            def __init__(self, fname, n_folds):
+                self.n_folds = n_folds
+                self.fname = fname
+
+            def F(self, conf):
+                r = cls.predict_kfold(self.fname, self.n_folds, conf=conf)
+                return r
+
         f = func(fname, n_folds)
         params = ParameterSelection().search(f.F,
                                              bsize=n_params,
                                              hill_climb=False)
-        print(params)
+        return params
 
-
-class func(object):
-    def __init__(self, fname, n_folds):
-        self.n_folds = n_folds
-        self.fname = fname
-
-    def F(self, conf):
-        import SVC
-        return SVC.predict_kfold(self.fname, self.n_folds, conf=conf)

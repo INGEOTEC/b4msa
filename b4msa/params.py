@@ -40,7 +40,7 @@ class ParameterSelection:
                     np.random.shuffle(x)
                     kwargs[k] = sorted(x[:q])
                 else:
-                    print(v)
+                    # print(v)
                     kwargs[k] = np.random.choice(v)
 
             yield kwargs
@@ -75,10 +75,10 @@ class ParameterSelection:
                 continue
 
             tabu.add(code)
-            best = max(best, (fun_score(conf), conf))
+            best = max(best, (fun_score(conf), conf), key=lambda x: x[0])
 
         if hill_climb:
-        # second approximation, hill climbing process
+            # second approximation, hill climbing process
             while True:
                 bscore = best[0]
                 for conf in self.expand_neighbors(best[1]):
