@@ -43,15 +43,15 @@ class CommandLine(object):
 
     def main(self):
         self.data = self.parser.parse_args()
-        if self.data.n_folds is not None:
+        if self.data.n_folds is not None and self.data.n_params is not None:
+            hy = SVC.predict_kfold_params(self.data.training_set,
+                                          n_folds=self.data.n_folds,
+                                          n_params=self.data.n_params)
+            print(hy)
+        elif self.data.n_folds is not None:
             hy = SVC.predict_kfold(self.data.training_set,
                                    n_folds=self.data.n_folds)
             print(hy)
-
-        elif self.data.n_folds is not None and self.data.n_params is not None:
-            hy = SVC.predict_kfold_params(self.data.training_set,
-                                          n_fold=self.data.n_folds,
-                                          n_params=self.data.n_params)
 
 
 def main():
