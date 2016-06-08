@@ -65,7 +65,7 @@ class ParameterSelection:
                         x[k].append(_v)
                         yield x
 
-    def search(self, fun_score, bsize=32, qinitial=3):
+    def search(self, fun_score, bsize=32, qinitial=3, hill_climb=True):
         tabu = set()  # memory for tabu search
         best = (0, None)
         # initial approximation, montecarlo based process
@@ -77,19 +77,20 @@ class ParameterSelection:
             tabu.add(code)
             best = max(best, (fun_score(conf), conf))
 
+        if hill_climb:
         # second approximation, hill climbing process
-        while True:
-            bscore = best[0]
-            for conf in self.expand_neighbors(best[1]):
-                code = get_filename(conf)
-                if code in tabu:
-                    continue
+            while True:
+                bscore = best[0]
+                for conf in self.expand_neighbors(best[1]):
+                    code = get_filename(conf)
+                    if code in tabu:
+                        continue
 
-                tabu.add(code)
-                best = max(best, (fun_score(conf), conf))
+                    tabu.add(code)
+                    best = max(best, (fun_score(conf), conf))
 
-            if bscore == best[0]:
-                break
+                if bscore == best[0]:
+                    break
 
         return best
 

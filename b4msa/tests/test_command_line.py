@@ -22,6 +22,15 @@ def test_command_line():
     sys.argv = ['b4msa', '-k', '2', fname]
     c.main()
 
+def test_nparams():
+    from b4msa.command_line import CommandLine
+    import os
+    import sys
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLine()
+    sys.argv = ['b4msa', '-k', '3', '-N', '11', fname]
+    c.main()
+
 
 def test_main():
     from b4msa.command_line import main

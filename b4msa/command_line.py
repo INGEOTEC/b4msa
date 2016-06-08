@@ -13,6 +13,7 @@
 # limitations under the License.
 import argparse
 from b4msa.classifier import SVC
+# from b4msa.params import ParameterSelection
 
 
 class CommandLine(object):
@@ -34,12 +35,22 @@ class CommandLine(object):
                                  default=None,
                                  help=cdn)
 
+    def param_set(self):
+        str = 'No. of parameter combinations for the text model'
+        pa = self.parser.add_argument
+        pa('-N', '--nparams', dest='n_params', help=str, type=int)
+
     def main(self):
         self.data = self.parser.parse_args()
         if self.data.n_folds is not None:
             hy = SVC.predict_kfold(self.data.training_set,
                                    n_folds=self.data.n_folds)
             print(hy)
+
+        elif self.data.n_folds is not None and self.data.n_params is not None:
+            hy = SVC.predict_kfold_params(self.data.training_set,
+                                          n_fold=self.data.n_folds,
+                                          n_params=self.data.n_params)
 
 
 def main():

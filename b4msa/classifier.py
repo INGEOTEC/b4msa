@@ -58,12 +58,13 @@ class SVC(object):
         return hy
 
     @classmethod
-    def predict_kfold(cls, fname, n_folds=10, seed=0,
+    def predict_kfold(cls, fname, n_folds=10, seed=0, conf=None,
                       get_tweet='text',
                       get_klass='klass',
                       maxitems=1e100):
         from sklearn import cross_validation
         from b4msa.textmodel import TextModel
+        
         try:
             from tqdm import tqdm
         except ImportError:
@@ -79,8 +80,38 @@ class SVC(object):
                                               n_folds=n_folds,
                                               shuffle=True,
                                               random_state=seed)
-        for tr, ts in tqdm(xv, total=n_folds):
-            t = TextModel([X[x] for x in tr])
-            m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
-            hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
-        return le.inverse_transform(hy)
+
+        if conf is None:
+            for tr, ts in tqdm(xv, total=n_folds):
+                t = TextModel([X[x] for x in tr])
+                m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
+                hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
+            return le.inverse_transform(hy)
+        else:
+            for tr, ts in tqdm(xv, total=n_folds):
+                t = TextModel([X[x] for x in tr], **conf)
+                m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
+                hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
+            #return le.inverse_transform(hy)
+            return (np.array(hy) == np.array(y)).sum()/len(y)
+
+            
+    @classmethod
+    def predict_kfold_params(cls, fname, n_folds=10, n_params=10):
+        from b4masa.params import ParameterSelection
+        import func
+        f = func(fname, n_folds)
+        params = ParameterSelection().search(f.F,
+                                             bsize=n_params,
+                                             hill_climb=False)
+        print(params)
+
+
+class func(object):
+    def __init__(self, fname, n_folds):
+        self.n_folds = n_folds
+        self.fname = fname
+
+    def F(self, conf):
+        import SVC
+        return SVC.predict_kfold(self.fname, self.n_folds, conf=conf)
