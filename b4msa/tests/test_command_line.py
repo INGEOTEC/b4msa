@@ -29,7 +29,7 @@ def test_nparams():
     import sys
     fname = os.path.dirname(__file__) + '/text.json'
     c = CommandLine()
-    sys.argv = ['b4msa', '-k', '2', '-N', '11', fname]
+    sys.argv = ['b4msa', '-k', '2', '-s', '11', fname]
     c.main()
     # assert False
 

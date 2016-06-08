@@ -18,6 +18,9 @@ import numpy as np
 from b4msa.utils import read_data_labels, read_data
 from gensim.matutils import corpus2csc
 from sklearn import preprocessing
+import logging
+logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
+                    level=logging.INFO)
 
 
 class SVC(object):
@@ -61,7 +64,8 @@ class SVC(object):
     def predict_kfold(cls, fname, n_folds=10, seed=0, conf=None,
                       get_tweet='text',
                       get_klass='klass',
-                      maxitems=1e100):
+                      maxitems=1e100
+    ):
         from sklearn import cross_validation
         from b4msa.textmodel import TextModel
         
@@ -96,7 +100,7 @@ class SVC(object):
             return (np.array(hy) == np.array(y)).sum()/len(y)
 
     @classmethod
-    def predict_kfold_params(cls, fname, n_folds=10, n_params=10):
+    def predict_kfold_params(cls, fname, n_folds=10, n_params=16, qinitial=3, hill_climbing=True, pool=None):
         from b4msa.params import ParameterSelection
 
         class func(object):
@@ -104,13 +108,16 @@ class SVC(object):
                 self.n_folds = n_folds
                 self.fname = fname
 
-            def F(self, conf):
+            def F(self, conf, code):
+                # TODO: save or load if it was already computed using 'code'
+                logging.info("running file={0}, folds={1}, samplesize={2}, conf={3}".format(fname, n_folds, n_params, code))
                 r = cls.predict_kfold(self.fname, self.n_folds, conf=conf)
                 return r
 
         f = func(fname, n_folds)
-        params = ParameterSelection().search(f.F,
-                                             bsize=n_params,
-                                             hill_climb=False)
-        return params
+        return ParameterSelection().search(f.F,
+                                           bsize=n_params,
+                                           qinitial=qinitial,
+                                           hill_climbing=hill_climbing,
+                                           pool=pool)
 

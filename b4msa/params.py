@@ -76,6 +76,7 @@ class ParameterSelection:
             else:
                 X = list(pool.map(lambda x: fun_score(x[0], x[1]), cand))
 
+            # a list of tuples (score, conf)
             return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
 
         L = []
@@ -103,7 +104,7 @@ class ParameterSelection:
                     L.append((conf, code))
                     # best = max(best, (fun_score(conf, code), conf))
 
-                best = max(best, get_best(L))
+                best = max(best, get_best(L), key=lambda x: x[0])
                 if bscore == best[0]:
                     break
 
