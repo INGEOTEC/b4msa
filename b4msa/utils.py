@@ -45,7 +45,7 @@ def tweet_iterator(filename):
             print("WARNING! File extension not supported (" + filename.split(".")[-1] + ")")
             print("Assuming JSON format: {\"text\":, \"klass\":}")
         # Open the file...
-        f = open(filename, encoding='ascii')
+        f = open(filename, encoding='utf8')
 	# Use JSON generator...
         return JSON_generator(f)
 
@@ -74,7 +74,7 @@ def JSON_generator(f):
         line = f.readline()
         # Test the type of the line and encode it if neccesary...
         if type(line) is bytes:
-            line = str(line, encoding='ascii')
+            line = str(line, encoding='utf8')
         # If the line is empty, we are done...
         if len(line) == 0:
             break
