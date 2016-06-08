@@ -76,15 +76,15 @@ class LangDependency():
             raise LangDependencyError("Language not supported: " + lang)
 
         if self.lang not in SnowballStemmer.languages:
-            raise LangDependencyError("Language stemming  not supported : "
-                                      + lang)
+            raise LangDependencyError("Language stemming  not supported : " +
+                                      lang)
         self.stemmer = SnowballStemmer(self.lang)
 
     def load_stopwords(self, fileName):
         """
          load stopwords from file
         """
-        logger.debug("loading stopwords... " + fileName)            
+        logger.debug("loading stopwords... " + fileName)
         self.hshStopWords = {}
         self._sStopWords = ""
         with io.open(fileName, encoding='utf8') as f:
@@ -116,15 +116,14 @@ class LangDependency():
         """
         Applies negation process to the given text
         """
-        if not self.lang in self.languages:
+        if self.lang not in self.languages:
             raise LangDependencyError("Negation - language not defined")
         if self.lang == "spanish":
-           text = self.spanish_negation(text)
+            text = self.spanish_negation(text)
         if self.lang == "english":
-           text = self.english_negation(text)
-
+            text = self.english_negation(text)
         return text
-         
+
     def spanish_negation(self, text):
         """
         Standarizes negation sentences, nouns are also considering with the operator "sin"

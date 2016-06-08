@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tweets>
+ <tweet>
+  <tweetid>142559890332856321</tweetid>
+  <user>Joss682008</user>
+  <content><![CDATA[Otra de puertas abiertas. Una paisana de Bono le dice lo guapo que está aunque no va a enamorarse. La amiga:' lo que le faltaba al hombre'.]]></content>
+  <date>2011-12-02T12:05:01</date>
+  <lang>es</lang>
+  <sentiments>
+   <polarity><value>N</value></polarity>
+  </sentiments>
+  <topics>
+   <topic>política</topic>
+  </topics>
+ </tweet>
+ <tweet>
+  <tweetid>142702318377381888</tweetid>
+  <user>GFVara</user>
+  <content><![CDATA[Y digo que lo mejor del gobierno extremeño está en la Consejera de Educación y Cultura , a la que  le atribuyen la culpa de la UEX sin razón]]></content>
+  <date>2011-12-02T21:30:58</date>
+  <lang>es</lang>
+  <sentiments>
+   <polarity><value>N+</value></polarity>
+  </sentiments>
+  <topics>
+   <topic>política</topic>
+  </topics>
+ </tweet>
+ <tweet>
+  <tweetid>142788819555594240</tweetid>
+  <user>AlejandroSanz</user>
+  <content><![CDATA[Mucha fuerza, colaboren. RT @caromonte3: @AlejandroSanz alejandrito mandamos mucho animo a los (cont) http://t.co/mc42ixie]]></content>
+  <date>2011-12-03T03:14:42</date>
+  <lang>es</lang>
+  <sentiments>
+   <polarity><value>P+</value></polarity>
+  </sentiments>
+  <topics>
+   <topic>otros</topic>
+   <topic>música</topic>
+  </topics>
+ </tweet>
+ <tweet>
+  <tweetid>144716644856504320</tweetid>
+  <user>GLlamazares</user>
+  <content><![CDATA[Crónica de ' El declive del bipartidismo 2 ': Ambos partidos anuncian su apoyo a la reforma impuesta de los tratados UE ,sin referéndum]]></content>
+  <date>2011-12-08T10:55:11</date>
+  <lang>es</lang>
+  <sentiments>
+   <polarity><value>NONE</value></polarity>
+  </sentiments>
+  <topics>
+   <topic>economía</topic>
+  </topics>
+ </tweet>
+ <tweet>
+  <tweetid>146616352579399680</tweetid>
+  <user>PilarGGranja</user>
+  <content><![CDATA[Un amigo @LosadaPescador acaba de reconocer q paga tarifa social del la luz, Xq alquila a una pobre pensionista.!! Lo q hay q oír!]]></content>
+  <date>2011-12-13T16:43:57</date>
+  <lang>es</lang>
+  <sentiments>
+   <polarity><value>NEU</value></polarity>
+  </sentiments>
+  <topics>
+   <topic>política</topic>
+  </topics>
+ </tweet>
+ <tweet>
+  <tweetid>154280269510230016</tweetid>
+  <user>LosadaPescador</user>
+  <content><![CDATA[Empezamos ya!!! Ya sabeis, si quereis información con criterio, @TelediarioInter 20:30 es vuestro Telediario]]></content>
+  <date>2012-01-03T20:17:37</date>
+  <lang>es</lang>
+  <sentiments>
+   <polarity><value>P</value></polarity>
+  </sentiments>
+  <topics>
+   <topic>entretenimiento</topic>
+  </topics>
+ </tweet>
+</tweets>

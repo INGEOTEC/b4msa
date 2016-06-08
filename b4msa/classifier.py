@@ -67,6 +67,7 @@ class SVC(object):
                       maxitems=1e100
     ):
         from sklearn import cross_validation
+        from sklearn.metrics import f1_score
         from b4msa.textmodel import TextModel
         
         try:
@@ -96,8 +97,8 @@ class SVC(object):
                 t = TextModel([X[x] for x in tr], **conf)
                 m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
                 hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
-            # return le.inverse_transform(hy)
-            return (np.array(hy) == np.array(y)).sum()/len(y)
+            # return (np.array(hy) == np.array(y)).sum()/len(y)
+            return f1_score(np.array(y), np.array(hy), average='weighted')
 
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=16, qinitial=3, hill_climbing=True, pool=None):
