@@ -34,7 +34,6 @@ def test_nparams():
     sys.argv = ['b4msa', '-k', '2', '-s', '11', fname]
     c.main()
     os.unlink(c.get_output())
-    # assert False
 
 
 def test_main():

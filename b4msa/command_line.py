@@ -80,15 +80,15 @@ class CommandLine(object):
                                                     qinitial=self.data.qsize,
                                                     pool=pool)
             params['score'] = perf
-            # params = sorted(params.items())
-            # print(params, params[0], type(params[0][1]))
             with open(self.get_output(), 'w') as fpt:
                 fpt.write(json.dumps(params, indent=2))
+            return
         if self.data.n_folds is not None:
             X, y = read_data_labels(self.data.training_set)
             hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds)
             with open(self.get_output(), 'w') as fpt:
                 fpt.write("\n".join([str(x) for x in hy]))
+            return
 
 
 def main():
