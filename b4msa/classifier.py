@@ -61,12 +61,11 @@ class SVC(object):
         return hy
 
     @classmethod
-    def predict_kfold(cls, fname, n_folds=10, seed=0, conf=None,
-                      get_tweet='text',
-                      get_klass='klass',
-                      maxitems=1e100):
+    def predict_kfold(cls, X, y, n_folds=10, seed=0, textModel_params={},
+                      kfolds=None,
+                      use_tqdm=True):
+
         from sklearn import cross_validation
-        from sklearn.metrics import f1_score
         from b4msa.textmodel import TextModel
         
         try:
@@ -75,36 +74,30 @@ class SVC(object):
             def tqdm(x, **kwargs):
                 return x
 
-        X, y = read_data_labels(fname, get_klass=get_klass,
-                                get_tweet=get_tweet, maxitems=maxitems)
         le = preprocessing.LabelEncoder().fit(y)
         y = np.array(le.transform(y))
         hy = np.zeros(len(y), dtype=np.int)
-        xv = cross_validation.StratifiedKFold(y,
-                                              n_folds=n_folds,
-                                              shuffle=True,
-                                              random_state=seed)
-
-        if conf is None:
-            for tr, ts in tqdm(xv, total=n_folds):
-                t = TextModel([X[x] for x in tr])
-                m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
-                hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
-            return le.inverse_transform(hy)
-        else:
-            for tr, ts in tqdm(xv, total=n_folds):
-                t = TextModel([X[x] for x in tr], **conf)
-                m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
-                hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
-            # return (np.array(hy) == np.array(y)).sum()/len(y)
-            return f1_score(np.array(y), np.array(hy), average='weighted')
+        if kfolds is None:
+            kfolds = cross_validation.StratifiedKFold(y,
+                                                      n_folds=n_folds,
+                                                      shuffle=True,
+                                                      random_state=seed)
+        if use_tqdm:
+            kfolds = tqdm(kfolds, total=n_folds)
+        for tr, ts in kfolds:
+            t = TextModel([X[x] for x in tr])
+            m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
+            hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
+        return le.inverse_transform(hy)
+        # from sklearn.metrics import f1_score
+        # return f1_score(np.array(y), np.array(hy), average='weighted')
 
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=16,
                              qinitial=3, hill_climbing=True, pool=None):
         from b4msa.params import ParameterSelection, Wrapper
-
-        f = Wrapper(fname, n_folds, cls)
+        X, y = read_data_labels(fname)
+        f = Wrapper(X, y, n_folds, cls)
         return ParameterSelection().search(f.f,
                                            bsize=n_params,
                                            qinitial=qinitial,

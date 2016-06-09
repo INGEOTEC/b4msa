@@ -3,8 +3,9 @@
 
 import numpy as np
 import logging
+from sklearn.metrics import f1_score
+from sklearn import preprocessing
 
-import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
                     level=logging.INFO)
 
@@ -113,15 +114,20 @@ class ParameterSelection:
 
 
 class Wrapper(object):
-    def __init__(self, fname, n_folds, cls):
+
+    def __init__(self, X, y, n_folds, cls):
         self.n_folds = n_folds
-        self.fname = fname
+        self.X = X
+        le = preprocessing.LabelEncoder().fit(y)
+        self.y = np.array(le.transform(y))
         self.cls = cls
 
     def f(self, conf_code):
         conf, code = conf_code
-        r = self.cls.predict_kfold(self.fname, self.n_folds, conf=conf)
-        return r
+        hy = self.cls.predict_kfold(self.X, self.y, self.n_folds,
+                                    textModel_params=conf,
+                                    use_tqdm=False)
+        return f1_score(self.y, hy, average='macro')
 
                 
 def get_filename(kwargs, basename=None):

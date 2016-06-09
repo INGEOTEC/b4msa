@@ -45,7 +45,10 @@ def test_SVC_predict():
 def test_kfold():
     import os
     from b4msa.classifier import SVC
+    from b4msa.utils import read_data_labels
     fname = os.path.dirname(__file__) + '/text.json'
-    hy = SVC.predict_kfold(fname, n_folds=2)
+    X, y = read_data_labels(fname, get_klass='klass',
+                            get_tweet='text')
+    hy = SVC.predict_kfold(X, y, n_folds=2)
     for x in hy:
         assert x in ['POS', 'NEU', 'NEG']
