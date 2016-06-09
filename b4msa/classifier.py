@@ -18,6 +18,8 @@ import numpy as np
 from b4msa.utils import read_data_labels, read_data
 from gensim.matutils import corpus2csc
 from sklearn import preprocessing
+from sklearn import cross_validation
+from b4msa.textmodel import TextModel
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
                     level=logging.INFO)
@@ -64,10 +66,6 @@ class SVC(object):
     def predict_kfold(cls, X, y, n_folds=10, seed=0, textModel_params={},
                       kfolds=None,
                       use_tqdm=True):
-
-        from sklearn import cross_validation
-        from b4msa.textmodel import TextModel
-        
         try:
             from tqdm import tqdm
         except ImportError:
@@ -89,8 +87,6 @@ class SVC(object):
             m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
             hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
         return le.inverse_transform(hy)
-        # from sklearn.metrics import f1_score
-        # return f1_score(np.array(y), np.array(hy), average='weighted')
 
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=16,

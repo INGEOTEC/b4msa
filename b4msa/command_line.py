@@ -13,6 +13,7 @@
 # limitations under the License.
 import argparse
 from b4msa.classifier import SVC
+from b4msa.utils import read_data_labels
 from multiprocessing import cpu_count, Pool
 
 # from b4msa.params import ParameterSelection
@@ -29,7 +30,7 @@ class CommandLine(object):
         pa = self.parser.add_argument
         pa('-k', '--kfolds', dest='n_folds',
            help='Predict the training set using stratified k-fold',
-           type=int, default=5)
+           type=int)
 
     def training_set(self):
         cdn = 'File containing the training set on csv.'
@@ -40,7 +41,7 @@ class CommandLine(object):
 
     def param_set(self):
         pa = self.parser.add_argument
-        pa('-s', '--sample', dest='samplesize', type=int, default=1,
+        pa('-s', '--sample', dest='samplesize', type=int,
            help="The sample size of the parameter space")
         pa('-q', '--qsize', dest='qsize', type=int, default=3,
            help="The minimum number of q-gram tokenizers per configuration")
@@ -61,19 +62,22 @@ class CommandLine(object):
             pool = Pool(cpu_count())
         else:
             pool = Pool(self.data.numprocs)
-
-        for filename in self.data.training_set:
-            hy = SVC.predict_kfold_params(filename,
-                                          n_folds=self.data.n_folds,
-                                          n_params=self.data.samplesize,
-                                          hill_climbing=self.data.hill_climbing,
-                                          qinitial=self.data.qsize,
-                                          pool=pool)
-            print("filename: {0}; score: {1}".format(filename, hy))
-        # elif self.data.n_folds is not None:
-        #  hy = SVC.predict_kfold(self.data.training_set,
-        #                         n_folds=self.data.n_folds)
-        #  print(hy)
+        if self.data.samplesize is not None:
+            for filename in self.data.training_set:
+                n_folds = self.data.n_folds
+                n_folds = n_folds if n_folds is not None else 5
+                hy = SVC.predict_kfold_params(filename,
+                                              n_folds=n_folds,
+                                              n_params=self.data.samplesize,
+                                              hill_climbing=self.data.hill_climbing,
+                                              qinitial=self.data.qsize,
+                                              pool=pool)
+                print("filename: {0}; score: {1}".format(filename, hy))
+        if self.data.n_folds is not None:
+            for fname in self.data.training_set:
+                X, y = read_data_labels(fname)
+                hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds)
+                print(hy)
 
 
 def main():

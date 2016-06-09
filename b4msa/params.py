@@ -5,7 +5,7 @@ import numpy as np
 import logging
 from sklearn.metrics import f1_score
 from sklearn import preprocessing
-
+from sklearn import cross_validation
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
                     level=logging.INFO)
 
@@ -115,17 +115,23 @@ class ParameterSelection:
 
 class Wrapper(object):
 
-    def __init__(self, X, y, n_folds, cls):
+    def __init__(self, X, y, n_folds, cls, seed=0):
         self.n_folds = n_folds
         self.X = X
         le = preprocessing.LabelEncoder().fit(y)
         self.y = np.array(le.transform(y))
         self.cls = cls
+        np.random.seed(seed)
+        self.kfolds = cross_validation.StratifiedKFold(y,
+                                                       n_folds=n_folds,
+                                                       shuffle=True,
+                                                       random_state=seed)
 
     def f(self, conf_code):
         conf, code = conf_code
         hy = self.cls.predict_kfold(self.X, self.y, self.n_folds,
                                     textModel_params=conf,
+                                    kfolds=self.kfolds,
                                     use_tqdm=False)
         return f1_score(self.y, hy, average='macro')
 

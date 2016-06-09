@@ -21,6 +21,7 @@ def test_command_line():
     c = CommandLine()
     sys.argv = ['b4msa', '-k', '2', fname]
     c.main()
+    # assert False
 
 
 def test_nparams():
