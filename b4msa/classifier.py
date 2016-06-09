@@ -64,6 +64,7 @@ class SVC(object):
     @classmethod
     def predict_kfold(cls, X, y, n_folds=10, seed=0, textModel_params={},
                       kfolds=None,
+                      pool=None,
                       use_tqdm=True):
         try:
             from tqdm import tqdm
@@ -82,7 +83,7 @@ class SVC(object):
         if use_tqdm:
             kfolds = tqdm(kfolds, total=n_folds, desc='Kfolds')
         for tr, ts in kfolds:
-            t = TextModel([X[x] for x in tr])
+            t = TextModel([X[x] for x in tr], **textModel_params)
             m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
             hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
         return le.inverse_transform(hy)

@@ -52,3 +52,19 @@ def test_kfold():
     hy = SVC.predict_kfold(X, y, n_folds=2)
     for x in hy:
         assert x in ['POS', 'NEU', 'NEG']
+
+
+def test_kfold_pool():
+    from multiprocessing import Pool
+    import os
+    from b4msa.classifier import SVC
+    from b4msa.utils import read_data_labels
+    fname = os.path.dirname(__file__) + '/text.json'
+    X, y = read_data_labels(fname, get_klass='klass',
+                            get_tweet='text')
+    p = Pool(2)
+    hy = SVC.predict_kfold(X, y, n_folds=2, pool=p)
+    p.close()
+    for x in hy:
+        assert x in ['POS', 'NEU', 'NEG']
+    
