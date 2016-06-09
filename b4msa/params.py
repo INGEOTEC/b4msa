@@ -6,8 +6,13 @@ import logging
 from sklearn.metrics import f1_score
 from sklearn import preprocessing
 from sklearn import cross_validation
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
-                    level=logging.INFO)
+try:
+    from tqdm import tqdm
+except ImportError:
+    def tqdm(x, **kwargs):
+        return x
+
+logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 OPTION_NONE = 'none'
 OPTION_GROUP = 'group'
@@ -74,12 +79,16 @@ class ParameterSelection:
         # initial approximation, montecarlo based process
         def get_best(cand):
             if pool is None:
-                X = list(map(fun_score, cand))
+                # X = list(map(fun_score, cand))
+                X = [fun_score(x) for x in cand]
             else:
-                X = list(pool.map(fun_score, cand))
+                # X = list(pool.map(fun_score, cand))
+                X = [x for x in tqdm(pool.imap_unordered(fun_score, cand),
+                                     total=len(cand))]
 
             # a list of tuples (score, conf)
-            return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
+            # return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
+            return max(X, key=lambda x: x[0])
 
         L = []
         for conf in self.sample_param_space(bsize, q=qinitial):
@@ -133,7 +142,7 @@ class Wrapper(object):
                                     textModel_params=conf,
                                     kfolds=self.kfolds,
                                     use_tqdm=False)
-        return f1_score(self.y, hy, average='macro')
+        return f1_score(self.y, hy, average='macro'), conf
 
                 
 def get_filename(kwargs, basename=None):

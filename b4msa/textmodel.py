@@ -13,16 +13,13 @@
 # limitations under the License.
 import re
 import os
-import sys
 import unicodedata
-import numpy as np
 from gensim import corpora
 from gensim.models.tfidfmodel import TfidfModel
 from .params import OPTION_DELETE, OPTION_GROUP, get_filename
 import pickle
 import logging
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
-                    level=logging.INFO)
+logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 def norm_chars(text, strip_diac=True):

@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import argparse
+import logging
 from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels
 from multiprocessing import cpu_count, Pool
@@ -54,6 +55,9 @@ class CommandLine(object):
            " to improve the selection of paramters")
         pa('-o', '--output-file', dest='output',
            help='File name to store the output')
+        pa('--verbose', dest='verbose', type=int,
+           help='Logging level default: INFO + 1',
+           default=logging.INFO+1)
 
     def get_output(self):
         if self.data.output is None:
@@ -62,6 +66,7 @@ class CommandLine(object):
 
     def main(self):
         self.data = self.parser.parse_args()
+        logging.basicConfig(level=self.data.verbose)
         # if self.data.n_folds is not None and self.data.sample is not None:
 
         if self.data.numprocs == 1:

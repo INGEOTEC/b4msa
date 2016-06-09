@@ -21,8 +21,7 @@ from sklearn import preprocessing
 from sklearn import cross_validation
 from b4msa.textmodel import TextModel
 import logging
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s',
-                    level=logging.INFO)
+logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 class SVC(object):
