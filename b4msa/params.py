@@ -132,10 +132,10 @@ class Wrapper(object):
         self.y = np.array(le.transform(y))
         self.cls = cls
         np.random.seed(seed)
-        self.kfolds = cross_validation.StratifiedKFold(y,
-                                                       n_folds=n_folds,
-                                                       shuffle=True,
-                                                       random_state=seed)
+        self.kfolds = [x for x in cross_validation.StratifiedKFold(y,
+                                                                   n_folds=n_folds,
+                                                                   shuffle=True,
+                                                                   random_state=seed)]
 
     def f(self, conf_code):
         conf, code = conf_code
