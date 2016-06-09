@@ -80,13 +80,28 @@ class SVC(object):
                                                       n_folds=n_folds,
                                                       shuffle=True,
                                                       random_state=seed)
-        if use_tqdm:
-            kfolds = tqdm(kfolds, total=n_folds, desc='Kfolds')
-        for tr, ts in kfolds:
-            t = TextModel([X[x] for x in tr], **textModel_params)
-            m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
-            hy[ts] = np.array(m.predict([t[X[x]] for x in ts]))
+        args = [(X, y, tr, ts, textModel_params) for tr, ts in kfolds]
+        if pool is not None:
+            if use_tqdm:
+                res = [x for x in tqdm(pool.imap_unordered(cls.train_predict_pool, args),
+                                       desc='Params',
+                                       total=len(args))]
+            else:
+                res = [x for x in pool.imap_unordered(cls.train_predict_pool, args)]
+        else:
+            if use_tqdm:
+                args = tqdm(args)
+            res = [cls.train_predict_pool(x) for x in args]
+        for ts, _hy in res:
+            hy[ts] = _hy
         return le.inverse_transform(hy)
+
+    @classmethod
+    def train_predict_pool(cls, args):
+        X, y, tr, ts, textModel_params = args
+        t = TextModel([X[x] for x in tr], **textModel_params)
+        m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
+        return ts, np.array(m.predict([t[X[x]] for x in ts]))
 
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=16,

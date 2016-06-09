@@ -89,7 +89,7 @@ class CommandLine(object):
             return
         if self.data.n_folds is not None:
             X, y = read_data_labels(self.data.training_set)
-            hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds)
+            hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds, pool=pool)
             with open(self.get_output(), 'w') as fpt:
                 fpt.write("\n".join([str(x) for x in hy]))
             return
