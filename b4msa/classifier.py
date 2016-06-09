@@ -80,7 +80,7 @@ class SVC(object):
                                                       shuffle=True,
                                                       random_state=seed)
         if use_tqdm:
-            kfolds = tqdm(kfolds, total=n_folds)
+            kfolds = tqdm(kfolds, total=n_folds, desc='Kfolds')
         for tr, ts in kfolds:
             t = TextModel([X[x] for x in tr])
             m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])

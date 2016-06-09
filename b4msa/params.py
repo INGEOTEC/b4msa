@@ -84,6 +84,7 @@ class ParameterSelection:
             else:
                 # X = list(pool.map(fun_score, cand))
                 X = [x for x in tqdm(pool.imap_unordered(fun_score, cand),
+                                     desc='Params',
                                      total=len(cand))]
 
             # a list of tuples (score, conf)

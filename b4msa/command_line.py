@@ -36,10 +36,14 @@ class CommandLine(object):
 
     def training_set(self):
         cdn = 'File containing the training set on csv.'
-        self.parser.add_argument('training_set',
-                                 # nargs=1,
-                                 default=None,
-                                 help=cdn)
+        pa = self.parser.add_argument
+        pa('training_set',
+           # nargs=1,
+           default=None,
+           help=cdn)
+        pa('--verbose', dest='verbose', type=int,
+           help='Logging level default: INFO + 1',
+           default=logging.INFO+1)
 
     def param_set(self):
         pa = self.parser.add_argument
@@ -55,9 +59,6 @@ class CommandLine(object):
            " to improve the selection of paramters")
         pa('-o', '--output-file', dest='output',
            help='File name to store the output')
-        pa('--verbose', dest='verbose', type=int,
-           help='Logging level default: INFO + 1',
-           default=logging.INFO+1)
 
     def get_output(self):
         if self.data.output is None:
