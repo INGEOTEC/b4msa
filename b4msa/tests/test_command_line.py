@@ -37,14 +37,14 @@ def test_nparams():
 
 
 def test_main():
-    from b4msa.command_line import main
+    from b4msa.command_line import params
     import os
     import sys
     import tempfile
     output = tempfile.mktemp()
     fname = os.path.dirname(__file__) + '/text.json'
     sys.argv = ['b4msa', '-o', output, '-k', '2', fname]
-    main()
+    params()
     os.unlink(output)
 
 

@@ -42,6 +42,6 @@ setup(
     packages=['b4msa', 'b4msa/tests'],
     include_package_data=True,
     entry_points={
-        'console_scripts': ['b4msa=b4msa.command_line:main'],
+        'console_scripts': ['b4msa-params=b4msa.command_line:params'],
     }
 )

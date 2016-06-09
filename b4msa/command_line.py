@@ -67,8 +67,6 @@ class CommandLine(object):
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
-        # if self.data.n_folds is not None and self.data.sample is not None:
-
         if self.data.numprocs == 1:
             pool = None
         elif self.data.numprocs == 0:
@@ -96,7 +94,7 @@ class CommandLine(object):
             return
 
 
-def main():
+def params():
     c = CommandLine()
     c.main()
     
