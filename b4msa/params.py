@@ -42,7 +42,7 @@ class ParameterSelection:
                     np.random.shuffle(x)
                     kwargs[k] = sorted(x[:q])
                 else:
-                    kwargs[k] = np.random.choice(v)
+                    kwargs[k] = v[np.random.randint(len(v))]
 
             yield kwargs
 

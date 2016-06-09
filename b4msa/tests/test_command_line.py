@@ -21,6 +21,7 @@ def test_command_line():
     c = CommandLine()
     sys.argv = ['b4msa', '-k', '2', fname]
     c.main()
+    os.unlink(c.get_output())
     # assert False
 
 
@@ -32,6 +33,7 @@ def test_nparams():
     c = CommandLine()
     sys.argv = ['b4msa', '-k', '2', '-s', '11', fname]
     c.main()
+    os.unlink(c.get_output())
     # assert False
 
 
@@ -39,9 +41,12 @@ def test_main():
     from b4msa.command_line import main
     import os
     import sys
+    import tempfile
+    output = tempfile.mktemp()
     fname = os.path.dirname(__file__) + '/text.json'
-    sys.argv = ['b4msa', '-k', '2', fname]
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname]
     main()
+    os.unlink(output)
 
 
 def test_pool():
@@ -52,3 +57,18 @@ def test_pool():
     c = CommandLine()
     sys.argv = ['b4msa', '-k', '2', '-s', '11', '-n', '2', fname]
     c.main()
+    os.unlink(c.get_output())
+
+
+def test_output():
+    from b4msa.command_line import CommandLine
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLine()
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname]
+    c.main()
+    assert os.path.isfile(output)
+    os.unlink(output)

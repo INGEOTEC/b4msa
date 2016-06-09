@@ -15,6 +15,7 @@ import argparse
 from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels
 from multiprocessing import cpu_count, Pool
+import json
 
 # from b4msa.params import ParameterSelection
 
@@ -35,7 +36,7 @@ class CommandLine(object):
     def training_set(self):
         cdn = 'File containing the training set on csv.'
         self.parser.add_argument('training_set',
-                                 nargs=1,
+                                 # nargs=1,
                                  default=None,
                                  help=cdn)
 
@@ -51,6 +52,13 @@ class CommandLine(object):
            action='store_true',
            help="Determines if hillclimbing search is also perfomed" +
            " to improve the selection of paramters")
+        pa('-o', '--output-file', dest='output',
+           help='File name to store the output')
+
+    def get_output(self):
+        if self.data.output is None:
+            return self.data.training_set + ".output"
+        return self.data.output
 
     def main(self):
         self.data = self.parser.parse_args()
@@ -63,21 +71,24 @@ class CommandLine(object):
         else:
             pool = Pool(self.data.numprocs)
         if self.data.samplesize is not None:
-            for filename in self.data.training_set:
-                n_folds = self.data.n_folds
-                n_folds = n_folds if n_folds is not None else 5
-                hy = SVC.predict_kfold_params(filename,
-                                              n_folds=n_folds,
-                                              n_params=self.data.samplesize,
-                                              hill_climbing=self.data.hill_climbing,
-                                              qinitial=self.data.qsize,
-                                              pool=pool)
-                print("filename: {0}; score: {1}".format(filename, hy))
+            n_folds = self.data.n_folds
+            n_folds = n_folds if n_folds is not None else 5
+            perf, params = SVC.predict_kfold_params(self.data.training_set,
+                                                    n_folds=n_folds,
+                                                    n_params=self.data.samplesize,
+                                                    hill_climbing=self.data.hill_climbing,
+                                                    qinitial=self.data.qsize,
+                                                    pool=pool)
+            params['score'] = perf
+            # params = sorted(params.items())
+            # print(params, params[0], type(params[0][1]))
+            with open(self.get_output(), 'w') as fpt:
+                fpt.write(json.dumps(params, indent=2))
         if self.data.n_folds is not None:
-            for fname in self.data.training_set:
-                X, y = read_data_labels(fname)
-                hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds)
-                print(hy)
+            X, y = read_data_labels(self.data.training_set)
+            hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds)
+            with open(self.get_output(), 'w') as fpt:
+                fpt.write("\n".join([str(x) for x in hy]))
 
 
 def main():
