@@ -43,6 +43,7 @@ setup(
     include_package_data=True,
     entry_points={
         'console_scripts': ['b4msa-params=b4msa.command_line:params',
-                            'b4msa-train=b4msa.command_line:train'],
+                            'b4msa-train=b4msa.command_line:train',
+                            'b4msa-test=b4msa.command_line:test'],
     }
 )

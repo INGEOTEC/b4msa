@@ -129,3 +129,22 @@ def test_train2():
     train()
     os.unlink(output)
     os.unlink(output2)
+
+
+def test_test():
+    from b4msa.command_line import params, train, test
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output]
+    train()
+    output2 = tempfile.mktemp()
+    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output2]
+    test()
+    os.unlink(output)
+    os.unlink(output2)
+    

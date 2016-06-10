@@ -14,7 +14,7 @@
 import argparse
 import logging
 from b4msa.classifier import SVC
-from b4msa.utils import read_data_labels
+from b4msa.utils import read_data_labels, read_data
 from multiprocessing import Pool, cpu_count
 import json
 import pickle
@@ -57,11 +57,11 @@ class CommandLine(object):
            action='store_true',
            help="Determines if hillclimbing search is also perfomed" +
            " to improve the selection of paramters")
+        pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
+           help="Number of processes to compute the best setup")
 
     def param_set(self):
         pa = self.parser.add_argument
-        pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
-           help="Number of processes to compute the best setup")
         pa('-o', '--output-file', dest='output',
            help='File name to store the output')
         pa('--seed', default=0, type=int)
@@ -134,6 +134,38 @@ class CommandLineTrain(CommandLine):
             pickle.dump(svc, fpt)
 
 
+class CommandLineTest(CommandLine):
+    def __init__(self):
+        super(CommandLineTest, self).__init__()
+        self.param_test()
+
+    def param_test(self):
+        pa = self.parser.add_argument
+        pa('-m', '--model', dest='model', type=str,
+           required=True,
+           help="SVM Model file name")
+
+    def training_set(self):
+        cdn = 'File containing the test set'
+        pa = self.parser.add_argument
+        pa('test_set',
+           default=None,
+           help=cdn)
+        pa('--verbose', dest='verbose', type=int,
+           help='Logging level default: INFO + 1',
+           default=logging.INFO+1)
+        
+    def main(self):
+        self.data = self.parser.parse_args()
+        logging.basicConfig(level=self.data.verbose)
+        with open(self.data.model, 'rb') as fpt:
+            svc = pickle.load(fpt)
+        X = [svc.model[x] for x in read_data(self.data.test_set)]
+        hy = svc.predict(X)
+        with open(self.get_output(), 'w') as fpt:
+                fpt.write("\n".join([str(x) for x in hy]))
+
+        
 def params():
     c = CommandLine()
     c.main()
@@ -142,4 +174,8 @@ def params():
 def train():
     c = CommandLineTrain()
     c.main()
-        
+
+
+def test():
+    c = CommandLineTest()
+    c.main()
