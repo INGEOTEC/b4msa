@@ -126,7 +126,6 @@ class ParameterSelection:
 
 
 class Wrapper(object):
-
     def __init__(self, X, y, n_folds, cls, seed=0, pool=None):
         self.n_folds = n_folds
         self.X = X

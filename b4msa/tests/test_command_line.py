@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import numpy as np
 
 
 def test_command_line():
@@ -71,3 +72,23 @@ def test_output():
     c.main()
     assert os.path.isfile(output)
     os.unlink(output)
+
+
+def test_seed():
+    try:
+        from mock import MagicMock
+    except ImportError:
+        from unittest.mock import MagicMock
+    from b4msa.command_line import CommandLine
+    import os
+    import sys
+    fname = os.path.dirname(__file__) + '/text.json'
+    seed = np.random.seed
+    np.random.seed = MagicMock()
+    c = CommandLine()
+    sys.argv = ['b4msa', '-s', '2', '--seed', '1', '-k', '2', fname]
+    c.main()
+    os.unlink(c.get_output())
+    np.random.seed.assert_called_once_with(1)
+    np.random.seed = seed
+    

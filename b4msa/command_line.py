@@ -59,6 +59,7 @@ class CommandLine(object):
            " to improve the selection of paramters")
         pa('-o', '--output-file', dest='output',
            help='File name to store the output')
+        pa('--seed', default=0, type=int)
 
     def get_output(self):
         if self.data.output is None:
@@ -80,6 +81,7 @@ class CommandLine(object):
             perf, params = SVC.predict_kfold_params(self.data.training_set,
                                                     n_folds=n_folds,
                                                     n_params=self.data.samplesize,
+                                                    seed=self.data.seed,
                                                     hill_climbing=self.data.hill_climbing,
                                                     qinitial=self.data.qsize,
                                                     numprocs=numprocs)
@@ -91,6 +93,7 @@ class CommandLine(object):
             pool = None if numprocs is None else Pool(numprocs)
             X, y = read_data_labels(self.data.training_set)
             hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds,
+                                   seed=self.data.seed,
                                    pool=pool)
             if pool is not None:
                 pool.close()
