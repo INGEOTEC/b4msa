@@ -17,6 +17,7 @@ from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels
 from multiprocessing import Pool, cpu_count
 import json
+import pickle
 
 # from b4msa.params import ParameterSelection
 
@@ -27,6 +28,7 @@ class CommandLine(object):
         self.training_set()
         self.predict_kfold()
         self.param_set()
+        self.param_search()
 
     def predict_kfold(self):
         pa = self.parser.add_argument
@@ -45,18 +47,21 @@ class CommandLine(object):
            help='Logging level default: INFO + 1',
            default=logging.INFO+1)
 
-    def param_set(self):
+    def param_search(self):
         pa = self.parser.add_argument
         pa('-s', '--sample', dest='samplesize', type=int,
            help="The sample size of the parameter space")
         pa('-q', '--qsize', dest='qsize', type=int, default=3,
            help="The minimum number of q-gram tokenizers per configuration")
-        pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
-           help="Number of processes to compute the best setup")
         pa('-H', '--hillclimbing', dest='hill_climbing', default=False,
            action='store_true',
            help="Determines if hillclimbing search is also perfomed" +
            " to improve the selection of paramters")
+
+    def param_set(self):
+        pa = self.parser.add_argument
+        pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
+           help="Number of processes to compute the best setup")
         pa('-o', '--output-file', dest='output',
            help='File name to store the output')
         pa('--seed', default=0, type=int)
@@ -102,7 +107,39 @@ class CommandLine(object):
             return
 
 
+class CommandLineTrain(CommandLine):
+    def __init__(self):
+        super(CommandLineTrain, self).__init__()
+        self.param_train()
+
+    def param_search(self):
+        pass
+
+    def param_train(self):
+        pa = self.parser.add_argument
+        pa('-m', '--model-params', dest='params_fname', type=str,
+           required=True,
+           help="TextModel params")
+
+    def main(self):
+        self.data = self.parser.parse_args()
+        logging.basicConfig(level=self.data.verbose)
+        with open(self.data.params_fname) as fpt:
+            params = json.loads(fpt.read())
+        if 'score' in params:
+            del params['score']
+        svc = SVC.fit_from_file(self.data.training_set,
+                                params)
+        with open(self.get_output(), 'wb') as fpt:
+            pickle.dump(svc, fpt)
+
+
 def params():
     c = CommandLine()
     c.main()
-    
+
+
+def train():
+    c = CommandLineTrain()
+    c.main()
+        

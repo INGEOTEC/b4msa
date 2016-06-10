@@ -126,3 +126,9 @@ class SVC(object):
                                            hill_climbing=hill_climbing,
                                            pool=pool)
 
+    @classmethod
+    def fit_from_file(cls, fname, textModel_params={}):
+        X, y = read_data_labels(fname)
+        model = TextModel(*textModel_params)
+        svc = cls(model)
+        return svc.fit([model[x] for x in X], y)

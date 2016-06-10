@@ -91,4 +91,41 @@ def test_seed():
     os.unlink(c.get_output())
     np.random.seed.assert_called_once_with(1)
     np.random.seed = seed
-    
+
+
+def test_train():
+    from b4msa.command_line import CommandLine, CommandLineTrain
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLine()
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    c.main()
+    assert os.path.isfile(output)
+    with open(output) as fpt:
+        print(fpt.read())
+    c = CommandLineTrain()
+    sys.argv = ['b4msa', '-m', output, '-k', '2', fname]
+    print(c.main())
+    os.unlink(output)
+    os.unlink(c.get_output())
+        
+
+def test_train2():
+    from b4msa.command_line import CommandLine, train
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLine()
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    c.main()
+    assert os.path.isfile(output)
+    output2 = tempfile.mktemp()
+    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output2]
+    train()
+    os.unlink(output)
+    os.unlink(output2)
