@@ -117,6 +117,8 @@ class SVC(object):
         if n_folds % numprocs == 0:
             f = Wrapper(X, y, n_folds, cls, pool=pool)
             pool = None
+        else:
+            f = Wrapper(X, y, n_folds, cls)
         return ParameterSelection().search(f.f,
                                            bsize=n_params,
                                            qinitial=qinitial,
