@@ -77,16 +77,16 @@ class ParameterSelection:
         tabu = set()  # memory for tabu search
 
         # initial approximation, montecarlo based process
-        def get_best(cand):
+        def get_best(cand, desc="Params"):
             if pool is None:
                 # X = list(map(fun_score, cand))
                 X = [fun_score(x) for x in tqdm(cand,
                                                 total=len(cand),
-                                                desc='Params')]
+                                                desc=desc)]
             else:
                 # X = list(pool.map(fun_score, cand))
                 X = [x for x in tqdm(pool.imap_unordered(fun_score, cand),
-                                     desc='Params',
+                                     desc=desc,
                                      total=len(cand))]
 
             # a list of tuples (score, conf)
@@ -105,7 +105,9 @@ class ParameterSelection:
         best = get_best(L)
         if hill_climbing:
             # second approximation, hill climbing process
+            i = 0
             while True:
+                i += 1
                 bscore = best[0]
                 L = []
 
@@ -118,7 +120,7 @@ class ParameterSelection:
                     L.append((conf, code))
                     # best = max(best, (fun_score(conf, code), conf))
 
-                best = max(best, get_best(L), key=lambda x: x[0])
+                best = max(best, get_best(L, desc="hill climbing iteration {0}".format(i)), key=lambda x: x[0])
                 if bscore == best[0]:
                     break
 
