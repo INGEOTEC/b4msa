@@ -20,6 +20,7 @@ from gensim.matutils import corpus2csc
 from sklearn import preprocessing
 from sklearn import cross_validation
 from b4msa.textmodel import TextModel
+from multiprocessing import Pool
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
@@ -105,10 +106,17 @@ class SVC(object):
 
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=16,
-                             qinitial=3, hill_climbing=True, pool=None):
+                             qinitial=3, hill_climbing=True, numprocs=None):
         from b4msa.params import ParameterSelection, Wrapper
         X, y = read_data_labels(fname)
-        f = Wrapper(X, y, n_folds, cls)
+        if numprocs is not None:
+            pool = Pool(numprocs)
+        else:
+            pool = None
+            numprocs = 1
+        if n_folds % numprocs == 0:
+            f = Wrapper(X, y, n_folds, cls, pool=pool)
+            pool = None
         return ParameterSelection().search(f.f,
                                            bsize=n_params,
                                            qinitial=qinitial,

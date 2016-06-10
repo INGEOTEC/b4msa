@@ -80,7 +80,9 @@ class ParameterSelection:
         def get_best(cand):
             if pool is None:
                 # X = list(map(fun_score, cand))
-                X = [fun_score(x) for x in cand]
+                X = [fun_score(x) for x in tqdm(cand,
+                                                total=len(cand),
+                                                desc='Params')]
             else:
                 # X = list(pool.map(fun_score, cand))
                 X = [x for x in tqdm(pool.imap_unordered(fun_score, cand),
@@ -125,12 +127,13 @@ class ParameterSelection:
 
 class Wrapper(object):
 
-    def __init__(self, X, y, n_folds, cls, seed=0):
+    def __init__(self, X, y, n_folds, cls, seed=0, pool=None):
         self.n_folds = n_folds
         self.X = X
         le = preprocessing.LabelEncoder().fit(y)
         self.y = np.array(le.transform(y))
         self.cls = cls
+        self.pool = pool
         np.random.seed(seed)
         self.kfolds = [x for x in cross_validation.StratifiedKFold(y,
                                                                    n_folds=n_folds,
@@ -142,6 +145,7 @@ class Wrapper(object):
         hy = self.cls.predict_kfold(self.X, self.y, self.n_folds,
                                     textModel_params=conf,
                                     kfolds=self.kfolds,
+                                    pool=self.pool,
                                     use_tqdm=False)
         return f1_score(self.y, hy, average='macro'), conf
 

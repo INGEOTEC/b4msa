@@ -15,7 +15,7 @@ import argparse
 import logging
 from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels
-from multiprocessing import cpu_count, Pool
+from multiprocessing import Pool, cpu_count
 import json
 
 # from b4msa.params import ParameterSelection
@@ -69,11 +69,11 @@ class CommandLine(object):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
         if self.data.numprocs == 1:
-            pool = None
+            numprocs = None
         elif self.data.numprocs == 0:
-            pool = Pool(cpu_count())
+            numprocs = cpu_count()
         else:
-            pool = Pool(self.data.numprocs)
+            numprocs = self.data.numprocs
         if self.data.samplesize is not None:
             n_folds = self.data.n_folds
             n_folds = n_folds if n_folds is not None else 5
@@ -82,14 +82,18 @@ class CommandLine(object):
                                                     n_params=self.data.samplesize,
                                                     hill_climbing=self.data.hill_climbing,
                                                     qinitial=self.data.qsize,
-                                                    pool=pool)
+                                                    numprocs=numprocs)
             params['score'] = perf
             with open(self.get_output(), 'w') as fpt:
                 fpt.write(json.dumps(params, indent=2))
             return
         if self.data.n_folds is not None:
+            pool = None if numprocs is None else Pool(numprocs)
             X, y = read_data_labels(self.data.training_set)
-            hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds, pool=pool)
+            hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds,
+                                   pool=pool)
+            if pool is not None:
+                pool.close()
             with open(self.get_output(), 'w') as fpt:
                 fpt.write("\n".join([str(x) for x in hy]))
             return
