@@ -45,7 +45,8 @@ class ParameterSelection:
                 if k == 'token_list':
                     x = list(v)
                     np.random.shuffle(x)
-                    kwargs[k] = sorted(x[:q])
+                    qs = np.random.randint(q, len(x))
+                    kwargs[k] = sorted(x[:qs])
                 else:
                     kwargs[k] = v[np.random.randint(len(v))]
 
@@ -64,12 +65,18 @@ class ParameterSelection:
                         x[k] = _v
                         yield x
             elif k == 'token_list':
+                for i in range(len(v)):
+                    x = s.copy()
+                    l = x[k] = x[k].copy()
+                    l.pop(i)
+                    yield x
+    
                 for _v in base_params[k]:
                     if _v not in v:
                         x = s.copy()
-                        x[k] = x[k].copy()
-                        x[k].append(_v)
-                        x[k].sort()
+                        l = x[k] = x[k].copy()
+                        l.append(_v)
+                        l.sort()
                         yield x
 
     def search(self, fun_score, bsize=32, qinitial=3,
