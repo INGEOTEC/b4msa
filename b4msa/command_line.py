@@ -52,7 +52,7 @@ class CommandLine(object):
         pa('-s', '--sample', dest='samplesize', type=int,
            help="The sample size of the parameter space")
         pa('-q', '--qsize', dest='qsize', type=int, default=3,
-           help="The minimum number of q-gram tokenizers per configuration")
+           help="The size of the initial population of tokenizers")
         pa('-H', '--hillclimbing', dest='hill_climbing', default=False,
            action='store_true',
            help="Determines if hillclimbing search is also perfomed" +
@@ -88,7 +88,7 @@ class CommandLine(object):
                                                     n_params=self.data.samplesize,
                                                     seed=self.data.seed,
                                                     hill_climbing=self.data.hill_climbing,
-                                                    qinitial=self.data.qsize,
+                                                    qsize=self.data.qsize,
                                                     numprocs=numprocs)
             params['score'] = perf
             with open(self.get_output(), 'w') as fpt:

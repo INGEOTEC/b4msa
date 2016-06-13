@@ -6,7 +6,7 @@ def test_params():
     import numpy as np
     sel = ParameterSelection()
     sel.search(lambda conf_code: (np.random.random(), conf_code[0]),
-               bsize=64, qinitial=3)
+               bsize=64, qsize=3)
 
 
 def test_read_data_labels():

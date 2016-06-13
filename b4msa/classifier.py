@@ -106,7 +106,7 @@ class SVC(object):
 
     @classmethod
     def predict_kfold_params(cls, fname, n_folds=10, n_params=16,
-                             qinitial=3, hill_climbing=True,
+                             qsize=3, hill_climbing=True,
                              numprocs=None, seed=0):
         from b4msa.params import ParameterSelection, Wrapper
         X, y = read_data_labels(fname)
@@ -122,7 +122,7 @@ class SVC(object):
             f = Wrapper(X, y, n_folds, cls, seed=seed)
         return ParameterSelection().search(f.f,
                                            bsize=n_params,
-                                           qinitial=qinitial,
+                                           qsize=qsize,
                                            hill_climbing=hill_climbing,
                                            pool=pool)
 

@@ -79,12 +79,12 @@ class ParameterSelection:
                         l.sort()
                         yield x
 
-    def search(self, fun_score, bsize=32, qinitial=3,
+    def search(self, fun_score, bsize=32, qsize=3,
                hill_climbing=True, pool=None):
         tabu = set()  # memory for tabu search
 
         # initial approximation, montecarlo based process
-        def get_best(cand, desc="Params"):
+        def get_best(cand, desc="searching for good params"):
             if pool is None:
                 # X = list(map(fun_score, cand))
                 X = [fun_score(x) for x in tqdm(cand,
@@ -101,7 +101,7 @@ class ParameterSelection:
             return max(X, key=lambda x: x[0])
 
         L = []
-        for conf in self.sample_param_space(bsize, q=qinitial):
+        for conf in self.sample_param_space(bsize, q=qsize):
             code = get_filename(conf)
             if code in tabu:
                 continue
