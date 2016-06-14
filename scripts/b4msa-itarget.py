@@ -64,8 +64,10 @@ class Wrapper(object):
         model = TextModel(self.text1, **conf)
         C = self.cls(model)
         C.fit([model[text] for text in self.text1], self.y1)
+        conf['_fit_time'] = time() - st
+        st = time()
         hy = C.predict([model[text] for text in self.text2])
-        conf['_time'] = time() - st
+        conf['_predict_time'] = time() - st
         conf['_score'] = f1_score(self.y2, hy, average='macro')
         return conf
 
