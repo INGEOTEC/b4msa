@@ -83,16 +83,23 @@ class CommandLine(object):
         if self.data.samplesize is not None:
             n_folds = self.data.n_folds
             n_folds = n_folds if n_folds is not None else 5
-            perf, params = SVC.predict_kfold_params(self.data.training_set,
-                                                    n_folds=n_folds,
-                                                    n_params=self.data.samplesize,
-                                                    seed=self.data.seed,
-                                                    hill_climbing=self.data.hill_climbing,
-                                                    qsize=self.data.qsize,
-                                                    numprocs=numprocs)
-            params['score'] = perf
+            best_list = SVC.predict_kfold_params(self.data.training_set,
+                                                 n_folds=n_folds,
+                                                 n_params=self.data.samplesize,
+                                                 seed=self.data.seed,
+                                                 hill_climbing=self.data.hill_climbing,
+                                                 qsize=self.data.qsize,
+                                                 numprocs=numprocs)
+            for perf, params in best_list:
+                params['score'] = perf
+
+            best_list = [x[1] for x in best_list]
             with open(self.get_output(), 'w') as fpt:
-                fpt.write(json.dumps(params, indent=2))
+                fpt.write(json.dumps(best_list[0], indent=2))
+
+            with open(self.get_output() + ".full", 'w') as fpt:
+                fpt.write(json.dumps(best_list, indent=2))
+                
             return
         if self.data.n_folds is not None:
             pool = None if numprocs is None else Pool(numprocs)

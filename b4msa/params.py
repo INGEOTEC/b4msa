@@ -22,9 +22,11 @@ OPTION_DELETE = 'delete'
 basic_options = [OPTION_DELETE, OPTION_GROUP, OPTION_NONE]
 base_params = dict(
     strip_diac=[False, True],
+    num_option=basic_options,
     usr_option=basic_options,
     url_option=basic_options,
     lc=[False, True],
+    del_dup1=[False, True],
     token_list=[1, 2, 3, 4, 5, 6, 7],
 )
 
@@ -98,7 +100,9 @@ class ParameterSelection:
 
             # a list of tuples (score, conf)
             # return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
-            return max(X, key=lambda x: x[0])
+            X.sort(key=lambda x: x[0], reverse=True)
+            return X
+            # return max(X, key=lambda x: x[0])
 
         L = []
         for conf in self.sample_param_space(bsize, q=qsize):
@@ -108,17 +112,17 @@ class ParameterSelection:
 
             tabu.add(code)
             L.append((conf, code))
-
-        best = get_best(L)
+            
+        best_list = get_best(L)
         if hill_climbing:
             # second approximation, hill climbing process
             i = 0
             while True:
                 i += 1
-                bscore = best[0]
+                bscore = best_list[0][0]
                 L = []
 
-                for conf in self.expand_neighbors(best[1]):
+                for conf in self.expand_neighbors(best_list[0][1]):
                     code = get_filename(conf)
                     if code in tabu:
                         continue
@@ -127,11 +131,14 @@ class ParameterSelection:
                     L.append((conf, code))
                     # best = max(best, (fun_score(conf, code), conf))
 
-                best = max(best, get_best(L, desc="hill climbing iteration {0}".format(i)), key=lambda x: x[0])
-                if bscore == best[0]:
+                best_list.extend(get_best(L, desc="hill climbing iteration {0}".format(i)))
+                best_list.sort(key=lambda x: x[0], reverse=True)
+                
+                # best = max(best, get_best(L, desc="hill climbing iteration {0}".format(i)), key=lambda x: x[0])
+                if bscore == best_list[0][0]:
                     break
 
-        return best
+        return best_list
 
 
 class Wrapper(object):

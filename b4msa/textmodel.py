@@ -22,18 +22,25 @@ import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
-def norm_chars(text, strip_diac=True):
+def norm_chars(text, strip_diac=True, del_dup1=True):
     L = ['~']
 
+    prev = '~'
     for u in unicodedata.normalize('NFD', text):
         if strip_diac:
             o = ord(u)
             if 0x300 <= o and o <= 0x036F:
                 continue
+            
         elif u in ('\n', '\r', ' ', '\t'):
             u = '~'
 
+        if del_dup1 and prev == u:
+            continue
+
+        prev = u
         L.append(u)
+
     L.append('~')
 
     return "".join(L)
@@ -52,15 +59,19 @@ class TextModel:
     def __init__(self,
                  docs,
                  strip_diac=True,
+                 num_option=OPTION_GROUP,
                  usr_option=OPTION_GROUP,
                  url_option=OPTION_GROUP,
                  lc=True,
+                 del_dup1=True,
                  token_list=[1, 2, 3, 4, 5, 6, 7]
     ):
         self.strip_diac = strip_diac
+        self.num_option = num_option
         self.usr_option = usr_option
         self.url_option = url_option
         self.lc = lc
+        self.del_dup1 = del_dup1
         self.token_list = token_list
         docs = [self.tokenize(d) for d in docs]
         self.dictionary = corpora.Dictionary(docs)
@@ -79,15 +90,20 @@ class TextModel:
 
         text = norm_chars(text, self.strip_diac)
 
+        if self.num_option == OPTION_DELETE:
+            text = re.sub(r"\d+\.?\d+", "", text)
+        elif self.num_option == OPTION_GROUP:
+            text = re.sub(r"\d+\.?\d+", "_num", text)
+            
         if self.url_option == OPTION_DELETE:
-            text = re.sub("https?://\S+", "", text)
+            text = re.sub(r"https?://\S+", "", text)
         elif self.url_option == OPTION_GROUP:
-            text = re.sub("https?://\S+", "_url", text)
+            text = re.sub(r"https?://\S+", "_url", text)
 
         if self.usr_option == OPTION_DELETE:
-            text = re.sub("@\S+", "", text)
+            text = re.sub(r"@\S+", "", text)
         elif self.usr_option == OPTION_GROUP:
-            text = re.sub("@\S+", "_usr", text)
+            text = re.sub(r"@\S+", "_usr", text)
 
         text = self.language_dependent(text)
             

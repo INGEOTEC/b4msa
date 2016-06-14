@@ -94,12 +94,18 @@ def main(trainname, testname, bsize=16, qsize=3, hill_climbing=True, numprocs=No
 
     logging.info("train: {0}, test: {1}", len(x1), len(x2))
     f = Wrapper(x1, y1, x2, y2, SVC, seed=seed)
-    
-    return ParameterSelection().search(f.f,
-                                       bsize=bsize,
-                                       qsize=qsize,
-                                       hill_climbing=hill_climbing,
-                                       pool=Pool(cpu_count()))
+
+    numprocs = cpu_count() if numprocs == 0 else numprocs
+    best_list = ParameterSelection().search(f.f,
+                                            bsize=bsize,
+                                            qsize=qsize,
+                                            hill_climbing=hill_climbing,
+                                            pool=Pool(numprocs))
+
+    for perf, params in best_list:
+        params['score'] = perf
+
+    return [params for perf, params in best_list]
 
 
 if __name__ == '__main__':
@@ -116,21 +122,29 @@ if __name__ == '__main__':
 
             self.param_set()
             self.param_search()
+
+        def get_output(self):
+            if self.data.output is None:
+                return self.data.training_set[0] + ".output"
             
+            return self.data.output
+    
         def main(self):
             import json
             self.data = self.parser.parse_args()
-            perf, params = main(self.data.training_set[0],
-                                self.data.training_set[1],
-                                bsize=self.data.samplesize,
-                                qsize=self.data.qsize,
-                                hill_climbing=self.data.hill_climbing,
-                                numprocs=self.data.numprocs,
-                                num_klasses=self.data.num_klasses)
+            best_list = main(self.data.training_set[0],
+                             self.data.training_set[1],
+                             bsize=self.data.samplesize,
+                             qsize=self.data.qsize,
+                             hill_climbing=self.data.hill_climbing,
+                             numprocs=self.data.numprocs,
+                             num_klasses=self.data.num_klasses)
 
-            params['score'] = perf
             with open(self.get_output(), 'w') as f:
-                f.write(json.dumps(params, indent=2))
+                f.write(json.dumps(best_list[0], indent=2))
+
+            with open(self.get_output() + ".full", 'w') as f:
+                f.write(json.dumps(best_list, indent=2))
 
     pa = PA()
     pa.main()
