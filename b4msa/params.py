@@ -3,6 +3,7 @@
 
 import numpy as np
 import logging
+from time import time
 from sklearn.metrics import f1_score
 from sklearn import preprocessing
 from sklearn import cross_validation
@@ -47,7 +48,8 @@ class ParameterSelection:
                 if k == 'token_list':
                     x = list(v)
                     np.random.shuffle(x)
-                    qs = np.random.randint(q, len(x))
+                    # qs = np.random.randint(q, len(x))
+                    qs = int(round(min(len(x), max(1, np.random.normal(q)))))
                     kwargs[k] = sorted(x[:qs])
                 else:
                     kwargs[k] = v[np.random.randint(len(v))]
@@ -56,6 +58,10 @@ class ParameterSelection:
 
     def expand_neighbors(self, s):
         for k, v in sorted(s.items()):
+            if k[0] == '_':
+                # by convention, metadata starts with underscore
+                continue
+            
             if v in (True, False):
                 x = s.copy()
                 x[k] = not v
@@ -89,20 +95,14 @@ class ParameterSelection:
         def get_best(cand, desc="searching for good params"):
             if pool is None:
                 # X = list(map(fun_score, cand))
-                X = [fun_score(x) for x in tqdm(cand,
-                                                total=len(cand),
-                                                desc=desc)]
+                X = [fun_score(x) for x in tqdm(cand, desc=desc, total=len(cand))]
             else:
                 # X = list(pool.map(fun_score, cand))
-                X = [x for x in tqdm(pool.imap_unordered(fun_score, cand),
-                                     desc=desc,
-                                     total=len(cand))]
+                X = [x for x in tqdm(pool.imap_unordered(fun_score, cand), desc=desc, total=len(cand))]
 
             # a list of tuples (score, conf)
-            # return max(zip(X, [c[0] for c in cand]), key=lambda x: x[0])
-            X.sort(key=lambda x: x[0], reverse=True)
+            X.sort(key=lambda x: x['_score'], reverse=True)
             return X
-            # return max(X, key=lambda x: x[0])
 
         L = []
         for conf in self.sample_param_space(bsize, q=qsize):
@@ -119,23 +119,20 @@ class ParameterSelection:
             i = 0
             while True:
                 i += 1
-                bscore = best_list[0][0]
+                bscore = best_list[0]['_score']
                 L = []
 
-                for conf in self.expand_neighbors(best_list[0][1]):
+                for conf in self.expand_neighbors(best_list[0]):
                     code = get_filename(conf)
                     if code in tabu:
                         continue
 
                     tabu.add(code)
                     L.append((conf, code))
-                    # best = max(best, (fun_score(conf, code), conf))
 
                 best_list.extend(get_best(L, desc="hill climbing iteration {0}".format(i)))
-                best_list.sort(key=lambda x: x[0], reverse=True)
-                
-                # best = max(best, get_best(L, desc="hill climbing iteration {0}".format(i)), key=lambda x: x[0])
-                if bscore == best_list[0][0]:
+                best_list.sort(key=lambda x: x['_score'], reverse=True)
+                if bscore == best_list[0]['_score']:
                     break
 
         return best_list
@@ -157,12 +154,16 @@ class Wrapper(object):
 
     def f(self, conf_code):
         conf, code = conf_code
+        st = time()
         hy = self.cls.predict_kfold(self.X, self.y, self.n_folds,
                                     textModel_params=conf,
                                     kfolds=self.kfolds,
                                     pool=self.pool,
                                     use_tqdm=False)
-        return f1_score(self.y, hy, average='macro'), conf
+
+        conf['_score'] = f1_score(self.y, hy, average='macro')
+        conf['_time'] = (time() - st) / self.n_folds
+        return conf
 
                 
 def get_filename(kwargs, basename=None):

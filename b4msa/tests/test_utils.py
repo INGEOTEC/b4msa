@@ -5,8 +5,14 @@ def test_params():
     from b4msa.params import ParameterSelection
     import numpy as np
     sel = ParameterSelection()
-    sel.search(lambda conf_code: (np.random.random(), conf_code[0]),
-               bsize=64, qsize=3)
+    
+    def fake_score(conf_code):
+        conf, code = conf_code
+        conf['_score'] = np.random.random()
+        conf['_time'] = 1.0
+        return conf
+        
+    sel.search(fake_score, bsize=64, qsize=3)
 
 
 def test_read_data_labels():

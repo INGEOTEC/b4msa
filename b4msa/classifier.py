@@ -115,11 +115,13 @@ class SVC(object):
         else:
             pool = None
             numprocs = 1
+
         if n_folds % numprocs == 0:
             f = Wrapper(X, y, n_folds, cls, pool=pool, seed=seed)
             pool = None
         else:
             f = Wrapper(X, y, n_folds, cls, seed=seed)
+
         return ParameterSelection().search(f.f,
                                            bsize=n_params,
                                            qsize=qsize,
@@ -129,6 +131,6 @@ class SVC(object):
     @classmethod
     def fit_from_file(cls, fname, textModel_params={}):
         X, y = read_data_labels(fname)
-        model = TextModel(*textModel_params)
+        model = TextModel(X, **textModel_params)
         svc = cls(model)
         return svc.fit([model[x] for x in X], y)

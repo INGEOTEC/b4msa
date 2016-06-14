@@ -64,7 +64,8 @@ class TextModel:
                  url_option=OPTION_GROUP,
                  lc=True,
                  del_dup1=True,
-                 token_list=[1, 2, 3, 4, 5, 6, 7]
+                 token_list=[1, 2, 3, 4, 5, 6, 7],
+                 **kwargs
     ):
         self.strip_diac = strip_diac
         self.num_option = num_option
@@ -73,6 +74,8 @@ class TextModel:
         self.lc = lc
         self.del_dup1 = del_dup1
         self.token_list = token_list
+        self.kwargs = kwargs
+        
         docs = [self.tokenize(d) for d in docs]
         self.dictionary = corpora.Dictionary(docs)
         corpus = [self.dictionary.doc2bow(d) for d in docs]

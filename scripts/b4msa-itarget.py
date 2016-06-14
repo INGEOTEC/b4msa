@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import argparse
+from time import time
 from sklearn import preprocessing
 from sklearn.metrics import f1_score
 from b4msa.classifier import SVC
@@ -59,11 +60,14 @@ class Wrapper(object):
 
     def f(self, conf_code):
         conf, code = conf_code
+        st = time()
         model = TextModel(self.text1, **conf)
         C = self.cls(model)
         C.fit([model[text] for text in self.text1], self.y1)
         hy = C.predict([model[text] for text in self.text2])
-        return f1_score(self.y2, hy, average='macro'), conf
+        conf['_time'] = time() - st
+        conf['_score'] = f1_score(self.y2, hy, average='macro')
+        return conf
 
 
 def map_label(tweet):
@@ -96,16 +100,11 @@ def main(trainname, testname, bsize=16, qsize=3, hill_climbing=True, numprocs=No
     f = Wrapper(x1, y1, x2, y2, SVC, seed=seed)
 
     numprocs = cpu_count() if numprocs == 0 else numprocs
-    best_list = ParameterSelection().search(f.f,
-                                            bsize=bsize,
-                                            qsize=qsize,
-                                            hill_climbing=hill_climbing,
-                                            pool=Pool(numprocs))
-
-    for perf, params in best_list:
-        params['score'] = perf
-
-    return [params for perf, params in best_list]
+    return ParameterSelection().search(f.f,
+                                       bsize=bsize,
+                                       qsize=qsize,
+                                       hill_climbing=hill_climbing,
+                                       pool=Pool(numprocs))
 
 
 if __name__ == '__main__':
@@ -141,10 +140,7 @@ if __name__ == '__main__':
                              num_klasses=self.data.num_klasses)
 
             with open(self.get_output(), 'w') as f:
-                f.write(json.dumps(best_list[0], indent=2))
-
-            with open(self.get_output() + ".full", 'w') as f:
-                f.write(json.dumps(best_list, indent=2))
+                f.write(json.dumps(best_list, indent=2, sort_keys=True))
 
     pa = PA()
     pa.main()

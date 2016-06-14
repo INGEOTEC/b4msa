@@ -90,17 +90,12 @@ class CommandLine(object):
                                                  hill_climbing=self.data.hill_climbing,
                                                  qsize=self.data.qsize,
                                                  numprocs=numprocs)
-            for perf, params in best_list:
-                params['score'] = perf
 
-            best_list = [x[1] for x in best_list]
             with open(self.get_output(), 'w') as fpt:
-                fpt.write(json.dumps(best_list[0], indent=2))
+                fpt.write(json.dumps(best_list, indent=2, sort_keys=True))
 
-            with open(self.get_output() + ".full", 'w') as fpt:
-                fpt.write(json.dumps(best_list, indent=2))
-                
             return
+    
         if self.data.n_folds is not None:
             pool = None if numprocs is None else Pool(numprocs)
             X, y = read_data_labels(self.data.training_set)
@@ -109,8 +104,10 @@ class CommandLine(object):
                                    pool=pool)
             if pool is not None:
                 pool.close()
+        
             with open(self.get_output(), 'w') as fpt:
                 fpt.write("\n".join([str(x) for x in hy]))
+
             return
 
 
@@ -132,11 +129,11 @@ class CommandLineTrain(CommandLine):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
         with open(self.data.params_fname) as fpt:
-            params = json.loads(fpt.read())
-        if 'score' in params:
-            del params['score']
-        svc = SVC.fit_from_file(self.data.training_set,
-                                params)
+            param_list = json.loads(fpt.read())
+            
+        best = param_list[0]
+        svc = SVC.fit_from_file(self.data.training_set, best)
+        
         with open(self.get_output(), 'wb') as fpt:
             pickle.dump(svc, fpt)
 
