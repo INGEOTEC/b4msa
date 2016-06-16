@@ -64,7 +64,7 @@ class LangDependency():
     - among others
     """
 
-    def __init__(self, lang="spanish"):
+    def __init__(self, lang):
         self.hshStopWords = {}
         self._sStopWords = ""
         self.hshNegationRules = None
