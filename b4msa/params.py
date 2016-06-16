@@ -4,9 +4,10 @@
 import numpy as np
 import logging
 from time import time
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, accuracy_score
 from sklearn import preprocessing
 from sklearn import cross_validation
+
 try:
     from tqdm import tqdm
 except ImportError:
@@ -20,18 +21,33 @@ OPTION_GROUP = 'group'
 OPTION_DELETE = 'delete'
 
 
-basic_options = [OPTION_DELETE, OPTION_GROUP, OPTION_NONE]
-base_params = dict(
+BASIC_OPTIONS = [OPTION_DELETE, OPTION_GROUP, OPTION_NONE]
+
+_BASE_PARAMS = dict(
     strip_diac=[False, True],
-    num_option=basic_options,
-    usr_option=basic_options,
-    url_option=basic_options,
+    num_option=BASIC_OPTIONS,
+    usr_option=BASIC_OPTIONS,
+    url_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
     token_list=[1, 2, 3, 4, 5, 6, 7],
 )
 
-_base_params = sorted(base_params.items())
+_BASE_PARAMS_LANG = dict(
+    strip_diac=[False, True],
+    num_option=BASIC_OPTIONS,
+    usr_option=BASIC_OPTIONS,
+    url_option=BASIC_OPTIONS,
+    lc=[False, True],
+    del_dup1=[False, True],
+    token_list=[1, 2, 3, 4, 5, 6, 7],
+    negation=[False, True],
+    stemming=[False, True],
+    stopwords=BASIC_OPTIONS
+)
+
+BASE_PARAMS = sorted(_BASE_PARAMS.items())
+BASE_PARAMS_LANG = sorted(_BASE_PARAMS_LANG.items())
 
 
 class ParameterSelection:
@@ -41,7 +57,7 @@ class ParameterSelection:
     def sample_param_space(self, n, q=3):
         for i in range(n):
             kwargs = {}
-            for k, v in _base_params:
+            for k, v in self.base_params:
                 if len(v) == 0:
                     continue
 
@@ -66,8 +82,8 @@ class ParameterSelection:
                 x = s.copy()
                 x[k] = not v
                 yield x
-            elif v in basic_options:
-                for _v in basic_options:
+            elif v in BASIC_OPTIONS:
+                for _v in BASIC_OPTIONS:
                     if _v != v:
                         x = s.copy()
                         x[k] = _v
@@ -78,8 +94,8 @@ class ParameterSelection:
                     l = x[k] = x[k].copy()
                     l.pop(i)
                     yield x
-    
-                for _v in base_params[k]:
+
+                for _v in self._base_params[k]:
                     if _v not in v:
                         x = s.copy()
                         l = x[k] = x[k].copy()
@@ -88,11 +104,18 @@ class ParameterSelection:
                         yield x
 
     def search(self, fun_score, bsize=32, qsize=3,
-               hill_climbing=True, pool=None):
+               hill_climbing=True, lang=None, pool=None):
+        if lang:
+            self.base_params = BASE_PARAMS_LANG
+            self._base_params = _BASE_PARAMS_LANG
+        else:
+            self.base_params = BASE_PARAMS
+            self._base_params = _BASE_PARAMS
+            
         tabu = set()  # memory for tabu search
 
         # initial approximation, montecarlo based process
-        def get_best(cand, desc="searching for good params"):
+        def get_best(cand, desc="searching for params"):
             if pool is None:
                 # X = list(map(fun_score, cand))
                 X = [fun_score(x) for x in tqdm(cand, desc=desc, total=len(cand))]
@@ -161,7 +184,11 @@ class Wrapper(object):
                                     pool=self.pool,
                                     use_tqdm=False)
 
-        conf['_score'] = f1_score(self.y, hy, average='macro')
+        conf['_macro_f1'] = f1_score(self.y, hy, average='macro')
+        conf['_weighted_f1'] = f1_score(self.y, hy, average='weighted')
+        conf['_accuracy'] = accuracy_score(self.y, hy)
+        conf['_score'] = conf['_macro_f1']
+        
         conf['_time'] = (time() - st) / self.n_folds
         return conf
 

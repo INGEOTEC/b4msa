@@ -44,12 +44,12 @@ def test_texmodel():
 def test_params():
     import os
     import itertools
-    from b4msa.params import basic_options
+    from b4msa.params import BASIC_OPTIONS
     from b4msa.textmodel import TextModel
     from b4msa.utils import tweet_iterator
 
-    params = dict(strip_diac=[True, False], usr_option=basic_options,
-                  url_option=basic_options)
+    params = dict(strip_diac=[True, False], usr_option=BASIC_OPTIONS,
+                  url_option=BASIC_OPTIONS)
     params = sorted(params.items())
     fname = os.path.dirname(__file__) + '/text.json'
     tw = [x for x in tweet_iterator(fname)]

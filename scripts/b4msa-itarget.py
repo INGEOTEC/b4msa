@@ -14,7 +14,7 @@
 import argparse
 from time import time
 from sklearn import preprocessing
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, accuracy_score
 from b4msa.classifier import SVC
 # from b4msa.utils import read_data_labels, tweet_iterator
 from b4msa.utils import tweet_iterator
@@ -68,7 +68,12 @@ class Wrapper(object):
         st = time()
         hy = C.predict([model[text] for text in self.text2])
         conf['_predict_time'] = time() - st
-        conf['_score'] = f1_score(self.y2, hy, average='macro')
+
+        conf['_macro_f1'] = f1_score(self.y2, hy, average='macro')
+        conf['_weighted_f1'] = f1_score(self.y2, hy, average='weighted')
+        conf['_accuracy'] = accuracy_score(self.y2, hy)
+        conf['_score'] = conf['_macro_f1']
+       
         return conf
 
 

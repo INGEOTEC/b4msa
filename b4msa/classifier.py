@@ -105,9 +105,10 @@ class SVC(object):
         return ts, np.array(m.predict([t[X[x]] for x in ts]))
 
     @classmethod
-    def predict_kfold_params(cls, fname, n_folds=10, n_params=16,
-                             qsize=3, hill_climbing=True,
-                             numprocs=None, seed=0):
+    def predict_kfold_params(cls, fname, n_folds=10,
+                             numprocs=None, seed=0,
+                             param_kwargs={}
+    ):
         from b4msa.params import ParameterSelection, Wrapper
         X, y = read_data_labels(fname)
         if numprocs is not None:
@@ -122,11 +123,7 @@ class SVC(object):
         else:
             f = Wrapper(X, y, n_folds, cls, seed=seed)
 
-        return ParameterSelection().search(f.f,
-                                           bsize=n_params,
-                                           qsize=qsize,
-                                           hill_climbing=hill_climbing,
-                                           pool=pool)
+        return ParameterSelection().search(f.f, pool=pool, **param_kwargs)
 
     @classmethod
     def fit_from_file(cls, fname, textModel_params={}):

@@ -28,7 +28,7 @@ formatterC = logging.Formatter('%(module)s-%(funcName)s\n\t%(levelname)s\t%(mess
 ch.setFormatter(formatterC)
 logger.addHandler(ch)
 
-PATH = os.path.join(os.path.dirname(__file__), '../resources/')
+PATH = os.path.join(os.path.dirname(__file__), 'resources')
 
 
 _HASHTAG = '#'
@@ -79,6 +79,7 @@ class LangDependency():
             raise LangDependencyError("Language stemming  not supported : " +
                                       lang)
         self.stemmer = SnowballStemmer(self.lang)
+        self.load_stopwords(os.path.join(PATH, "{0}.stopwords".format(lang)))
 
     def load_stopwords(self, fileName):
         """
@@ -187,7 +188,7 @@ class LangDependency():
         #pronouns = "me|you|he|she|it|us|them"
 
         return text
-		
+
     def italian_negation(self, text):
         """
         Standarizes negation sentences, nouns are also considering with the operator "without"
@@ -216,8 +217,14 @@ class LangDependency():
 
         return text
     
-    def filterStopWords(self, text):
-        for sw in re.split(r"\s+", self._sStopWords):
-            text = re.sub(r"\b(" + sw + r")\b", r" ", text, flags=re.I) 
+    def filterStopWords(self, text, stopwords_option):
+        if stopwords_option != 'none':
+            for sw in re.split(r"\s+", self._sStopWords):
+                if stopwords_option == 'delete':
+                    text = re.sub(r"\b(" + sw + r")\b", r" ", text, flags=re.I)
+                
+                if stopwords_option == 'group':
+                    text = re.sub(r"\b(" + sw + r")\b", r"_sw", text, flags=re.I)
+
         return text
 

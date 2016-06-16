@@ -15,6 +15,7 @@ import argparse
 import logging
 from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels, read_data
+from b4msa.params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE
 from multiprocessing import Pool, cpu_count
 import json
 import pickle
@@ -29,6 +30,7 @@ class CommandLine(object):
         self.predict_kfold()
         self.param_set()
         self.param_search()
+        self.langdep()
 
     def predict_kfold(self):
         pa = self.parser.add_argument
@@ -47,6 +49,21 @@ class CommandLine(object):
            help='Logging level default: INFO + 1',
            default=logging.INFO+1)
 
+    def langdep(self):
+        pa = self.parser.add_argument
+        pa('-l', '--lang', dest='lang', type=str, default=None,
+           help="the language")
+        # pa('--negation', dest='negation', default=False,
+        #    action='store_true',
+        #    help="Determines if negation rules are applied")
+        # pa('--stemming', dest='stemming', default=False,
+        #    action='store_true',
+        #    help="Determines if stemming rules are applied")
+        # pa('--stopwords', dest='stopwords', type=str, default=OPTION_NONE,
+        #    help="Determines the action on stopwords ({0}|{1}|{2})".format(
+        #        OPTION_NONE, OPTION_GROUP, OPTION_DELETE
+        #    ))
+        
     def param_search(self):
         pa = self.parser.add_argument
         pa('-s', '--sample', dest='samplesize', type=int,
@@ -85,11 +102,13 @@ class CommandLine(object):
             n_folds = n_folds if n_folds is not None else 5
             best_list = SVC.predict_kfold_params(self.data.training_set,
                                                  n_folds=n_folds,
-                                                 n_params=self.data.samplesize,
                                                  seed=self.data.seed,
-                                                 hill_climbing=self.data.hill_climbing,
-                                                 qsize=self.data.qsize,
-                                                 numprocs=numprocs)
+                                                 numprocs=numprocs,
+                                                 param_kwargs=dict(bsize=self.data.samplesize,
+                                                                   hill_climbing=self.data.hill_climbing,
+                                                                   qsize=self.data.qsize,
+                                                                   lang=self.data.lang
+                                                 ))
 
             with open(self.get_output(), 'w') as fpt:
                 fpt.write(json.dumps(best_list, indent=2, sort_keys=True))

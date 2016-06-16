@@ -16,9 +16,11 @@ import os
 import unicodedata
 from gensim import corpora
 from gensim.models.tfidfmodel import TfidfModel
-from .params import OPTION_DELETE, OPTION_GROUP, get_filename
+from .params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE, get_filename
+from .lang_dependency import LangDependency
 import pickle
 import logging
+
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
@@ -65,6 +67,7 @@ class TextModel:
                  lc=True,
                  del_dup1=True,
                  token_list=[1, 2, 3, 4, 5, 6, 7],
+                 lang=None,
                  **kwargs
     ):
         self.strip_diac = strip_diac
@@ -74,6 +77,11 @@ class TextModel:
         self.lc = lc
         self.del_dup1 = del_dup1
         self.token_list = token_list
+        if lang:
+            self.lang = LangDependency(lang)
+        else:
+            self.lang = None
+            
         self.kwargs = kwargs
         
         docs = [self.tokenize(d) for d in docs]
@@ -85,6 +93,15 @@ class TextModel:
         return self.model[self.dictionary.doc2bow(self.tokenize(text))]
 
     def language_dependent(self, text):
+        if self.kwargs.get('neg', False):
+            text = self.lang.negation(text)
+
+        if self.kwargs.get('stem', False):
+            text = self.lang.stemming(text)
+
+        sw_op = self.kwargs.get('del_sw', OPTION_NONE)
+        text = self.lang.filterstemming(text, sw_op)
+        
         return text
 
     def tokenize(self, text):
@@ -108,7 +125,8 @@ class TextModel:
         elif self.usr_option == OPTION_GROUP:
             text = re.sub(r"@\S+", "_usr", text)
 
-        text = self.language_dependent(text)
+        if self.lang:
+            text = self.language_dependent(text)
             
         L = []
         for q in self.token_list:
