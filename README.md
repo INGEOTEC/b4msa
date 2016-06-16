@@ -57,7 +57,7 @@ The `tweets.json` looks like (for a four-classes problem)
     "url_option": "none",
     "usr_option": "group"
   },
-....
+...
 ```
 each entry specifies a configuration, please check the code (soon the manual) to learn about them. Since first configurations show how best/good setups are composed, it is possible to learn something about your dataset making some analysis on these setups.
 
@@ -96,7 +96,7 @@ The `tweets-spanish.json` file looks as follows:
     "url_option": "delete",
     "usr_option": "none"
   },
-....
+...
 ```
 Here we can see that `negation`, `stemming` and `stopwords` parameters where also considered.
 
@@ -138,5 +138,5 @@ For the eager people, it is recommended to install the `tqdm` package
 ```bash
 pip install tqdm
 ```
-However, it is better to prepare a coffe and a eat a sandwich :)
+However, it is better to prepare a coffe and a sandwich :)
 
