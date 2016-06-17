@@ -4,14 +4,12 @@
 
 # A Baseline for Multilingual Sentiment Analysis (B4MSA)
 
-B4MSA is a Python Sentiment Analysis Classifier for Twitter like short texts. It can be used to create a first approximation to a sentiment classifier on any given
-language. It is almost language-independent, but it can take advantage of the particularities of a language.
+B4MSA is a Python Sentiment Analysis Classifier for Twitter-like short texts. It can be used to create a first approximation to a sentiment classifier on any given language. It is almost language-independent, but it can take advantage of the particularities of a language.
 
-It is written in Python and it makes use of [NTLK](http://www.nltk.org/), [scikit-learn](http://scikit-learn.org/) and [gensim](https://radimrehurek.com/gensim/) to create a 
-simple but effective sentiment classifiers.
+It is written in Python making use of [NTLK](http://www.nltk.org/), [scikit-learn](http://scikit-learn.org/) and [gensim](https://radimrehurek.com/gensim/) to create simple but effective sentiment classifiers.
 
 # Installing B4MSA
-B4MSA can be installed using pip
+B4MSA can be installed using `pip`
 ```bash
 pip install b4msa
 ```
@@ -59,12 +57,12 @@ The `tweets.json` looks like (for a four-classes problem)
   },
 ...
 ```
-each entry specifies a configuration, please check the code (soon the manual) to learn about them. Since first configurations show how best/good setups are composed, it is possible to learn something about your dataset making some analysis on these setups.
+each entry specifies a configuration, please check the code (a manual is coming soon) to learn about each parameter. Since first configurations show how best/good setups are composed, it is possible to learn something about your dataset making some analysis on these setups.
 
 There exist other useful flags like:
 
 - `-H` makes b4msa to perform last hill climbing search for the parameter selection, in many cases, this will produce much better configurations (never worst, guaranteed)
-- `--lang spanish|english|german|italian` it specifies the language of the dataset, it allows us to make available language dependent techniques to the parameter selection procedure; currently, only spanish is supported
+- `--lang spanish|english|german|italian` it specifies the language of the dataset, it allows b4msa to use language dependent techniques to the parameter selection procedure; currently, only `spanish` is supported.
 
 ```bash
 b4msa-params -H -k5 -s48 -n24 tweets.json.gz -o tweets-spanish.json --lang spanish
@@ -98,7 +96,7 @@ The `tweets-spanish.json` file looks as follows:
   },
 ...
 ```
-Here we can see that `negation`, `stemming` and `stopwords` parameters where also considered.
+Here we can see that `negation`, `stemming` and `stopwords` parameters were considered.
 
 ## Using the models to create a sentiment classifier
 ## Testing a sentiment classifier against a workload
