@@ -111,7 +111,7 @@ class ParameterSelection:
         else:
             self.base_params = BASE_PARAMS
             self._base_params = _BASE_PARAMS
-            
+
         tabu = set()  # memory for tabu search
 
         # initial approximation, montecarlo based process
@@ -135,7 +135,7 @@ class ParameterSelection:
 
             tabu.add(code)
             L.append((conf, code))
-            
+
         best_list = get_best(L)
         if hill_climbing:
             # second approximation, hill climbing process
@@ -162,18 +162,23 @@ class ParameterSelection:
 
 
 class Wrapper(object):
-    def __init__(self, X, y, n_folds, cls, seed=0, pool=None):
+    def __init__(self, X, y, score, n_folds, cls, seed=0, pool=None):
         self.n_folds = n_folds
+        self.score = score
         self.X = X
         le = preprocessing.LabelEncoder().fit(y)
         self.y = np.array(le.transform(y))
         self.cls = cls
         self.pool = pool
         np.random.seed(seed)
-        self.kfolds = [x for x in cross_validation.StratifiedKFold(y,
-                                                                   n_folds=n_folds,
-                                                                   shuffle=True,
-                                                                   random_state=seed)]
+        self.kfolds = [
+            x for x in cross_validation.StratifiedKFold(
+                y,
+                n_folds=n_folds,
+                shuffle=True,
+                random_state=seed
+            )
+        ]
 
     def f(self, conf_code):
         conf, code = conf_code
@@ -184,11 +189,11 @@ class Wrapper(object):
                                     pool=self.pool,
                                     use_tqdm=False)
 
-        conf['_macro_f1'] = f1_score(self.y, hy, average='macro')
-        conf['_weighted_f1'] = f1_score(self.y, hy, average='weighted')
+        conf['_macrof1'] = f1_score(self.y, hy, average='macro')
+        conf['_microf1'] = f1_score(self.y, hy, average='micro')
+        conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
         conf['_accuracy'] = accuracy_score(self.y, hy)
-        conf['_score'] = conf['_macro_f1']
-        
+        conf['_score'] = conf['_' + self.score]
         conf['_time'] = (time() - st) / self.n_folds
         return conf
 

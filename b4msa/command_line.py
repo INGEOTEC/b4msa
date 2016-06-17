@@ -15,7 +15,8 @@ import argparse
 import logging
 from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels, read_data
-from b4msa.params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE
+from sklearn.metrics import f1_score, accuracy_score
+# from b4msa.params import OPTION_DELETE
 from multiprocessing import Pool, cpu_count
 import json
 import pickle
@@ -63,19 +64,20 @@ class CommandLine(object):
         #    help="Determines the action on stopwords ({0}|{1}|{2})".format(
         #        OPTION_NONE, OPTION_GROUP, OPTION_DELETE
         #    ))
-        
+
     def param_search(self):
         pa = self.parser.add_argument
         pa('-s', '--sample', dest='samplesize', type=int,
-           help="The sample size of the parameter space")
+           help="The sample size of the parameter")
         pa('-q', '--qsize', dest='qsize', type=int, default=3,
            help="The size of the initial population of tokenizers")
         pa('-H', '--hillclimbing', dest='hill_climbing', default=False,
            action='store_true',
-           help="Determines if hillclimbing search is also perfomed" +
-           " to improve the selection of paramters")
+           help="Determines if hillclimbing search is also perfomed to improve the selection of paramters")
         pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
            help="Number of processes to compute the best setup")
+        pa('-S', '--score', dest='score', type=str, default='macrof1',
+           help="The name of the score to be optimized (macrof1|weightedf1|accuracy); it defaults to macrof1")
 
     def param_set(self):
         pa = self.parser.add_argument
@@ -91,30 +93,38 @@ class CommandLine(object):
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
+
         if self.data.numprocs == 1:
             numprocs = None
         elif self.data.numprocs == 0:
             numprocs = cpu_count()
         else:
             numprocs = self.data.numprocs
+
         if self.data.samplesize is not None:
             n_folds = self.data.n_folds
             n_folds = n_folds if n_folds is not None else 5
-            best_list = SVC.predict_kfold_params(self.data.training_set,
-                                                 n_folds=n_folds,
-                                                 seed=self.data.seed,
-                                                 numprocs=numprocs,
-                                                 param_kwargs=dict(bsize=self.data.samplesize,
-                                                                   hill_climbing=self.data.hill_climbing,
-                                                                   qsize=self.data.qsize,
-                                                                   lang=self.data.lang
-                                                 ))
+            assert self.data.score in ('macrof1', 'microf1', 'weightedf1', 'accuracy'), "Unknown score {0}".format(self.data.score)
+
+            best_list = SVC.predict_kfold_params(
+                self.data.training_set,
+                n_folds=n_folds,
+                score=self.data.score,
+                numprocs=numprocs,
+                seed=self.data.seed,
+                param_kwargs=dict(
+                    bsize=self.data.samplesize,
+                    hill_climbing=self.data.hill_climbing,
+                    qsize=self.data.qsize,
+                    lang=self.data.lang
+                )
+            )
 
             with open(self.get_output(), 'w') as fpt:
                 fpt.write(json.dumps(best_list, indent=2, sort_keys=True))
 
             return
-    
+
         if self.data.n_folds is not None:
             pool = None if numprocs is None else Pool(numprocs)
             X, y = read_data_labels(self.data.training_set)
@@ -123,7 +133,7 @@ class CommandLine(object):
                                    pool=pool)
             if pool is not None:
                 pool.close()
-        
+
             with open(self.get_output(), 'w') as fpt:
                 fpt.write("\n".join([str(x) for x in hy]))
 
