@@ -23,6 +23,15 @@ import logging
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
+PUNCTUACTION = ";:,.@\\-\"'w/"
+SYMBOLS = "()[]¿?¡!{}"
+SKIP_SYMBOLS = set(PUNCTUACTION + SYMBOLS)
+# SKIP_WORDS = set(["…", "..", "...", "...."])
+
+def get_word_list(text):
+    text = "".join([u for u in text[1:len(text)-1] if u not in SKIP_SYMBOLS])
+    return text.split('~')
+
 
 def norm_chars(text, strip_diac=True, del_dup1=True):
     L = ['~']
@@ -53,6 +62,16 @@ def expand_qgrams(text, qsize, output):
     n = len(text)
     for start in range(n - qsize + 1):
         output.append(text[start:start+qsize])
+
+    return output
+
+
+def expand_qgrams_word_list(wlist, qsize, output, sep='~'):
+    """Expands a list of words into a list of q-grams. It uses `sep` to join words"""
+    n = len(wlist)
+    for start in range(n - qsize + 1):
+        t = sep.join(wlist[start:start+qsize])
+        output.append(t)
 
     return output
 
@@ -129,8 +148,15 @@ class TextModel:
             text = self.language_dependent(text)
             
         L = []
+        textlist = None
+
         for q in self.token_list:
-            expand_qgrams(text, q, L)
+            if q < 0:
+                if textlist is None:
+                    textlist = get_word_list(text)
+                    expand_qgrams_word_list(textlist, abs(q), L)
+            else:
+                expand_qgrams(text, q, L)
 
         return L
     

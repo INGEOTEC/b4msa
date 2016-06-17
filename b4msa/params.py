@@ -30,7 +30,7 @@ _BASE_PARAMS = dict(
     url_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
-    token_list=[1, 2, 3, 4, 5, 6, 7],
+    token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
 )
 
 _BASE_PARAMS_LANG = dict(
@@ -40,7 +40,7 @@ _BASE_PARAMS_LANG = dict(
     url_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
-    token_list=[1, 2, 3, 4, 5, 6, 7],
+    token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
     negation=[False, True],
     stemming=[False, True],
     stopwords=BASIC_OPTIONS
