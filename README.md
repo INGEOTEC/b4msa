@@ -36,7 +36,7 @@ the parameters means for:
   but it is in descending order by `_score`
 
 The `tweets.json` looks like (for a four-classes problem)
-```json
+```
 [
   {
     "_accuracy": 0.7773561997268175,
@@ -72,7 +72,7 @@ b4msa-params -H -k5 -s48 -n24 tweets.json.gz -o tweets-spanish.json --lang spani
 
 The `tweets-spanish.json` file looks as follows:
 
-```json
+```
 [
   {
     "_accuracy": 0.7750796782516315,

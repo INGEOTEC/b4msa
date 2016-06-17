@@ -14,11 +14,6 @@
 # -*- coding: utf-8 -*-
 
 
-def test_lang_dependency():
-    from b4msa.lang_dependency import LangDependency
-    LangDependency()
-
-
 def test_spanish_stemming():
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
