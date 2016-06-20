@@ -39,8 +39,11 @@ setup(
     # author_email="mgraffg@ieee.org",
     # cmdclass={"build_ext": build_ext, "clean": Clean},
     # ext_modules=ext_modules,
-    packages=['b4msa', 'b4msa/tests'],
+    packages=['b4msa', 'b4msa/tests', 'scripts', 'b4msa/resources'],
     include_package_data=True,
+    zip_safe=False,
+    package_data={'b4msa/resources': ['sp4neg_stopwords.txt',
+                                      'spanish.stopwords']},
     entry_points={
         'console_scripts': ['b4msa-params=b4msa.command_line:params',
                             'b4msa-train=b4msa.command_line:train',
