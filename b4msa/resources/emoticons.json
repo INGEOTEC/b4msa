@@ -1,0 +1,2125 @@
+{"description_es": "beso positivo", "code": "\u200d\ud83d\udc69\u2764\u200d\ufe0f\u200d\ud83d\udc8b\ud83d\udc69", "klass": "_pos"}
+{"description_es": "beso positivo", "code": "\u200d\ud83d\udc68\u2764\u200d\ufe0f\u200d\ud83d\udc8b\ud83d\udc68", "klass": "_pos"}
+{"description_es": "beso positivo", "code": "\u200d\ud83d\udc69\u2764\u200d\ufe0f\u200d\ud83d\udc8b\ud83d\udc68", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d\udc67", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc67", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc67", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "coraz\u00f3n: mujer", "code": "\u200d\ud83d\udc69\u2764\u200d\ufe0f\ud83d\udc69", "klass": "_neu"}
+{"description_es": "coraz\u00f3n: hombre", "code": "\u200d\ud83d\udc68\u2764\u200d\ufe0f\ud83d\udc68", "klass": "_neu"}
+{"description_es": "coraz\u00f3n: mujer", "code": "\u200d\ud83d\udc69\u2764\u200d\ufe0f\ud83d\udc68", "klass": "_neu"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66", "klass": "_pos"}
+{"description_es": "familia positivo", "code": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67", "klass": "_pos"}
+{"description_es": "ojo en la burbuja del discurso", "code": "\ud83d\udc41\u200d\ud83d\udde8", "klass": "_neu"}
+{"description_es": "santa claus", "code": "\ud83c\udf85\ud83c\udffd", "klass": "_neu"}
+{"description_es": "tecla tres", "code": "3\u20e3", "klass": "_neu"}
+{"description_es": "princesa positivo", "code": "\ud83d\udc78\ud83c\udffd", "klass": "_pos"}
+{"description_es": "levantador de peso", "code": "\ud83c\udfcb\ud83c\udffe", "klass": "_neu"}
+{"description_es": "esp\u00eda", "code": "\ud83d\udd75\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Puerto Rico", "code": "\ud83c\uddf5\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "hombre cabello chino", "code": "\ud83d\udc72\ud83c\udffb", "klass": "_neu"}
+{"description_es": "hombre con el turbante", "code": "\ud83d\udc73\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Tokelau", "code": "\ud83c\uddf9\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bote de remos", "code": "\ud83d\udea3\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Albania", "code": "\ud83c\udde6\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "ce\u00f1o persona", "code": "\ud83d\ude4d\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de las Islas V\u00edrgenes de EE.UU.", "code": "\ud83c\uddfb\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de Paraguay", "code": "\ud83c\uddf5\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "bandera de Arabia Saudita", "code": "\ud83c\uddf8\ud83c\udde6", "klass": "_neu"}
+{"description_es": "b\u00edceps flexionados", "code": "\ud83d\udcaa\ud83c\udffc", "klass": "_neu"}
+{"description_es": "ba\u00f1o", "code": "\ud83d\udec0\ud83c\udffd", "klass": "_neu"}
+{"description_es": "santa claus", "code": "\ud83c\udf85\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona levantando ambas manos en la celebraci\u00f3n positivo", "code": "\ud83d\ude4c\ud83c\udffc", "klass": "_pos"}
+{"description_es": "hombre", "code": "\ud83d\udc68\ud83c\udffe", "klass": "_neu"}
+{"description_es": "ok positivo", "code": "\ud83d\udc4c\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de El Salvador", "code": "\ud83c\uddf8\ud83c\uddfb", "klass": "_neu"}
+{"description_es": "bandera de Somalia", "code": "\ud83c\uddf8\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "bandera de Finlandia", "code": "\ud83c\uddeb\ud83c\uddee", "klass": "_neu"}
+{"description_es": "dedo izquierda", "code": "\ud83d\udc48\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Timor Oriental", "code": "\ud83c\uddf9\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "bandera de Anguila", "code": "\ud83c\udde6\ud83c\uddee", "klass": "_neu"}
+{"description_es": "tecla dos", "code": "2\u20e3", "klass": "_neu"}
+{"description_es": "bandera de San Bartolom\u00e9", "code": "\ud83c\udde7\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "bandera de Pap\u00faa Nueva Guinea", "code": "\ud83c\uddf5\ud83c\uddec", "klass": "_neu"}
+{"description_es": "surfer", "code": "\ud83c\udfc4\ud83c\udffc", "klass": "_neu"}
+{"description_es": "esp\u00eda", "code": "\ud83d\udd75\ud83c\udffe", "klass": "_neu"}
+{"description_es": "dedo derecha", "code": "\ud83d\udc49\ud83c\udfff", "klass": "_neu"}
+{"description_es": "apuntando hacia abajo", "code": "\ud83d\udc47\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Bahrein", "code": "\ud83c\udde7\ud83c\udded", "klass": "_neu"}
+{"description_es": "monta\u00f1a ciclista", "code": "\ud83d\udeb5\ud83c\udffd", "klass": "_neu"}
+{"description_es": "oreja", "code": "\ud83d\udc42\ud83c\udffe", "klass": "_neu"}
+{"description_es": "nadador", "code": "\ud83c\udfca\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Kiribati", "code": "\ud83c\uddf0\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de Brunei", "code": "\ud83c\udde7\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "bandera de Letonia", "code": "\ud83c\uddf1\ud83c\uddfb", "klass": "_neu"}
+{"description_es": "tecla siete", "code": "7\u20e3", "klass": "_neu"}
+{"description_es": "bandera de Lituania", "code": "\ud83c\uddf1\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "surfer", "code": "\ud83c\udfc4\ud83c\udffb", "klass": "_neu"}
+{"description_es": "esmalte u\u00f1as", "code": "\ud83d\udc85\ud83c\udffd", "klass": "_neu"}
+{"description_es": "trabajador de construcci\u00f3n", "code": "\ud83d\udc77\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Polinesia Francesa", "code": "\ud83c\uddf5\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "cuernos negativo", "code": "\ud83e\udd18\ud83c\udffe", "klass": "_neg"}
+{"description_es": "pu\u00f1o", "code": "\ud83d\udc4a\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Bielorrusia", "code": "\ud83c\udde7\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "muchacho", "code": "\ud83d\udc66\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Wallis y Futuna", "code": "\ud83c\uddfc\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "bailar\u00edn positivo", "code": "\ud83d\udc83\ud83c\udffd", "klass": "_pos"}
+{"description_es": "hombre", "code": "\ud83d\udc68\ud83c\udfff", "klass": "_neu"}
+{"description_es": "dedo derecha", "code": "\ud83d\udc49\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Honduras", "code": "\ud83c\udded\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "pu\u00f1o alto mal negativo", "code": "\u270a\ud83c\udffe", "klass": "_neg"}
+{"description_es": "anciano", "code": "\ud83d\udc74\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de M\u00f3naco", "code": "\ud83c\uddf2\ud83c\udde8", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\u261d\ud83c\udfff", "klass": "_neu"}
+{"description_es": "surfer", "code": "\ud83c\udfc4\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Ghana", "code": "\ud83c\uddec\ud83c\udded", "klass": "_neu"}
+{"description_es": "bandera de Alemania", "code": "\ud83c\udde9\ud83c\uddea", "klass": "_neu"}
+{"description_es": "polic\u00eda", "code": "\ud83d\udc6e\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Ir\u00e1n", "code": "\ud83c\uddee\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "polic\u00eda", "code": "\ud83d\udc6e\ud83c\udffe", "klass": "_neu"}
+{"description_es": "\u00e1ngel del beb\u00e9", "code": "\ud83d\udc7c\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Moldavia", "code": "\ud83c\uddf2\ud83c\udde9", "klass": "_neu"}
+{"description_es": "bandera de Islas Canarias", "code": "\ud83c\uddee\ud83c\udde8", "klass": "_neu"}
+{"description_es": "novia con velo", "code": "\ud83d\udc70\ud83c\udfff", "klass": "_neu"}
+{"description_es": "cara buen gesto positivo", "code": "\ud83d\ude46\ud83c\udffd", "klass": "_pos"}
+{"description_es": "bandera de Georgia", "code": "\ud83c\uddec\ud83c\uddea", "klass": "_neu"}
+{"description_es": "ba\u00f1o", "code": "\ud83d\udec0\ud83c\udfff", "klass": "_neu"}
+{"description_es": "mujer", "code": "\ud83d\udc69\ud83c\udffd", "klass": "_neu"}
+{"description_es": "nariz", "code": "\ud83d\udc43\ud83c\udffd", "klass": "_neu"}
+{"description_es": "persona pucheros negativo", "code": "\ud83d\ude4e\ud83c\udffe", "klass": "_neg"}
+{"description_es": "bandera de Argentina", "code": "\ud83c\udde6\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Kenia", "code": "\ud83c\uddf0\ud83c\uddea", "klass": "_neu"}
+{"description_es": "masaje facial", "code": "\ud83d\udc86\ud83c\udffd", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4e\ud83c\udffc", "klass": "_pos"}
+{"description_es": "bandera de Qatar", "code": "\ud83c\uddf6\ud83c\udde6", "klass": "_neu"}
+{"description_es": "persona pucheros negativo", "code": "\ud83d\ude4e\ud83c\udfff", "klass": "_neg"}
+{"description_es": "levantador de peso", "code": "\ud83c\udfcb\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Tuvalu", "code": "\ud83c\uddf9\ud83c\uddfb", "klass": "_neu"}
+{"description_es": "anciana", "code": "\ud83d\udc75\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona recepci\u00f3n", "code": "\ud83d\udc81\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Uganda", "code": "\ud83c\uddfa\ud83c\uddec", "klass": "_neu"}
+{"description_es": "esp\u00eda", "code": "\ud83d\udd75\ud83c\udffd", "klass": "_neu"}
+{"description_es": "pu\u00f1o", "code": "\ud83d\udc4a\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Venezuela", "code": "\ud83c\uddfb\ud83c\uddea", "klass": "_neu"}
+{"description_es": "bandera de Tailandia", "code": "\ud83c\uddf9\ud83c\udded", "klass": "_neu"}
+{"description_es": "bandera de Rumania", "code": "\ud83c\uddf7\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "hombre con el turbante", "code": "\ud83d\udc73\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Pa\u00edses Bajos del Caribe", "code": "\ud83c\udde7\ud83c\uddf6", "klass": "_neu"}
+{"description_es": "bandera de Chipre", "code": "\ud83c\udde8\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "monta\u00f1a ciclista", "code": "\ud83d\udeb5\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Gab\u00f3n", "code": "\ud83c\uddec\ud83c\udde6", "klass": "_neu"}
+{"description_es": "persona feliz levantando una mano positivo", "code": "\ud83d\ude4b\ud83c\udffc", "klass": "_pos"}
+{"description_es": "corredor", "code": "\ud83c\udfc3\ud83c\udfff", "klass": "_neu"}
+{"description_es": "persona pelo rubio", "code": "\ud83d\udc71\ud83c\udffe", "klass": "_neu"}
+{"description_es": "manos abiertas positivo", "code": "\ud83d\udc50\ud83c\udffd", "klass": "_pos"}
+{"description_es": "bandera de Benin", "code": "\ud83c\udde7\ud83c\uddef", "klass": "_neu"}
+{"description_es": "\u00e1ngel del beb\u00e9", "code": "\ud83d\udc7c\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de M\u00e9xico", "code": "\ud83c\uddf2\ud83c\uddfd", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\u261d\ud83c\udffb", "klass": "_neu"}
+{"description_es": "dedo derecha", "code": "\ud83d\udc49\ud83c\udffb", "klass": "_neu"}
+{"description_es": "agitando la mano bien positivo", "code": "\ud83d\udc4b\ud83c\udffd", "klass": "_pos"}
+{"description_es": "bandera de Martinica", "code": "\ud83c\uddf2\ud83c\uddf6", "klass": "_neu"}
+{"description_es": "bandera de Mauritania", "code": "\ud83c\uddf2\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "persona inclin\u00e1ndose", "code": "\ud83d\ude47\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Georgia del Sur y Islas Sandwich del Sur", "code": "\ud83c\uddec\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "bandera de Re\u00fablica del Congo", "code": "\ud83c\udde8\ud83c\uddec", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\ud83d\udc46\ud83c\udffc", "klass": "_neu"}
+{"description_es": "corredor", "code": "\ud83c\udfc3\ud83c\udffb", "klass": "_neu"}
+{"description_es": "mujer", "code": "\ud83d\udc69\ud83c\udfff", "klass": "_neu"}
+{"description_es": "ciclista", "code": "\ud83d\udeb4\ud83c\udffc", "klass": "_neu"}
+{"description_es": "princesa positivo", "code": "\ud83d\udc78\ud83c\udffe", "klass": "_pos"}
+{"description_es": "persona recepci\u00f3n", "code": "\ud83d\udc81\ud83c\udffb", "klass": "_neu"}
+{"description_es": "persona pelo rubio", "code": "\ud83d\udc71\ud83c\udffb", "klass": "_neu"}
+{"description_es": "dedo derecha", "code": "\ud83d\udc49\ud83c\udffe", "klass": "_neu"}
+{"description_es": "muchacho", "code": "\ud83d\udc66\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Jamaica", "code": "\ud83c\uddef\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "trabajador de construcci\u00f3n", "code": "\ud83d\udc77\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de American Samoa", "code": "\ud83c\udde6\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "anciana", "code": "\ud83d\udc75\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Eslovenia", "code": "\ud83c\uddf8\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de Bosnia y Herzegovina", "code": "\ud83c\udde7\ud83c\udde6", "klass": "_neu"}
+{"description_es": "nariz", "code": "\ud83d\udc43\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Nicaragua", "code": "\ud83c\uddf3\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de Kazajst\u00e1n", "code": "\ud83c\uddf0\ud83c\uddff", "klass": "_neu"}
+{"description_es": "bandera de Italia", "code": "\ud83c\uddee\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "bandera de Maldivas", "code": "\ud83c\uddf2\ud83c\uddfb", "klass": "_neu"}
+{"description_es": "bandera de Surinam", "code": "\ud83c\uddf8\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Svalbard y jan Mayen", "code": "\ud83c\uddf8\ud83c\uddef", "klass": "_neu"}
+{"description_es": "bandera de Taiw\u00e1n", "code": "\ud83c\uddf9\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4e\ud83c\udffd", "klass": "_pos"}
+{"description_es": "princesa positivo", "code": "\ud83d\udc78\ud83c\udffb", "klass": "_pos"}
+{"description_es": "beb\u00e9", "code": "\ud83d\udc76\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Israel", "code": "\ud83c\uddee\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "tecla nueve", "code": "9\u20e3", "klass": "_neu"}
+{"description_es": "bandera de Cura\u00e7ao", "code": "\ud83c\udde8\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "bandera de Chad", "code": "\ud83c\uddf9\ud83c\udde9", "klass": "_neu"}
+{"description_es": "bandera de Guinea Bis\u00e1u", "code": "\ud83c\uddec\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "trabajador de construcci\u00f3n", "code": "\ud83d\udc77\ud83c\udffd", "klass": "_neu"}
+{"description_es": "peaton", "code": "\ud83d\udeb6\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona levantando ambas manos en la celebraci\u00f3n positivo", "code": "\ud83d\ude4c\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bote de remos", "code": "\ud83d\udea3\ud83c\udffc", "klass": "_neu"}
+{"description_es": "cara buen gesto positivo", "code": "\ud83d\ude46\ud83c\udffe", "klass": "_pos"}
+{"description_es": "beb\u00e9", "code": "\ud83d\udc76\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona pucheros negativo", "code": "\ud83d\ude4e\ud83c\udffd", "klass": "_neg"}
+{"description_es": "bandera de Emiratos \u00c1rabes Unidos", "code": "\ud83c\udde6\ud83c\uddea", "klass": "_neu"}
+{"description_es": "escritura", "code": "\u270d\ud83c\udffd", "klass": "_neu"}
+{"description_es": "novia con velo", "code": "\ud83d\udc70\ud83c\udffd", "klass": "_neu"}
+{"description_es": "cuernos negativo", "code": "\ud83e\udd18\ud83c\udfff", "klass": "_neg"}
+{"description_es": "persona levantando ambas manos en la celebraci\u00f3n positivo", "code": "\ud83d\ude4c\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Brasil", "code": "\ud83c\udde7\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Guadalupe", "code": "\ud83c\uddec\ud83c\uddf5", "klass": "_neu"}
+{"description_es": "monta\u00f1a ciclista", "code": "\ud83d\udeb5\ud83c\udfff", "klass": "_neu"}
+{"description_es": "mano levantada positivo", "code": "\ud83d\udd96\ud83c\udffd", "klass": "_pos"}
+{"description_es": "oreja", "code": "\ud83d\udc42\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Irlanda", "code": "\ud83c\uddee\ud83c\uddea", "klass": "_neu"}
+{"description_es": "bandera de Djibouti", "code": "\ud83c\udde9\ud83c\uddef", "klass": "_neu"}
+{"description_es": "corte de pelo", "code": "\ud83d\udc87\ud83c\udfff", "klass": "_neu"}
+{"description_es": "cuernos negativo", "code": "\ud83e\udd18\ud83c\udffd", "klass": "_neg"}
+{"description_es": "bandera de Nauru", "code": "\ud83c\uddf3\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Camer\u00fan", "code": "\ud83c\udde8\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Bulgaria", "code": "\ud83c\udde7\ud83c\uddec", "klass": "_neu"}
+{"description_es": "polic\u00eda", "code": "\ud83d\udc6e\ud83c\udffb", "klass": "_neu"}
+{"description_es": "surfer", "code": "\ud83c\udfc4\ud83c\udffe", "klass": "_neu"}
+{"description_es": "mano levantada positivo", "code": "\ud83d\udd96\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Siria", "code": "\ud83c\uddf8\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "bandera de Serbia", "code": "\ud83c\uddf7\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "ba\u00f1o", "code": "\ud83d\udec0\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Seychelles", "code": "\ud83c\uddf8\ud83c\udde8", "klass": "_neu"}
+{"description_es": "bote de remos", "code": "\ud83d\udea3\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Panam\u00e1", "code": "\ud83c\uddf5\ud83c\udde6", "klass": "_neu"}
+{"description_es": "soldado de la guardia", "code": "\ud83d\udc82\ud83c\udffe", "klass": "_neu"}
+{"description_es": "hombre", "code": "\ud83d\udc68\ud83c\udffc", "klass": "_neu"}
+{"description_es": "corredor", "code": "\ud83c\udfc3\ud83c\udffc", "klass": "_neu"}
+{"description_es": "soldado de la guardia", "code": "\ud83d\udc82\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Chile", "code": "\ud83c\udde8\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "bandera de Andorra", "code": "\ud83c\udde6\ud83c\udde9", "klass": "_neu"}
+{"description_es": "persona inclin\u00e1ndose", "code": "\ud83d\ude47\ud83c\udfff", "klass": "_neu"}
+{"description_es": "muchacho", "code": "\ud83d\udc66\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bailar\u00edn positivo", "code": "\ud83d\udc83\ud83c\udfff", "klass": "_pos"}
+{"description_es": "muchacho", "code": "\ud83d\udc66\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de las Islas V\u00edrgenes Brit\u00e1nicas", "code": "\ud83c\uddfb\ud83c\uddec", "klass": "_neu"}
+{"description_es": "persona con la bola positivo", "code": "\u26f9\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Kosovo", "code": "\ud83c\uddfd\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "apuntando hacia abajo", "code": "\ud83d\udc47\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Corea del Norte", "code": "\ud83c\uddf0\ud83c\uddf5", "klass": "_neu"}
+{"description_es": "polic\u00eda", "code": "\ud83d\udc6e\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Om\u00e1n", "code": "\ud83c\uddf4\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "levantador de peso", "code": "\ud83c\udfcb\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Laos", "code": "\ud83c\uddf1\ud83c\udde6", "klass": "_neu"}
+{"description_es": "bandera de Cabo Verde", "code": "\ud83c\udde8\ud83c\uddfb", "klass": "_neu"}
+{"description_es": "anciano", "code": "\ud83d\udc74\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Guinea Ecuatorial", "code": "\ud83c\uddec\ud83c\uddf6", "klass": "_neu"}
+{"description_es": "bandera de Turkmenist\u00e1n", "code": "\ud83c\uddf9\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Birmania", "code": "\ud83c\uddf2\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "hombre cabello chino", "code": "\ud83d\udc72\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Azerbaiy\u00e1n", "code": "\ud83c\udde6\ud83c\uddff", "klass": "_neu"}
+{"description_es": "escritura", "code": "\u270d\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Nigeria", "code": "\ud83c\uddf3\ud83c\uddec", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4d\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de Sud\u00e1n del Sur", "code": "\ud83c\uddf8\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "hombre cabello chino", "code": "\ud83d\udc72\ud83c\udffe", "klass": "_neu"}
+{"description_es": "tecla de n\u00famero", "code": "#\u20e3", "klass": "_neu"}
+{"description_es": "polic\u00eda", "code": "\ud83d\udc6e\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona levantando ambas manos en la celebraci\u00f3n positivo", "code": "\ud83d\ude4c\ud83c\udffd", "klass": "_pos"}
+{"description_es": "ba\u00f1o", "code": "\ud83d\udec0\ud83c\udffe", "klass": "_neu"}
+{"description_es": "apuntando hacia abajo", "code": "\ud83d\udc47\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de San Mart\u00edn", "code": "\ud83c\uddf2\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "pu\u00f1o", "code": "\ud83d\udc4a\ud83c\udffb", "klass": "_neu"}
+{"description_es": "ciclista", "code": "\ud83d\udeb4\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Espa\u00f1a", "code": "\ud83c\uddea\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "novia con velo", "code": "\ud83d\udc70\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Mayotte", "code": "\ud83c\uddfe\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\ud83d\udc46\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de L\u00edbano", "code": "\ud83c\uddf1\ud83c\udde7", "klass": "_neu"}
+{"description_es": "bandera de Zambia", "code": "\ud83c\uddff\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "hombre", "code": "\ud83d\udc68\ud83c\udffb", "klass": "_neu"}
+{"description_es": "mano levantada positivo", "code": "\ud83d\udd96\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Bolivia", "code": "\ud83c\udde7\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "peaton", "code": "\ud83d\udeb6\ud83c\udffe", "klass": "_neu"}
+{"description_es": "victoria positivo", "code": "\u270c\ud83c\udffe", "klass": "_pos"}
+{"description_es": "ok positivo", "code": "\ud83d\udc4c\ud83c\udffe", "klass": "_pos"}
+{"description_es": "cara buen gesto positivo", "code": "\ud83d\ude46\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de Islandia", "code": "\ud83c\uddee\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "bailar\u00edn positivo", "code": "\ud83d\udc83\ud83c\udffb", "klass": "_pos"}
+{"description_es": "b\u00edceps flexionados", "code": "\ud83d\udcaa\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Vietnam", "code": "\ud83c\uddfb\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "nadador", "code": "\ud83c\udfca\ud83c\udffe", "klass": "_neu"}
+{"description_es": "pu\u00f1o alto mal negativo", "code": "\u270a\ud83c\udffd", "klass": "_neg"}
+{"description_es": "ok positivo", "code": "\ud83d\udc4c\ud83c\udffd", "klass": "_pos"}
+{"description_es": "hombre con el turbante", "code": "\ud83d\udc73\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de las Islas Cook", "code": "\ud83c\udde8\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "nariz", "code": "\ud83d\udc43\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Suazilandia", "code": "\ud83c\uddf8\ud83c\uddff", "klass": "_neu"}
+{"description_es": "mujer", "code": "\ud83d\udc69\ud83c\udffe", "klass": "_neu"}
+{"description_es": "persona levantando ambas manos en la celebraci\u00f3n positivo", "code": "\ud83d\ude4c\ud83c\udffe", "klass": "_pos"}
+{"description_es": "\u00edndice medio negativo", "code": "\ud83d\udd95\ud83c\udffe", "klass": "_neg"}
+{"description_es": "muchacha", "code": "\ud83d\udc67\ud83c\udffe", "klass": "_neu"}
+{"description_es": "\u00edndice medio negativo", "code": "\ud83d\udd95\ud83c\udffc", "klass": "_neg"}
+{"description_es": "bandera de Uni\u00f3n Europea", "code": "\ud83c\uddea\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "bandera de los Comoro", "code": "\ud83c\uddf0\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Malasia", "code": "\ud83c\uddf2\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "ok positivo", "code": "\ud83d\udc4c\ud83c\udffc", "klass": "_pos"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4e\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de Palau", "code": "\ud83c\uddf5\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "bandera de Sierra Leona", "code": "\ud83c\uddf8\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude45\ud83c\udffb", "klass": "_neg"}
+{"description_es": "bandera de la Isla de Navidad", "code": "\ud83c\udde8\ud83c\uddfd", "klass": "_neu"}
+{"description_es": "bandera de Vanuatu", "code": "\ud83c\uddfb\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "muchacha", "code": "\ud83d\udc67\ud83c\udfff", "klass": "_neu"}
+{"description_es": "aplaudir positivo", "code": "\ud83d\udc4f\ud83c\udfff", "klass": "_pos"}
+{"description_es": "ciclista", "code": "\ud83d\udeb4\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Pa\u00edses Bajos", "code": "\ud83c\uddf3\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "bandera de Malaui", "code": "\ud83c\uddf2\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "bandera de Egipto", "code": "\ud83c\uddea\ud83c\uddec", "klass": "_neu"}
+{"description_es": "bandera de Cuba", "code": "\ud83c\udde8\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "esp\u00eda", "code": "\ud83d\udd75\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Reino Unido", "code": "\ud83c\uddec\ud83c\udde7", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\ud83d\udd90\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Barbados", "code": "\ud83c\udde7\ud83c\udde7", "klass": "_neu"}
+{"description_es": "oreja", "code": "\ud83d\udc42\ud83c\udffb", "klass": "_neu"}
+{"description_es": "dedo izquierda", "code": "\ud83d\udc48\ud83c\udffc", "klass": "_neu"}
+{"description_es": "anciana", "code": "\ud83d\udc75\ud83c\udffd", "klass": "_neu"}
+{"description_es": "santa claus", "code": "\ud83c\udf85\ud83c\udfff", "klass": "_neu"}
+{"description_es": "persona en oraci\u00f3n positivo", "code": "\ud83d\ude4f\ud83c\udffd", "klass": "_pos"}
+{"description_es": "persona recepci\u00f3n", "code": "\ud83d\udc81\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de los Territorios Franceses del Sur", "code": "\ud83c\uddf9\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "soldado de la guardia", "code": "\ud83d\udc82\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Micronesia", "code": "\ud83c\uddeb\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Samoa", "code": "\ud83c\uddfc\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "peaton", "code": "\ud83d\udeb6\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Ruanda", "code": "\ud83c\uddf7\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "bandera de Madagascar", "code": "\ud83c\uddf2\ud83c\uddec", "klass": "_neu"}
+{"description_es": "tecla ocho", "code": "8\u20e3", "klass": "_neu"}
+{"description_es": "hombre cabello chino", "code": "\ud83d\udc72\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de San Mart\u00edn", "code": "\ud83c\uddf8\ud83c\uddfd", "klass": "_neu"}
+{"description_es": "hombre cabello chino", "code": "\ud83d\udc72\ud83c\udffc", "klass": "_neu"}
+{"description_es": "escritura", "code": "\u270d\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Ceuta & Melilla", "code": "\ud83c\uddea\ud83c\udde6", "klass": "_neu"}
+{"description_es": "masaje facial", "code": "\ud83d\udc86\ud83c\udffe", "klass": "_neu"}
+{"description_es": "ancianas", "code": "\ud83d\udc75\ud83c\udfff", "klass": "_neu"}
+{"description_es": "persona pucheros negativo", "code": "\ud83d\ude4e\ud83c\udffb", "klass": "_neg"}
+{"description_es": "princesa positivo", "code": "\ud83d\udc78\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de Eritrea", "code": "\ud83c\uddea\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "agitando la mano bien positivo", "code": "\ud83d\udc4b\ud83c\udffc", "klass": "_pos"}
+{"description_es": "bandera de T\u00fanez", "code": "\ud83c\uddf9\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\u261d\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Per\u00fa", "code": "\ud83c\uddf5\ud83c\uddea", "klass": "_neu"}
+{"description_es": "apuntando hacia abajo", "code": "\ud83d\udc47\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Islas Malvinas", "code": "\ud83c\uddeb\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "manos abiertas positivo", "code": "\ud83d\udc50\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Uruguay", "code": "\ud83c\uddfa\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "bandera de Nueva Caledonia", "code": "\ud83c\uddf3\ud83c\udde8", "klass": "_neu"}
+{"description_es": "bandera de San Vicente y Granadinas", "code": "\ud83c\uddfb\ud83c\udde8", "klass": "_neu"}
+{"description_es": "bandera de San Pedro y Miquel\u00f3n", "code": "\ud83c\uddf5\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "persona con la bola positivo", "code": "\u26f9\ud83c\udfff", "klass": "_pos"}
+{"description_es": "hombre", "code": "\ud83d\udc68\ud83c\udffd", "klass": "_neu"}
+{"description_es": "aplaudir positivo", "code": "\ud83d\udc4f\ud83c\udffc", "klass": "_pos"}
+{"description_es": "tecla cuatro", "code": "4\u20e3", "klass": "_neu"}
+{"description_es": "dedo derecha", "code": "\ud83d\udc49\ud83c\udffc", "klass": "_neu"}
+{"description_es": "\u00edndice medio negativo", "code": "\ud83d\udd95\ud83c\udfff", "klass": "_neg"}
+{"description_es": "corredor", "code": "\ud83c\udfc3\ud83c\udffd", "klass": "_neu"}
+{"description_es": "muchacha", "code": "\ud83d\udc67\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Nueva Zelanda", "code": "\ud83c\uddf3\ud83c\uddff", "klass": "_neu"}
+{"description_es": "bandera de Jersey", "code": "\ud83c\uddef\ud83c\uddea", "klass": "_neu"}
+{"description_es": "apuntando hacia abajo", "code": "\ud83d\udc47\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Santa Helena", "code": "\ud83c\uddf8\ud83c\udded", "klass": "_neu"}
+{"description_es": "bandera de Libia", "code": "\ud83c\uddf1\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "bandera de Argelia", "code": "\ud83c\udde9\ud83c\uddff", "klass": "_neu"}
+{"description_es": "bandera de Portugal", "code": "\ud83c\uddf5\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\u270b\ud83c\udffd", "klass": "_neu"}
+{"description_es": "manos abiertas positivo", "code": "\ud83d\udc50\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Guam", "code": "\ud83c\uddec\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "\u00e1ngel del beb\u00e9", "code": "\ud83d\udc7c\ud83c\udffc", "klass": "_neu"}
+{"description_es": "ce\u00f1o persona", "code": "\ud83d\ude4d\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona recepci\u00f3n", "code": "\ud83d\udc81\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de San Marino", "code": "\ud83c\uddf8\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "agitando la mano bien positivo", "code": "\ud83d\udc4b\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Pakist\u00e1n", "code": "\ud83c\uddf5\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bandera de Sri Lanka", "code": "\ud83c\uddf1\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bandera de Islas Marshall", "code": "\ud83c\uddf2\ud83c\udded", "klass": "_neu"}
+{"description_es": "bandera de Hungr\u00eda", "code": "\ud83c\udded\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "nadador", "code": "\ud83c\udfca\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de la Isla Norfolk", "code": "\ud83c\uddf3\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "bandera de Guinea", "code": "\ud83c\uddec\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "cara buen gesto positivo", "code": "\ud83d\ude46\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Suiza", "code": "\ud83c\udde8\ud83c\udded", "klass": "_neu"}
+{"description_es": "\u00e1ngel del beb\u00e9", "code": "\ud83d\udc7c\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Noruega", "code": "\ud83c\uddf3\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "victoria positivo", "code": "\u270c\ud83c\udfff", "klass": "_pos"}
+{"description_es": "corte de pelo", "code": "\ud83d\udc87\ud83c\udffb", "klass": "_neu"}
+{"description_es": "anciano", "code": "\ud83d\udc74\ud83c\udffd", "klass": "_neu"}
+{"description_es": "masaje facial", "code": "\ud83d\udc86\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona feliz levantando una mano positivo", "code": "\ud83d\ude4b\ud83c\udffb", "klass": "_pos"}
+{"description_es": "\u00edndice medio negativo", "code": "\ud83d\udd95\ud83c\udffd", "klass": "_neg"}
+{"description_es": "bandera de los territorios palestinos", "code": "\ud83c\uddf5\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "soldado de la guardia", "code": "\ud83d\udc82\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Burkina Faso", "code": "\ud83c\udde7\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "levantador de peso", "code": "\ud83c\udfcb\ud83c\udffd", "klass": "_neu"}
+{"description_es": "trabajador de construcci\u00f3n", "code": "\ud83d\udc77\ud83c\udfff", "klass": "_neu"}
+{"description_es": "persona feliz levantando una mano positivo", "code": "\ud83d\ude4b\ud83c\udfff", "klass": "_pos"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\u261d\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Turqu\u00eda", "code": "\ud83c\uddf9\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Filipinas", "code": "\ud83c\uddf5\ud83c\udded", "klass": "_neu"}
+{"description_es": "nadador", "code": "\ud83c\udfca\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Singapur", "code": "\ud83c\uddf8\ud83c\uddec", "klass": "_neu"}
+{"description_es": "bandera de Irak", "code": "\ud83c\uddee\ud83c\uddf6", "klass": "_neu"}
+{"description_es": "bandera de Bhut\u00e1n", "code": "\ud83c\udde7\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "tecla seis", "code": "6\u20e3", "klass": "_neu"}
+{"description_es": "bandera de Liechtenstein", "code": "\ud83c\uddf1\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de B\u00e9lgica", "code": "\ud83c\udde7\ud83c\uddea", "klass": "_neu"}
+{"description_es": "persona recepci\u00f3n", "code": "\ud83d\udc81\ud83c\udffc", "klass": "_neu"}
+{"description_es": "nadador", "code": "\ud83c\udfca\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Francia", "code": "\ud83c\uddeb\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Bangladesh", "code": "\ud83c\udde7\ud83c\udde9", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude45\ud83c\udffe", "klass": "_neg"}
+{"description_es": "bandera de Hong Kong", "code": "\ud83c\udded\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bandera de Aruba", "code": "\ud83c\udde6\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "persona inclin\u00e1ndose", "code": "\ud83d\ude47\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Niue", "code": "\ud83c\uddf3\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "pu\u00f1o", "code": "\ud83d\udc4a\ud83c\udfff", "klass": "_neu"}
+{"description_es": "nariz", "code": "\ud83d\udc43\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Rep\u00fablica Checa", "code": "\ud83c\udde8\ud83c\uddff", "klass": "_neu"}
+{"description_es": "escritura", "code": "\u270d\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Trist\u00e1n de Acu\u00f1a", "code": "\ud83c\uddf9\ud83c\udde6", "klass": "_neu"}
+{"description_es": "bandera de Bahamas", "code": "\ud83c\udde7\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "manos abiertas positivo", "code": "\ud83d\udc50\ud83c\udfff", "klass": "_pos"}
+{"description_es": "mano levantada", "code": "\u270b\ud83c\udffb", "klass": "_neu"}
+{"description_es": "dedo izquierda", "code": "\ud83d\udc48\ud83c\udffb", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\ud83d\udd90\ud83c\udfff", "klass": "_neu"}
+{"description_es": "persona con la bola positivo", "code": "\u26f9\ud83c\udffd", "klass": "_pos"}
+{"description_es": "bandera de Mauricio", "code": "\ud83c\uddf2\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4e\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bote de remos", "code": "\ud83d\udea3\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de la Guayana francesa", "code": "\ud83c\uddec\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "persona en oraci\u00f3n positivo", "code": "\ud83d\ude4f\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de Macao", "code": "\ud83c\uddf2\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "bandera de Jap\u00f3n", "code": "\ud83c\uddef\ud83c\uddf5", "klass": "_neu"}
+{"description_es": "bandera de Montenegro", "code": "\ud83c\uddf2\ud83c\uddea", "klass": "_neu"}
+{"description_es": "bandera de Montserrat", "code": "\ud83c\uddf2\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "bandera de Isla de hombre", "code": "\ud83c\uddee\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "corte de pelo", "code": "\ud83d\udc87\ud83c\udffd", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\ud83d\udc46\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Liberia", "code": "\ud83c\uddf1\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "dedo izquierda", "code": "\ud83d\udc48\ud83c\udfff", "klass": "_neu"}
+{"description_es": "novia con velo", "code": "\ud83d\udc70\ud83c\udffb", "klass": "_neu"}
+{"description_es": "oreja", "code": "\ud83d\udc42\ud83c\udfff", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\ud83d\udc46\ud83c\udffd", "klass": "_neu"}
+{"description_es": "pu\u00f1o", "code": "\ud83d\udc4a\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Islas Marianas del Norte", "code": "\ud83c\uddf2\ud83c\uddf5", "klass": "_neu"}
+{"description_es": "escritura", "code": "\u270d\ud83c\udffc", "klass": "_neu"}
+{"description_es": "princesa positivo", "code": "\ud83d\udc78\ud83c\udffc", "klass": "_pos"}
+{"description_es": "muchacha", "code": "\ud83d\udc67\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Rep\u00fablica Dominicana", "code": "\ud83c\udde9\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "bandera de Ecuador", "code": "\ud83c\uddea\ud83c\udde8", "klass": "_neu"}
+{"description_es": "beb\u00e9", "code": "\ud83d\udc76\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bailar\u00edn positivo", "code": "\ud83d\udc83\ud83c\udffc", "klass": "_pos"}
+{"description_es": "hombre con el turbante", "code": "\ud83d\udc73\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Guatemala", "code": "\ud83c\uddec\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "victoria positivo", "code": "\u270c\ud83c\udffd", "klass": "_pos"}
+{"description_es": "beb\u00e9", "code": "\ud83d\udc76\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Guernesey", "code": "\ud83c\uddec\ud83c\uddec", "klass": "_neu"}
+{"description_es": "bandera de Bermudas", "code": "\ud83c\udde7\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Islas Caim\u00e1n", "code": "\ud83c\uddf0\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "bandera de Uzbekist\u00e1n", "code": "\ud83c\uddfa\ud83c\uddff", "klass": "_neu"}
+{"description_es": "bandera de Armenia", "code": "\ud83c\udde6\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Mongolia", "code": "\ud83c\uddf2\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "persona feliz levantando una mano positivo", "code": "\ud83d\ude4b\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Kirguist\u00e1n", "code": "\ud83c\uddf0\ud83c\uddec", "klass": "_neu"}
+{"description_es": "bandera de Senegal", "code": "\ud83c\uddf8\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "bandera de Guyana", "code": "\ud83c\uddec\ud83c\uddfe", "klass": "_neu"}
+{"description_es": "bandera de Tayikist\u00e1n", "code": "\ud83c\uddf9\ud83c\uddef", "klass": "_neu"}
+{"description_es": "persona con la bola positivo", "code": "\u26f9\ud83c\udffe", "klass": "_pos"}
+{"description_es": "esmalte u\u00f1as", "code": "\ud83d\udc85\ud83c\udffc", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude45\ud83c\udffc", "klass": "_neg"}
+{"description_es": "ok positivo", "code": "\ud83d\udc4c\ud83c\udffb", "klass": "_pos"}
+{"description_es": "corte de pelo", "code": "\ud83d\udc87\ud83c\udffe", "klass": "_neu"}
+{"description_es": "oreja", "code": "\ud83d\udc42\ud83c\udffc", "klass": "_neu"}
+{"description_es": "persona inclin\u00e1ndose", "code": "\ud83d\ude47\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Gibraltar", "code": "\ud83c\uddec\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de Etiop\u00eda", "code": "\ud83c\uddea\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4d\ud83c\udffb", "klass": "_pos"}
+{"description_es": "mano levantada", "code": "\ud83d\udd90\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de la Ciudad del Vaticano", "code": "\ud83c\uddfb\ud83c\udde6", "klass": "_neu"}
+{"description_es": "bandera de Rep\u00fablica Democr\u00e1tica del Congo", "code": "\ud83c\udde8\ud83c\udde9", "klass": "_neu"}
+{"description_es": "bandera de Angola", "code": "\ud83c\udde6\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "bandera de Groenlandia", "code": "\ud83c\uddec\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "cara buen gesto positivo", "code": "\ud83d\ude46\ud83c\udffc", "klass": "_pos"}
+{"description_es": "ce\u00f1o persona", "code": "\ud83d\ude4d\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Polonia", "code": "\ud83c\uddf5\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "bandera de Diego Garc\u00eda", "code": "\ud83c\udde9\ud83c\uddec", "klass": "_neu"}
+{"description_es": "bandera de Nigeria", "code": "\ud83c\uddf3\ud83c\uddea", "klass": "_neu"}
+{"description_es": "aplaudir positivo", "code": "\ud83d\udc4f\ud83c\udffd", "klass": "_pos"}
+{"description_es": "esp\u00eda", "code": "\ud83d\udd75\ud83c\udffc", "klass": "_neu"}
+{"description_es": "agitando la mano bien positivo", "code": "\ud83d\udc4b\ud83c\udfff", "klass": "_pos"}
+{"description_es": "bandera de Togo", "code": "\ud83c\uddf9\ud83c\uddec", "klass": "_neu"}
+{"description_es": "bandera de Fiji", "code": "\ud83c\uddeb\ud83c\uddef", "klass": "_neu"}
+{"description_es": "bandera de Lesoto", "code": "\ud83c\uddf1\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude45\ud83c\udffd", "klass": "_neg"}
+{"description_es": "bandera de Sud\u00e1n", "code": "\ud83c\uddf8\ud83c\udde9", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\ud83d\udd90\ud83c\udffb", "klass": "_neu"}
+{"description_es": "masaje facial", "code": "\ud83d\udc86\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Trinidad & Tobago", "code": "\ud83c\uddf9\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "ce\u00f1o persona", "code": "\ud83d\ude4d\ud83c\udffe", "klass": "_neu"}
+{"description_es": "aplaudir positivo", "code": "\ud83d\udc4f\ud83c\udffb", "klass": "_pos"}
+{"description_es": "trabajador de construcci\u00f3n", "code": "\ud83d\udc77\ud83c\udffb", "klass": "_neu"}
+{"description_es": "levantador de peso", "code": "\ud83c\udfcb\ud83c\udfff", "klass": "_neu"}
+{"description_es": "victoria positivo", "code": "\u270c\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Rusia", "code": "\ud83c\uddf7\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "anciano", "code": "\ud83d\udc74\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Granada", "code": "\ud83c\uddec\ud83c\udde9", "klass": "_neu"}
+{"description_es": "bandera de Estados Unidos", "code": "\ud83c\uddfa\ud83c\uddf8", "klass": "_neu"}
+{"description_es": "persona pucheros negativo", "code": "\ud83d\ude4e\ud83c\udffc", "klass": "_neg"}
+{"description_es": "mano levantada", "code": "\u270b\ud83c\udfff", "klass": "_neu"}
+{"description_es": "surfer", "code": "\ud83c\udfc4\ud83c\udfff", "klass": "_neu"}
+{"description_es": "esmalte u\u00f1as", "code": "\ud83d\udc85\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Indonesia", "code": "\ud83c\uddee\ud83c\udde9", "klass": "_neu"}
+{"description_es": "bandera de Malta", "code": "\ud83c\uddf2\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "bandera de Afganist\u00e1n", "code": "\ud83c\udde6\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "ciclista", "code": "\ud83d\udeb4\ud83c\udffb", "klass": "_neu"}
+{"description_es": "b\u00edceps flexionados", "code": "\ud83d\udcaa\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de las Islas Salom\u00f3n", "code": "\ud83c\uddf8\ud83c\udde7", "klass": "_neu"}
+{"description_es": "tecla uno", "code": "1\u20e3", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4e\ud83c\udffb", "klass": "_pos"}
+{"description_es": "bandera de Eslovaquia", "code": "\ud83c\uddf8\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bandera de Suecia", "code": "\ud83c\uddf8\ud83c\uddea", "klass": "_neu"}
+{"description_es": "santa claus", "code": "\ud83c\udf85\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Dinamarca", "code": "\ud83c\udde9\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bandera de la Isla de Clipperton", "code": "\ud83c\udde8\ud83c\uddf5", "klass": "_neu"}
+{"description_es": "dedo izquierda", "code": "\ud83d\udc48\ud83c\udffe", "klass": "_neu"}
+{"description_es": "anciano", "code": "\ud83d\udc74\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera para el Sahara Occidental", "code": "\ud83c\uddea\ud83c\udded", "klass": "_neu"}
+{"description_es": "bandera de Nepal", "code": "\ud83c\uddf3\ud83c\uddf5", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4d\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Botswana", "code": "\ud83c\udde7\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "bandera de Colombia", "code": "\ud83c\udde8\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "b\u00edceps flexionados", "code": "\ud83d\udcaa\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Dominica", "code": "\ud83c\udde9\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "monta\u00f1a ciclista", "code": "\ud83d\udeb5\ud83c\udffe", "klass": "_neu"}
+{"description_es": "corredor", "code": "\ud83c\udfc3\ud83c\udffe", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4d\ud83c\udffd", "klass": "_pos"}
+{"description_es": "monta\u00f1a ciclista", "code": "\ud83d\udeb5\ud83c\udffc", "klass": "_neu"}
+{"description_es": "ba\u00f1o", "code": "\ud83d\udec0\ud83c\udffc", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude45\ud83c\udfff", "klass": "_neg"}
+{"description_es": "bandera de Kuwait", "code": "\ud83c\uddf0\ud83c\uddfc", "klass": "_neu"}
+{"description_es": "bandera de la Isla de Ascensi\u00f3n", "code": "\ud83c\udde6\ud83c\udde8", "klass": "_neu"}
+{"description_es": "pu\u00f1o alto mal negativo", "code": "\u270a\ud83c\udffc", "klass": "_neg"}
+{"description_es": "tecla cero", "code": "0\u20e3", "klass": "_neu"}
+{"description_es": "persona en oraci\u00f3n positivo", "code": "\ud83d\ude4f\ud83c\udffc", "klass": "_pos"}
+{"description_es": "bandera de Sud\u00e1frica", "code": "\ud83c\uddff\ud83c\udde6", "klass": "_neu"}
+{"description_es": "peaton", "code": "\ud83d\udeb6\ud83c\udfff", "klass": "_neu"}
+{"description_es": "nariz", "code": "\ud83d\udc43\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de San Crist\u00f3bal y Nieves", "code": "\ud83c\uddf0\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "victoria positivo", "code": "\u270c\ud83c\udffc", "klass": "_pos"}
+{"description_es": "bandera de Camboya", "code": "\ud83c\uddf0\ud83c\udded", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\ud83d\udd90\ud83c\udffe", "klass": "_neu"}
+{"description_es": "ciclista", "code": "\ud83d\udeb4\ud83c\udffd", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\ud83d\udc46\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Territorio Brit\u00e1nico del Oc\u00e9ano \u00cdndico", "code": "\ud83c\uddee\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "persona pelo rubio", "code": "\ud83d\udc71\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Santa Luc\u00eda", "code": "\ud83c\uddf1\ud83c\udde8", "klass": "_neu"}
+{"description_es": "cuernos negativo", "code": "\ud83e\udd18\ud83c\udffb", "klass": "_neg"}
+{"description_es": "\u00e1ngel del beb\u00e9", "code": "\ud83d\udc7c\ud83c\udfff", "klass": "_neu"}
+{"description_es": "mano levantada positivo", "code": "\ud83d\udd96\ud83c\udffc", "klass": "_pos"}
+{"description_es": "bandera de Mozambique", "code": "\ud83c\uddf2\ud83c\uddff", "klass": "_neu"}
+{"description_es": "bandera de Turcas y Caicos", "code": "\ud83c\uddf9\ud83c\udde8", "klass": "_neu"}
+{"description_es": "bandera de Islas \u00c5land", "code": "\ud83c\udde6\ud83c\uddfd", "klass": "_neu"}
+{"description_es": "bandera de Gambia", "code": "\ud83c\uddec\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "persona en oraci\u00f3n positivo", "code": "\ud83d\ude4f\ud83c\udffb", "klass": "_pos"}
+{"description_es": "novia con velo", "code": "\ud83d\udc70\ud83c\udffe", "klass": "_neu"}
+{"description_es": "ce\u00f1o persona", "code": "\ud83d\ude4d\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Croacia", "code": "\ud83c\udded\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Yemen", "code": "\ud83c\uddfe\ud83c\uddea", "klass": "_neu"}
+{"description_es": "pu\u00f1o alto mal negativo", "code": "\u270a\ud83c\udffb", "klass": "_neg"}
+{"description_es": "bandera de Islas Perif\u00e9ricas de EE.UU.", "code": "\ud83c\uddfa\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "persona pelo rubio", "code": "\ud83d\udc71\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bailar\u00edn positivo", "code": "\ud83d\udc83\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Tonga", "code": "\ud83c\uddf9\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "hombre con el turbante", "code": "\ud83d\udc73\ud83c\udffb", "klass": "_neu"}
+{"description_es": "bandera de Islas Heard y McDonald", "code": "\ud83c\udded\ud83c\uddf2", "klass": "_neu"}
+{"description_es": "bandera de Macedonia", "code": "\ud83c\uddf2\ud83c\uddf0", "klass": "_neu"}
+{"description_es": "bandera de la Rep\u00fablica Centroafricana", "code": "\ud83c\udde8\ud83c\uddeb", "klass": "_neu"}
+{"description_es": "\u00edndice medio negativo", "code": "\ud83d\udd95\ud83c\udffb", "klass": "_neg"}
+{"description_es": "tecla cinco", "code": "5\u20e3", "klass": "_neu"}
+{"description_es": "bandera de Marruecos", "code": "\ud83c\uddf2\ud83c\udde6", "klass": "_neu"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4d\ud83c\udffc", "klass": "_pos"}
+{"description_es": "peaton", "code": "\ud83d\udeb6\ud83c\udffd", "klass": "_neu"}
+{"description_es": "persona pelo rubio", "code": "\ud83d\udc71\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Estonia", "code": "\ud83c\uddea\ud83c\uddea", "klass": "_neu"}
+{"description_es": "bandera de Jordania", "code": "\ud83c\uddef\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "tecla asterisco", "code": "*\u20e3", "klass": "_neu"}
+{"description_es": "bandera de Antigua & Barbuda", "code": "\ud83c\udde6\ud83c\uddec", "klass": "_neu"}
+{"description_es": "beb\u00e9", "code": "\ud83d\udc76\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de la Isla de Reuni\u00f3n", "code": "\ud83c\uddf7\ud83c\uddea", "klass": "_neu"}
+{"description_es": "bandera de Costa Rica", "code": "\ud83c\udde8\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "agitando la mano bien positivo", "code": "\ud83d\udc4b\ud83c\udffb", "klass": "_pos"}
+{"description_es": "persona en oraci\u00f3n positivo", "code": "\ud83d\ude4f\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera de Hait\u00ed", "code": "\ud83c\udded\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "santa claus", "code": "\ud83c\udf85\ud83c\udffe", "klass": "_neu"}
+{"description_es": "aplaudir positivo", "code": "\ud83d\udc4f\ud83c\udffe", "klass": "_pos"}
+{"description_es": "bandera para China", "code": "\ud83c\udde8\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "esmalte u\u00f1as", "code": "\ud83d\udc85\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Australia", "code": "\ud83c\udde6\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "anciana", "code": "\ud83d\udc75\ud83c\udffb", "klass": "_neu"}
+{"description_es": "masaje facial", "code": "\ud83d\udc86\ud83c\udfff", "klass": "_neu"}
+{"description_es": "bandera de Grecia", "code": "\ud83c\uddec\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Belice", "code": "\ud83c\udde7\ud83c\uddff", "klass": "_neu"}
+{"description_es": "mano levantada positivo", "code": "\ud83d\udd96\ud83c\udfff", "klass": "_pos"}
+{"description_es": "mano levantada", "code": "\u270b\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Santo Tom\u00e9 & Pr\u00edncipe", "code": "\ud83c\uddf8\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "esmalte u\u00f1as", "code": "\ud83d\udc85\ud83c\udffe", "klass": "_neu"}
+{"description_es": "bandera de Corea del Sur", "code": "\ud83c\uddf0\ud83c\uddf7", "klass": "_neu"}
+{"description_es": "bandera de Tanzania", "code": "\ud83c\uddf9\ud83c\uddff", "klass": "_neu"}
+{"description_es": "bandera de Islas Pitcairn", "code": "\ud83c\uddf5\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "manos abiertas positivo", "code": "\ud83d\udc50\ud83c\udffc", "klass": "_pos"}
+{"description_es": "persona feliz levantando una mano positivo", "code": "\ud83d\ude4b\ud83c\udffd", "klass": "_pos"}
+{"description_es": "mano levantada", "code": "\u270b\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Burundi", "code": "\ud83c\udde7\ud83c\uddee", "klass": "_neu"}
+{"description_es": "persona con la bola positivo", "code": "\u26f9\ud83c\udffc", "klass": "_pos"}
+{"description_es": "bandera de Islas Feroe", "code": "\ud83c\uddeb\ud83c\uddf4", "klass": "_neu"}
+{"description_es": "persona inclin\u00e1ndose", "code": "\ud83d\ude47\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de la Ant\u00e1rtida", "code": "\ud83c\udde6\ud83c\uddf6", "klass": "_neu"}
+{"description_es": "mujer", "code": "\ud83d\udc69\ud83c\udffb", "klass": "_neu"}
+{"description_es": "cuernos negativo", "code": "\ud83e\udd18\ud83c\udffc", "klass": "_neg"}
+{"description_es": "mujer", "code": "\ud83d\udc69\ud83c\udffc", "klass": "_neu"}
+{"description_es": "soldado de la guardia", "code": "\ud83d\udc82\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Austria", "code": "\ud83c\udde6\ud83c\uddf9", "klass": "_neu"}
+{"description_es": "bandera de Isla Bouvet", "code": "\ud83c\udde7\ud83c\uddfb", "klass": "_neu"}
+{"description_es": "muchacho", "code": "\ud83d\udc66\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Costa de Marfil", "code": "\ud83c\udde8\ud83c\uddee", "klass": "_neu"}
+{"description_es": "bandera de Mal\u00ed", "code": "\ud83c\uddf2\ud83c\uddf1", "klass": "_neu"}
+{"description_es": "bandera de Namibia", "code": "\ud83c\uddf3\ud83c\udde6", "klass": "_neu"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\u261d\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Canad\u00e1", "code": "\ud83c\udde8\ud83c\udde6", "klass": "_neu"}
+{"description_es": "muchacha", "code": "\ud83d\udc67\ud83c\udffb", "klass": "_neu"}
+{"description_es": "pu\u00f1o alto mal negativo", "code": "\u270a\ud83c\udfff", "klass": "_neg"}
+{"description_es": "bandera de Luxemburgo", "code": "\ud83c\uddf1\ud83c\uddfa", "klass": "_neu"}
+{"description_es": "bote de remos", "code": "\ud83d\udea3\ud83c\udffd", "klass": "_neu"}
+{"description_es": "bandera de Islas Cocos", "code": "\ud83c\udde8\ud83c\udde8", "klass": "_neu"}
+{"description_es": "bandera de la India", "code": "\ud83c\uddee\ud83c\uddf3", "klass": "_neu"}
+{"description_es": "corte de pelo", "code": "\ud83d\udc87\ud83c\udffc", "klass": "_neu"}
+{"description_es": "bandera de Ucrania", "code": "\ud83c\uddfa\ud83c\udde6", "klass": "_neu"}
+{"description_es": "b\u00edceps flexionados", "code": "\ud83d\udcaa\ud83c\udfff", "klass": "_neu"}
+{"description_es": "coraz\u00f3n morado positivo", "code": "\ud83d\udc9c", "klass": "_pos"}
+{"description_es": "dinero con alas", "code": "\ud83d\udcb8", "klass": "_neu"}
+{"description_es": "libra", "code": "\u264e", "klass": "_neu"}
+{"description_es": "familia positivo", "code": "\ud83d\udc6a", "klass": "_pos"}
+{"description_es": "lugar de culto", "code": "\ud83d\uded0", "klass": "_neu"}
+{"description_es": "plazoleta blanco medio", "code": "\u25fd", "klass": "_neu"}
+{"description_es": "bebida caliente", "code": "\u2615", "klass": "_neu"}
+{"description_es": "bolsa", "code": "\ud83d\udc5d", "klass": "_neu"}
+{"description_es": "hoja revoloteando en el viento", "code": "\ud83c\udf43", "klass": "_neu"}
+{"description_es": "acuario", "code": "\u2652", "klass": "_neu"}
+{"description_es": "jeans", "code": "\ud83d\udc56", "klass": "_neu"}
+{"description_es": "pila de mierda negativo", "code": "\ud83d\udca9", "klass": "_neg"}
+{"description_es": "modo vibraci\u00f3n", "code": "\ud83d\udcf3", "klass": "_neu"}
+{"description_es": "tel\u00e9fono negro", "code": "\u260e", "klass": "_neu"}
+{"description_es": "rat\u00f3n de tres botones", "code": "\ud83d\uddb1", "klass": "_neu"}
+{"description_es": "camarones fritos", "code": "\ud83c\udf64", "klass": "_neu"}
+{"description_es": "reciclaje positivo", "code": "\u267b", "klass": "_pos"}
+{"description_es": "\u00edndice tarjeta", "code": "\ud83d\udcc7", "klass": "_neu"}
+{"description_es": "cara llorando en voz alta negativo", "code": "\ud83d\ude2d", "klass": "_neg"}
+{"description_es": "cara gato sonrisa ir\u00f3nica positivo", "code": "\ud83d\ude3c", "klass": "_pos"}
+{"description_es": "coraz\u00f3n azul positivo", "code": "\ud83d\udc99", "klass": "_pos"}
+{"description_es": "reloj de arena", "code": "\u23f3", "klass": "_neu"}
+{"description_es": "buz\u00f3n", "code": "\ud83d\udcec", "klass": "_neu"}
+{"description_es": "pastel positivo", "code": "\ud83c\udf82", "klass": "_pos"}
+{"description_es": "cara gritando de miedo negativo", "code": "\ud83d\ude31", "klass": "_neg"}
+{"description_es": "f\u00e1brica", "code": "\ud83c\udfed", "klass": "_neu"}
+{"description_es": "m\u00e1quina", "code": "\ud83c\udfb0", "klass": "_neu"}
+{"description_es": "bot\u00f3n a", "code": "\ud83c\udd70", "klass": "_neu"}
+{"description_es": "flechas", "code": "\ud83d\udd03", "klass": "_neu"}
+{"description_es": "derechos de autor", "code": "\u00a9", "klass": "_neu"}
+{"description_es": "equipaje de izquierda", "code": "\ud83d\udec5", "klass": "_neu"}
+{"description_es": "barra de chocolate", "code": "\ud83c\udf6b", "klass": "_neu"}
+{"description_es": "decoraci\u00f3n del coraz\u00f3n positivo", "code": "\ud83d\udc9f", "klass": "_pos"}
+{"description_es": "santuario sinto\u00edsta", "code": "\u26e9", "klass": "_neu"}
+{"description_es": "tauro", "code": "\u2649", "klass": "_neu"}
+{"description_es": "biber\u00f3n", "code": "\ud83c\udf7c", "klass": "_neu"}
+{"description_es": "corazones de rotaci\u00f3n positivo", "code": "\ud83d\udc9e", "klass": "_pos"}
+{"description_es": "ofiuco", "code": "\u26ce", "klass": "_neu"}
+{"description_es": "ovejas", "code": "\ud83d\udc11", "klass": "_neu"}
+{"description_es": "brocheta", "code": "\ud83c\udf62", "klass": "_neu"}
+{"description_es": "alto brillo", "code": "\ud83d\udd06", "klass": "_neu"}
+{"description_es": "bot\u00f3n abajo", "code": "\ud83d\udd3d", "klass": "_neu"}
+{"description_es": "cara sin boca negativo", "code": "\ud83d\ude36", "klass": "_neg"}
+{"description_es": "coraz\u00f3n chispeante positivo", "code": "\ud83d\udc96", "klass": "_pos"}
+{"description_es": "signo exclamaci\u00f3n interrogaci\u00f3n", "code": "\u2049", "klass": "_neu"}
+{"description_es": "cara de miedo negativo", "code": "\ud83d\ude28", "klass": "_neg"}
+{"description_es": "pergamino", "code": "\ud83d\udcc3", "klass": "_neu"}
+{"description_es": "bolsos de compras", "code": "\ud83d\udecd", "klass": "_neu"}
+{"description_es": "autom\u00f3vil", "code": "\ud83d\ude97", "klass": "_neu"}
+{"description_es": "globo positivo", "code": "\ud83c\udf88", "klass": "_pos"}
+{"description_es": "coraz\u00f3n que crece positivo", "code": "\ud83d\udc97", "klass": "_pos"}
+{"description_es": "cara llorando negativo", "code": "\ud83d\ude3f", "klass": "_neg"}
+{"description_es": "motor de fuego", "code": "\ud83d\ude92", "klass": "_neu"}
+{"description_es": "sof\u00e1 y l\u00e1mpara", "code": "\ud83d\udecb", "klass": "_neu"}
+{"description_es": "daga", "code": "\ud83d\udde1", "klass": "_neu"}
+{"description_es": "flecha exclamaci\u00f3n", "code": "\ud83d\udd1b", "klass": "_neu"}
+{"description_es": "ferrocarril suspensi\u00f3n", "code": "\ud83d\ude9f", "klass": "_neu"}
+{"description_es": "mezquita", "code": "\ud83d\udd4c", "klass": "_neu"}
+{"description_es": "sand\u00eda", "code": "\ud83c\udf49", "klass": "_neu"}
+{"description_es": "caracol", "code": "\ud83d\udc1a", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude35", "klass": "_neu"}
+{"description_es": "martillo", "code": "\ud83d\udd28", "klass": "_neu"}
+{"description_es": "linterna", "code": "\ud83d\udd26", "klass": "_neu"}
+{"description_es": "pimiento picante", "code": "\ud83c\udf36", "klass": "_neu"}
+{"description_es": "reloj cuatro en punto", "code": "\ud83d\udd53", "klass": "_neu"}
+{"description_es": "jabal\u00ed", "code": "\ud83d\udc17", "klass": "_neu"}
+{"description_es": "estrella de david", "code": "\u2721", "klass": "_neu"}
+{"description_es": "recordatorio de la cinta negativo", "code": "\ud83c\udf97", "klass": "_neg"}
+{"description_es": "mu\u00f1ecas japonesas", "code": "\ud83c\udf8e", "klass": "_neu"}
+{"description_es": "cara llorosa negativo", "code": "\ud83d\ude22", "klass": "_neg"}
+{"description_es": "flecha hac\u00eda derecha arriba", "code": "\ud83d\udd1c", "klass": "_neu"}
+{"description_es": "linterna izakaya", "code": "\ud83c\udfee", "klass": "_neu"}
+{"description_es": "hombre", "code": "\ud83d\udc68", "klass": "_neu"}
+{"description_es": "nuevo", "code": "\ud83c\udd95", "klass": "_neu"}
+{"description_es": "nivel de audio", "code": "\ud83c\udf9a", "klass": "_neu"}
+{"description_es": "discurso", "code": "\ud83d\udde8", "klass": "_neu"}
+{"description_es": "camiseta para correr con el marco", "code": "\ud83c\udfbd", "klass": "_neu"}
+{"description_es": "hamburguesa", "code": "\ud83c\udf54", "klass": "_neu"}
+{"description_es": "elefante", "code": "\ud83d\udc18", "klass": "_neu"}
+{"description_es": "c\u00edrculo azul", "code": "\ud83d\udd35", "klass": "_neu"}
+{"description_es": "mono no escuchar negativo", "code": "\ud83d\ude49", "klass": "_neg"}
+{"description_es": "caramelo", "code": "\ud83c\udf6c", "klass": "_neu"}
+{"description_es": "balanza", "code": "\u2696", "klass": "_neu"}
+{"description_es": "novia con velo", "code": "\ud83d\udc70", "klass": "_neu"}
+{"description_es": "medalla militar positivo", "code": "\ud83c\udf96", "klass": "_pos"}
+{"description_es": "cuadrado blanco peque\u00f1o", "code": "\u25ab", "klass": "_neu"}
+{"description_es": "sobre", "code": "\ud83d\udce8", "klass": "_neu"}
+{"description_es": "reloj doce", "code": "\ud83d\udd5b", "klass": "_neu"}
+{"description_es": "sa katakanas", "code": "\ud83c\ude02", "klass": "_neu"}
+{"description_es": "reloj de alarma", "code": "\u23f0", "klass": "_neu"}
+{"description_es": "geminis", "code": "\u264a", "klass": "_neu"}
+{"description_es": "taxi inminente", "code": "\ud83d\ude96", "klass": "_neu"}
+{"description_es": "jeringa", "code": "\ud83d\udc89", "klass": "_neu"}
+{"description_es": "cara de robot", "code": "\ud83e\udd16", "klass": "_neu"}
+{"description_es": "signo exclamaci\u00f3n", "code": "\u203c", "klass": "_neu"}
+{"description_es": "tr\u00e9bol de cuatro hojas positivo", "code": "\ud83c\udf40", "klass": "_pos"}
+{"description_es": "taco", "code": "\ud83c\udf2e", "klass": "_neu"}
+{"description_es": "hombre y mujer tomados de la mano positivo", "code": "\ud83d\udc6b", "klass": "_pos"}
+{"description_es": "sol negro", "code": "\u2600", "klass": "_neu"}
+{"description_es": "casa con jard\u00edn", "code": "\ud83c\udfe1", "klass": "_neu"}
+{"description_es": "campamento", "code": "\ud83c\udfd5", "klass": "_neu"}
+{"description_es": "fotogramas de la pel\u00edcula", "code": "\ud83c\udf9e", "klass": "_neu"}
+{"description_es": "nube rel\u00e1mpago", "code": "\ud83c\udf29", "klass": "_neu"}
+{"description_es": "zapato de tac\u00f3n", "code": "\ud83d\udc60", "klass": "_neu"}
+{"description_es": "pistola", "code": "\ud83d\udd2b", "klass": "_neu"}
+{"description_es": "radiactivo de la muestra negativo", "code": "\u2622", "klass": "_neg"}
+{"description_es": "libros", "code": "\ud83d\udcda", "klass": "_neu"}
+{"description_es": "sol sobre edificios", "code": "\ud83c\udf07", "klass": "_neu"}
+{"description_es": "cerezas", "code": "\ud83c\udf52", "klass": "_neu"}
+{"description_es": "persona pucheros negativo", "code": "\ud83d\ude4e", "klass": "_neg"}
+{"description_es": "asado patata", "code": "\ud83c\udf60", "klass": "_neu"}
+{"description_es": "signo exclamaci\u00f3n", "code": "\u2755", "klass": "_neu"}
+{"description_es": "autom\u00f3vil inminente", "code": "\ud83d\ude98", "klass": "_neu"}
+{"description_es": "aries", "code": "\u2648", "klass": "_neu"}
+{"description_es": "puerta", "code": "\ud83d\udeaa", "klass": "_neu"}
+{"description_es": "cara cabeza vendada negativo", "code": "\ud83e\udd15", "klass": "_neg"}
+{"description_es": "monocarril", "code": "\ud83d\ude9d", "klass": "_neu"}
+{"description_es": "s\u00edmbolo hombre", "code": "\ud83d\udeb9", "klass": "_neu"}
+{"description_es": "antihorario y flechas", "code": "\ud83d\udd04", "klass": "_neu"}
+{"description_es": "cinema", "code": "\ud83c\udfa6", "klass": "_neu"}
+{"description_es": "bot\u00f3n negro cuadrado", "code": "\ud83d\udd32", "klass": "_neu"}
+{"description_es": "separadores tarjeta", "code": "\ud83d\uddc2", "klass": "_neu"}
+{"description_es": "reloj tres y media", "code": "\ud83d\udd5e", "klass": "_neu"}
+{"description_es": "ducha", "code": "\ud83d\udebf", "klass": "_neu"}
+{"description_es": "dona", "code": "\ud83c\udf69", "klass": "_neu"}
+{"description_es": "c\u00edrculo grande", "code": "\u2b55", "klass": "_neu"}
+{"description_es": "bandera ondeando", "code": "\ud83c\udff3", "klass": "_neu"}
+{"description_es": "casco con cruz blanca", "code": "\u26d1", "klass": "_neu"}
+{"description_es": "bot\u00f3n grabar", "code": "\u23fa", "klass": "_neu"}
+{"description_es": "urna verificaci\u00f3n positivo", "code": "\u2611", "klass": "_pos"}
+{"description_es": "tulip\u00e1n positivo", "code": "\ud83c\udf37", "klass": "_pos"}
+{"description_es": "parque nacional", "code": "\ud83c\udfde", "klass": "_neu"}
+{"description_es": "marco con la imagen", "code": "\ud83d\uddbc", "klass": "_neu"}
+{"description_es": "tel\u00e9fono m\u00f3vil con flecha", "code": "\ud83d\udcf2", "klass": "_neu"}
+{"description_es": "urbano", "code": "\ud83c\udfd9", "klass": "_neu"}
+{"description_es": "coraz\u00f3n roto negativo", "code": "\ud83d\udc94", "klass": "_neg"}
+{"description_es": "leopardo", "code": "\ud83d\udc06", "klass": "_neu"}
+{"description_es": "signo divisi\u00f3n", "code": "\u2797", "klass": "_neu"}
+{"description_es": "exclamaci\u00f3n", "code": "\ud83c\udd99", "klass": "_neu"}
+{"description_es": "cartera", "code": "\ud83d\udcbc", "klass": "_neu"}
+{"description_es": "dos hombres tomados de la mano positivo", "code": "\ud83d\udc6c", "klass": "_pos"}
+{"description_es": "cara buen gesto positivo", "code": "\ud83d\ude46", "klass": "_pos"}
+{"description_es": "cara que besa", "code": "\ud83d\ude17", "klass": "_neu"}
+{"description_es": "tranv\u00eda", "code": "\ud83d\ude8a", "klass": "_neu"}
+{"description_es": "sobre flecha encima", "code": "\ud83d\udce9", "klass": "_neu"}
+{"description_es": "cara de pensamiento", "code": "\ud83e\udd14", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u21aa", "klass": "_neu"}
+{"description_es": "cara sonriente con gafas de sol positivo", "code": "\ud83d\ude0e", "klass": "_pos"}
+{"description_es": "autob\u00fas", "code": "\ud83d\ude8c", "klass": "_neu"}
+{"description_es": "bicicleta", "code": "\ud83d\udeb2", "klass": "_neu"}
+{"description_es": "enhorabuena", "code": "\u3297", "klass": "_neu"}
+{"description_es": "semillero", "code": "\ud83c\udf31", "klass": "_neu"}
+{"description_es": "hombre negocios positivo", "code": "\ud83d\udd74", "klass": "_pos"}
+{"description_es": "reclamo de equipaje", "code": "\ud83d\udec4", "klass": "_neu"}
+{"description_es": "\u00e1rbol de navidad positivo", "code": "\ud83c\udf84", "klass": "_pos"}
+{"description_es": "festejo positivo", "code": "\ud83c\udf89", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2733", "klass": "_neu"}
+{"description_es": "flecha arriba negro", "code": "\u2b06", "klass": "_neu"}
+{"description_es": "s\u00edmbolo d\u00f3lar", "code": "\ud83d\udcb2", "klass": "_neu"}
+{"description_es": "ira negativo", "code": "\ud83d\uddef", "klass": "_neg"}
+{"description_es": "altavoz", "code": "\ud83d\udd08", "klass": "_neu"}
+{"description_es": "persona en oraci\u00f3n positivo", "code": "\ud83d\ude4f", "klass": "_pos"}
+{"description_es": "cara vaca", "code": "\ud83d\udc2e", "klass": "_neu"}
+{"description_es": "reloj dos y media", "code": "\ud83d\udd5d", "klass": "_neu"}
+{"description_es": "antena de sat\u00e9lite", "code": "\ud83d\udce1", "klass": "_neu"}
+{"description_es": "mu\u00f1eco", "code": "\u2603", "klass": "_neu"}
+{"description_es": "tri\u00e1ngulo rojo arriba", "code": "\ud83d\udd3a", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude38", "klass": "_neu"}
+{"description_es": "uvas", "code": "\ud83c\udf47", "klass": "_neu"}
+{"description_es": "capricornio", "code": "\u2651", "klass": "_neu"}
+{"description_es": "remos", "code": "\ud83d\udea3", "klass": "_neu"}
+{"description_es": "autopista", "code": "\ud83d\udee3", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude34", "klass": "_neu"}
+{"description_es": "carne en hueso", "code": "\ud83c\udf56", "klass": "_neu"}
+{"description_es": "tren bala", "code": "\ud83d\ude85", "klass": "_neu"}
+{"description_es": "se enfrentan con l\u00e1grimas de alegr\u00eda positivo", "code": "\ud83d\ude02", "klass": "_pos"}
+{"description_es": "peaton", "code": "\ud83d\udeb6", "klass": "_neu"}
+{"description_es": "coraz\u00f3n que late positivo", "code": "\ud83d\udc93", "klass": "_pos"}
+{"description_es": "cara lanzando un beso", "code": "\ud83d\ude18", "klass": "_pos"}
+{"description_es": "helado", "code": "\ud83c\udf66", "klass": "_neu"}
+{"description_es": "cara sonriente gato positivo", "code": "\ud83d\ude38", "klass": "_pos"}
+{"description_es": "bento box", "code": "\ud83c\udf71", "klass": "_neu"}
+{"description_es": "buz\u00f3n", "code": "\ud83d\udceb", "klass": "_neu"}
+{"description_es": "cara sonriente con halo positivo", "code": "\ud83d\ude07", "klass": "_pos"}
+{"description_es": "victoria positivo", "code": "\u270c", "klass": "_pos"}
+{"description_es": "pierna de ave", "code": "\ud83c\udf57", "klass": "_neu"}
+{"description_es": "minib\u00fas", "code": "\ud83d\ude90", "klass": "_neu"}
+{"description_es": "bot\u00f3n detener", "code": "\u23f9", "klass": "_neu"}
+{"description_es": "ping\u00fcino", "code": "\ud83d\udc27", "klass": "_neu"}
+{"description_es": "puente en la noche", "code": "\ud83c\udf09", "klass": "_neu"}
+{"description_es": "levantador de pesas", "code": "\ud83c\udfcb", "klass": "_neu"}
+{"description_es": "v\u00eda del tren", "code": "\ud83d\udee4", "klass": "_neu"}
+{"description_es": "reloj siete en punto", "code": "\ud83d\udd56", "klass": "_neu"}
+{"description_es": "pin", "code": "\ud83d\udccd", "klass": "_neu"}
+{"description_es": "torre de tokio", "code": "\ud83d\uddfc", "klass": "_neu"}
+{"description_es": "computadora de escritorio", "code": "\ud83d\udda5", "klass": "_neu"}
+{"description_es": "caja de tarjeta de archivo", "code": "\ud83d\uddc3", "klass": "_neu"}
+{"description_es": "cuchillo de cocina", "code": "\ud83d\udd2a", "klass": "_neu"}
+{"description_es": "sombrero de mujer", "code": "\ud83d\udc52", "klass": "_neu"}
+{"description_es": "brocha", "code": "\ud83d\udd8c", "klass": "_neu"}
+{"description_es": "cara so\u00f1olienta negativo", "code": "\ud83d\ude2a", "klass": "_neg"}
+{"description_es": "tel\u00e9fono m\u00f3vil", "code": "\ud83d\udcf1", "klass": "_neu"}
+{"description_es": "negativo cruz cuadrada marca negativo", "code": "\u274e", "klass": "_neg"}
+{"description_es": "carrusel", "code": "\ud83c\udfa0", "klass": "_neu"}
+{"description_es": "muestra de la construcci\u00f3n", "code": "\ud83d\udea7", "klass": "_neu"}
+{"description_es": "luna nueva", "code": "\ud83c\udf17", "klass": "_neu"}
+{"description_es": "cara sonriente con la boca abierta y sudor fr\u00edo", "code": "\ud83d\ude05", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2934", "klass": "_neu"}
+{"description_es": "b\u00fafalo", "code": "\ud83d\udc03", "klass": "_neu"}
+{"description_es": "candado abierto", "code": "\ud83d\udd13", "klass": "_neu"}
+{"description_es": "luna", "code": "\ud83c\udf14", "klass": "_neu"}
+{"description_es": "dedo derecha", "code": "\ud83d\udc49", "klass": "_neu"}
+{"description_es": "cara caballo", "code": "\ud83d\udc34", "klass": "_neu"}
+{"description_es": "paquete", "code": "\ud83d\udce6", "klass": "_neu"}
+{"description_es": "n\u00famero cien", "code": "\ud83d\udcaf", "klass": "_neu"}
+{"description_es": "pensamiento", "code": "\ud83d\udcad", "klass": "_neu"}
+{"description_es": "sol detr\u00e1s nube", "code": "\u26c5", "klass": "_neu"}
+{"description_es": "s\u00edmbolo beb\u00e9", "code": "\ud83d\udebc", "klass": "_neu"}
+{"description_es": "edificio", "code": "\ud83c\udfe0", "klass": "_neu"}
+{"description_es": "halloween", "code": "\ud83c\udf83", "klass": "_neu"}
+{"description_es": "v\u00eda l\u00e1ctea", "code": "\ud83c\udf0c", "klass": "_neu"}
+{"description_es": "luna", "code": "\ud83c\udf1b", "klass": "_neu"}
+{"description_es": "sinagoga", "code": "\ud83d\udd4d", "klass": "_neu"}
+{"description_es": "pi\u00f1a", "code": "\ud83c\udf4d", "klass": "_neu"}
+{"description_es": "cara conejo", "code": "\ud83d\udc30", "klass": "_neu"}
+{"description_es": "taxi", "code": "\ud83d\ude95", "klass": "_neu"}
+{"description_es": "coraz\u00f3n rojo positivo", "code": "\u2764", "klass": "_pos"}
+{"description_es": "muchacho", "code": "\ud83d\udc66", "klass": "_neu"}
+{"description_es": "rosa positivo", "code": "\ud83c\udff5", "klass": "_pos"}
+{"description_es": "abeja", "code": "\ud83d\udc1d", "klass": "_neu"}
+{"description_es": "coraz\u00f3n con la flecha positivo", "code": "\ud83d\udc98", "klass": "_pos"}
+{"description_es": "beb\u00e9", "code": "\ud83d\udc76", "klass": "_neu"}
+{"description_es": "clips", "code": "\ud83d\udd87", "klass": "_neu"}
+{"description_es": "japon\u00e9s ogro negativo", "code": "\ud83d\udc79", "klass": "_neg"}
+{"description_es": "pollo", "code": "\ud83d\udc14", "klass": "_neu"}
+{"description_es": "cama", "code": "\ud83d\udecf", "klass": "_neu"}
+{"description_es": "libro cerrado", "code": "\ud83d\udcd5", "klass": "_neu"}
+{"description_es": "billetes euro", "code": "\ud83d\udcb6", "klass": "_neu"}
+{"description_es": "s\u00edmbolo de om om", "code": "\ud83d\udd49", "klass": "_neu"}
+{"description_es": "persona feliz levantando una mano positivo", "code": "\ud83d\ude4b", "klass": "_pos"}
+{"description_es": "labial", "code": "\ud83d\udc84", "klass": "_neu"}
+{"description_es": "bot\u00f3n p", "code": "\ud83c\udd7f", "klass": "_neu"}
+{"description_es": "paleta", "code": "\ud83c\udf6d", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\ud83d\udd90", "klass": "_neu"}
+{"description_es": "ancla", "code": "\u2693", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude2f", "klass": "_neu"}
+{"description_es": "cara oso", "code": "\ud83d\udc3b", "klass": "_neu"}
+{"description_es": "tenis de mesa y bola", "code": "\ud83c\udfd3", "klass": "_neu"}
+{"description_es": "mono no hablar negativo", "code": "\ud83d\ude4a", "klass": "_neg"}
+{"description_es": "bot\u00f3n blanco cuadrado", "code": "\ud83d\udd33", "klass": "_neu"}
+{"description_es": "parada de autob\u00fas", "code": "\ud83d\ude8f", "klass": "_neu"}
+{"description_es": "botones campana", "code": "\ud83d\udece", "klass": "_neu"}
+{"description_es": "paleta del artista", "code": "\ud83c\udfa8", "klass": "_neu"}
+{"description_es": "pan", "code": "\ud83c\udf5e", "klass": "_neu"}
+{"description_es": "avion peque\u00f1o", "code": "\ud83d\udee9", "klass": "_neu"}
+{"description_es": "cara confusa negativo", "code": "\ud83d\ude15", "klass": "_neg"}
+{"description_es": "bota de mujer", "code": "\ud83d\udc62", "klass": "_neu"}
+{"description_es": "diamante peque\u00f1o naranja", "code": "\ud83d\udd38", "klass": "_neu"}
+{"description_es": "hotel del amor positivo", "code": "\ud83c\udfe9", "klass": "_pos"}
+{"description_es": "dragon", "code": "\ud83d\udc09", "klass": "_neu"}
+{"description_es": "cablecarril monta\u00f1a", "code": "\ud83d\udea0", "klass": "_neu"}
+{"description_es": "libro naranja", "code": "\ud83d\udcd9", "klass": "_neu"}
+{"description_es": "piel", "code": "\ud83c\udffb", "klass": "_neu"}
+{"description_es": "trackball", "code": "\ud83d\uddb2", "klass": "_neu"}
+{"description_es": "carpa de circo", "code": "\ud83c\udfaa", "klass": "_neu"}
+{"description_es": "reloj", "code": "\u231a", "klass": "_neu"}
+{"description_es": "tren ligero", "code": "\ud83d\ude88", "klass": "_neu"}
+{"description_es": "luna llena", "code": "\ud83c\udf16", "klass": "_neu"}
+{"description_es": "pesada multiplicaci\u00f3n x negativo", "code": "\u2716", "klass": "_neg"}
+{"description_es": "cara decepcionado", "code": "\ud83d\ude25", "klass": "_neu"}
+{"description_es": "tr\u00e9bol positivo", "code": "\u2618", "klass": "_pos"}
+{"description_es": "tienda departamental", "code": "\ud83c\udfec", "klass": "_neu"}
+{"description_es": "arco y flecha", "code": "\ud83c\udff9", "klass": "_neu"}
+{"description_es": "banderas cruzadas", "code": "\ud83c\udf8c", "klass": "_neu"}
+{"description_es": "coraz\u00f3n amarillo positivo", "code": "\ud83d\udc9b", "klass": "_pos"}
+{"description_es": "reloj ocho y media", "code": "\ud83d\udd63", "klass": "_neu"}
+{"description_es": "se\u00f1al basura", "code": "\ud83d\udeae", "klass": "_neu"}
+{"description_es": "pu\u00f1o alto mal negativo", "code": "\u270a", "klass": "_neg"}
+{"description_es": "banana", "code": "\ud83c\udf4c", "klass": "_neu"}
+{"description_es": "cara smirking positivo", "code": "\ud83d\ude0f", "klass": "_pos"}
+{"description_es": "\u00e1nfora", "code": "\ud83c\udffa", "klass": "_neu"}
+{"description_es": "stick ice hockey", "code": "\ud83c\udfd2", "klass": "_neu"}
+{"description_es": "encontra", "code": "\ud83c\udd9a", "klass": "_neu"}
+{"description_es": "tomate", "code": "\ud83c\udf45", "klass": "_neu"}
+{"description_es": "patatas fritas", "code": "\ud83c\udf5f", "klass": "_neu"}
+{"description_es": "nave de pasajero", "code": "\ud83d\udef3", "klass": "_neu"}
+{"description_es": "sol con cara", "code": "\ud83c\udf1e", "klass": "_neu"}
+{"description_es": "engranaje", "code": "\u2699", "klass": "_neu"}
+{"description_es": "tren de monta\u00f1a", "code": "\ud83d\ude9e", "klass": "_neu"}
+{"description_es": "reloj cuatro y media", "code": "\ud83d\udd5f", "klass": "_neu"}
+{"description_es": "ca\u00f1a de pescar", "code": "\ud83c\udfa3", "klass": "_neu"}
+{"description_es": "cuadrado negro mediano peque\u00f1o", "code": "\u25fe", "klass": "_neu"}
+{"description_es": "marca registrada", "code": "\u00ae", "klass": "_neu"}
+{"description_es": "rev\u00e9s cara negativo", "code": "\ud83d\ude43", "klass": "_neg"}
+{"description_es": "signo m\u00e1s", "code": "\u2795", "klass": "_neu"}
+{"description_es": "television", "code": "\ud83d\udcfa", "klass": "_neu"}
+{"description_es": "bola confeti positivo", "code": "\ud83c\udf8a", "klass": "_pos"}
+{"description_es": "piscis", "code": "\u2653", "klass": "_neu"}
+{"description_es": "nariz", "code": "\ud83d\udc43", "klass": "_neu"}
+{"description_es": "brocheta", "code": "\ud83c\udf61", "klass": "_neu"}
+{"description_es": "monta\u00f1a rusa", "code": "\ud83c\udfa2", "klass": "_neu"}
+{"description_es": "metro", "code": "\ud83d\ude87", "klass": "_neu"}
+{"description_es": "palanca juego", "code": "\ud83d\udd79", "klass": "_neu"}
+{"description_es": "libro verde", "code": "\ud83d\udcd7", "klass": "_neu"}
+{"description_es": "pez fish", "code": "\ud83d\udc20", "klass": "_neu"}
+{"description_es": "bebida tropical", "code": "\ud83c\udf79", "klass": "_neu"}
+{"description_es": "taza de cerveza", "code": "\ud83c\udf7a", "klass": "_neu"}
+{"description_es": "p\u00edldora", "code": "\ud83d\udc8a", "klass": "_neu"}
+{"description_es": "bomba negativo", "code": "\ud83d\udca3", "klass": "_neg"}
+{"description_es": "helado", "code": "\ud83c\udf68", "klass": "_neu"}
+{"description_es": "se\u00f1al", "code": "\u26a0", "klass": "_neu"}
+{"description_es": "gr\u00e1fico baja negativo", "code": "\ud83d\udcc9", "klass": "_neg"}
+{"description_es": "cara tigre", "code": "\ud83d\udc2f", "klass": "_neu"}
+{"description_es": "bucle rizado doble", "code": "\u27bf", "klass": "_neu"}
+{"description_es": "identificador", "code": "\ud83c\udd94", "klass": "_neu"}
+{"description_es": "rebanada de pastel", "code": "\ud83c\udf70", "klass": "_neu"}
+{"description_es": "ondulado raya", "code": "\u3030", "klass": "_neu"}
+{"description_es": "edificio cl\u00e1sico", "code": "\ud83c\udfdb", "klass": "_neu"}
+{"description_es": "persona levantando ambas manos en celebraci\u00f3n positivo", "code": "\ud83d\ude4c", "klass": "_pos"}
+{"description_es": "regalo envuelto", "code": "\ud83c\udf81", "klass": "_neu"}
+{"description_es": "camello dos joroba", "code": "\ud83d\udc2b", "klass": "_neu"}
+{"description_es": "noche con estrellas", "code": "\ud83c\udf03", "klass": "_neu"}
+{"description_es": "tierra americas", "code": "\ud83c\udf0e", "klass": "_neu"}
+{"description_es": "huellas", "code": "\ud83d\udc63", "klass": "_neu"}
+{"description_es": "tortuga", "code": "\ud83d\udc22", "klass": "_neu"}
+{"description_es": "ce\u00f1o persona", "code": "\ud83d\ude4d", "klass": "_neu"}
+{"description_es": "rostro dormido negativo", "code": "\ud83d\ude34", "klass": "_neg"}
+{"description_es": "fantasma negativo", "code": "\ud83d\udc7b", "klass": "_neg"}
+{"description_es": "bot\u00f3n pausa", "code": "\u23f8", "klass": "_neu"}
+{"description_es": "entrada prohibida negativo", "code": "\ud83d\udeab", "klass": "_neg"}
+{"description_es": "nublado negativo", "code": "\ud83c\udf01", "klass": "_neg"}
+{"description_es": "signo exclamaci\u00f3n", "code": "\u2757", "klass": "_neu"}
+{"description_es": "crayon", "code": "\ud83d\udd8d", "klass": "_neu"}
+{"description_es": "monedero", "code": "\ud83d\udc5b", "klass": "_neu"}
+{"description_es": "c\u00e1ncer", "code": "\u264b", "klass": "_neu"}
+{"description_es": "term\u00f3metro", "code": "\ud83c\udf21", "klass": "_neu"}
+{"description_es": "estrella ocho puntas", "code": "\u2734", "klass": "_neu"}
+{"description_es": "controles", "code": "\ud83c\udf9b", "klass": "_neu"}
+{"description_es": "dos corazones positivo", "code": "\ud83d\udc95", "klass": "_pos"}
+{"description_es": "inodoro", "code": "\ud83d\udebd", "klass": "_neu"}
+{"description_es": "cara m\u00e1scara m\u00e9dica postivo", "code": "\ud83d\ude37", "klass": "_neu"}
+{"description_es": "nube tornado", "code": "\ud83c\udf2a", "klass": "_neu"}
+{"description_es": "regla", "code": "\ud83d\udccf", "klass": "_neu"}
+{"description_es": "anciano", "code": "\ud83d\udc74", "klass": "_neu"}
+{"description_es": "caracol", "code": "\ud83d\udc0c", "klass": "_neu"}
+{"description_es": "llave antigua", "code": "\ud83d\udddd", "klass": "_neu"}
+{"description_es": "noria", "code": "\ud83c\udfa1", "klass": "_neu"}
+{"description_es": "cara con expresi\u00f3n de triunfo positivo", "code": "\ud83d\ude24", "klass": "_pos"}
+{"description_es": "busto en silueta", "code": "\ud83d\udc64", "klass": "_neu"}
+{"description_es": "reloj una y media", "code": "\ud83d\udd5c", "klass": "_neu"}
+{"description_es": "bot\u00f3n ab", "code": "\ud83c\udd8e", "klass": "_neu"}
+{"description_es": "fresa", "code": "\ud83c\udf53", "klass": "_neu"}
+{"description_es": "cara panda", "code": "\ud83d\udc3c", "klass": "_neu"}
+{"description_es": "mochila escolar", "code": "\ud83c\udf92", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2b05", "klass": "_neu"}
+{"description_es": "carta de amor positivo", "code": "\ud83d\udc8c", "klass": "_pos"}
+{"description_es": "cabra", "code": "\ud83d\udc10", "klass": "_neu"}
+{"description_es": "ciclista", "code": "\ud83d\udeb4", "klass": "_neu"}
+{"description_es": "regla triangular", "code": "\ud83d\udcd0", "klass": "_neu"}
+{"description_es": "chispas positivo", "code": "\u2728", "klass": "_pos"}
+{"description_es": "cicl\u00f3n", "code": "\ud83c\udf00", "klass": "_neu"}
+{"description_es": "gotas de sudor negativo", "code": "\ud83d\udca6", "klass": "_neg"}
+{"description_es": "s\u00edmbolo de paz positivo", "code": "\u262e", "klass": "_pos"}
+{"description_es": "pergamino", "code": "\ud83d\udcdc", "klass": "_neu"}
+{"description_es": "control fuerte marca", "code": "\u2714", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2197", "klass": "_neu"}
+{"description_es": "flor blanca positivo", "code": "\ud83d\udcae", "klass": "_pos"}
+{"description_es": "nube", "code": "\u2601", "klass": "_neu"}
+{"description_es": "corno", "code": "\ud83d\udcef", "klass": "_neu"}
+{"description_es": "s\u00edmbolo agua potable", "code": "\ud83d\udeb0", "klass": "_neu"}
+{"description_es": "sol detr\u00e1s nube", "code": "\ud83c\udf25", "klass": "_neu"}
+{"description_es": "arena", "code": "\u231b", "klass": "_neu"}
+{"description_es": "flor positivo", "code": "\ud83c\udf3c", "klass": "_pos"}
+{"description_es": "teclado", "code": "\u2328", "klass": "_neu"}
+{"description_es": "archivador", "code": "\ud83d\uddc4", "klass": "_neu"}
+{"description_es": "bolso", "code": "\ud83d\udc5c", "klass": "_neu"}
+{"description_es": "boda", "code": "\ud83d\udc92", "klass": "_neu"}
+{"description_es": "serpentina de carpas", "code": "\ud83c\udf8f", "klass": "_neu"}
+{"description_es": "lancha", "code": "\ud83d\udea4", "klass": "_neu"}
+{"description_es": "sem\u00e1foro vertical", "code": "\ud83d\udea6", "klass": "_neu"}
+{"description_es": "control pasaportes", "code": "\ud83d\udec2", "klass": "_neu"}
+{"description_es": "c\u00edrculo flechas", "code": "\ud83d\udd01", "klass": "_neu"}
+{"description_es": "santa claus", "code": "\ud83c\udf85", "klass": "_neu"}
+{"description_es": "gema", "code": "\ud83d\udc8e", "klass": "_neu"}
+{"description_es": "tarjeta de cr\u00e9dito", "code": "\ud83d\udcb3", "klass": "_neu"}
+{"description_es": "rostro cansado negativo", "code": "\ud83d\ude2b", "klass": "_neg"}
+{"description_es": "cara de gato con l\u00e1grimas de alegr\u00eda positivo", "code": "\ud83d\ude39", "klass": "_pos"}
+{"description_es": "bikini", "code": "\ud83d\udc59", "klass": "_neu"}
+{"description_es": "ok positivo", "code": "\ud83d\udc4c", "klass": "_pos"}
+{"description_es": "nube con lluvia", "code": "\ud83c\udf27", "klass": "_neu"}
+{"description_es": "ropa de mujer", "code": "\ud83d\udc5a", "klass": "_neu"}
+{"description_es": "tarjetas de juego", "code": "\ud83c\udfb4", "klass": "_neu"}
+{"description_es": "luna ceremonia positivo", "code": "\ud83c\udf91", "klass": "_pos"}
+{"description_es": "bandera triangular", "code": "\ud83d\udea9", "klass": "_neu"}
+{"description_es": "niebla", "code": "\ud83c\udf2b", "klass": "_neu"}
+{"description_es": "luna", "code": "\ud83c\udf1c", "klass": "_neu"}
+{"description_es": "katakana koko", "code": "\ud83c\ude01", "klass": "_neu"}
+{"description_es": "pico", "code": "\u26cf", "klass": "_neu"}
+{"description_es": "oficina", "code": "\ud83c\udfe2", "klass": "_neu"}
+{"description_es": "cerezo", "code": "\ud83c\udf38", "klass": "_neu"}
+{"description_es": "hoja caida", "code": "\ud83c\udf42", "klass": "_neu"}
+{"description_es": "flan", "code": "\ud83c\udf6e", "klass": "_neu"}
+{"description_es": "candado", "code": "\ud83d\udd12", "klass": "_neu"}
+{"description_es": "recuadro gn", "code": "\ud83c\udd96", "klass": "_neu"}
+{"description_es": "estrella y luna creciente", "code": "\u262a", "klass": "_neu"}
+{"description_es": "pez", "code": "\ud83d\udc1f", "klass": "_neu"}
+{"description_es": "menorah", "code": "\ud83d\udd4e", "klass": "_neu"}
+{"description_es": "beso positivo", "code": "\ud83d\udc8f", "klass": "_pos"}
+{"description_es": "grimacing cara negativo", "code": "\ud83d\ude2c", "klass": "_neg"}
+{"description_es": "bot\u00f3n radio", "code": "\ud83d\udd18", "klass": "_neu"}
+{"description_es": "b\u00edceps flexionados", "code": "\ud83d\udcaa", "klass": "_neu"}
+{"description_es": "sandalia de la mujer", "code": "\ud83d\udc61", "klass": "_neu"}
+{"description_es": "reloj seis en punto", "code": "\ud83d\udd55", "klass": "_neu"}
+{"description_es": "bandera  NEGRa", "code": "\ud83c\udff4", "klass": "_neu"}
+{"description_es": "boca", "code": "\ud83d\udc44", "klass": "_neu"}
+{"description_es": "onda de agua", "code": "\ud83c\udf0a", "klass": "_neu"}
+{"description_es": "trofeo positivo", "code": "\ud83c\udfc6", "klass": "_pos"}
+{"description_es": "decoraci\u00f3n de pino", "code": "\ud83c\udf8d", "klass": "_neu"}
+{"description_es": "carpeta de archivo", "code": "\ud83d\udcc1", "klass": "_neu"}
+{"description_es": "meg\u00e1fono", "code": "\ud83d\udce3", "klass": "_neu"}
+{"description_es": "cuaderno de espiral", "code": "\ud83d\uddd2", "klass": "_neu"}
+{"description_es": "minidisco", "code": "\ud83d\udcbd", "klass": "_neu"}
+{"description_es": "calzado deportivo", "code": "\ud83d\udc5f", "klass": "_neu"}
+{"description_es": "cara mareado negativo", "code": "\ud83d\ude35", "klass": "_neg"}
+{"description_es": "coraz\u00f3n verde positivo", "code": "\ud83d\udc9a", "klass": "_pos"}
+{"description_es": "diamante con punto", "code": "\ud83d\udca0", "klass": "_neu"}
+{"description_es": "ba\u00f1era", "code": "\ud83d\udec1", "klass": "_neu"}
+{"description_es": "sat\u00e9lite", "code": "\ud83d\udef0", "klass": "_neu"}
+{"description_es": "altavoz muda", "code": "\ud83d\udd07", "klass": "_neu"}
+{"description_es": "banco", "code": "\ud83c\udfe6", "klass": "_neu"}
+{"description_es": "bolsa de dinero", "code": "\ud83d\udcb0", "klass": "_neu"}
+{"description_es": "trabajador de construcci\u00f3n", "code": "\ud83d\udc77", "klass": "_neu"}
+{"description_es": "luna llena", "code": "\ud83c\udf15", "klass": "_neu"}
+{"description_es": "cara sonriente gato ojos coraz\u00f3n positivo", "code": "\ud83d\ude3b", "klass": "_pos"}
+{"description_es": "luna", "code": "\ud83c\udf13", "klass": "_neu"}
+{"description_es": "baloncesto y aro de baloncesto", "code": "\ud83c\udfc0", "klass": "_neu"}
+{"description_es": "estaci\u00f3n", "code": "\ud83d\ude89", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u27a1", "klass": "_neu"}
+{"description_es": "corte de pelo", "code": "\ud83d\udc87", "klass": "_neu"}
+{"description_es": "espiral calendario", "code": "\ud83d\uddd3", "klass": "_neu"}
+{"description_es": "mel\u00f3n", "code": "\ud83c\udf48", "klass": "_neu"}
+{"description_es": "ce\u00f1o fruncido con la boca abierta negativo", "code": "\ud83d\ude26", "klass": "_neg"}
+{"description_es": "camiseta", "code": "\ud83d\udc55", "klass": "_neu"}
+{"description_es": "buz\u00f3n", "code": "\ud83d\udced", "klass": "_neu"}
+{"description_es": "lentes", "code": "\ud83d\udc53", "klass": "_neu"}
+{"description_es": "sushi", "code": "\ud83c\udf63", "klass": "_neu"}
+{"description_es": "c\u00e1mara de pel\u00edcula", "code": "\ud83c\udfa5", "klass": "_neu"}
+{"description_es": "cara cerdo", "code": "\ud83d\udc37", "klass": "_neu"}
+{"description_es": "oficina postal", "code": "\ud83c\udfe3", "klass": "_neu"}
+{"description_es": "japon\u00e9s duende negativo", "code": "\ud83d\udc7a", "klass": "_neg"}
+{"description_es": "reloj tres en punto", "code": "\ud83d\udd52", "klass": "_neu"}
+{"description_es": "mo\u00f1o", "code": "\ud83c\udf80", "klass": "_neu"}
+{"description_es": "candado cerrado", "code": "\ud83d\udd10", "klass": "_neu"}
+{"description_es": "persona jugando positivo", "code": "\u26f9", "klass": "_pos"}
+{"description_es": "cara de mono", "code": "\ud83d\udc35", "klass": "_neu"}
+{"description_es": "cuadrado negro mediano", "code": "\u25fc", "klass": "_neu"}
+{"description_es": "copa de vino", "code": "\ud83c\udf77", "klass": "_neu"}
+{"description_es": "coche de polic\u00eda", "code": "\ud83d\ude93", "klass": "_neu"}
+{"description_es": "corbata", "code": "\ud83d\udc54", "klass": "_neu"}
+{"description_es": "rugby de f\u00fatbol", "code": "\ud83c\udfc9", "klass": "_neu"}
+{"description_es": "urnas con boleta", "code": "\ud83d\uddf3", "klass": "_neu"}
+{"description_es": "signo de riesgo biol\u00f3gico riesgo biol\u00f3gico negativo", "code": "\u2623", "klass": "_neg"}
+{"description_es": "colisi\u00f3n", "code": "\ud83d\udca5", "klass": "_neu"}
+{"description_es": "\u00e1rbol de hoja caduca", "code": "\ud83c\udf33", "klass": "_neu"}
+{"description_es": "gafas de sol positivo", "code": "\ud83d\udd76", "klass": "_pos"}
+{"description_es": "reloj cinco en punto", "code": "\ud83d\udd54", "klass": "_neu"}
+{"description_es": "cara sacando la lengua positivo", "code": "\ud83d\ude1b", "klass": "_pos"}
+{"description_es": "tranv\u00eda", "code": "\ud83d\ude8b", "klass": "_neu"}
+{"description_es": "peri\u00f3dico", "code": "\ud83d\udcf0", "klass": "_neu"}
+{"description_es": "arco iris", "code": "\ud83c\udf08", "klass": "_neu"}
+{"description_es": "nota musical positivo", "code": "\ud83c\udfbc", "klass": "_pos"}
+{"description_es": "carrill\u00f3n", "code": "\ud83c\udf90", "klass": "_neu"}
+{"description_es": "bandera cuadros", "code": "\ud83c\udfc1", "klass": "_neu"}
+{"description_es": "esmalte u\u00f1as", "code": "\ud83d\udc85", "klass": "_neu"}
+{"description_es": "estrella fugaz", "code": "\ud83c\udf20", "klass": "_neu"}
+{"description_es": "hombre cabello chino", "code": "\ud83d\udc72", "klass": "_neu"}
+{"description_es": "fresco", "code": "\ud83c\udd92", "klass": "_neu"}
+{"description_es": "perro", "code": "\ud83d\udc15", "klass": "_neu"}
+{"description_es": "cara polluelo beb\u00e9", "code": "\ud83d\udc25", "klass": "_neu"}
+{"description_es": "separador", "code": "\ud83d\udcd1", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2199", "klass": "_neu"}
+{"description_es": "libro abierto", "code": "\ud83d\udcd6", "klass": "_neu"}
+{"description_es": "mazorca", "code": "\ud83c\udf3d", "klass": "_neu"}
+{"description_es": "tranv\u00eda a\u00e9reo", "code": "\ud83d\udea1", "klass": "_neu"}
+{"description_es": "sonriente cara positivo", "code": "\ud83d\ude01", "klass": "_pos"}
+{"description_es": "\u00e1rbol de tanabata", "code": "\ud83c\udf8b", "klass": "_neu"}
+{"description_es": "cara abraza positivo", "code": "\ud83e\udd17", "klass": "_pos"}
+{"description_es": "disco \u00f3ptico", "code": "\ud83d\udcbf", "klass": "_neu"}
+{"description_es": "media luna", "code": "\ud83c\udf19", "klass": "_neu"}
+{"description_es": "cruce peatonal", "code": "\ud83d\udeb8", "klass": "_neu"}
+{"description_es": "reloj diez y media", "code": "\ud83d\udd65", "klass": "_neu"}
+{"description_es": "tienda", "code": "\u26fa", "klass": "_neu"}
+{"description_es": "s\u00edmbolo de enlace", "code": "\ud83d\udd17", "klass": "_neu"}
+{"description_es": "prohibido usar celular", "code": "\ud83d\udcf5", "klass": "_neu"}
+{"description_es": "reloj cinco y media", "code": "\ud83d\udd60", "klass": "_neu"}
+{"description_es": "paloma paz positivo", "code": "\ud83d\udd4a", "klass": "_pos"}
+{"description_es": "cara le\u00f3n", "code": "\ud83e\udd81", "klass": "_neu"}
+{"description_es": "ara\u00f1a", "code": "\ud83d\udd78", "klass": "_neu"}
+{"description_es": "min\u00fasculas", "code": "\ud83d\udd21", "klass": "_neu"}
+{"description_es": "monstruo extraterrestre negativo", "code": "\ud83d\udc7e", "klass": "_neg"}
+{"description_es": "bot\u00f3n arriba r\u00e1pido", "code": "\u23eb", "klass": "_neu"}
+{"description_es": "hombre con turbante", "code": "\ud83d\udc73", "klass": "_neu"}
+{"description_es": "luna menguante", "code": "\ud83c\udf18", "klass": "_neu"}
+{"description_es": "pino", "code": "\ud83c\udf32", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2196", "klass": "_neu"}
+{"description_es": "palmera", "code": "\ud83c\udf34", "klass": "_neu"}
+{"description_es": "girasol positivo", "code": "\ud83c\udf3b", "klass": "_pos"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\ud83d\udc46", "klass": "_neu"}
+{"description_es": "interrogaci\u00f3n pregunta", "code": "\u2753", "klass": "_neu"}
+{"description_es": "ira negativo", "code": "\ud83d\udca2", "klass": "_neg"}
+{"description_es": "dado", "code": "\ud83c\udfb2", "klass": "_neu"}
+{"description_es": "monta\u00f1a ciclista", "code": "\ud83d\udeb5", "klass": "_neu"}
+{"description_es": "termina con flecha", "code": "\ud83d\udd1a", "klass": "_neu"}
+{"description_es": "luna creciente", "code": "\ud83c\udf12", "klass": "_neu"}
+{"description_es": "cara de perro", "code": "\ud83d\udc36", "klass": "_neu"}
+{"description_es": "c\u00edrculo flechas", "code": "\ud83d\udd02", "klass": "_neu"}
+{"description_es": "aud\u00edfonos positivo", "code": "\ud83c\udfa7", "klass": "_pos"}
+{"description_es": "desierto", "code": "\ud83c\udfdc", "klass": "_neu"}
+{"description_es": "viol\u00edn", "code": "\ud83c\udfbb", "klass": "_neu"}
+{"description_es": "trolebuses", "code": "\ud83d\ude8e", "klass": "_neu"}
+{"description_es": "botella brindis positivo", "code": "\ud83c\udf7e", "klass": "_pos"}
+{"description_es": "princesa positivo", "code": "\ud83d\udc78", "klass": "_pos"}
+{"description_es": "nariz de cerdo", "code": "\ud83d\udc3d", "klass": "_neu"}
+{"description_es": "mujer", "code": "\ud83d\udc69", "klass": "_neu"}
+{"description_es": "rata", "code": "\ud83d\udc00", "klass": "_neu"}
+{"description_es": "s\u00edmbolo correo", "code": "\ud83d\udce7", "klass": "_neu"}
+{"description_es": "piel", "code": "\ud83c\udfff", "klass": "_neu"}
+{"description_es": "no peat\u00f3n", "code": "\ud83d\udeb7", "klass": "_neu"}
+{"description_es": "s\u00edmbolo del \u00e1tomo", "code": "\u269b", "klass": "_neu"}
+{"description_es": "masaje de cara", "code": "\ud83d\udc86", "klass": "_neu"}
+{"description_es": "cara term\u00f3metro negativo", "code": "\ud83e\udd12", "klass": "_neg"}
+{"description_es": "libro azul", "code": "\ud83d\udcd8", "klass": "_neu"}
+{"description_es": "mujer fiesta positivo", "code": "\ud83d\udc6f", "klass": "_pos"}
+{"description_es": "reloj temporizador", "code": "\u23f2", "klass": "_neu"}
+{"description_es": "cara sonriente con la boca abierta y ojos sonrientes positivo", "code": "\ud83d\ude04", "klass": "_pos"}
+{"description_es": "joker", "code": "\ud83c\udccf", "klass": "_neu"}
+{"description_es": "impacto directo", "code": "\ud83c\udfaf", "klass": "_neu"}
+{"description_es": "apagar celular", "code": "\ud83d\udcf4", "klass": "_neu"}
+{"description_es": "delf\u00edn", "code": "\ud83d\udc2c", "klass": "_neu"}
+{"description_es": "volc\u00e1n", "code": "\ud83c\udf0b", "klass": "_neu"}
+{"description_es": "carpeta fichero abierto", "code": "\ud83d\udcc2", "klass": "_neu"}
+{"description_es": "oficial", "code": "\ud83d\udc6e", "klass": "_neu"}
+{"description_es": "correcto", "code": "\ud83c\udd97", "klass": "_neu"}
+{"description_es": "vestido", "code": "\ud83d\udc57", "klass": "_neu"}
+{"description_es": "informaci\u00f3n", "code": "\u2139", "klass": "_neu"}
+{"description_es": "piel", "code": "\ud83c\udffd", "klass": "_neu"}
+{"description_es": "tridente emblema", "code": "\ud83d\udd31", "klass": "_neu"}
+{"description_es": "vag\u00f3n de ferrocarril", "code": "\ud83d\ude83", "klass": "_neu"}
+{"description_es": "cara rat\u00f3n", "code": "\ud83d\udc2d", "klass": "_neu"}
+{"description_es": "nota musical positivo", "code": "\ud83c\udfb5", "klass": "_pos"}
+{"description_es": "esquiador", "code": "\u26f7", "klass": "_neu"}
+{"description_es": "bater\u00eda", "code": "\ud83d\udd0b", "klass": "_neu"}
+{"description_es": "ce\u00f1o fruncido la cara negativo", "code": "\u2639", "klass": "_neg"}
+{"description_es": "libro contabilidad", "code": "\ud83d\udcd2", "klass": "_neu"}
+{"description_es": "saxof\u00f3n", "code": "\ud83c\udfb7", "klass": "_neu"}
+{"description_es": "virgo", "code": "\u264d", "klass": "_neu"}
+{"description_es": "regresar r\u00e1pido", "code": "\u23ea", "klass": "_neu"}
+{"description_es": "separador", "code": "\ud83d\udd16", "klass": "_neu"}
+{"description_es": "ba\u00f1os", "code": "\ud83d\udebe", "klass": "_neu"}
+{"description_es": "bal\u00f3n de f\u00fatbol", "code": "\u26bd", "klass": "_neu"}
+{"description_es": "cohete", "code": "\ud83d\ude80", "klass": "_neu"}
+{"description_es": "gratis", "code": "\ud83c\udd93", "klass": "_neu"}
+{"description_es": "nube de nieve", "code": "\ud83c\udf28", "klass": "_neu"}
+{"description_es": "mu\u00f1eco de nieve", "code": "\u26c4", "klass": "_neu"}
+{"description_es": "asiento", "code": "\ud83d\udcba", "klass": "_neu"}
+{"description_es": "cruz latina", "code": "\u271d", "klass": "_neu"}
+{"description_es": "nadador", "code": "\ud83c\udfca", "klass": "_neu"}
+{"description_es": "rostro sonriente con los ojos sonrientes", "code": "\ud83d\ude0a", "klass": "_pos"}
+{"description_es": "siguiente pista", "code": "\u23ed", "klass": "_neu"}
+{"description_es": "pluma", "code": "\u2712", "klass": "_neu"}
+{"description_es": "cara sonriente con la boca abierta positivo", "code": "\ud83d\ude03", "klass": "_pos"}
+{"description_es": "hoja de arce", "code": "\ud83c\udf41", "klass": "_neu"}
+{"description_es": "manzana roja", "code": "\ud83c\udf4e", "klass": "_neu"}
+{"description_es": "persona pelo rubio", "code": "\ud83d\udc71", "klass": "_neu"}
+{"description_es": "cometa", "code": "\u2604", "klass": "_neu"}
+{"description_es": "zapatos", "code": "\ud83d\udc5e", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude1a", "klass": "_neu"}
+{"description_es": "surfer", "code": "\ud83c\udfc4", "klass": "_neu"}
+{"description_es": "teclado musical", "code": "\ud83c\udfb9", "klass": "_neu"}
+{"description_es": "luna nueva", "code": "\ud83c\udf1a", "klass": "_neu"}
+{"description_es": "di\u00e1logo", "code": "\ud83d\udcac", "klass": "_neu"}
+{"description_es": "micr\u00f3fono", "code": "\ud83c\udf99", "klass": "_neu"}
+{"description_es": "f\u00fatbol americano", "code": "\ud83c\udfc8", "klass": "_neu"}
+{"description_es": "rostro inexpresivo neutro", "code": "\ud83d\ude11", "klass": "_neu"}
+{"description_es": "aplaudir positivo", "code": "\ud83d\udc4f", "klass": "_pos"}
+{"description_es": "ideograma", "code": "\ud83c\ude36", "klass": "_neu"}
+{"description_es": "berenjena", "code": "\ud83c\udf46", "klass": "_neu"}
+{"description_es": "espaguetis", "code": "\ud83c\udf5d", "klass": "_neu"}
+{"description_es": "altavoz", "code": "\ud83d\udce2", "klass": "_neu"}
+{"description_es": "reloj seis y media", "code": "\ud83d\udd61", "klass": "_neu"}
+{"description_es": "auricular", "code": "\ud83d\udcde", "klass": "_neu"}
+{"description_es": "lupa", "code": "\ud83d\udd0e", "klass": "_neu"}
+{"description_es": "bustos en silueta", "code": "\ud83d\udc65", "klass": "_neu"}
+{"description_es": "as negro", "code": "\u2660", "klass": "_neu"}
+{"description_es": "cu\u00f1a queso", "code": "\ud83e\uddc0", "klass": "_neu"}
+{"description_es": "bot\u00f3n pausa", "code": "\u23ef", "klass": "_neu"}
+{"description_es": "cara sacando la lengua y ojo parpadeante positivo", "code": "\ud83d\ude1c", "klass": "_pos"}
+{"description_es": "oficina de correos", "code": "\ud83c\udfe4", "klass": "_neu"}
+{"description_es": "sol detr\u00e1s nubes con lluvia", "code": "\ud83c\udf26", "klass": "_neu"}
+{"description_es": "ferry", "code": "\u26f4", "klass": "_neu"}
+{"description_es": "caballo", "code": "\ud83d\udc0e", "klass": "_neu"}
+{"description_es": "peri\u00f3dico enredado", "code": "\ud83d\uddde", "klass": "_neu"}
+{"description_es": "gota", "code": "\ud83d\udca7", "klass": "_neu"}
+{"description_es": "hormiga", "code": "\ud83d\udc1c", "klass": "_neu"}
+{"description_es": "mareos negativo", "code": "\ud83d\udcab", "klass": "_neg"}
+{"description_es": "corredor", "code": "\ud83c\udfc3", "klass": "_neu"}
+{"description_es": "mono no ver negativo", "code": "\ud83d\ude48", "klass": "_neg"}
+{"description_es": "barco de motor", "code": "\ud83d\udee5", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude33", "klass": "_neu"}
+{"description_es": "iglesia", "code": "\u26ea", "klass": "_neu"}
+{"description_es": "cara sonriente besan con los ojos positivo", "code": "\ud83d\ude19", "klass": "_neu"}
+{"description_es": "cuadrado negro peque\u00f1o", "code": "\u25aa", "klass": "_neu"}
+{"description_es": "cara enojado negativo", "code": "\ud83d\ude12", "klass": "_neg"}
+{"description_es": "memo", "code": "\ud83d\udcdd", "klass": "_neu"}
+{"description_es": "paraguas con gotas de lluvia", "code": "\u2614", "klass": "_neu"}
+{"description_es": "cremallera fiebre de la cara", "code": "\ud83e\udd10", "klass": "_neu"}
+{"description_es": "hospital", "code": "\ud83c\udfe5", "klass": "_neu"}
+{"description_es": "camello", "code": "\ud83d\udc2a", "klass": "_neu"}
+{"description_es": "artificial chispazo positivo", "code": "\ud83c\udf87", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u21a9", "klass": "_neu"}
+{"description_es": "cara sonriente con la boca abierta y los ojos cerrados herm\u00e9ticamente", "code": "\ud83d\ude06", "klass": "_neu"}
+{"description_es": "mandarina", "code": "\ud83c\udf4a", "klass": "_neu"}
+{"description_es": "cara hamster", "code": "\ud83d\udc39", "klass": "_neu"}
+{"description_es": "supermercado", "code": "\ud83c\udfea", "klass": "_neu"}
+{"description_es": "sake", "code": "\ud83c\udf76", "klass": "_neu"}
+{"description_es": "estatua de la libertad", "code": "\ud83d\uddfd", "klass": "_neu"}
+{"description_es": "rostro cansado negativo", "code": "\ud83d\ude29", "klass": "_neg"}
+{"description_es": "estadio", "code": "\ud83c\udfdf", "klass": "_neu"}
+{"description_es": "c\u00e1mara de video", "code": "\ud83d\udcf9", "klass": "_neu"}
+{"description_es": "agua no potable", "code": "\ud83d\udeb1", "klass": "_neu"}
+{"description_es": "avi\u00f3n", "code": "\u2708", "klass": "_neu"}
+{"description_es": "raqueta de b\u00e1dminton", "code": "\ud83c\udff8", "klass": "_neu"}
+{"description_es": "flor positivo", "code": "\ud83c\udf3a", "klass": "_pos"}
+{"description_es": "s\u00edmbolo letras latinas", "code": "\ud83d\udd24", "klass": "_neu"}
+{"description_es": "reloj siete y media", "code": "\ud83d\udd62", "klass": "_neu"}
+{"description_es": "tr\u00e9bol negro", "code": "\u2663", "klass": "_neu"}
+{"description_es": "ri\u00e1ngulo rojo abajo", "code": "\ud83d\udd3b", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2935", "klass": "_neu"}
+{"description_es": "gr\u00e1fico tendencia al alza y yen", "code": "\ud83d\udcb9", "klass": "_neu"}
+{"description_es": "escarabajo", "code": "\ud83d\udc1e", "klass": "_neu"}
+{"description_es": "cara silenciado negativo", "code": "\ud83d\ude2f", "klass": "_neg"}
+{"description_es": "bate de cricket y bola", "code": "\ud83c\udfcf", "klass": "_neu"}
+{"description_es": "carnero", "code": "\ud83d\udc0f", "klass": "_neu"}
+{"description_es": "cerdo", "code": "\ud83d\udc16", "klass": "_neu"}
+{"description_es": "arroz cocido", "code": "\ud83c\udf5a", "klass": "_neu"}
+{"description_es": "carro de entrega", "code": "\ud83d\ude9a", "klass": "_neu"}
+{"description_es": "billetes d\u00f3lar", "code": "\ud83d\udcb5", "klass": "_neu"}
+{"description_es": "pulpo", "code": "\ud83d\udc19", "klass": "_neu"}
+{"description_es": "cabeza hablando positivo", "code": "\ud83d\udde3", "klass": "_pos"}
+{"description_es": "guardia", "code": "\ud83d\udc82", "klass": "_neu"}
+{"description_es": "barco", "code": "\ud83d\udea2", "klass": "_neu"}
+{"description_es": "alambique", "code": "\u2697", "klass": "_neu"}
+{"description_es": "billar", "code": "\ud83c\udfb1", "klass": "_neu"}
+{"description_es": "signo menos", "code": "\u2796", "klass": "_neu"}
+{"description_es": "papelera", "code": "\ud83d\uddd1", "klass": "_neu"}
+{"description_es": "cara aliviado positivo", "code": "\ud83d\ude0c", "klass": "_pos"}
+{"description_es": "reloj nueve en punto", "code": "\ud83d\udd58", "klass": "_neu"}
+{"description_es": "gato", "code": "\ud83d\udc08", "klass": "_neu"}
+{"description_es": "tigre", "code": "\ud83d\udc05", "klass": "_neu"}
+{"description_es": "explosi\u00f3n negativo", "code": "\ud83d\udca8", "klass": "_neg"}
+{"description_es": "sol blanco con nube", "code": "\ud83c\udf24", "klass": "_neu"}
+{"description_es": "abandonado la construcci\u00f3n de viviendas", "code": "\ud83c\udfda", "klass": "_neu"}
+{"description_es": "diamante grande naranja", "code": "\ud83d\udd36", "klass": "_neu"}
+{"description_es": "escorpi\u00f3n", "code": "\u264f", "klass": "_neu"}
+{"description_es": "cara sonriente gato positivo", "code": "\ud83d\ude3a", "klass": "_pos"}
+{"description_es": "altavoz con sonido", "code": "\ud83d\udd09", "klass": "_neu"}
+{"description_es": "vaporizador", "code": "\ud83c\udf5c", "klass": "_neu"}
+{"description_es": "pez globo", "code": "\ud83d\udc21", "klass": "_neu"}
+{"description_es": "nube de trueno nubes y lluvia", "code": "\u26c8", "klass": "_neu"}
+{"description_es": "monta\u00f1a", "code": "\u26f0", "klass": "_neu"}
+{"description_es": "viento", "code": "\ud83c\udf2c", "klass": "_neu"}
+{"description_es": "locomotora", "code": "\ud83d\ude82", "klass": "_neu"}
+{"description_es": "beso positivo", "code": "\ud83d\udc8b", "klass": "_pos"}
+{"description_es": "gr\u00e1fico barras", "code": "\ud83d\udcca", "klass": "_neu"}
+{"description_es": "ojos", "code": "\ud83d\udc41", "klass": "_neu"}
+{"description_es": "tractor", "code": "\ud83d\ude9c", "klass": "_neu"}
+{"description_es": "cuaderno", "code": "\ud83d\udcd3", "klass": "_neu"}
+{"description_es": "bot\u00f3n o", "code": "\ud83c\udd7e", "klass": "_neu"}
+{"description_es": "pastel de pescado", "code": "\ud83c\udf65", "klass": "_neu"}
+{"description_es": "raqueta y bola de tenis", "code": "\ud83c\udfbe", "klass": "_neu"}
+{"description_es": "pear", "code": "\ud83c\udf50", "klass": "_neu"}
+{"description_es": "cara poco ce\u00f1o negativo", "code": "\ud83d\ude41", "klass": "_neg"}
+{"description_es": "manos abiertas positivo", "code": "\ud83d\udc50", "klass": "_pos"}
+{"description_es": "no bicicletas negativo", "code": "\ud83d\udeb3", "klass": "_neg"}
+{"description_es": "peach", "code": "\ud83c\udf51", "klass": "_neu"}
+{"description_es": "marca parte alternancia", "code": "\u303d", "klass": "_neu"}
+{"description_es": "disco magn\u00e9tico", "code": "\ud83d\udcbe", "klass": "_neu"}
+{"description_es": "hierba", "code": "\ud83c\udf3f", "klass": "_neu"}
+{"description_es": "paraguas", "code": "\u2602", "klass": "_neu"}
+{"description_es": "\u00e1ngel del beb\u00e9", "code": "\ud83d\udc7c", "klass": "_neu"}
+{"description_es": "sombrero de copa", "code": "\ud83c\udfa9", "klass": "_neu"}
+{"description_es": "cara de dinero positivo", "code": "\ud83e\udd11", "klass": "_pos"}
+{"description_es": "llave", "code": "\ud83d\udd11", "klass": "_neu"}
+{"description_es": "cocinar", "code": "\ud83c\udf73", "klass": "_neu"}
+{"description_es": "salida avi\u00f3n", "code": "\ud83d\udeeb", "klass": "_neu"}
+{"description_es": "libreta", "code": "\ud83d\udcd4", "klass": "_neu"}
+{"description_es": "campana", "code": "\ud83d\udd14", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude21", "klass": "_neg"}
+{"description_es": "paraguas cerrado", "code": "\ud83c\udf02", "klass": "_neu"}
+{"description_es": "ambulancia", "code": "\ud83d\ude91", "klass": "_neu"}
+{"description_es": "altavoz con sonido", "code": "\ud83d\udd0a", "klass": "_neu"}
+{"description_es": "compresi\u00f3n", "code": "\ud83d\udddc", "klass": "_neu"}
+{"description_es": "coraz\u00f3n con cinta positivo", "code": "\ud83d\udc9d", "klass": "_pos"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4d", "klass": "_pos"}
+{"description_es": "s\u00edmbolo fumar", "code": "\ud83d\udeac", "klass": "_neu"}
+{"description_es": "adelantar r\u00e1pido", "code": "\u23e9", "klass": "_neu"}
+{"description_es": "palomitas", "code": "\ud83c\udf7f", "klass": "_neu"}
+{"description_es": "no menores de dieciocho", "code": "\ud83d\udd1e", "klass": "_neu"}
+{"description_es": "rostro pensativo", "code": "\ud83d\ude14", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2195", "klass": "_neu"}
+{"description_es": "cuadrado blanco mediano", "code": "\u25fb", "klass": "_neu"}
+{"description_es": "cactus", "code": "\ud83c\udf35", "klass": "_neu"}
+{"description_es": "anciana", "code": "\ud83d\udc75", "klass": "_neu"}
+{"description_es": "correo bandeja salida", "code": "\ud83d\udce4", "klass": "_neu"}
+{"description_es": "computadora", "code": "\ud83d\udcbb", "klass": "_neu"}
+{"description_es": "tambor de aceite", "code": "\ud83d\udee2", "klass": "_neu"}
+{"description_es": "castillo japon\u00e9s", "code": "\ud83c\udfef", "klass": "_neu"}
+{"description_es": "p\u00e1gina", "code": "\ud83d\udcc4", "klass": "_neu"}
+{"description_es": "autob\u00fas inminente", "code": "\ud83d\ude8d", "klass": "_neu"}
+{"description_es": "cuernos negativo", "code": "\ud83e\udd18", "klass": "_neg"}
+{"description_es": "cara neutral neutro", "code": "\ud83d\ude10", "klass": "_neu"}
+{"description_es": "mano levantada", "code": "\u270b", "klass": "_neu"}
+{"description_es": "detective", "code": "\ud83d\udd75", "klass": "_neu"}
+{"description_es": "galleta", "code": "\ud83c\udf58", "klass": "_neu"}
+{"description_es": "vela", "code": "\ud83d\udd6f", "klass": "_neu"}
+{"description_es": "estrella seis puntas", "code": "\ud83d\udd2f", "klass": "_neu"}
+{"description_es": "corona", "code": "\ud83d\udc51", "klass": "_neu"}
+{"description_es": "bicho", "code": "\ud83d\udc1b", "klass": "_neu"}
+{"description_es": "cangrejo", "code": "\ud83e\udd80", "klass": "_neu"}
+{"description_es": "reloj diez en punto", "code": "\ud83d\udd59", "klass": "_neu"}
+{"description_es": "escuela", "code": "\ud83c\udfeb", "klass": "_neu"}
+{"description_es": "cron\u00f3metro", "code": "\u23f1", "klass": "_neu"}
+{"description_es": "escorpi\u00f3n", "code": "\ud83e\udd82", "klass": "_neu"}
+{"description_es": "camas", "code": "\ud83d\udecc", "klass": "_neu"}
+{"description_es": "amanecer en las monta\u00f1as positivo", "code": "\ud83c\udf04", "klass": "_pos"}
+{"description_es": "galleta", "code": "\ud83c\udf6a", "klass": "_neu"}
+{"description_es": "prohibido fumar", "code": "\ud83d\udead", "klass": "_neu"}
+{"description_es": "bot\u00f3n abajo r\u00e1pido", "code": "\u23ec", "klass": "_neu"}
+{"description_es": "tierra meridianos", "code": "\ud83c\udf10", "klass": "_neu"}
+{"description_es": "tierra", "code": "\ud83c\udf0d", "klass": "_neu"}
+{"description_es": "arroz al curry", "code": "\ud83c\udf5b", "klass": "_neu"}
+{"description_es": "lupa", "code": "\ud83d\udd0d", "klass": "_neu"}
+{"description_es": "candado con pluma", "code": "\ud83d\udd0f", "klass": "_neu"}
+{"description_es": "mapa mundo", "code": "\ud83d\uddfa", "klass": "_neu"}
+{"description_es": "billetes libra", "code": "\ud83d\udcb7", "klass": "_neu"}
+{"description_es": "rat\u00f3n", "code": "\ud83d\udc01", "klass": "_neu"}
+{"description_es": "seta", "code": "\ud83c\udf44", "klass": "_neu"}
+{"description_es": "cocodrilo", "code": "\ud83d\udc0a", "klass": "_neu"}
+{"description_es": "koala", "code": "\ud83d\udc28", "klass": "_neu"}
+{"description_es": "cara gui\u00f1o", "code": "\ud83d\ude09", "klass": "_neu"}
+{"description_es": "videojuego", "code": "\ud83c\udfae", "klass": "_neu"}
+{"description_es": "s\u00edmbolo de caracteres", "code": "\ud83d\udd23", "klass": "_neu"}
+{"description_es": "bucle rizado", "code": "\u27b0", "klass": "_neu"}
+{"description_es": "hielo", "code": "\ud83c\udf67", "klass": "_neu"}
+{"description_es": "hotel", "code": "\ud83c\udfe8", "klass": "_neu"}
+{"description_es": "tarro de miel", "code": "\ud83c\udf6f", "klass": "_neu"}
+{"description_es": "entradas de admisi\u00f3n positivo", "code": "\ud83c\udf9f", "klass": "_pos"}
+{"description_es": "edificios de viviendas", "code": "\ud83c\udfd8", "klass": "_neu"}
+{"description_es": "verificaci\u00f3n positivo", "code": "\u2705", "klass": "_pos"}
+{"description_es": "piel", "code": "\ud83c\udffe", "klass": "_neu"}
+{"description_es": "s\u00edmbolo brillo", "code": "\ud83d\udd05", "klass": "_neu"}
+{"description_es": "lim\u00f3n", "code": "\ud83c\udf4b", "klass": "_neu"}
+{"description_es": "cara mala gato negativo", "code": "\ud83d\ude3e", "klass": "_neg"}
+{"description_es": "may\u00fasculas", "code": "\ud83d\udd20", "klass": "_neu"}
+{"description_es": "coraz\u00f3n negro positivo", "code": "\u2665", "klass": "_pos"}
+{"description_es": "coche de competencia", "code": "\ud83c\udfce", "klass": "_neu"}
+{"description_es": "telescopio", "code": "\ud83d\udd2d", "klass": "_neu"}
+{"description_es": "etiqueta para nombre", "code": "\ud83d\udcdb", "klass": "_neu"}
+{"description_es": "tecla diez", "code": "\ud83d\udd1f", "klass": "_neu"}
+{"description_es": "enchufe el\u00e9ctrico", "code": "\ud83d\udd0c", "klass": "_neu"}
+{"description_es": "casta\u00f1a", "code": "\ud83c\udf30", "klass": "_neu"}
+{"description_es": "mapa de jap\u00f3n", "code": "\ud83d\uddfe", "klass": "_neu"}
+{"description_es": "cara lobo", "code": "\ud83d\udc3a", "klass": "_neu"}
+{"description_es": "c\u00edrculo blanco medio", "code": "&", "klass": "_neu"}
+{"description_es": "agitando la mano bien positivo", "code": "\ud83d\udc4b", "klass": "_pos"}
+{"description_es": "olla de comida", "code": "\ud83c\udf72", "klass": "_neu"}
+{"description_es": "rosario", "code": "\ud83d\udcff", "klass": "_neu"}
+{"description_es": "paraguas en la tierra", "code": "\u26f1", "klass": "_neu"}
+{"description_es": "diamante peque\u00f1o azul", "code": "\ud83d\udd39", "klass": "_neu"}
+{"description_es": "reloj nueve y media", "code": "\ud83d\udd64", "klass": "_neu"}
+{"description_es": "rueda del dharma", "code": "\u2638", "klass": "_neu"}
+{"description_es": "llegada avi\u00f3n", "code": "\ud83d\udeec", "klass": "_neu"}
+{"description_es": "cadenas", "code": "\u26d3", "klass": "_neu"}
+{"description_es": "artes esc\u00e9nicas", "code": "\ud83c\udfad", "klass": "_neu"}
+{"description_es": "perro poodle", "code": "\ud83d\udc29", "klass": "_neu"}
+{"description_es": "cara nerd positivo", "code": "\ud83e\udd13", "klass": "_pos"}
+{"description_es": "leo", "code": "\u264c", "klass": "_neu"}
+{"description_es": "rostro angustiado negativo", "code": "\ud83d\ude27", "klass": "_neg"}
+{"description_es": "cara saboreando deliciosa comida", "code": "\ud83d\ude0b", "klass": "_neu"}
+{"description_es": "hoyo", "code": "\ud83d\udd73", "klass": "_neu"}
+{"description_es": "bola de cristal", "code": "\ud83d\udd2e", "klass": "_neu"}
+{"description_es": "microscopio", "code": "\ud83d\udd2c", "klass": "_neu"}
+{"description_es": "llave", "code": "\ud83d\udd27", "klass": "_neu"}
+{"description_es": "portapapeles", "code": "\ud83d\udccb", "klass": "_neu"}
+{"description_es": "kimono", "code": "\ud83d\udc58", "klass": "_neu"}
+{"description_es": "demonio negativo", "code": "\ud83d\udc7f", "klass": "_neg"}
+{"description_es": "ba\u00f1os", "code": "\ud83d\udebb", "klass": "_neu"}
+{"description_es": "pareja con coraz\u00f3n positivo", "code": "\ud83d\udc91", "klass": "_pos"}
+{"description_es": "pulgar bien positivo", "code": "\ud83d\udc4e", "klass": "_pos"}
+{"description_es": "luna nueva", "code": "\ud83c\udf11", "klass": "_neu"}
+{"description_es": "isla desierta", "code": "\ud83c\udfdd", "klass": "_neu"}
+{"description_es": "foco", "code": "\ud83d\udca1", "klass": "_neu"}
+{"description_es": "prohibido tirar basura", "code": "\ud83d\udeaf", "klass": "_neu"}
+{"description_es": "construcci\u00f3n", "code": "\ud83c\udfd7", "klass": "_neu"}
+{"description_es": "martillo y llave", "code": "\ud83d\udee0", "klass": "_neu"}
+{"description_es": "badajo bordo", "code": "\ud83c\udfac", "klass": "_neu"}
+{"description_es": "dos mujeres tomados de la mano positivo", "code": "\ud83d\udc6d", "klass": "_pos"}
+{"description_es": "campana muda", "code": "\ud83d\udd15", "klass": "_neu"}
+{"description_es": "castillo", "code": "\ud83c\udff0", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude51", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2b07", "klass": "_neu"}
+{"description_es": "bot\u00f3n b", "code": "\ud83c\udd71", "klass": "_neu"}
+{"description_es": "cara de preocupaci\u00f3n negativo", "code": "\ud83d\ude1f", "klass": "_neg"}
+{"description_es": "dvd", "code": "\ud83d\udcc0", "klass": "_neu"}
+{"description_es": "pata", "code": "\ud83d\udc3e", "klass": "_neu"}
+{"description_es": "calendario", "code": "\ud83d\udcc6", "klass": "_neu"}
+{"description_es": "cambio de monedas", "code": "\ud83d\udcb1", "klass": "_neu"}
+{"description_es": "rebanada de pizza", "code": "\ud83c\udf55", "klass": "_neu"}
+{"description_es": "ideograma secreto", "code": "\u3299", "klass": "_neu"}
+{"description_es": "buey", "code": "\ud83d\udc02", "klass": "_neu"}
+{"description_es": "espadas cruzadas", "code": "\u2694", "klass": "_neu"}
+{"description_es": "deportes medalla positivo", "code": "\ud83c\udfc5", "klass": "_pos"}
+{"description_es": "reloj doce y media", "code": "\ud83d\udd67", "klass": "_neu"}
+{"description_es": "chispa", "code": "\u2747", "klass": "_neu"}
+{"description_es": "bola de arroz", "code": "\ud83c\udf59", "klass": "_neu"}
+{"description_es": "interrogaci\u00f3n pregunta", "code": "\u2754", "klass": "_neu"}
+{"description_es": "marca cruz negativo", "code": "\u274c", "klass": "_neg"}
+{"description_es": "auxilio", "code": "\ud83c\udd98", "klass": "_neu"}
+{"description_es": "cara sonriente con cuernos negativo", "code": "\ud83d\ude08", "klass": "_neg"}
+{"description_es": "\u00edndice apuntando hacia arriba", "code": "\u261d", "klass": "_neu"}
+{"description_es": "ramo positivo", "code": "\ud83d\udc90", "klass": "_pos"}
+{"description_es": "calendario", "code": "\ud83d\udcc5", "klass": "_neu"}
+{"description_es": "ba\u00f1o", "code": "\ud83d\udec0", "klass": "_neu"}
+{"description_es": "tierra asia y australia", "code": "\ud83c\udf0f", "klass": "_neu"}
+{"description_es": "veh\u00edculo recreativo", "code": "\ud83d\ude99", "klass": "_neu"}
+{"description_es": "mala cara negativo", "code": "\ud83d\ude45", "klass": "_neg"}
+{"description_es": "monte fuji", "code": "\ud83d\uddfb", "klass": "_neu"}
+{"description_es": "ara\u00f1a", "code": "\ud83d\udd77", "klass": "_neu"}
+{"description_es": "s\u00edmbolo de n\u00fameros", "code": "\ud83d\udd22", "klass": "_neu"}
+{"description_es": "p\u00e1jaro", "code": "\ud83d\udc26", "klass": "_neu"}
+{"description_es": "escritura", "code": "\u270d", "klass": "_neu"}
+{"description_es": "martillo y pico", "code": "\u2692", "klass": "_neu"}
+{"description_es": "cara unicornio", "code": "\ud83e\udd84", "klass": "_neu"}
+{"description_es": "cara rana", "code": "\ud83d\udc38", "klass": "_neu"}
+{"description_es": "ojos", "code": "\ud83d\udc40", "klass": "_neu"}
+{"description_es": "coches de polic\u00eda", "code": "\ud83d\udea8", "klass": "_neu"}
+{"description_es": "snowboarder", "code": "\ud83c\udfc2", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude3a", "klass": "_neu"}
+{"description_es": "aduanas", "code": "\ud83d\udec3", "klass": "_neu"}
+{"description_es": "l\u00e1piz", "code": "\u270f", "klass": "_neu"}
+{"description_es": "proyector de cine", "code": "\ud83d\udcfd", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude37", "klass": "_neu"}
+{"description_es": "reloj once y media", "code": "\ud83d\udd66", "klass": "_neu"}
+{"description_es": "taza de cerveza salud positivo", "code": "\ud83c\udf7b", "klass": "_pos"}
+{"description_es": "volver con flecha", "code": "\ud83d\udd19", "klass": "_neu"}
+{"description_es": "c\u00edrculo rojo", "code": "\ud83d\udd34", "klass": "_neu"}
+{"description_es": "no entrar negativo", "code": "\u26d4", "klass": "_neg"}
+{"description_es": "playa con sombrilla", "code": "\ud83c\udfd6", "klass": "_neu"}
+{"description_es": "persona inclin\u00e1ndose", "code": "\ud83d\ude47", "klass": "_neu"}
+{"description_es": "marca comercial", "code": "\u2122", "klass": "_neu"}
+{"description_es": "pu\u00f1o", "code": "\ud83d\udc4a", "klass": "_neu"}
+{"description_es": "s\u00edmbolo japon\u00e9s principiante", "code": "\ud83d\udd30", "klass": "_neu"}
+{"description_es": "bot\u00f3n retroceso", "code": "\u25c0", "klass": "_neu"}
+{"description_es": "buz\u00f3n", "code": "\ud83d\udcea", "klass": "_neu"}
+{"description_es": "escultura", "code": "\ud83d\uddff", "klass": "_neu"}
+{"description_es": "birrete", "code": "\ud83c\udf93", "klass": "_neu"}
+{"description_es": "persona recepci\u00f3n", "code": "\ud83d\udc81", "klass": "_neu"}
+{"description_es": "reloj ocho en punto", "code": "\ud83d\udd57", "klass": "_neu"}
+{"description_es": "helic\u00f3ptero", "code": "\ud83d\ude81", "klass": "_neu"}
+{"description_es": "estrella", "code": "\u2b50", "klass": "_neu"}
+{"description_es": "sobre", "code": "\u2709", "klass": "_neu"}
+{"description_es": "cara sonriente con los ojos en forma de coraz\u00f3n positivo", "code": "\ud83d\ude0d", "klass": "_pos"}
+{"description_es": "fuente", "code": "\u26f2", "klass": "_neu"}
+{"description_es": "tenedor y cuchillo", "code": "\ud83c\udf74", "klass": "_neu"}
+{"description_es": "reloj una en punto", "code": "\ud83d\udd50", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2194", "klass": "_neu"}
+{"description_es": "carreras de caballos", "code": "\ud83c\udfc7", "klass": "_neu"}
+{"description_es": "bot\u00f3n expulsar", "code": "\u23cf", "klass": "_neu"}
+{"description_es": "b\u00e9isbol", "code": "\u26be", "klass": "_neu"}
+{"description_es": "extraterrestres extranjeros negativo", "code": "\ud83d\udc7d", "klass": "_neg"}
+{"description_es": "cara gato", "code": "\ud83d\udc31", "klass": "_neu"}
+{"description_es": "urna funeraria", "code": "\u26b1", "klass": "_neu"}
+{"description_es": "tren", "code": "\ud83d\ude86", "klass": "_neu"}
+{"description_es": "rosa positivo", "code": "\ud83c\udf39", "klass": "_pos"}
+{"description_es": "cara sacando la lengua y los ojos cerrados herm\u00e9ticamente positivo", "code": "\ud83d\ude1d", "klass": "_pos"}
+{"description_es": "cr\u00e1neo negativo", "code": "\ud83d\udc80", "klass": "_neg"}
+{"description_es": "reloj dos en punto", "code": "\ud83d\udd51", "klass": "_neu"}
+{"description_es": "lengua", "code": "\ud83d\udc45", "klass": "_neu"}
+{"description_es": "mano levantada positivo", "code": "\ud83d\udd96", "klass": "_pos"}
+{"description_es": "velero", "code": "\u26f5", "klass": "_neu"}
+{"description_es": "hot dog", "code": "\ud83c\udf2d", "klass": "_neu"}
+{"description_es": "cara decepcionado negativo", "code": "\ud83d\ude1e", "klass": "_neg"}
+{"description_es": "cara sonriente positivo", "code": "\ud83d\ude00", "klass": "_pos"}
+{"description_es": "piel", "code": "\ud83c\udffc", "klass": "_neu"}
+{"description_es": "apuntando hacia abajo", "code": "\ud83d\udc47", "klass": "_neu"}
+{"description_es": "cruz ortodoxa", "code": "\u2626", "klass": "_neu"}
+{"description_es": "tijeras", "code": "\u2702", "klass": "_neu"}
+{"description_es": "serpiente", "code": "\ud83d\udc0d", "klass": "_neu"}
+{"description_es": "alto voltaje negativo", "code": "\u26a1", "klass": "_neg"}
+{"description_es": "anillo", "code": "\ud83d\udc8d", "klass": "_neu"}
+{"description_es": "yin yang", "code": "\u262f", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude39", "klass": "_neu"}
+{"description_es": "kaaba", "code": "\ud83d\udd4b", "klass": "_neu"}
+{"description_es": "burrito", "code": "\ud83c\udf2f", "klass": "_neu"}
+{"description_es": "termas", "code": "\u2668", "klass": "_neu"}
+{"description_es": "ballena", "code": "\ud83d\udc0b", "klass": "_neu"}
+{"description_es": "cara cansado negativo", "code": "\ud83d\ude40", "klass": "_neg"}
+{"description_es": "patinar sobre hielo", "code": "\u26f8", "klass": "_neu"}
+{"description_es": "cara beso gato ojos cerrados positivo", "code": "\ud83d\ude3d", "klass": "_pos"}
+{"description_es": "notas musicales positivo", "code": "\ud83c\udfb6", "klass": "_pos"}
+{"description_es": "diamante grande azul", "code": "\ud83d\udd37", "klass": "_neu"}
+{"description_es": "pavo", "code": "\ud83e\udd83", "klass": "_neu"}
+{"description_es": "sonriente cara blanca positivo", "code": "\u263a", "klass": "_pos"}
+{"description_es": "cara con la boca abierta negativo", "code": "\ud83d\ude2e", "klass": "_neg"}
+{"description_es": "mono", "code": "\ud83d\udc12", "klass": "_neu"}
+{"description_es": "correo bandeja entrada", "code": "\ud83d\udce5", "klass": "_neu"}
+{"description_es": "clip", "code": "\ud83d\udcce", "klass": "_neu"}
+{"description_es": "tren de alta velocidad", "code": "\ud83d\ude84", "klass": "_neu"}
+{"description_es": "cara de asombro negativo", "code": "\ud83d\ude32", "klass": "_neg"}
+{"description_es": "sagitario", "code": "\u2650", "klass": "_neu"}
+{"description_es": "bomba de combustible", "code": "\u26fd", "klass": "_neu"}
+{"description_es": "vaca", "code": "\ud83d\udc04", "klass": "_neu"}
+{"description_es": "aardilla", "code": "\ud83d\udc3f", "klass": "_neu"}
+{"description_es": "cara dragon", "code": "\ud83d\udc32", "klass": "_neu"}
+{"description_es": "ballena", "code": "\ud83d\udc33", "klass": "_neu"}
+{"description_es": "luna llena", "code": "\ud83c\udf1d", "klass": "_neu"}
+{"description_es": "microfono", "code": "\ud83c\udfa4", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude32", "klass": "_neu"}
+{"description_es": "bot\u00f3n iniciar", "code": "\u25b6", "klass": "_neu"}
+{"description_es": "escudo", "code": "\ud83d\udee1", "klass": "_neu"}
+{"description_es": "c\u00edrculo letra m", "code": "\u24c2", "klass": "_neu"}
+{"description_es": "anterior pista", "code": "\u23ee", "klass": "_neu"}
+{"description_es": "cuadrado cl", "code": "\ud83c\udd91", "klass": "_neu"}
+{"description_es": "cara con ojos que se mueven", "code": "\ud83d\ude44", "klass": "_neu"}
+{"description_es": "bot\u00f3n hacia arriba", "code": "\ud83d\udd3c", "klass": "_neu"}
+{"description_es": "estrella brilla intensamente", "code": "\ud83c\udf1f", "klass": "_neu"}
+{"description_es": "buz\u00f3n", "code": "\ud83d\udcee", "klass": "_neu"}
+{"description_es": "enrojecimiento de la cara negativo", "code": "\ud83d\ude33", "klass": "_neg"}
+{"description_es": "sunrise positivo", "code": "\ud83c\udf05", "klass": "_pos"}
+{"description_es": "poste peluquero", "code": "\ud83d\udc88", "klass": "_neu"}
+{"description_es": "fax", "code": "\ud83d\udce0", "klass": "_neu"}
+{"description_es": "voleibol", "code": "\ud83c\udfd0", "klass": "_neu"}
+{"description_es": "pollito", "code": "\ud83d\udc23", "klass": "_neu"}
+{"description_es": "urbano en la oscuridad", "code": "\ud83c\udf06", "klass": "_neu"}
+{"description_es": "flechas entrelazadas", "code": "\ud83d\udd00", "klass": "_neu"}
+{"description_es": "coraz\u00f3n pesado exclamaci\u00f3n ornamento positivo", "code": "\u2763", "klass": "_pos"}
+{"description_es": "cara un poco sonriente positivo", "code": "\ud83d\ude42", "klass": "_pos"}
+{"description_es": "c\u00e1mara con flash", "code": "\ud83d\udcf8", "klass": "_neu"}
+{"description_es": "gavilla de arroz", "code": "\ud83c\udf3e", "klass": "_neu"}
+{"description_es": "radio", "code": "\ud83d\udcfb", "klass": "_neu"}
+{"description_es": "cara enojada negativo", "code": "\ud83d\ude20", "klass": "_neg"}
+{"description_es": "ticket positivo", "code": "\ud83c\udfab", "klass": "_pos"}
+{"description_es": "plaza grande negro", "code": "\u2b1b", "klass": "_neu"}
+{"description_es": "cara que besa con los ojos cerrados", "code": "\ud83d\ude1a", "klass": "_neu"}
+{"description_es": "ideograma", "code": "\ud83c\ude50", "klass": "_neu"}
+{"description_es": "flecha", "code": "\u2198", "klass": "_neu"}
+{"description_es": "fuegos positivo", "code": "\ud83c\udf86", "klass": "_pos"}
+{"description_es": "carreras de motos", "code": "\ud83c\udfcd", "klass": "_neu"}
+{"description_es": "tuerca y tornillo", "code": "\ud83d\udd29", "klass": "_neu"}
+{"description_es": "oreja", "code": "\ud83d\udc42", "klass": "_neu"}
+{"description_es": "taza t\u00e9", "code": "\ud83c\udf75", "klass": "_neu"}
+{"description_es": "diamante negro", "code": "\u2666", "klass": "_neu"}
+{"description_es": "ata\u00fad", "code": "\u26b0", "klass": "_neu"}
+{"description_es": "fuego", "code": "\ud83d\udd25", "klass": "_neu"}
+{"description_es": "muchacha", "code": "\ud83d\udc67", "klass": "_neu"}
+{"description_es": "reloj once en punto", "code": "\ud83d\udd5a", "klass": "_neu"}
+{"description_es": "c\u00e1mara", "code": "\ud83d\udcf7", "klass": "_neu"}
+{"description_es": "dedo izquierda", "code": "\ud83d\udc48", "klass": "_neu"}
+{"description_es": "golfista", "code": "\ud83c\udfcc", "klass": "_neu"}
+{"description_es": "stick hockey y bola", "code": "\ud83c\udfd1", "klass": "_neu"}
+{"description_es": "antena con barras", "code": "\ud83d\udcf6", "klass": "_neu"}
+{"description_es": "medio c\u00edrculo negro", "code": "\u26ab", "klass": "_neu"}
+{"description_es": "cara boca abierta y sudor fr\u00edo negativo", "code": "\ud83d\ude30", "klass": "_neg"}
+{"description_es": "tr\u00e1fico horizontal luz", "code": "\ud83d\udea5", "klass": "_neu"}
+{"description_es": "tenedor y cuchillo con placa", "code": "\ud83c\udf7d", "klass": "_neu"}
+{"description_es": "monta\u00f1as nieve", "code": "\ud83c\udfd4", "klass": "_neu"}
+{"description_es": "bandera de piratas negativo", "code": "\u2620", "klass": "_neg"}
+{"description_es": "flecha hacia arriba", "code": "\ud83d\udd1d", "klass": "_neu"}
+{"description_es": "dormir", "code": "\ud83d\udca4", "klass": "_neu"}
+{"description_es": "pin", "code": "\ud83d\udccc", "klass": "_neu"}
+{"description_es": "inminente coche de polic\u00eda", "code": "\ud83d\ude94", "klass": "_neu"}
+{"description_es": "pluma", "code": "\ud83d\udd8b", "klass": "_neu"}
+{"description_es": "copa de c\u00f3ctel", "code": "\ud83c\udf78", "klass": "_neu"}
+{"description_es": "guitarra", "code": "\ud83c\udfb8", "klass": "_neu"}
+{"description_es": "videocasset", "code": "\ud83d\udcfc", "klass": "_neu"}
+{"description_es": "\u00edndice medio negativo", "code": "\ud83d\udd95", "klass": "_neg"}
+{"description_es": "bol\u00edgrafo", "code": "\ud83d\udd8a", "klass": "_neu"}
+{"description_es": "s\u00edmbolo mujer", "code": "\ud83d\udeba", "klass": "_neu"}
+{"description_es": "impresora", "code": "\ud83d\udda8", "klass": "_neu"}
+{"description_es": "cara confundido negativo", "code": "\ud83d\ude16", "klass": "_neg"}
+{"description_es": "gallo", "code": "\ud83d\udc13", "klass": "_neu"}
+{"description_es": "reloj repisa la chimenea", "code": "\ud83d\udd70", "klass": "_neu"}
+{"description_es": "cara sudor fr\u00edo negativo", "code": "\ud83d\ude13", "klass": "_neg"}
+{"description_es": "cajero autom\u00e1tico", "code": "\ud83c\udfe7", "klass": "_neu"}
+{"description_es": "bailar\u00edn positivo", "code": "\ud83d\udc83", "klass": "_pos"}
+{"description_es": "trompeta", "code": "\ud83c\udfba", "klass": "_neu"}
+{"description_es": "flor de lis", "code": "\u269c", "klass": "_neu"}
+{"description_es": "gr\u00e1fico alza positivo", "code": "\ud83d\udcc8", "klass": "_pos"}
+{"description_es": "etiqueta", "code": "\ud83c\udff7", "klass": "_neu"}
+{"description_es": "esqu\u00ed y bota", "code": "\ud83c\udfbf", "klass": "_neu"}
+{"description_es": "cara perseverante positivo", "code": "\ud83d\ude23", "klass": "_pos"}
+{"description_es": "boliche", "code": "\ud83c\udfb3", "klass": "_neu"}
+{"description_es": "polluelo beb\u00e9", "code": "\ud83d\udc24", "klass": "_neu"}
+{"description_es": "b\u00edper", "code": "\ud83d\udcdf", "klass": "_neu"}
+{"description_es": "bandera en agujero", "code": "\u26f3", "klass": "_neu"}
+{"description_es": "billetes yen", "code": "\ud83d\udcb4", "klass": "_neu"}
+{"description_es": "manzana verde", "code": "\ud83c\udf4f", "klass": "_neu"}
+{"description_es": "teja drag\u00f3n rojo", "code": "\ud83c\udc04", "klass": "_neu"}
+{"description_es": "plaza grande blanco", "code": "\u2b1c", "klass": "_neu"}
+{"description_es": "conejo", "code": "\ud83d\udc07", "klass": "_neu"}
+{"description_es": "cami\u00f3n articulado", "code": "\ud83d\ude9b", "klass": "_neu"}
+{"description_es": "s\u00edmbolo silla de ruedas", "code": "\u267f", "klass": "_neu"}
+{"description_es": "neutro", "code": "@_@", "klass": "_neu"}
+{"description_es": "feliz", "code": "q(\u2742\u203f\u2742)p", "klass": "_pos"}
+{"description_es": "enojado", "code": "\u3034\u22cb_\u22cc\u3035", "klass": "_neg"}
+{"description_es": "desconcertado", "code": "{\u2022\u0303\u033e_\u2022\u0303\u033e}", "klass": "_neu"}
+{"description_es": "cruz", "code": "\u2020", "klass": "_pos"}
+{"description_es": "desconcertado", "code": "8-|", "klass": "_neu"}
+{"description_es": "asombro", "code": ">:o", "klass": "_neg"}
+{"description_es": "ouch", "code": "\u00bb.\u00ab", "klass": "_neg"}
+{"description_es": "enfasis", "code": "\u203c", "klass": "_none"}
+{"description_es": "tres asteriscos", "code": "\u2042", "klass": "_none"}
+{"description_es": "cerdito ninja", "code": "\u4e42\u25dc\u25ec\u25dd\u4e42", "klass": "_pos"}
+{"description_es": "asombro", "code": "\u2049", "klass": "_none"}
+{"description_es": "asterisco", "code": "\u204e", "klass": "_none"}
+{"description_es": "doble asterisco", "code": "\u2051", "klass": "_none"}
+{"description_es": "desconcertado", "code": "._.", "klass": "_neu"}
+{"description_es": "feliz", "code": "\u00a2\u203f\u00a2", "klass": "_pos"}
+{"description_es": "continuara", "code": "\u3065", "klass": "_none"}
+{"description_es": "desconcertado", "code": "\u0e4f_\u0e4f", "klass": "_neg"}
+{"description_es": "desconcertado", "code": "D:", "klass": "_pos"}
+{"description_es": "asombro", "code": "\u25d1.\u25d1", "klass": "_neu"}
+{"description_es": "ouch", "code": ">_<", "klass": "_neg"}
+{"description_es": "ouch", "code": "'~'U", "klass": "_none"}
+{"description_es": "aburrido", "code": "-_-", "klass": "_neu"}
+{"description_es": "simbolo japones", "code": "\u309e", "klass": "_none"}
+{"description_es": "feliz", "code": "\u25d5\u203f\u25d5\u0669(\u25cf\u032e\u032e\u0303\u2022\u0303)\u06f6", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u2282\u25c9\u203f\u25c9\u3064", "klass": "_pos"}
+{"description_es": "simbolo japones", "code": "\u30ac", "klass": "_none"}
+{"description_es": "enojado", "code": "\u0ca0~\u0ca0", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30ae", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30b0", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30b2", "klass": "_none"}
+{"description_es": "llorar", "code": "Dx", "klass": "_pos"}
+{"description_es": "simbolo japones", "code": "\u30b4", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30b6", "klass": "_none"}
+{"description_es": "feliz", "code": "\u30b7", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u30b8", "klass": "_pos"}
+{"description_es": "correr simbolo japones", "code": "\u30ba", "klass": "_none"}
+{"description_es": "cabeza con flor", "code": "\u00ac \u00ac*", "klass": "_neg"}
+{"description_es": "feliz sonrisa", "code": "^_^", "klass": "_pos"}
+{"description_es": "simbolo japones", "code": "\u30bc", "klass": "_none"}
+{"description_es": "feliz simbolo japones", "code": "\u30be", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u00f3\u203f\u00f3", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u30c3", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u30c4", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u30c5", "klass": "_pos"}
+{"description_es": "feliz", "code": "(\u2022\u203f\u2022)", "klass": "_pos"}
+{"description_es": "molesto", "code": "\u0cb0_\u0cb0", "klass": "_neu"}
+{"description_es": "simbolo japones", "code": "\u30d0", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30d3", "klass": "_none"}
+{"description_es": "feliz", "code": "^\u203f^", "klass": "_pos"}
+{"description_es": "feliz", "code": "n_n", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u00dc", "klass": "_pos"}
+{"description_es": "enojado", "code": "\u00f2_\u00f3", "klass": "_neg"}
+{"description_es": "corazon secreto secret heart", "code": "\u10e6", "klass": "_pos"}
+{"description_es": "desconcierto", "code": "\u3010\u2022\u3011_\u3010\u2022\u3011", "klass": "_neu"}
+{"description_es": "desconcierto", "code": "v( \u2018.\u2019 )v", "klass": "_neu"}
+{"description_es": "simbolo japones", "code": "\u30f7", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30f9", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u30fa", "klass": "_none"}
+{"description_es": "aburrido desconcierto", "code": "|\u02da\u2013\u02da|", "klass": "_neu"}
+{"description_es": "loco feliz", "code": "|\u25d4\u25e1\u25c9|", "klass": "_pos"}
+{"description_es": "ouch", "code": "(>.<)", "klass": "_neg"}
+{"description_es": "feliz con fleco", "code": "^( \\\\\\'\u203f\\\\\\' )^", "klass": "_pos"}
+{"description_es": "linda", "code": "\u00f1_\u00f1", "klass": "_pos"}
+{"description_es": "infeliz", "code": "):", "klass": "_neg"}
+{"description_es": "letra i", "code": "\u2139", "klass": "_none"}
+{"description_es": "desconcierto", "code": "\u25d0.\u0303\u25d0", "klass": "_neu"}
+{"description_es": "alivio", "code": "u.u", "klass": "_neu"}
+{"description_es": "feliz robot", "code": "\u2299\u2583\u2299", "klass": "_pos"}
+{"description_es": "desconcierto aburrido", "code": "\u0953_\u0954", "klass": "_neg"}
+{"description_es": "feliz perro", "code": "\u1d54\u1d25\u1d54", "klass": "_pos"}
+{"description_es": "feliz", "code": "n__n", "klass": "_neu"}
+{"description_es": "feliz chiflando", "code": "\ud83d\ude18", "klass": "_pos"}
+{"description_es": "feliz beso", "code": "\ud83d\ude17", "klass": "_pos"}
+{"description_es": "loca borracho", "code": "\u0669(\u0361\u0e4f\u032e\u0361\u0e4f)\u06f6", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude16", "klass": "_neg"}
+{"description_es": "disgusto", "code": "\ud83d\ude15", "klass": "_neu"}
+{"description_es": "feliz", "code": "\ud83d\ude1c", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude1b", "klass": "_pos"}
+{"description_es": "beso", "code": "\ud83d\ude1a", "klass": "_pos"}
+{"description_es": "beso", "code": "\ud83d\ude19", "klass": "_pos"}
+{"description_es": "sorpresa", "code": "o\u0303.O", "klass": "_neg"}
+{"description_es": "desconcierto", "code": "\ud83d\ude10", "klass": "_neu"}
+{"description_es": "feliz orgullo", "code": "\ud83d\ude0f", "klass": "_pos"}
+{"description_es": "feliz like a boss", "code": "\ud83d\ude0e", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude0d", "klass": "_pos"}
+{"description_es": "indiferencia", "code": "\ud83d\ude14", "klass": "_neg"}
+{"description_es": "indiferencia", "code": "\ud83d\ude13", "klass": "_neg"}
+{"description_es": "enojo", "code": "\ud83d\ude12", "klass": "_neu"}
+{"description_es": "indiferencia", "code": "\ud83d\ude11", "klass": "_neu"}
+{"description_es": "maldad feliz", "code": "\ud83d\ude08", "klass": "_pos"}
+{"description_es": "bondad feliz", "code": "\ud83d\ude07", "klass": "_pos"}
+{"description_es": "chido feliz", "code": "\ud83d\ude06", "klass": "_pos"}
+{"description_es": "tache", "code": "\u2573", "klass": "_pos"}
+{"description_es": "feliz risa", "code": "\ud83d\ude05", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude0c", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude0b", "klass": "_pos"}
+{"description_es": "circulos", "code": "(\u2022\u032a\u25cf)", "klass": "_neu"}
+{"description_es": "feliz", "code": "\ud83d\ude0a", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude09", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude00", "klass": "_pos"}
+{"description_es": "indiferente con fleco", "code": "^( \\\\\\'-\\\\\\' )^", "klass": "_none"}
+{"description_es": "feliz", "code": "\ud83d\ude04", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude03", "klass": "_pos"}
+{"description_es": "desarmador", "code": "\u257d", "klass": "_none"}
+{"description_es": "feliz carcajada", "code": "\ud83d\ude02", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude01", "klass": "_pos"}
+{"description_es": "desarmador", "code": "\u257f", "klass": "_none"}
+{"description_es": "", "code": "\u00ac\u00ac", "klass": "_neu"}
+{"description_es": "feliz gato", "code": "\ud83d\ude38", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u25d9\u203f\u25d9", "klass": "_pos"}
+{"description_es": "feliz", "code": "\ud83d\ude37", "klass": "_neg"}
+{"description_es": "indiferente", "code": "\ud83d\ude36", "klass": "_neu"}
+{"description_es": "asombro", "code": "\ud83d\ude35", "klass": "_neg"}
+{"description_es": "maldad gato", "code": "\ud83d\ude3c", "klass": "_pos"}
+{"description_es": "gato chido", "code": "\ud83d\ude3b", "klass": "_pos"}
+{"description_es": "gato feliz", "code": "\ud83d\ude3a", "klass": "_pos"}
+{"description_es": "gato feliz risa", "code": "\ud83d\ude39", "klass": "_pos"}
+{"description_es": "asombro", "code": "\ud83d\ude30", "klass": "_neg"}
+{"description_es": "asombro", "code": "\ud83d\ude2f", "klass": "_neg"}
+{"description_es": "asombro", "code": "\ud83d\ude2e", "klass": "_neg"}
+{"description_es": "infeliz llorar", "code": "\ud83d\ude2d", "klass": "_neg"}
+{"description_es": "aburrido dormir", "code": "\ud83d\ude34", "klass": "_neu"}
+{"description_es": "enojo", "code": "\ud83d\ude33", "klass": "_neg"}
+{"description_es": "asombro", "code": "\ud83d\ude32", "klass": "_neg"}
+{"description_es": "feliz", "code": "< (^^,) >", "klass": "_pos"}
+{"description_es": "asombro espanto grito", "code": "\ud83d\ude31", "klass": "_neg"}
+{"description_es": "enojo", "code": "\ud83d\ude28", "klass": "_neg"}
+{"description_es": "asombro", "code": "\ud83d\ude27", "klass": "_neg"}
+{"description_es": "asombro", "code": "\ud83d\ude26", "klass": "_neg"}
+{"description_es": "asombro tristeza", "code": "\ud83d\ude25", "klass": "_neg"}
+{"description_es": "tristeza", "code": "\ud83d\ude2b", "klass": "_neg"}
+{"description_es": "tristeza", "code": "\ud83d\ude2a", "klass": "_neg"}
+{"description_es": "tristeza", "code": "\ud83d\ude29", "klass": "_neg"}
+{"description_es": "enojo", "code": "\ud83d\ude20", "klass": "_neg"}
+{"description_es": "enojo", "code": "\ud83d\ude1f", "klass": "_neg"}
+{"description_es": "enojo tristeza", "code": "\ud83d\ude1e", "klass": "_neg"}
+{"description_es": "broma saca lengua", "code": "\ud83d\ude1d", "klass": "_pos"}
+{"description_es": "enojo tristeza", "code": "\ud83d\ude23", "klass": "_neg"}
+{"description_es": "infeliz tristeza", "code": "\ud83d\ude22", "klass": "_neg"}
+{"description_es": "enojo furia", "code": "\ud83d\ude21", "klass": "_neg"}
+{"description_es": "como jefe", "code": "\u0669(-\u032e\u032e\u0303\u2022\u0303)", "klass": "_pos"}
+{"description_es": "deshacer", "code": "\u21b6", "klass": "_none"}
+{"description_es": "rehacer", "code": "\u21b7", "klass": "_none"}
+{"description_es": "gato triste llorar", "code": "\ud83d\ude40", "klass": "_neg"}
+{"description_es": "asombro", "code": "(O.O)", "klass": "_neg"}
+{"description_es": "gato triste llorar", "code": "\ud83d\ude3f", "klass": "_neg"}
+{"description_es": "gato enojado", "code": "\ud83d\ude3e", "klass": "_neg"}
+{"description_es": "gato despreocupado", "code": "\ud83d\ude3d", "klass": "_pos"}
+{"description_es": "feliz", "code": "(^L^)", "klass": "_pos"}
+{"description_es": "feliz", "code": "(^\u203f^)", "klass": "_pos"}
+{"description_es": "feliz ruborizado", "code": "\u2267\u25e1\u2266", "klass": "_pos"}
+{"description_es": "feliz movimiento", "code": "\u250c(\u0ca0\u203f\u0ca0)\u2518", "klass": "_pos"}
+{"description_es": "circulo eclipse", "code": "\u25c9", "klass": "_none"}
+{"description_es": "circulo lleno", "code": "\u25cf", "klass": "_none"}
+{"description_es": "circulo", "code": "\u25d0", "klass": "_none"}
+{"description_es": "circulo", "code": "\u25d1", "klass": "_none"}
+{"description_es": "circulo", "code": "\u25d2", "klass": "_none"}
+{"description_es": "circulo", "code": "\u25d3", "klass": "_none"}
+{"description_es": "circulo", "code": "\u25d4", "klass": "_none"}
+{"description_es": "circulo", "code": "\u25d5", "klass": "_none"}
+{"description_es": "medio circulo", "code": "\u25d6", "klass": "_none"}
+{"description_es": "medio circulo", "code": "\u25d7", "klass": "_none"}
+{"description_es": "triste", "code": "='(", "klass": "_neg"}
+{"description_es": "feliz bailando", "code": "\u0669(^\u203f^)\u06f6", "klass": "_pos"}
+{"description_es": "arriba", "code": "\u21e7", "klass": "_pos"}
+{"description_es": "arriba", "code": "\u21ea", "klass": "_pos"}
+{"description_es": "desconcertado confundido", "code": "/:", "klass": "_neg"}
+{"description_es": "se\u00f1al grosera", "code": ".l.", "klass": "_neg"}
+{"description_es": "sol", "code": "\u2600", "klass": "_pos"}
+{"description_es": "monta\u00f1a", "code": "\u2601", "klass": "_neu"}
+{"description_es": "sombrilla", "code": "\u2602", "klass": "_neg"}
+{"description_es": "bicho", "code": "\u2603", "klass": "_pos"}
+{"description_es": "cometa", "code": "\u2604", "klass": "_none"}
+{"description_es": "estrella", "code": "\u2605", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u2606", "klass": "_pos"}
+{"description_es": "flecha codo", "code": "\u2607", "klass": "_none"}
+{"description_es": "flecha", "code": "\u2608", "klass": "_none"}
+{"description_es": "circulo", "code": "\u2609", "klass": "_none"}
+{"description_es": "audifonos", "code": "\u260a", "klass": "_none"}
+{"description_es": "audifonos", "code": "\u260b", "klass": "_pos"}
+{"description_es": "cacerola", "code": "\u260c", "klass": "_none"}
+{"description_es": "anteojos", "code": "\u260d", "klass": "_none"}
+{"description_es": "loco buena onda", "code": "\u0669(-\u032e\u032e\u0303-\u0303)\u06f6", "klass": "_pos"}
+{"description_es": "telefono", "code": "\u260e", "klass": "_none"}
+{"description_es": "telefono", "code": "\u260f", "klass": "_none"}
+{"description_es": "raiz", "code": "\u2611", "klass": "_pos"}
+{"description_es": "tache", "code": "\u2612", "klass": "_neg"}
+{"description_es": "sombrilla llover", "code": "\u2614", "klass": "_neg"}
+{"description_es": "cafe chocolote", "code": "\u2615", "klass": "_pos"}
+{"description_es": "izquierda", "code": "\u261a", "klass": "_pos"}
+{"description_es": "raiz palomita", "code": "\u221a", "klass": "_pos"}
+{"description_es": "derecha", "code": "\u261b", "klass": "_none"}
+{"description_es": "izquierda", "code": "\u261c", "klass": "_pos"}
+{"description_es": "arriba", "code": "\u261d", "klass": "_none"}
+{"description_es": "derecha", "code": "\u261e", "klass": "_none"}
+{"description_es": "abajo", "code": "\u261f", "klass": "_neg"}
+{"description_es": "feliz tierno", "code": "(\uff61\u25d5\u203f\u25d5\uff61)", "klass": "_pos"}
+{"description_es": "muerte veneno peligro", "code": "\u2620", "klass": "_neg"}
+{"description_es": "radiactivo peligro", "code": "\u2622", "klass": "_neg"}
+{"description_es": "peligro", "code": "\u2623", "klass": "_neg"}
+{"description_es": "medicina", "code": "\u2624", "klass": "_none"}
+{"description_es": "cruz egipcia", "code": "\u2625", "klass": "_pos"}
+{"description_es": "cruz", "code": "\u2626", "klass": "_pos"}
+{"description_es": "simbolo cristiano", "code": "\u2627", "klass": "_none"}
+{"description_es": "cruz doble", "code": "\u2628", "klass": "_none"}
+{"description_es": "v", "code": "\u2228", "klass": "_none"}
+{"description_es": "cruz", "code": "\u2629", "klass": "_none"}
+{"description_es": "interseccion", "code": "\u2229", "klass": "_none"}
+{"description_es": "feliz", "code": "\u062a", "klass": "_pos"}
+{"description_es": "musulman luna estrella", "code": "\u262a", "klass": "_none"}
+{"description_es": "union", "code": "\u222a", "klass": "_none"}
+{"description_es": "israel judio", "code": "\u262b", "klass": "_none"}
+{"description_es": "sikh khanda", "code": "\u262c", "klass": "_none"}
+{"description_es": "rusia socialismo", "code": "\u262d", "klass": "_none"}
+{"description_es": "amor paz hippie", "code": "\u262e", "klass": "_pos"}
+{"description_es": "ying yang equilibrio", "code": "\u262f", "klass": "_pos"}
+{"description_es": "asombro desmayado", "code": "X_X", "klass": "_neg"}
+{"description_es": "por lo tanto", "code": "\u2234", "klass": "_none"}
+{"description_es": "dharma budismo flor", "code": "\u2638", "klass": "_none"}
+{"description_es": "enojo", "code": "\u2639", "klass": "_neg"}
+{"description_es": "enojo", "code": "\u00ac \u00ac", "klass": "_neg"}
+{"description_es": "feliz", "code": "\u263a", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u263b", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u263c", "klass": "_pos"}
+{"description_es": "luna creciente", "code": "\u263d", "klass": "_pos"}
+{"description_es": "luna menguante", "code": "\u263e", "klass": "_pos"}
+{"description_es": "mercurio", "code": "\u263f", "klass": "_none"}
+{"description_es": "venus femenino", "code": "\u2640", "klass": "_neu"}
+{"description_es": "tierra femenino", "code": "\u2641", "klass": "_neu"}
+{"description_es": "hombre", "code": "\u2642", "klass": "_neu"}
+{"description_es": "aries cuernos cordero", "code": "\u2648", "klass": "_neu"}
+{"description_es": "tauro cuernos toro", "code": "\u2649", "klass": "_pos"}
+{"description_es": "enojo", "code": ">:-(", "klass": "_neg"}
+{"description_es": "geminis", "code": "\u264a", "klass": "_none"}
+{"description_es": "piscis", "code": "\u264b", "klass": "_none"}
+{"description_es": "leo", "code": "\u264c", "klass": "_none"}
+{"description_es": "virgo", "code": "\u264d", "klass": "_none"}
+{"description_es": "libra", "code": "\u264e", "klass": "_none"}
+{"description_es": "escorpion", "code": "\u264f", "klass": "_none"}
+{"description_es": "sagitario flecha", "code": "\u2650", "klass": "_none"}
+{"description_es": "capricornio", "code": "\u2651", "klass": "_none"}
+{"description_es": "acuario", "code": "\u2652", "klass": "_none"}
+{"description_es": "feliz", "code": "(\u00b0\u2323\u00b0)", "klass": "_pos"}
+{"description_es": "piscis", "code": "\u2653", "klass": "_none"}
+{"description_es": "rey blanco ajedrez", "code": "\u2654", "klass": "_pos"}
+{"description_es": "dama blanco ajedrez", "code": "\u2655", "klass": "_pos"}
+{"description_es": "torre blanco ajedrez", "code": "\u2656", "klass": "_pos"}
+{"description_es": "alfil blanco ajedrez", "code": "\u2657", "klass": "_neu"}
+{"description_es": "caballo blanco ajedrez", "code": "\u2658", "klass": "_neu"}
+{"description_es": "peon blanco ajedrez", "code": "\u2659", "klass": "_neu"}
+{"description_es": "rey negro ajedrez", "code": "\u265a", "klass": "_pos"}
+{"description_es": "dama negro ajedrez", "code": "\u265b", "klass": "_pos"}
+{"description_es": "torre negro ajedrez", "code": "\u265c", "klass": "_neu"}
+{"description_es": "alfil negro ajedrez", "code": "\u265d", "klass": "_neu"}
+{"description_es": "caballo negro ajedrez", "code": "\u265e", "klass": "_neu"}
+{"description_es": "peon negro ajedrez", "code": "\u265f", "klass": "_neu"}
+{"description_es": "picas negro", "code": "\u2660", "klass": "_neu"}
+{"description_es": "corazon", "code": "\u2661", "klass": "_pos"}
+{"description_es": "as diamante", "code": "\u2662", "klass": "_neu"}
+{"description_es": "mas suma cruz", "code": "\ufe62", "klass": "_none"}
+{"description_es": "trebol", "code": "\u2663", "klass": "_pos"}
+{"description_es": "menos", "code": "\ufe63", "klass": "_none"}
+{"description_es": "picas", "code": "\u2664", "klass": "_none"}
+{"description_es": "menor que", "code": "\ufe64", "klass": "_none"}
+{"description_es": "corazon", "code": "\u2665", "klass": "_pos"}
+{"description_es": "mayor que", "code": "\ufe65", "klass": "_none"}
+{"description_es": "diamante", "code": "\u2666", "klass": "_neu"}
+{"description_es": "trebol", "code": "\u2667", "klass": "_pos"}
+{"description_es": "calor", "code": "\u2668", "klass": "_none"}
+{"description_es": "musica", "code": "\u2669", "klass": "_pos"}
+{"description_es": "musica", "code": "\u266a", "klass": "_pos"}
+{"description_es": "musica", "code": "\u266b", "klass": "_pos"}
+{"description_es": "musica", "code": "\u266c", "klass": "_pos"}
+{"description_es": "bemol musica", "code": "\u266d", "klass": "_none"}
+{"description_es": "sostenido musica sharp", "code": "\u266e", "klass": "_none"}
+{"description_es": "sostenido musica sharp", "code": "\u266f", "klass": "_none"}
+{"description_es": "fuera de combate", "code": "x_x", "klass": "_neg"}
+{"description_es": "reciclado", "code": "\u267b", "klass": "_pos"}
+{"description_es": "silla de ruedas", "code": "\u267f", "klass": "_none"}
+{"description_es": "llorar", "code": "TT", "klass": "_neg"}
+{"description_es": "inconforme", "code": ":-/", "klass": "_neg"}
+{"description_es": "inconforme", "code": "):-/", "klass": "_neg"}
+{"description_es": "sorpresa", "code": ">:-o", "klass": "_neu"}
+{"description_es": "simbolo japones", "code": "\u328a", "klass": "_none"}
+{"description_es": "simbolo japones fuego", "code": "\u328b", "klass": "_none"}
+{"description_es": "ouch dolor", "code": ">.<", "klass": "_neg"}
+{"description_es": "simbolo japones", "code": "\u328c", "klass": "_none"}
+{"description_es": "simbolo japones japon", "code": "\u328d", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u328e", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u328f", "klass": "_none"}
+{"description_es": "simbolo japones", "code": "\u3290", "klass": "_none"}
+{"description_es": "asombro", "code": "O.o", "klass": "_neg"}
+{"description_es": "martillos", "code": "\u2692", "klass": "_none"}
+{"description_es": "ancla", "code": "\u2693", "klass": "_none"}
+{"description_es": "espadas", "code": "\u2694", "klass": "_none"}
+{"description_es": "operacion", "code": "\u2295", "klass": "_none"}
+{"description_es": "medicina", "code": "\u2695", "klass": "_none"}
+{"description_es": "balanza justicia", "code": "\u2696", "klass": "_pos"}
+{"description_es": "tache", "code": "\u2297", "klass": "_none"}
+{"description_es": "flor", "code": "\u2698", "klass": "_none"}
+{"description_es": "circulo", "code": "\u229a", "klass": "_none"}
+{"description_es": "hermes", "code": "\u269a", "klass": "_none"}
+{"description_es": "tristeza llorar", "code": ":'(", "klass": "_neg"}
+{"description_es": "tristeza llorar", "code": ":\"(", "klass": "_neg"}
+{"description_es": "asterisco", "code": "\u229b", "klass": "_none"}
+{"description_es": "atomo", "code": "\u269b", "klass": "_pos"}
+{"description_es": "igual equivalente", "code": "\u229c", "klass": "_none"}
+{"description_es": "flor", "code": "\u269c", "klass": "_none"}
+{"description_es": "menos", "code": "\u229d", "klass": "_neg"}
+{"description_es": "atencion", "code": "\u26a0", "klass": "_neg"}
+{"description_es": "rayo", "code": "\u26a1", "klass": "_neg"}
+{"description_es": "perpendicular", "code": "\u22a5", "klass": "_none"}
+{"description_es": "pensativo", "code": "\u25d4_\u25d4", "klass": "_neu"}
+{"description_es": "", "code": "\u00ac\u00ac*", "klass": "_neg"}
+{"description_es": "circulo", "code": "\u26aa", "klass": "_none"}
+{"description_es": "circulo", "code": "\u26ab", "klass": "_none"}
+{"description_es": "descansando", "code": "-.-", "klass": "_neu"}
+{"description_es": "risa", "code": "^o^", "klass": "_pos"}
+{"description_es": "feliz flores", "code": "\u2740\u203f\u2740", "klass": "_pos"}
+{"description_es": "hombre", "code": "\uc6c3", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u22c6", "klass": "_pos"}
+{"description_es": "cara dinero", "code": "$_$", "klass": "_neu"}
+{"description_es": "risa feliz", "code": "xD", "klass": "_pos"}
+{"description_es": "loco desconcertado", "code": "(\u2299\u0303.o \u2299.\u25ce)", "klass": "_neg"}
+{"description_es": "feliz", "code": "=^.^=", "klass": "_pos"}
+{"description_es": "feliz", "code": "^.^", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u32e1", "klass": "_pos"}
+{"description_es": "descansando", "code": "U_U", "klass": "_neu"}
+{"description_es": "enojado", "code": "XC", "klass": "_neg"}
+{"description_es": "feliz sonrisa", "code": "\u00f1__\u00f1", "klass": "_pos"}
+{"description_es": "feliz saca lengua", "code": "XP", "klass": "_pos"}
+{"description_es": "tijeras", "code": "\u2702", "klass": "_neg"}
+{"description_es": "ojos locos", "code": "\u2037\u0317\u2182\u51f8\u2182\u2034", "klass": "_none"}
+{"description_es": "telefono", "code": "\u2706", "klass": "_none"}
+{"description_es": "eject", "code": "\u2306", "klass": "_none"}
+{"description_es": "manejar volante", "code": "\u2707", "klass": "_none"}
+{"description_es": "avion", "code": "\u2708", "klass": "_pos"}
+{"description_es": "carta correo", "code": "\u2709", "klass": "_pos"}
+{"description_es": "fuerza pu\u00f1o", "code": "\u270a", "klass": "_none"}
+{"description_es": "mano alto", "code": "\u270b", "klass": "_neg"}
+{"description_es": "victoria", "code": "\u270c", "klass": "_pos"}
+{"description_es": "escribir", "code": "\u270d", "klass": "_neu"}
+{"description_es": "lapiz escribir", "code": "\u270e", "klass": "_neu"}
+{"description_es": "pluma escribir", "code": "\u2711", "klass": "_none"}
+{"description_es": "acierto", "code": "\u2713", "klass": "_pos"}
+{"description_es": "acierto", "code": "\u2714", "klass": "_pos"}
+{"description_es": "asombro loco", "code": "O.\u00f3", "klass": "_neg"}
+{"description_es": "asombro loco", "code": "o.\u00d3", "klass": "_neg"}
+{"description_es": "equivocacion", "code": "\u2715", "klass": "_neg"}
+{"description_es": "equivocacion", "code": "\u2716", "klass": "_neg"}
+{"description_es": "feliz travieso", "code": ";-)", "klass": "_pos"}
+{"description_es": "equivocacion", "code": "\u2717", "klass": "_neg"}
+{"description_es": "feliz", "code": "<\u3010\u262f\u3011\u203f\u3010\u262f\u3011>", "klass": "_pos"}
+{"description_es": "bucles", "code": "\u2318", "klass": "_none"}
+{"description_es": "equivocacion", "code": "\u2718", "klass": "_neg"}
+{"description_es": "cruz", "code": "\u2719", "klass": "_pos"}
+{"description_es": "cruz", "code": "\u271a", "klass": "_pos"}
+{"description_es": "reloj tiempo", "code": "\u231a", "klass": "_neu"}
+{"description_es": "cruz", "code": "\u271b", "klass": "_pos"}
+{"description_es": "tiempo", "code": "\u231b", "klass": "_neg"}
+{"description_es": "cruz", "code": "\u271c", "klass": "_pos"}
+{"description_es": "cruz", "code": "\u271d", "klass": "_pos"}
+{"description_es": "cruz", "code": "\u271e", "klass": "_pos"}
+{"description_es": "cruz", "code": "\u271f", "klass": "_pos"}
+{"description_es": "cruz", "code": "\u2720", "klass": "_none"}
+{"description_es": "simbolo", "code": "\uc720", "klass": "_none"}
+{"description_es": "estrella david judio israel", "code": "\u2721", "klass": "_none"}
+{"description_es": "cruz", "code": "\u2722", "klass": "_none"}
+{"description_es": "cruz", "code": "\u2723", "klass": "_none"}
+{"description_es": "cruz", "code": "\u2724", "klass": "_none"}
+{"description_es": "", "code": "\u2324", "klass": "_neg"}
+{"description_es": "comando mac", "code": "\u2325", "klass": "_none"}
+{"description_es": "direcciones", "code": "\u2725", "klass": "_none"}
+{"description_es": "diamante", "code": "\u2726", "klass": "_none"}
+{"description_es": "diamante", "code": "\u2727", "klass": "_none"}
+{"description_es": "estrellas", "code": "\u2728", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u2729", "klass": "_pos"}
+{"description_es": "resignacion", "code": "u_u", "klass": "_neu"}
+{"description_es": "estrella", "code": "\u272a", "klass": "_pos"}
+{"description_es": "", "code": "\u232b", "klass": "_none"}
+{"description_es": "estrella", "code": "\u272b", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u272c", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u272d", "klass": "_pos"}
+{"description_es": "corazon", "code": "\u2764\ufe0f", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u272e", "klass": "_pos"}
+{"description_es": "feliz", "code": ":)", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u272f", "klass": "_pos"}
+{"description_es": "beso", "code": ":*", "klass": "_pos"}
+{"description_es": "estrella", "code": "\u2730", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2731", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2732", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2733", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2734", "klass": "_pos"}
+{"description_es": "inconforme", "code": ":/", "klass": "_neg"}
+{"description_es": "enojado", "code": ":(", "klass": "_neg"}
+{"description_es": "asterisco", "code": "\u2735", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2736", "klass": "_pos"}
+{"description_es": "sonrisa", "code": "\u00f1.\u00f1", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2737", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2738", "klass": "_pos"}
+{"description_es": "feliz gato", "code": ":3", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u2739", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u273a", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u273b", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u273c", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u273d", "klass": "_pos"}
+{"description_es": "flor", "code": "\u273e", "klass": "_pos"}
+{"description_es": "flor", "code": "\u273f", "klass": "_pos"}
+{"description_es": "flor", "code": "\u2740", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2741", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2742", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2743", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2744", "klass": "_neu"}
+{"description_es": "copo nieve asterisco", "code": "\u2745", "klass": "_neu"}
+{"description_es": "copo nieve", "code": "\u2746", "klass": "_neu"}
+{"description_es": "cara estrellado", "code": "*-*", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2747", "klass": "_pos"}
+{"description_es": "loco dientes", "code": ":B", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2748", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u2749", "klass": "_pos"}
+{"description_es": "feliz", "code": ":D", "klass": "_pos"}
+{"description_es": "copo nieve", "code": "\u274a", "klass": "_pos"}
+{"description_es": "feliz", "code": "\u0ca0\u25e1\u0ca0", "klass": "_pos"}
+{"description_es": "asterisco", "code": "\u274b", "klass": "_pos"}
+{"description_es": "tache", "code": "\u274c", "klass": "_neg"}
+{"description_es": "cruz suastica", "code": "\u534d", "klass": "_neg"}
+{"description_es": "feliz complice", "code": ";)", "klass": "_pos"}
+{"description_es": "tache", "code": "\u274e", "klass": "_neg"}
+{"description_es": "estrella", "code": "\u2b50", "klass": "_pos"}
+{"description_es": "cruz suastica", "code": "\u5350", "klass": "_neg"}
+{"description_es": "pregunta", "code": "\u2753", "klass": "_neu"}
+{"description_es": "", "code": "\ud83c\udc04", "klass": "_none"}
+{"description_es": "pregunta", "code": "\u2754", "klass": "_neu"}
+{"description_es": "triste", "code": ":-(", "klass": "_neg"}
+{"description_es": "exclamacion", "code": "\u2755", "klass": "_pos"}
+{"description_es": "feliz", "code": ":-)", "klass": "_pos"}
+{"description_es": "", "code": "\u2756", "klass": "_none"}
+{"description_es": "", "code": ":-*", "klass": "_pos"}
+{"description_es": "exclamaci\u00f3n sorpresa", "code": "\u2757", "klass": "_none"}
+{"description_es": "desagrado preocupaci\u00f3n", "code": ":S", "klass": "_neg"}
+{"description_es": "ouch dolor", "code": "\\\\\\\\m/(>.<)\\\\\\\\m/", "klass": "_neg"}
+{"description_es": "estrella", "code": "\u235f", "klass": "_pos"}
+{"description_es": "desagrado infeliz", "code": ":[", "klass": "_neg"}
+{"description_es": "infeliz", "code": ":\\", "klass": "_neg"}
+{"description_es": "feliz", "code": ":]", "klass": "_pos"}
+{"description_es": "corazon estrella", "code": "\u2763", "klass": "_pos"}
+{"description_es": "corazon", "code": "\u2764", "klass": "_pos"}
+{"description_es": "corazon", "code": "\u2765", "klass": "_pos"}
+{"description_es": "corazon flor", "code": "\u2766", "klass": "_none"}
+{"description_es": "corazon flor", "code": "\u2767", "klass": "_none"}
+{"description_es": "feliz", "code": ";D", "klass": "_pos"}
+{"description_es": "infeliz", "code": ":c", "klass": "_neg"}
+{"description_es": "feliz sonrisa", "code": ":-D", "klass": "_pos"}
+{"description_es": "asombro", "code": ":o", "klass": "_neg"}
+{"description_es": "asombro feliz", "code": ":p", "klass": "_pos"}
+{"description_es": " coraz\u00f3n", "code": "<3", "klass": "_pos"}
+{"description_es": "mono", "code": "\ud83d\udc35", "klass": "_pos"}
+{"description_es": " tim\u00f3n", "code": "\u2388", "klass": "_none"}
+{"description_es": "infel\u00edz", "code": ":-\\", "klass": "_neg"}
+{"description_es": "vaca", "code": "\ud83d\udc2e", "klass": "_pos"}
+{"description_es": "disgusto", "code": "=(", "klass": "_neg"}
+{"description_es": "", "code": "\u238b", "klass": "_none"}
+{"description_es": "rat\u00f3n", "code": "\ud83d\udc2d", "klass": "_pos"}
+{"description_es": "feliz", "code": "=)", "klass": "_pos"}
+{"description_es": "", "code": "\u238c", "klass": "_none"}
+{"description_es": "enamorado feliz", "code": "\u2764\ufe0f\u203f\u2764\ufe0f", "klass": "_pos"}
+{"description_es": "gato feliz", "code": "\ud83d\udc31", "klass": "_pos"}
+{"description_es": "suma", "code": "\u2795", "klass": "_pos"}
+{"description_es": "triste", "code": ")-:", "klass": "_neg"}
+{"description_es": "resta", "code": "\u2796", "klass": "_none"}
+{"description_es": "division", "code": "\u2797", "klass": "_none"}
+{"description_es": "asombro", "code": ":-o", "klass": "_neg"}
+{"description_es": "asombro callar", "code": ":-x", "klass": "_neg"}
+{"description_es": "feliz sonrisa", "code": "=D", "klass": "_pos"}
+{"description_es": "inconforme", "code": ":-|", "klass": "_neu"}
+{"description_es": "feliz", "code": "\u0f3a\u203f\u0f3b", "klass": "_pos"}
+{"description_es": "bucle", "code": "\u27b0", "klass": "_none"}
+{"description_es": "feliz fiesta", "code": "\u0669\u25d4\u203f\u25d4\u06f6", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27b3", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27b5", "klass": "_pos"}
+{"description_es": "desagrado infeliz", "code": "=S", "klass": "_neg"}
+{"description_es": "flecha", "code": "\u27b7", "klass": "_none"}
+{"description_es": "flecha", "code": "\u27b8", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27b9", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27ba", "klass": "_none"}
+{"description_es": "flecha", "code": "\u27bb", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27bc", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27bd", "klass": "_pos"}
+{"description_es": "apretar", "code": "><", "klass": "_neg"}
+{"description_es": "enamorado", "code": "\u2665\u203f\u2665", "klass": "_pos"}
+{"description_es": "flecha", "code": "\u27bf", "klass": "_none"}
+{"description_es": "feliz", "code": "^^", "klass": "_pos"}
+{"description_es": "pi", "code": "\u03c0", "klass": "_none"}
+{"description_es": "enter", "code": "\u23ce", "klass": "_none"}
+{"description_es": "eject", "code": "\u23cf", "klass": "_none"}
+{"description_es": "", "code": "(-\\\\\\'\\\\\\'-)", "klass": "_neu"}
+{"description_es": "rayo", "code": "\u03df", "klass": "_none"}
+{"description_es": "desagrado", "code": "'n'", "klass": "_neg"}
+{"description_es": "desagrado", "code": "\u21ce_\u21ce", "klass": "_neu"}
+{"description_es": "feliz sonrisa", "code": "{\u25d5 \u25e1 \u25d5}", "klass": "_pos"}
+{"description_es": "preocupacion", "code": "\u0c20_\u0c20", "klass": "_neu"}
+{"description_es": "feliz sonrisa", "code": "\u25cf\u203f\u25cf", "klass": "_pos"}
