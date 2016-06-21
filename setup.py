@@ -42,11 +42,16 @@ setup(
     packages=['b4msa', 'b4msa/tests', 'b4msa/tools', 'b4msa/resources'],
     include_package_data=True,
     zip_safe=False,
-    package_data={'b4msa/resources': ['sp4neg_stopwords.txt',
-                                      'spanish.stopwords']},
-    entry_points={
-        'console_scripts': ['b4msa-params=b4msa.command_line:params',
-                            'b4msa-train=b4msa.command_line:train',
-                            'b4msa-test=b4msa.command_line:test'],
-    }
+    package_data={'b4msa/resources': ['spanish.neg.stopwords',
+                                      'spanish.stopwords',
+				      'emoticons.json'
+		]},
+    # entry_points={
+    #     'console_scripts': ['b4msa-params=b4msa.command_line:params',
+    #                         # 'b4msa-train=b4msa.command_line:train',
+    #                         'b4msa-test=b4msa.command_line:test'],
+    # },
+    scripts=['b4msa/tools/b4msa-train',
+             'b4msa/tools/b4msa-test',
+             'b4msa/tools/b4msa-params']
 )

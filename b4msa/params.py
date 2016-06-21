@@ -28,6 +28,7 @@ _BASE_PARAMS = dict(
     num_option=BASIC_OPTIONS,
     usr_option=BASIC_OPTIONS,
     url_option=BASIC_OPTIONS,
+    emo_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
@@ -38,6 +39,7 @@ _BASE_PARAMS_LANG = dict(
     num_option=BASIC_OPTIONS,
     usr_option=BASIC_OPTIONS,
     url_option=BASIC_OPTIONS,
+    emo_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
@@ -138,7 +140,7 @@ class ParameterSelection:
 
         best_list = get_best(L)
         if hill_climbing:
-            # second approximation, hill climbing process
+            # second approximation, a hill climbing process
             i = 0
             while True:
                 i += 1
