@@ -195,7 +195,9 @@ class CommandLineTest(CommandLine):
         X = [svc.model[x] for x in read_data(self.data.test_set)]
         hy = svc.predict(X)
         with open(self.get_output(), 'w') as fpt:
-                fpt.write("\n".join([str(x) for x in hy]))
+            # fpt.write("\n".join([str(x) for x in hy]))
+            for text, klass in zip(read_data(self.data.test_set), hy):
+                fpt.write(json.dumps({"text": text, "klass": klass}, indent=2, sort_keys=True)+"\n")
 
         
 def params():
