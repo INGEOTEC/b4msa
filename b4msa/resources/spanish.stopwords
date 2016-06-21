@@ -1,3 +1,6 @@
+#
+# This file contains Spanish stopwords
+#       
 a
 además
 ademas
@@ -9,12 +12,12 @@ antes
 asi
 así
 aunque
-#ay
+ay
 bajo
 cabe
 como
 con
-#contra
+contra
 cual
 cuando
 de
@@ -30,14 +33,13 @@ ella
 ellas
 en
 entre
-ér
-# era
-# erais
-# éramos
-# eran
-# eras
-# eres
-# es
+era
+erais
+éramos
+eran
+eras
+eres
+es
 esa
 esas
 ese
@@ -45,127 +47,127 @@ eso
 esos
 esta
 ésta
-# está
-# estaba
-# estabais
-# estábamos
-# estaban
-# estabas
-# estad
-# estada
-# estadas
-# estado
-# estados
-# estáis
-# estamos
-# están
-# estando
-# estar
-# estará
-# estarán
-# estarás
-# estaré
-# estaréis
-# estaremos
-# estaría
-# estaríais
-# estaríamos
-# estarían
-# estarías
-# estás
+está
+estaba
+estabais
+estábamos
+estaban
+estabas
+estad
+estada
+estadas
+estado
+estados
+estáis
+estamos
+están
+estando
+estar
+estará
+estarán
+estarás
+estaré
+estaréis
+estaremos
+estaría
+estaríais
+estaríamos
+estarían
+estarías
+estás
 este
 éste
-# esté
-# estéis
-# estemos
-# estén
-# estés
+esté
+estéis
+estemos
+estén
+estés
 esto
 estos
-# estoy
-# estuve
-# estuviera
-# estuvierais
-# estuviéramos
-# estuvieran
-# estuvieras
-# estuvieron
-# estuviese
-# estuvieseis
-# estuviésemos
-# estuviesen
-# estuvieses
-# estuvimos
-# estuviste
-# estuvisteis
-# estuvo
-# fue
-# fuera
-# fuerais
-# fuéramos
-# fueran
-# fueras
-# fueron
-# fuese
-# fueseis
-# fuésemos
-# fuesen
-# fueses
-# fui
-# fuimos
-# fuiste
-# fuisteis
-# ha
-# habéis
-# haber
-# había
-# habíais
-# habíamos
-# habían
-# habías
-# habida
-# habidas
-# habido
-# habidos
-# habiendo
-# habrá
-# habrán
-# habrás
-# habré
-# habréis
-# habremos
-# habría
-# habríais
-# habríamos
-# habrían
-# habrías
+estoy
+estuve
+estuviera
+estuvierais
+estuviéramos
+estuvieran
+estuvieras
+estuvieron
+estuviese
+estuvieseis
+estuviésemos
+estuviesen
+estuvieses
+estuvimos
+estuviste
+estuvisteis
+estuvo
+fue
+fuera
+fuerais
+fuéramos
+fueran
+fueras
+fueron
+fuese
+fueseis
+fuésemos
+fuesen
+fueses
+fui
+fuimos
+fuiste
+fuisteis
+ha
+habéis
+haber
+había
+habíais
+habíamos
+habían
+habías
+habida
+habidas
+habido
+habidos
+habiendo
+habrá
+habrán
+habrás
+habré
+habréis
+habremos
+habría
+habríais
+habríamos
+habrían
+habrías
 hacia
-# han
-# has
+han
+has
 hasta
-# haya
-# hayáis
-# hayamos
-# hayan
-# hayas
-# he
-# hemos
-# hube
-# hubiera
-# hubierais
-# hubiéramos
-# hubieran
-# hubieras
-# hubieron
-# hubiese
-# hubieseis
-# hubiésemos
-# hubiesen
-# hubieses
-# hubimos
-# hubiste
-# hubisteis
-# hubo
+haya
+hayáis
+hayamos
+hayan
+hayas
+he
+hemos
+hube
+hubiera
+hubierais
+hubiéramos
+hubieran
+hubieras
+hubieron
+hubiese
+hubieseis
+hubiésemos
+hubiesen
+hubieses
+hubimos
+hubiste
+hubisteis
+hubo
 la
 las
 le
@@ -210,41 +212,41 @@ quienes
 quiénes
 se
 sea
-# sea
-# seáis
-# seamos
-# sean
-# seas
+sea
+seáis
+seamos
+sean
+seas
 según
 segun
-# sentid
-# sentida
-# sentidas
-# sentido
-# sentidos
-# ser
-# será
-# serán
-# serás
-# seré
-# seréis
-# seremos
-# sería
-# seríais
-# seríamos
-# serían
-# serías
+sentid
+sentida
+sentidas
+sentido
+sentidos
+ser
+será
+serán
+serás
+seré
+seréis
+seremos
+sería
+seríais
+seríamos
+serían
+serías
 si
 sí
-# siente
+siente
 #sin
-# sintiendo
+sintiendo
 so
 sobre
-# sois
-# somos
-# son
-# soy
+sois
+somos
+son
+soy
 su
 sus
 suya
@@ -256,61 +258,61 @@ también
 tambien
 tanto
 te
-# tendrá
-# tendrán
-# tendrás
-# tendré
-# tendréis
-# tendremos
-# tendría
-# tendríais
-# tendríamos
-# tendrían
-# tendrías
-# tened
-# tenéis
-# tenemos
-# tenga
-# tengáis
-# tengamos
-# tengan
-# tengas
-# tengo
-# tenía
-# teníais
-# teníamos
-# tenían
-# tenías
-# tenida
-# tenidas
-# tenido
-# tenidos
-# teniendo
+tendrá
+tendrán
+tendrás
+tendré
+tendréis
+tendremos
+tendría
+tendríais
+tendríamos
+tendrían
+tendrías
+tened
+tenéis
+tenemos
+tenga
+tengáis
+tengamos
+tengan
+tengas
+tengo
+tenía
+teníais
+teníamos
+tenían
+tenías
+tenida
+tenidas
+tenido
+tenidos
+teniendo
 ti
-# tiene
-# tienen
-# tienes
+tiene
+tienen
+tienes
 todo
 tras
 tu
 tú
 tus
-# tuve
-# tuviera
-# tuvierais
-# tuviéramos
-# tuvieran
-# tuvieras
-# tuvieron
-# tuviese
-# tuvieseis
-# tuviésemos
-# tuviesen
-# tuvieses
-# tuvimos
-# tuviste
-# tuvisteis
-# tuvo
+tuve
+tuviera
+tuvierais
+tuviéramos
+tuvieran
+tuvieras
+tuvieron
+tuviese
+tuvieseis
+tuviésemos
+tuviesen
+tuvieses
+tuvimos
+tuviste
+tuvisteis
+tuvo
 tuya
 tuyas
 tuyo
@@ -330,6 +332,5 @@ vuestras
 vuestro
 vuestros
 y
-#ya
+ya
 yo
-zm

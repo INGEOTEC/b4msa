@@ -1,4 +1,4 @@
 include b4msa/tests/text.json
-include b4msa/resources/sp4neg_stopwords.txt
+include b4msa/resources/spanish.neg.stopwords
 include b4msa/resources/spanish.stopwords
 include b4msa/resources/emoticons.json
