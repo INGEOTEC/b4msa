@@ -42,7 +42,7 @@ setup(
     packages=['b4msa', 'b4msa/tests', 'b4msa/tools', 'b4msa/resources'],
     include_package_data=True,
     zip_safe=False,
-    package_data={'b4msa/resources': ['sp4neg_stopwords.txt',
+    package_data={'b4msa/resources': ['spanish.neg.stopwords',
                                       'spanish.stopwords']},
     entry_points={
         'console_scripts': ['b4msa-params=b4msa.command_line:params',
