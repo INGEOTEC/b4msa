@@ -25,4 +25,4 @@ def test_spanish_negation():
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
     r = c.negation('los carros no son veloces')
-    assert r == 'los carros  no_son veloces'
+    assert r == 'los carros no_son veloces'

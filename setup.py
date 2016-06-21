@@ -49,4 +49,5 @@ setup(
                             'b4msa-train=b4msa.command_line:train',
                             'b4msa-test=b4msa.command_line:test'],
     }
+    # scripts=[]
 )
