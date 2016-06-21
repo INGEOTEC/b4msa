@@ -129,6 +129,7 @@ pip install scipy
 pip install scikit-learn
 pip install gensim
 pip install nose
+pip install nltk
 ```
 
 For the eager people, it is recommended to install the `tqdm` package
@@ -136,5 +137,5 @@ For the eager people, it is recommended to install the `tqdm` package
 ```bash
 pip install tqdm
 ```
-However, it is better to prepare a coffe and a sandwich :)
+However, it is better to prepare a coffee and a sandwich :)
 
