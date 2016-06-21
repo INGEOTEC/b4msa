@@ -1,0 +1,3 @@
+[console_scripts]
+b4msa = b4msa.command_line:main
+

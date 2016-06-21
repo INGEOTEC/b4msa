@@ -190,30 +190,36 @@ class LangDependency():
         return text
 
     def italian_negation(self, text):
-        """
-        Standarizes negation sentences, nouns are also considering with the operator "without"
-        Negative markers
-        1. Not-negatior (not, n't)
-        2. N-negator (never, neither, nobody, no, none, nor, nothing 
-        3. Negative affix: this kind of negation is not dealt (-dis-confort, -a-symmetrical, -in-consistent) 
-        """
-        
-        """
-        VERBS
-        not to VERB  => to no_VERB
-        AUXn't VERB  => AUX no_VERB
-        not VERB => no_VERB
-        
-        NOUNS
-        
-        no NOUN => no_NOUN
-        
-        ADJECTIVE
-
-        BE_VERB not (prep) ADJ => BE_VERB prep no_ADJ 
        
-        """        
-        #pronouns = "me|you|he|she|it|us|them"
+       # pronouns = "me|te|se|lo|les|le|los"
+       pronouns = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
+        pronouns = pronouns + "|" + self._sStopWords        
+        tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
+               _sWINK_TAG + "|" + _sHASH_TAG + "|" + \
+               _sNUM_TAG  + "|" + _sNEGATIVE_TAG + "|" + \
+               _sPOSITIVE_TAG + "|" + _sNEUTRAL_TAG + "|" + \
+               _sPOSITIVE_EMOTICON + "|" + \
+               _sNEGATIVE_EMOTICON + "|" + _sNEUTRAL_EMOTICON
+ 
+        #reduces a unique negation mark
+        #text  = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        text  = re.sub(r"\b(mai|senza|non|no)(\s+\1)+", r"\1", text, flags=re.I)
+
+       # p = re.compile(r"\b(nunca)\s+(?!jam[aá]s)")
+        p = re.compile(r"\b(mai)\s+(?!jam[aá]s)") #Aquí no se que hacer!!!!!
+        m = p.search(text)
+        if m:
+            text = p.sub(" no ", text)
+        #
+        text = re.sub(r"\b(mai|senza|non|no)\b", " no ", text, flags=re.I)
+        text = re.sub(r"\b(mai|senza|non|no)(\s+\1)+", r"\1", text, flags=re.I)
+        # p1 = re.compile(r"(?P<neg>no)(?P<pron>(\s+(" +  pronombres + r"))*)\s+(?P<text>(?!("+ tags + ")(\s+|\b|$)))")
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I) 
+        m = p1.search(text)
+        if m:
+            text = p1.sub(r"\g<pron> \g<neg>_\g<text>", text)
+        # remove isolated marks "no_" if marks appear because  negation rules
+        text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
 
         return text
     
