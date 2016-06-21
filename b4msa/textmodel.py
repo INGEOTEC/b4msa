@@ -18,6 +18,8 @@ from gensim import corpora
 from gensim.models.tfidfmodel import TfidfModel
 from .params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE, get_filename
 from .lang_dependency import LangDependency
+from .utils import tweet_iterator
+from collections import defaultdict
 import pickle
 import logging
 
@@ -27,6 +29,67 @@ PUNCTUACTION = ";:,.@\\-\"'w/"
 SYMBOLS = "()[]¿?¡!{}"
 SKIP_SYMBOLS = set(PUNCTUACTION + SYMBOLS)
 # SKIP_WORDS = set(["…", "..", "...", "...."])
+
+
+class EmoticonClassifier:
+    def __init__(self, fname=None):
+        if fname is None:
+            fname = os.path.join(os.path.dirname(__file__), 'resources', 'emoticons.json')
+
+        self.emolen = defaultdict(dict)
+        self.emoreg = []
+        self.some = {}
+
+        for emo in tweet_iterator(fname):
+            c = emo['code'].lower()
+            k = emo['klass']
+            if c.isalpha():
+                r = re.compile(r"\b{0}\b".format(c), re.IGNORECASE)
+                self.emoreg.append((r, k))
+            else:
+                self.emolen[len(c)].setdefault(c, k)
+
+            self.some[c[0]] = max(len(c), self.some.get(c[0], 0))
+
+        maxlen = max(self.emolen.keys())
+        self.emolen = [self.emolen.get(i, {}) for i in range(maxlen+1)]
+
+    def replace(self, text, option=OPTION_GROUP):
+        if option == OPTION_NONE:
+            return text
+
+        for pat, klass in self.emoreg:
+            if option == OPTION_DELETE:
+                klass = ''
+ 
+            text = pat.sub(klass, text)
+
+        T = []
+        i = 0
+        _text = text.lower()
+        while i < len(text):
+            replaced = False
+            if _text[i] in self.some:
+                for lcode in range(1, len(self.emolen)):
+                    if i + lcode < len(_text):
+                        code = _text[i:i+lcode]
+                        klass = self.emolen[lcode].get(code, None)
+
+                        if klass:
+                            if option == OPTION_DELETE:
+                                klass = ''
+
+                            T.append(klass)
+                            replaced = True
+                            i += lcode
+                            break
+            
+            if not replaced:
+                T.append(text[i])
+                i += 1
+
+        return "".join(T)
+
 
 def get_word_list(text):
     text = "".join([u for u in text[1:len(text)-1] if u not in SKIP_SYMBOLS])
@@ -43,7 +106,7 @@ def norm_chars(text, strip_diac=True, del_dup1=True):
             if 0x300 <= o and o <= 0x036F:
                 continue
             
-        elif u in ('\n', '\r', ' ', '\t'):
+        if u in ('\n', '\r', ' ', '\t'):
             u = '~'
 
         if del_dup1 and prev == u:
@@ -83,6 +146,7 @@ class TextModel:
                  num_option=OPTION_GROUP,
                  usr_option=OPTION_GROUP,
                  url_option=OPTION_GROUP,
+                 emo_option=OPTION_GROUP,
                  lc=True,
                  del_dup1=True,
                  token_list=[1, 2, 3, 4, 5, 6, 7],
@@ -93,9 +157,12 @@ class TextModel:
         self.num_option = num_option
         self.usr_option = usr_option
         self.url_option = url_option
+        self.emo_option = emo_option
+        self.emoclassifier = EmoticonClassifier()
         self.lc = lc
         self.del_dup1 = del_dup1
         self.token_list = token_list
+
         if lang:
             self.lang = LangDependency(lang)
         else:
@@ -124,10 +191,10 @@ class TextModel:
         return text
 
     def tokenize(self, text):
+        import random
+        import sys
         if self.lc:
             text = text.lower()
-
-        text = norm_chars(text, self.strip_diac)
 
         if self.num_option == OPTION_DELETE:
             text = re.sub(r"\d+\.?\d+", "", text)
@@ -144,6 +211,9 @@ class TextModel:
         elif self.usr_option == OPTION_GROUP:
             text = re.sub(r"@\S+", "_usr", text)
 
+        text = norm_chars(text, self.strip_diac)
+        text = self.emoclassifier.replace(text, self.emo_option)
+
         if self.lang:
             text = self.language_dependent(text)
             
@@ -157,7 +227,7 @@ class TextModel:
                     expand_qgrams_word_list(textlist, abs(q), L)
             else:
                 expand_qgrams(text, q, L)
-
+        
         return L
     
 
