@@ -101,5 +101,6 @@ def test_lang():
         "lang": "spanish",
     })
     a = model.tokenize("El alma de la fiesta :) conociendo la maquinaria @user bebiendo nunca manches que onda")
-    assert a == ['_sw', 'alma', '_sw', '_sw', 'fiest', '_pos', 'conoc', '_sw', 'maquinari', '_usr', 'beb', 'no', 'manch', '_sw', 'onda']
+    b = ['_sw', 'alma', '_sw', '_sw', 'fiest', '_pos', 'conoc', '_sw', 'maquinari', '_usr', 'beb', 'no_manch', '_sw', 'onda']
+    assert a == b, "got: {0}, expected: {1}".format(a, b)
 

@@ -26,4 +26,4 @@ def test_spanish_negation():
     c = LangDependency(lang='spanish')
     r = c.negation('los carros no son veloces')
     print(r)
-    assert r.split() == 'los carros no_son veloces'.split()
+    assert r.split('~') == 'los carros no_son veloces'.split()

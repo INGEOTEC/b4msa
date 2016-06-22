@@ -143,30 +143,31 @@ class LangDependency():
             self.pronouns = "me|te|se|lo|les|le|los"
             self.pronouns = self.pronouns + "|" + "|".join(self.neg_stopwords)
 
+        text = text.replace('~', ' ')
         tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
                _sHASH_TAG + "|" + \
                _sNUM_TAG  + "|" + _sNEGATIVE + "|" + \
                _sPOSITIVE + "|" + _sNEUTRAL + "|"
   
-        #reduces a unique negation mark
-        text  = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        # reduces negation marks to a unique symbol
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r" \1 ", text, flags=re.I)
 
         p = re.compile(r"\b(nunca)\s+(?!jam[aá]s)")
         m = p.search(text)
         if m:
-            text = p.sub("no", text)
+            text = p.sub(" no ", text)
         #
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|ni)\b", "no", text, flags=re.I)
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|ni)\b", " no ", text, flags=re.I)
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r" \1 ", text, flags=re.I)
         # p1 = re.compile(r"(?P<neg>no)(?P<pron>(\s+(" +  pronombres + r"))*)\s+(?P<text>(?!("+ tags + ")(\s+|\b|$)))")
         p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + self.pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
         m = p1.search(text)
         if m:
             text = p1.sub(r"\g<pron> \g<neg>_\g<text>", text)
         # remove isolated marks "no_" if marks appear because of negation rules
-        text = re.sub(r"\b(no_)\b", r"no", text, flags=re.I)
-        # text = re.sub(r"\s+", r" ", text, flags=re.I)
-        return text
+        text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
+        text = re.sub(r"\s+", r" ", text, flags=re.I)
+        return text.replace(' ', '~')
 
     def english_negation(self, text):
         """
