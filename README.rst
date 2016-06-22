@@ -178,6 +178,7 @@ B4MSA needs the following dependencies.
     pip install scikit-learn
     pip install gensim
     pip install nose
+    pip install nltk
 
 For the eager people, it is recommended to install the ``tqdm`` package
 
@@ -185,7 +186,7 @@ For the eager people, it is recommended to install the ``tqdm`` package
 
     pip install tqdm
 
-However, it is better to prepare a coffe and a sandwich :)
+However, it is better to prepare a coffee and a sandwich :)
 
 .. |Build Status| image:: https://travis-ci.org/INGEOTEC/b4msa.svg?branch=master
    :target: https://travis-ci.org/INGEOTEC/b4msa
