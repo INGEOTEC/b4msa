@@ -1,2 +1,0 @@
-b4msa
-b4msa/tests
