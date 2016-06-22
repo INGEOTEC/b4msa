@@ -18,7 +18,8 @@ import re
 import os
 import logging
 from nltk.stem.snowball import SnowballStemmer
-from nltk.stem.porter import PorterStemmer
+from .params import OPTION_NONE
+# from nltk.stem.porter import PorterStemmer
 idModule = "language_dependency"
 logger = logging.getLogger(idModule)
 ch = logging.StreamHandler()
@@ -59,6 +60,8 @@ class LangDependency():
     - Stemming
     - Stopwords
     """
+    STOPWORDS_CACHE = {}
+    NEG_STOPWORDS_CACHE = {}
 
     def __init__(self, lang="spanish"):
         self.languages = ["spanish", "english", "italian", "german"]
@@ -67,12 +70,19 @@ class LangDependency():
         if self.lang not in self.languages:
             raise LangDependencyError("Language not supported: " + lang)
         
-        self.stopwords = self.load_stopwords(os.path.join(PATH, "{0}.stopwords".format(lang)))
-        self.neg_stopwords = self.load_stopwords(os.path.join(PATH, "{0}.neg.stopwords".format(lang)))
+        self.stopwords = LangDependency.STOPWORDS_CACHE.get(lang, None)
+        if self.stopwords is None:
+            self.stopwords = self.load_stopwords(os.path.join(PATH, "{0}.stopwords".format(lang)))
+            LangDependency.STOPWORDS_CACHE[lang] = self.stopwords
+
+        self.neg_stopwords = LangDependency.NEG_STOPWORDS_CACHE.get(lang, None)
+        if self.neg_stopwords is None:
+            self.neg_stopwords = self.load_stopwords(os.path.join(PATH, "{0}.neg.stopwords".format(lang)))
+            LangDependency.NEG_STOPWORDS_CACHE[lang] = self.neg_stopwords
 
         if self.lang not in SnowballStemmer.languages:
-            raise LangDependencyError("Language stemming  not supported : " +
-                                      lang)
+            raise LangDependencyError("Unsupported language {0} (stemming)".format(lang))
+
         self.stemmer = SnowballStemmer(self.lang)
 
     def load_stopwords(self, fileName):
@@ -83,7 +93,7 @@ class LangDependency():
         if not os.path.isfile(fileName):
             raise LangDependencyError("File not found : " + fileName)                             
         
-        StopWords = ""
+        StopWords = []
         with io.open(fileName, encoding='utf8') as f:
             for line in f.readlines():
                 line = line.strip().lower()
@@ -91,23 +101,23 @@ class LangDependency():
                     continue
                 if line.startswith("#"):
                     continue
-                StopWords = line + "|" + StopWords
+                StopWords.append(line)
+
         return StopWords
                 
     def stemming(self, text):
         """
         Applies the stemming process to text
         """
-        # logger.debug("stemming... ")
         
-        tokens = re.split(r"\s+", text.strip())
+        tokens = re.split(r"~", text.strip())
         t = []
         for tok in tokens:
-            if re.search(r"^(@|#|_)", tok, flags=re.I):
+            if re.search(r"^(@|#|_|~)", tok, flags=re.I):
                 t.append(tok)
             else:
                 t.append(self.stemmer.stem(tok))
-        return " ".join(t)
+        return "~".join(t)
 
     def negation(self, text):
         """
@@ -117,9 +127,9 @@ class LangDependency():
             raise LangDependencyError("Negation - language not defined")
         if self.lang == "spanish":
             text = self.spanish_negation(text)
-        if self.lang == "english":
+        elif self.lang == "english":
             text = self.english_negation(text)
-        if self.lang == "italian":
+        elif self.lang == "italian":
             text = self.italian_negation(text)
 
         return text
@@ -129,15 +139,18 @@ class LangDependency():
         Standarizes negation sentences, nouns are also considering with the operator "sin"
         "nunca jamás" is never changed
         """
-        pronouns = "me|te|se|lo|les|le|los"
-        pronouns = pronouns + "|" + self.neg_stopwords        
+        if getattr(self, 'pronouns', None) is None:
+            self.pronouns = "me|te|se|lo|les|le|los"
+            self.pronouns = self.pronouns + "|" + "|".join(self.neg_stopwords)
+
+        text = text.replace('~', ' ')
         tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
                _sHASH_TAG + "|" + \
                _sNUM_TAG  + "|" + _sNEGATIVE + "|" + \
                _sPOSITIVE + "|" + _sNEUTRAL + "|"
   
-        #reduces a unique negation mark
-        text  = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        # reduces negation marks to a unique symbol
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r" \1 ", text, flags=re.I)
 
         p = re.compile(r"\b(nunca)\s+(?!jam[aá]s)")
         m = p.search(text)
@@ -145,16 +158,16 @@ class LangDependency():
             text = p.sub(" no ", text)
         #
         text = re.sub(r"\b(jam[aá]s|nunca|sin|ni)\b", " no ", text, flags=re.I)
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r" \1 ", text, flags=re.I)
         # p1 = re.compile(r"(?P<neg>no)(?P<pron>(\s+(" +  pronombres + r"))*)\s+(?P<text>(?!("+ tags + ")(\s+|\b|$)))")
-        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I) 
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + self.pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
         m = p1.search(text)
         if m:
             text = p1.sub(r"\g<pron> \g<neg>_\g<text>", text)
         # remove isolated marks "no_" if marks appear because of negation rules
         text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
         text = re.sub(r"\s+", r" ", text, flags=re.I)
-        return text
+        return text.replace(' ', '~')
 
     def english_negation(self, text):
         """
@@ -181,52 +194,54 @@ class LangDependency():
         BE_VERB not (prep) ADJ => BE_VERB prep no_ADJ 
        
         """        
-        #pronouns = "me|you|he|she|it|us|them"
+        # pronouns = "me|you|he|she|it|us|them"
 
         return text
 
     def italian_negation(self, text):
-       
-       # pronouns = "me|te|se|lo|les|le|los"
-        pronouns = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
-        pronouns = pronouns + "|" + self._sStopWords        
-        tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
-               _sWINK_TAG + "|" + _sHASH_TAG + "|" + \
-               _sNUM_TAG  + "|" + _sNEGATIVE_TAG + "|" + \
-               _sPOSITIVE_TAG + "|" + _sNEUTRAL_TAG + "|" + \
-               _sPOSITIVE_EMOTICON + "|" + \
-               _sNEGATIVE_EMOTICON + "|" + _sNEUTRAL_EMOTICON
- 
-        #reduces a unique negation mark
-        #text  = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
-        text  = re.sub(r"\b(mai|senza|non|no)(\s+\1)+", r"\1", text, flags=re.I)
+        """
+        Standarizes negation sentences, nouns are also considering with the operator "without"
+        Negative markers
+        1. Not-negatior (not, n't)
+        2. N-negator (never, neither, nobody, no, none, nor, nothing 
+        3. Negative affix: this kind of negation is not dealt (-dis-confort, -a-symmetrical, -in-consistent) 
+        """
+        
+        """
+        VERBS
+        not to VERB  => to no_VERB
+        AUXn't VERB  => AUX no_VERB
+        not VERB => no_VERB
+        
+        NOUNS
+        
+        no NOUN => no_NOUN
+        
+        ADJECTIVE
 
-       # p = re.compile(r"\b(nunca)\s+(?!jam[aá]s)")
-        p = re.compile(r"\b(mai)\s+(?!jam[aá]s)") #Aquí no se que hacer!!!!!
-        m = p.search(text)
-        if m:
-            text = p.sub(" no ", text)
-        #
-        text = re.sub(r"\b(mai|senza|non|no)\b", " no ", text, flags=re.I)
-        text = re.sub(r"\b(mai|senza|non|no)(\s+\1)+", r"\1", text, flags=re.I)
-        # p1 = re.compile(r"(?P<neg>no)(?P<pron>(\s+(" +  pronombres + r"))*)\s+(?P<text>(?!("+ tags + ")(\s+|\b|$)))")
-        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I) 
-        m = p1.search(text)
-        if m:
-            text = p1.sub(r"\g<pron> \g<neg>_\g<text>", text)
-        # remove isolated marks "no_" if marks appear because  negation rules
-        text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
+        BE_VERB not (prep) ADJ => BE_VERB prep no_ADJ 
+       
+        """        
+        #pronouns = "me|you|he|she|it|us|them"
 
         return text
     
     def filterStopWords(self, text, stopwords_option):
         if stopwords_option != 'none':
-            for sw in re.split(r"\s+", self.stopwords):
+            for sw in self.stopwords:
                 if stopwords_option == 'delete':
-                    text = re.sub(r"\b(" + sw + r")\b", r" ", text, flags=re.I)
-                
-                if stopwords_option == 'group':
-                    text = re.sub(r"\b(" + sw + r")\b", r"_sw", text, flags=re.I)
+                    text = re.sub(r"\b(" + sw + r")\b", r"~", text, flags=re.I)
+                elif stopwords_option == 'group':
+                    text = re.sub(r"\b(" + sw + r")\b", r"~_sw~", text, flags=re.I)
 
         return text
+    
+    def transform(self, text, negation=False, stemming=False, stopwords=OPTION_NONE):
+        if negation:
+            text = self.negation(text)
 
+        if stemming:
+            text = self.stemming(text)
+
+        text = self.filterStopWords(text, stopwords)
+        return text
