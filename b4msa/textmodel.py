@@ -25,8 +25,8 @@ import logging
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
-PUNCTUACTION = ";:,.@\\-\"'w/"
-SYMBOLS = "()[]¿?¡!{}"
+PUNCTUACTION = ";:,.@\\-\"'/"
+SYMBOLS = "()[]¿?¡!{}~"
 SKIP_SYMBOLS = set(PUNCTUACTION + SYMBOLS)
 # SKIP_WORDS = set(["…", "..", "...", "...."])
 
@@ -92,8 +92,19 @@ class EmoticonClassifier:
 
 
 def get_word_list(text):
-    text = "".join([u for u in text[1:len(text)-1] if u not in SKIP_SYMBOLS])
-    return text.split('~')
+    L = []
+    prev = ' '
+    for u in text[1:len(text)-1]:
+        if u in SKIP_SYMBOLS:
+            u = ' '
+
+        if prev == ' ' and u == ' ':
+            continue
+
+        L.append(u)
+        prev = u
+
+    return ("".join(L)).split()
 
 
 def norm_chars(text, strip_diac=True, del_dup1=True):
@@ -168,7 +179,7 @@ class TextModel:
         else:
             self.lang = None
             
-        self.kwargs = kwargs
+        self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
         
         docs = [self.tokenize(d) for d in docs]
         self.dictionary = corpora.Dictionary(docs)
@@ -178,21 +189,7 @@ class TextModel:
     def __getitem__(self, text):
         return self.model[self.dictionary.doc2bow(self.tokenize(text))]
 
-    def language_dependent(self, text):
-        if self.kwargs.get('neg', False):
-            text = self.lang.negation(text)
-
-        if self.kwargs.get('stem', False):
-            text = self.lang.stemming(text)
-
-        sw_op = self.kwargs.get('del_sw', OPTION_NONE)
-        text = self.lang.filterstemming(text, sw_op)
-        
-        return text
-
     def tokenize(self, text):
-        import random
-        import sys
         if self.lc:
             text = text.lower()
 
@@ -200,7 +197,7 @@ class TextModel:
             text = re.sub(r"\d+\.?\d+", "", text)
         elif self.num_option == OPTION_GROUP:
             text = re.sub(r"\d+\.?\d+", "_num", text)
-            
+
         if self.url_option == OPTION_DELETE:
             text = re.sub(r"https?://\S+", "", text)
         elif self.url_option == OPTION_GROUP:
@@ -215,7 +212,7 @@ class TextModel:
         text = self.emoclassifier.replace(text, self.emo_option)
 
         if self.lang:
-            text = self.language_dependent(text)
+            text = self.lang.transform(text, **self.kwargs)
             
         L = []
         textlist = None
@@ -224,7 +221,8 @@ class TextModel:
             if q < 0:
                 if textlist is None:
                     textlist = get_word_list(text)
-                    expand_qgrams_word_list(textlist, abs(q), L)
+
+                expand_qgrams_word_list(textlist, abs(q), L)
             else:
                 expand_qgrams(text, q, L)
         
