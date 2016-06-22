@@ -148,3 +148,19 @@ def test_test():
     os.unlink(output)
     os.unlink(output2)
     
+
+def test_score():
+    from b4msa.command_line import params
+    import os
+    import sys
+    import tempfile
+    import json
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2', '-S', 'posnegf1']
+    params()
+    with open(output) as fpt:
+        a = json.loads(fpt.read())[0]
+    assert a['_score'] == a['_posnegf1']
+    os.unlink(output)
+        
