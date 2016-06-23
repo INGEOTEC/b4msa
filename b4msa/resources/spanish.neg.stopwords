@@ -1,6 +1,6 @@
 # 
 # This file contains Spanish stopwords for negation process.
-# These words should not be negated, i.e., the rules skip these stopwords in order to find the nereast content word to be negated. 
+# These words should not be negated, i.e., the rules skip these stopwords in order to find the nearest content word to be negated. 
 #
 a
 además
