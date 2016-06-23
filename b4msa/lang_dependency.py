@@ -20,8 +20,7 @@ import re
 import os
 import logging
 from nltk.stem.snowball import SnowballStemmer
-#from .params import OPTION_NONE
-from params import OPTION_NONE
+from b4msa.params import OPTION_NONE
 from nltk.stem.porter import PorterStemmer
 idModule = "language_dependency"
 logger = logging.getLogger(idModule)
