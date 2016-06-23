@@ -157,10 +157,10 @@ def test_score():
     import json
     output = tempfile.mktemp()
     fname = os.path.dirname(__file__) + '/text.json'
-    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2', '-S', 'posnegf1']
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2', '-S', 'avgf1:POS:NEG']
     params()
     with open(output) as fpt:
         a = json.loads(fpt.read())[0]
-    assert a['_score'] == a['_posnegf1']
+    assert a['_score'] == a['_avgf1:POS:NEG']
     os.unlink(output)
         

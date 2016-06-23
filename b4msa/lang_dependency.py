@@ -1,4 +1,6 @@
-# Copyright 2016 Sabino Miranda-Jiménez
+# Copyright 2016 Sabino Miranda-Jiménez and Daniela Moctezuma
+# with collaborations of Eric S. Tellez
+
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -19,7 +21,7 @@ import os
 import logging
 from nltk.stem.snowball import SnowballStemmer
 from .params import OPTION_NONE
-# from nltk.stem.porter import PorterStemmer
+from nltk.stem.porter import PorterStemmer
 idModule = "language_dependency"
 logger = logging.getLogger(idModule)
 ch = logging.StreamHandler()
@@ -64,6 +66,9 @@ class LangDependency():
     NEG_STOPWORDS_CACHE = {}
 
     def __init__(self, lang="spanish"):
+        """
+        Initializes the parameters for specific language
+        """
         self.languages = ["spanish", "english", "italian", "german"]
         self.lang = lang
 
@@ -81,17 +86,19 @@ class LangDependency():
             LangDependency.NEG_STOPWORDS_CACHE[lang] = self.neg_stopwords
 
         if self.lang not in SnowballStemmer.languages:
-            raise LangDependencyError("Unsupported language {0} (stemming)".format(lang))
-
-        self.stemmer = SnowballStemmer(self.lang)
+            raise LangDependencyError("Language not supported for stemming: " + lang)
+        if self.lang == "english":
+            self.stemmer = PorterStemmer()
+        else:
+            self.stemmer = SnowballStemmer(self.lang)
 
     def load_stopwords(self, fileName):
         """
-         load stopwords from file
+        it loads stopwords from file
         """
         logger.debug("loading stopwords... " + fileName)
         if not os.path.isfile(fileName):
-            raise LangDependencyError("File not found : " + fileName)                             
+            raise LangDependencyError("File not found: " + fileName)                             
         
         StopWords = []
         with io.open(fileName, encoding='utf8') as f:
@@ -107,7 +114,7 @@ class LangDependency():
                 
     def stemming(self, text):
         """
-        Applies the stemming process to text
+        Applies the stemming process to `text` parameter
         """
         
         tokens = re.split(r"~", text.strip())
@@ -125,6 +132,7 @@ class LangDependency():
         """
         if self.lang not in self.languages:
             raise LangDependencyError("Negation - language not defined")
+        
         if self.lang == "spanish":
             text = self.spanish_negation(text)
         elif self.lang == "english":
@@ -136,67 +144,78 @@ class LangDependency():
 
     def spanish_negation(self, text):
         """
-        Standarizes negation sentences, nouns are also considering with the operator "sin"
-        "nunca jamás" is never changed
+        Standarizes negation sentences, nouns are also considering with the operator "sin" (without)
+        Markers like ninguno, ningún, nadie are considered as another word.
         """
-        if getattr(self, 'pronouns', None) is None:
-            self.pronouns = "me|te|se|lo|les|le|los"
-            self.pronouns = self.pronouns + "|" + "|".join(self.neg_stopwords)
+        if getattr(self, 'skip_words', None) is None:
+            self.skip_words = "me|te|se|lo|les|le|los"
+            self.skip_words = self.skip_words + "|" + "|".join(self.neg_stopwords)
 
         text = text.replace('~', ' ')
         tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
-               _sHASH_TAG + "|" + \
-               _sNUM_TAG  + "|" + _sNEGATIVE + "|" + \
-               _sPOSITIVE + "|" + _sNEUTRAL + "|"
+            _sHASH_TAG + "|" + \
+            _sNUM_TAG + "|" + _sNEGATIVE + "|" + \
+            _sPOSITIVE + "|" + _sNEUTRAL + "|"
   
-        # reduces negation marks to a unique symbol
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r" \1 ", text, flags=re.I)
-
-        p = re.compile(r"\b(nunca)\s+(?!jam[aá]s)")
-        m = p.search(text)
-        if m:
-            text = p.sub(" no ", text)
-        #
+        # unifies negation markers under the "no" marker 
         text = re.sub(r"\b(jam[aá]s|nunca|sin|ni)\b", " no ", text, flags=re.I)
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r" \1 ", text, flags=re.I)
-        # p1 = re.compile(r"(?P<neg>no)(?P<pron>(\s+(" +  pronombres + r"))*)\s+(?P<text>(?!("+ tags + ")(\s+|\b|$)))")
-        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + self.pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
+        # reduces to unique negation marker        
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" + self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
         m = p1.search(text)
         if m:
-            text = p1.sub(r"\g<pron> \g<neg>_\g<text>", text)
-        # remove isolated marks "no_" if marks appear because of negation rules
+            text = p1.sub(r"\g<sk_words> \g<neg>_\g<text>", text)
+        # removes isolated marks "no_" if marks appear because of negation rules
         text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
+        # removes extra spaces because of transformations 
         text = re.sub(r"\s+", r" ", text, flags=re.I)
         return text.replace(' ', '~')
 
     def english_negation(self, text):
         """
-        Standarizes negation sentences, nouns are also considering with the operator "without"
-        Negative markers
-        1. Not-negatior (not, n't)
-        2. N-negator (never, neither, nobody, no, none, nor, nothing 
-        3. Negative affix: this kind of negation is not dealt (-dis-confort, -a-symmetrical, -in-consistent) 
+        Standarizes negation sentences
+        markers used:
+                     "not, no, never, nor, neither"
+                     "any" is only used with negative sentences.  
         """
         
-        """
+        if getattr(self, 'skip_words', None) is None:
+            self.skip_words = "me|you|he|she|it|us|the"
+            self.skip_words = self.skip_words + "|" + "|".join(self.neg_stopwords)
+            
+        text = text.replace('~', ' ')
+        tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
+            _sHASH_TAG + "|" + \
+            _sNUM_TAG + "|" + _sNEGATIVE + "|" + \
+            _sPOSITIVE + "|" + _sNEUTRAL + "|"
+  
+        # expands contractions of negation
+        text = re.sub(r"\b(ca)n't\b", r"\1n not ", text, flags=re.I)
+        text = re.sub(r"\b(w)on't\b", r"\1ill not ", text, flags=re.I)
+        text = re.sub(r"\b(sha)n't\b", r"\1ll not ", text, flags=re.I)
+        text = re.sub(r"\b(can)not\b", r"\1 not ", text, flags=re.I)
+        text = re.sub(r"\b([a-z]+)(n't)\b", r"\1 not ", text, flags=re.I)
 
-        VERBS
-        not to VERB  => to no_VERB
-        AUXn't VERB  => AUX no_VERB
-        not VERB => no_VERB
-        
-        NOUNS
-        
-        no NOUN => no_NOUN
-        
-        ADJECTIVE
+        # checks negative sentences with the "any" marker and changes "any" to "no" makers
+        pp1 = re.compile(r"(?P<neg>(\bnot\b))(?P<text>(\s+([^\s]+?)\s+)+?)(?P<any>any\b)", flags=re.I)
+        m = pp1.search(text)
+        if m:
+            text = pp1.sub(r"\g<neg> \g<text> not ", text)
+            
+        # unifies negation markers under the "not" marker
+        # markers used:
+        #              not, no, never, nor, neither
+        text = re.sub(r"\b(not|no|never|nor|neither)\b", r" not ", text, flags=re.I)
+        text = re.sub(r"\s+", r" ", text, flags=re.I)
 
-        BE_VERB not (prep) ADJ => BE_VERB prep no_ADJ 
-       
-        """        
-        # pronouns = "me|you|he|she|it|us|them"
-
-        return text
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)not))(?P<sk_words>(\s+(" + self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
+        m = p1.search(text)
+        if m:
+            text = p1.sub(r"\g<sk_words> \g<neg>_\g<text>", text)
+        # removes isolated marks "no_" if marks appear because of negation rules
+        text = re.sub(r"\b(not_)\b", r" not ", text, flags=re.I)
+        text = re.sub(r"\s+", r" ", text, flags=re.I)
+        return text.replace(' ', '~')
 
     def italian_negation(self, text):
         """

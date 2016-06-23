@@ -7,7 +7,6 @@ from time import time
 from sklearn.metrics import f1_score, accuracy_score
 from sklearn import preprocessing
 from sklearn import cross_validation
-from b4msa.utils import pos_neg_f1
 
 try:
     from tqdm import tqdm
@@ -169,7 +168,7 @@ class Wrapper(object):
         self.n_folds = n_folds
         self.score = score
         self.X = X
-        le = preprocessing.LabelEncoder().fit(y)
+        self.le = le = preprocessing.LabelEncoder().fit(y)
         self.y = np.array(le.transform(y))
         self.cls = cls
         self.pool = pool
@@ -193,10 +192,14 @@ class Wrapper(object):
                                     use_tqdm=False)
 
         conf['_macrof1'] = f1_score(self.y, hy, average='macro')
+        conf['_all_f1'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(self.y, hy, average=None))}
         conf['_microf1'] = f1_score(self.y, hy, average='micro')
         conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
         conf['_accuracy'] = accuracy_score(self.y, hy)
-        conf['_posnegf1'] = pos_neg_f1(self.y, hy)
+        if self.score.startswith('avgf1'):
+            _, k1, k2 = self.score.split(':')
+            conf['_' + self.score] = (M[k1] + M[k2]) / 2
+
         conf['_score'] = conf['_' + self.score]
         conf['_time'] = (time() - st) / self.n_folds
         return conf

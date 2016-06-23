@@ -76,7 +76,7 @@ class CommandLine(object):
         pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
            help="Number of processes to compute the best setup")
         pa('-S', '--score', dest='score', type=str, default='macrof1',
-           help="The name of the score to be optimized (macrof1|weightedf1|accuracy|posnegf1); it defaults to macrof1")
+           help="The name of the score to be optimized (macrof1|weightedf1|accuracy|avgf1:klass1:klass2); it defaults to macrof1")
 
     def param_set(self):
         pa = self.parser.add_argument
@@ -103,7 +103,7 @@ class CommandLine(object):
         if self.data.samplesize is not None:
             n_folds = self.data.n_folds
             n_folds = n_folds if n_folds is not None else 5
-            assert self.data.score in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'posnegf1'), "Unknown score {0}".format(self.data.score)
+            assert self.data.score.split(":")[0] in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1'), "Unknown score {0}".format(self.data.score)
 
             best_list = SVC.predict_kfold_params(
                 self.data.training_set,
@@ -195,7 +195,9 @@ class CommandLineTest(CommandLine):
         X = [svc.model[x] for x in read_data(self.data.test_set)]
         hy = svc.predict(X)
         with open(self.get_output(), 'w') as fpt:
-                fpt.write("\n".join([str(x) for x in hy]))
+            # fpt.write("\n".join([str(x) for x in hy]))
+            for text, klass in zip(read_data(self.data.test_set), hy):
+                fpt.write(json.dumps({"text": text, "klass": klass}, indent=2, sort_keys=True)+"\n")
 
         
 def params():

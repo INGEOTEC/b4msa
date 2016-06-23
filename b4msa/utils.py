@@ -100,5 +100,5 @@ def read_data(filename, get_tweet='text', maxitems=1e100):
     return data
 
 
-def pos_neg_f1(y, hy):
-    return f1_score(y, hy, average=None)[:2].mean()
+# def pos_neg_f1(y, hy):
+#     return f1_score(y, hy, average=None)[:2].mean()
