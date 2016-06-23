@@ -133,6 +133,7 @@ def test_train2():
 
 def test_test():
     from b4msa.command_line import params, train, test
+    from b4msa.utils import read_data_labels
     import os
     import sys
     import tempfile
@@ -145,9 +146,12 @@ def test_test():
     output2 = tempfile.mktemp()
     sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output2]
     test()
+    X, y = read_data_labels(output2)
+    print(y)
     os.unlink(output)
     os.unlink(output2)
-    
+    assert len(y)
+
 
 def test_score():
     from b4msa.command_line import params
