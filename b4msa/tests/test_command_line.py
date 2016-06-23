@@ -161,6 +161,6 @@ def test_score():
     params()
     with open(output) as fpt:
         a = json.loads(fpt.read())[0]
-    assert a['_score'] == a['_posnegf1']
+    assert a['_score'] == a['_avgf1:POS:NEG']
     os.unlink(output)
         
