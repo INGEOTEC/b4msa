@@ -20,7 +20,8 @@ import re
 import os
 import logging
 from nltk.stem.snowball import SnowballStemmer
-from .params import OPTION_NONE
+#from .params import OPTION_NONE
+from params import OPTION_NONE
 from nltk.stem.porter import PorterStemmer
 idModule = "language_dependency"
 logger = logging.getLogger(idModule)
@@ -153,15 +154,17 @@ class LangDependency():
 
         text = text.replace('~', ' ')
         tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
-            _sHASH_TAG + "|" + \
-            _sNUM_TAG + "|" + _sNEGATIVE + "|" + \
-            _sPOSITIVE + "|" + _sNEUTRAL + "|"
+               _sHASH_TAG + "|" + \
+               _sNUM_TAG + "|" + _sNEGATIVE + "|" + \
+               _sPOSITIVE + "|" + _sNEUTRAL + "|"
   
         # unifies negation markers under the "no" marker 
         text = re.sub(r"\b(jam[aá]s|nunca|sin|ni)\b", " no ", text, flags=re.I)
         # reduces to unique negation marker        
         text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
-        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" + self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" + \
+                        self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + \
+                        tags + ")(\s+|\b|$)))", flags=re.I)
         m = p1.search(text)
         if m:
             text = p1.sub(r"\g<sk_words> \g<neg>_\g<text>", text)
@@ -196,7 +199,7 @@ class LangDependency():
         text = re.sub(r"\b(can)not\b", r"\1 not ", text, flags=re.I)
         text = re.sub(r"\b([a-z]+)(n't)\b", r"\1 not ", text, flags=re.I)
 
-        # checks negative sentences with the "any" marker and changes "any" to "no" makers
+        # checks negative sentences with the "any" marker and changes "any" to "not" makers
         pp1 = re.compile(r"(?P<neg>(\bnot\b))(?P<text>(\s+([^\s]+?)\s+)+?)(?P<any>any\b)", flags=re.I)
         m = pp1.search(text)
         if m:
@@ -208,7 +211,9 @@ class LangDependency():
         text = re.sub(r"\b(not|no|never|nor|neither)\b", r" not ", text, flags=re.I)
         text = re.sub(r"\s+", r" ", text, flags=re.I)
 
-        p1 = re.compile(r"(?P<neg>((\s+|\b|^)not))(?P<sk_words>(\s+(" + self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)not))(?P<sk_words>(\s+(" + \
+                        self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + \
+                        tags + ")(\s+|\b|$)))", flags=re.I)
         m = p1.search(text)
         if m:
             text = p1.sub(r"\g<sk_words> \g<neg>_\g<text>", text)
