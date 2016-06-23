@@ -31,13 +31,15 @@ def test_tweet_iterator():
     os.unlink(fname_gz)
 
 
-def test_texmodel():
+def test_textmodel():
     from b4msa.textmodel import TextModel
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     tw = list(tweet_iterator(fname))
     text = TextModel([x['text'] for x in tw])
+    # print(text.tokenize("hola amiguitos gracias por venir :) http://hello.com @chanfle"))
+    # assert False
     assert isinstance(text[tw[0]['text']], list)
 
 
@@ -58,3 +60,49 @@ def test_params():
         args = dict(zip([x[0] for x in params], x))
         ins = TextModel(text, **args)
         assert isinstance(ins[text[0]], list)
+
+def test_emoticons():
+    from b4msa.textmodel import EmoticonClassifier, norm_chars
+    emo = EmoticonClassifier()
+    for a, b in [
+            ("Hi :) :P XD", "~Hi~_pos~_pos~_pos~"),
+            ("excelente dia xc", "~excelente~dia~_neg~")
+    ]:
+        _a = norm_chars(a)
+        assert ' ' not in _a, "norm_chars normalizes spaces {0} ==> {1}".format(a, _a)
+        _b = emo.replace(_a)
+        print("[{0}] => [{1}]; should be [{2}]".format(a, _b, b))
+        assert _b == b
+
+
+def test_lang():
+    from b4msa.textmodel import TextModel
+
+    text = [
+        "Hi :) :P XD",
+        "excelente dia xc",
+        "el alma de la fiesta XD"
+    ]
+    model = TextModel(text, **{
+        "del_dup1": True,
+        "emo_option": "group",
+        "lc": True,
+        "negation": True,
+        "num_option": "group",
+        "stemming": True,
+        "stopwords": "group",
+        "strip_diac": False,
+        "token_list": [
+            -1,
+            # 5,
+        ],
+        "url_option": "group",
+        "usr_option": "group",
+        "lang": "spanish",
+    })
+    text = "El alma de la fiesta :) conociendo la maquinaria @user bebiendo nunca manches que onda"
+    a = model.tokenize(text)
+    b = ['_sw', 'alma', '_sw', '_sw', 'fiest', '_pos', 'conoc', '_sw', 'maquinari', '_usr', 'beb', 'no_manch', '_sw', 'onda']
+    print(text)
+    assert a == b, "got: {0}, expected: {1}".format(a, b)
+

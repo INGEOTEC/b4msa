@@ -7,6 +7,7 @@ from time import time
 from sklearn.metrics import f1_score, accuracy_score
 from sklearn import preprocessing
 from sklearn import cross_validation
+from b4msa.utils import pos_neg_f1
 
 try:
     from tqdm import tqdm
@@ -28,6 +29,7 @@ _BASE_PARAMS = dict(
     num_option=BASIC_OPTIONS,
     usr_option=BASIC_OPTIONS,
     url_option=BASIC_OPTIONS,
+    emo_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
@@ -38,6 +40,7 @@ _BASE_PARAMS_LANG = dict(
     num_option=BASIC_OPTIONS,
     usr_option=BASIC_OPTIONS,
     url_option=BASIC_OPTIONS,
+    emo_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
@@ -138,7 +141,7 @@ class ParameterSelection:
 
         best_list = get_best(L)
         if hill_climbing:
-            # second approximation, hill climbing process
+            # second approximation, a hill climbing process
             i = 0
             while True:
                 i += 1
@@ -193,6 +196,7 @@ class Wrapper(object):
         conf['_microf1'] = f1_score(self.y, hy, average='micro')
         conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
         conf['_accuracy'] = accuracy_score(self.y, hy)
+        conf['_posnegf1'] = pos_neg_f1(self.y, hy)
         conf['_score'] = conf['_' + self.score]
         conf['_time'] = (time() - st) / self.n_folds
         return conf

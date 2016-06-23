@@ -17,12 +17,13 @@
 def test_spanish_stemming():
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
-    r = c.stemming('los carros son veloces')
-    assert r == 'los carr son veloc'
+    r = c.stemming('los~carros~son~veloces')
+    assert r.split('~') == 'los carr son veloc'.split()
         
 
 def test_spanish_negation():
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
     r = c.negation('los carros no son veloces')
-    assert r == 'los carros  no_son veloces'
+    print(r)
+    assert r.split('~') == 'los carros no_son veloces'.split()

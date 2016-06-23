@@ -15,7 +15,6 @@ import argparse
 import logging
 from b4msa.classifier import SVC
 from b4msa.utils import read_data_labels, read_data
-from sklearn.metrics import f1_score, accuracy_score
 # from b4msa.params import OPTION_DELETE
 from multiprocessing import Pool, cpu_count
 import json
@@ -77,7 +76,7 @@ class CommandLine(object):
         pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
            help="Number of processes to compute the best setup")
         pa('-S', '--score', dest='score', type=str, default='macrof1',
-           help="The name of the score to be optimized (macrof1|weightedf1|accuracy); it defaults to macrof1")
+           help="The name of the score to be optimized (macrof1|weightedf1|accuracy|posnegf1); it defaults to macrof1")
 
     def param_set(self):
         pa = self.parser.add_argument
@@ -104,7 +103,7 @@ class CommandLine(object):
         if self.data.samplesize is not None:
             n_folds = self.data.n_folds
             n_folds = n_folds if n_folds is not None else 5
-            assert self.data.score in ('macrof1', 'microf1', 'weightedf1', 'accuracy'), "Unknown score {0}".format(self.data.score)
+            assert self.data.score in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'posnegf1'), "Unknown score {0}".format(self.data.score)
 
             best_list = SVC.predict_kfold_params(
                 self.data.training_set,
@@ -159,7 +158,7 @@ class CommandLineTrain(CommandLine):
         logging.basicConfig(level=self.data.verbose)
         with open(self.data.params_fname) as fpt:
             param_list = json.loads(fpt.read())
-            
+
         best = param_list[0]
         svc = SVC.fit_from_file(self.data.training_set, best)
         

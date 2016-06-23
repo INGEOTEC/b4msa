@@ -15,7 +15,7 @@
 import json
 import gzip
 import logging
-
+from sklearn.metrics import f1_score
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
@@ -99,3 +99,6 @@ def read_data(filename, get_tweet='text', maxitems=1e100):
 
     return data
 
+
+def pos_neg_f1(y, hy):
+    return f1_score(y, hy, average=None)[:2].mean()
