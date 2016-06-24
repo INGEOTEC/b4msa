@@ -45,7 +45,7 @@ _BASE_PARAMS_LANG = dict(
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
     negation=[False, True],
     stemming=[False, True],
-    stopwords=BASIC_OPTIONS
+    stopwords=BASIC_OPTIONS,
 )
 
 BASE_PARAMS = sorted(_BASE_PARAMS.items())
@@ -54,11 +54,11 @@ BASE_PARAMS_LANG = sorted(_BASE_PARAMS_LANG.items())
 
 class ParameterSelection:
     def __init__(self):
-        pass
+        self.lang = None
 
     def sample_param_space(self, n, q=3):
         for i in range(n):
-            kwargs = {}
+            kwargs = dict(lang=self.lang)
             for k, v in self.base_params:
                 if len(v) == 0:
                     continue
@@ -76,7 +76,7 @@ class ParameterSelection:
 
     def expand_neighbors(self, s):
         for k, v in sorted(s.items()):
-            if k[0] == '_':
+            if k[0] == '_' or k == 'lang':
                 # by convention, metadata starts with underscore
                 continue
             
@@ -107,6 +107,8 @@ class ParameterSelection:
 
     def search(self, fun_score, bsize=32, qsize=3,
                hill_climbing=True, lang=None, pool=None):
+
+        self.lang = lang
         if lang:
             self.base_params = BASE_PARAMS_LANG
             self._base_params = _BASE_PARAMS_LANG

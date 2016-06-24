@@ -158,9 +158,9 @@ class LangDependency():
             _sPOSITIVE + "|" + _sNEUTRAL + "|"
   
         # unifies negation markers under the "no" marker 
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|ni)\b", " no ", text, flags=re.I)
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|ni|nada)\b", " no ", text, flags=re.I)
         # reduces to unique negation marker        
-        text = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
+        text = re.sub(r"\b(jam[aá]s|nunca|sin|no|nada)(\s+\1)+", r"\1", text, flags=re.I)
         p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" + self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I)
         m = p1.search(text)
         if m:

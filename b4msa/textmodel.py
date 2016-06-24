@@ -160,7 +160,7 @@ class TextModel:
                  emo_option=OPTION_GROUP,
                  lc=True,
                  del_dup1=True,
-                 token_list=[1, 2, 3, 4, 5, 6, 7],
+                 token_list=[-1],
                  lang=None,
                  **kwargs
     ):
@@ -186,10 +186,25 @@ class TextModel:
         corpus = [self.dictionary.doc2bow(d) for d in docs]
         self.model = TfidfModel(corpus)
 
+    def __str__(self):
+        return "[TextModel {0}]".format(dict(
+            strip_diac=self.strip_diac,
+            num_option=self.num_option,
+            usr_option=self.usr_option,
+            url_option=self.url_option,
+            emo_option=self.emo_option,
+            lc=self.lc,
+            del_dup1=self.del_dup1,
+            token_list=self.token_list,
+            lang=self.lang,
+            kwargs=self.kwargs
+        ))
+
     def __getitem__(self, text):
         return self.model[self.dictionary.doc2bow(self.tokenize(text))]
 
     def tokenize(self, text):
+        # print("tokenizing", str(self), text)
         if self.lc:
             text = text.lower()
 
@@ -211,7 +226,9 @@ class TextModel:
         text = norm_chars(text, self.strip_diac)
         text = self.emoclassifier.replace(text, self.emo_option)
 
+        # print("BB", text)
         if self.lang:
+            # print("CCC", self.kwargs)
             text = self.lang.transform(text, **self.kwargs)
             
         L = []
@@ -226,6 +243,7 @@ class TextModel:
             else:
                 expand_qgrams(text, q, L)
         
+        # print("CC", L)
         return L
     
 

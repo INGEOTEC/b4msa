@@ -106,3 +106,25 @@ def test_lang():
     print(text)
     assert a == b, "got: {0}, expected: {1}".format(a, b)
 
+
+def test_negations():
+    from b4msa.textmodel import TextModel
+
+    text = [
+        "el alma de la fiesta XD"
+    ]
+    model = TextModel(text, **{
+        'num_option': 'group',
+        'strip_diac': False,
+        'stopwords': 'delete',
+        'negation': True,
+        'stemming': True,
+        'lc': False, 'token_list': [-1],
+        'usr_option': 'group', 'del_dup1': False, 'emo_option': 'group', 'lang': 'spanish', 'url_option': 'delete'
+    })
+
+    text = """@usuario los pollos y las vacas nunca hubiesen permitido que no se hubiese hecho nada al respecto"""
+    a = model.tokenize(text)
+    b = ['_usr', 'pol', 'vac', 'hub', 'no_permit', 'hub', 'no_hech', 'no_respect']
+    assert a == b
+
