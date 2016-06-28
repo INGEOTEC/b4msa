@@ -223,37 +223,43 @@ class LangDependency():
 
     def italian_negation(self, text):
         
+		
+    if getattr(self, 'skip_words', None) is None:
+            self.skip_words = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
+            self.skip_words = self.skip_words + "|" + "|".join(self.neg_stopwords)
+            
+		
         # pronouns = "me|te|se|lo|les|le|los"
-        pronouns = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
-        pronouns = pronouns + "|" + self._sStopWords        
+        #pronouns = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
+        #pronouns = pronouns + "|" + self._sStopWords        
+		
+        text = text.replace('~', ' ')
         tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
-               _sWINK_TAG + "|" + _sHASH_TAG + "|" + \
-               _sNUM_TAG  + "|" + _sNEGATIVE_TAG + "|" + \
-               _sPOSITIVE_TAG + "|" + _sNEUTRAL_TAG + "|" + \
-               _sPOSITIVE_EMOTICON + "|" + \
-               _sNEGATIVE_EMOTICON + "|" + _sNEUTRAL_EMOTICON
+               _sHASH_TAG + "|" + \
+               _sNUM_TAG + "|" + _sNEGATIVE + "|" + \
+               _sPOSITIVE + "|" + _sNEUTRAL + "|"
+		
  
-        #reduces a unique negation mark
-        #text  = re.sub(r"\b(jam[aá]s|nunca|sin|no)(\s+\1)+", r"\1", text, flags=re.I)
-        text  = re.sub(r"\b(mai|senza|non|no)(\s+\1)+", r"\1", text, flags=re.I)
-
-       # p = re.compile(r"\b(nunca)\s+(?!jam[aá]s)")
-        p = re.compile(r"\b(mai)\s+(?!jam[aá]s)") #Aquí no se que hacer!!!!!
-        m = p.search(text)
+        # unifies negation markers under the "no" marker                
+        text = re.sub(r"\b(mai|senza|non|no|n[ée]|ni)\b", " no ", text, flags=re.I)
+		
+        # reduces to unique negation marker   		
+        text = re.sub(r"\b(mai|senza|non|no|n[ée])(\s+\1)+", r"\1", text, flags=re.I)
+		
+        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" +
+                        self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" +
+                        tags + ")(\s+|\b|$)))", flags=re.I)
+        
+        m = p1.search(text)	
+        
         if m:
-            text = p.sub(" no ", text)
-        #
-        text = re.sub(r"\b(mai|senza|non|no)\b", " no ", text, flags=re.I)
-        text = re.sub(r"\b(mai|senza|non|no)(\s+\1)+", r"\1", text, flags=re.I)
-        # p1 = re.compile(r"(?P<neg>no)(?P<pron>(\s+(" +  pronombres + r"))*)\s+(?P<text>(?!("+ tags + ")(\s+|\b|$)))")
-        p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<pron>(\s+(" + pronouns + "|" + tags + r"))*)\s+(?P<text>(?!(" + tags + ")(\s+|\b|$)))", flags=re.I) 
-        m = p1.search(text)
-        if m:
-            text = p1.sub(r"\g<pron> \g<neg>_\g<text>", text)
-        # remove isolated marks "no_" if marks appear because  negation rules
+            text = p1.sub(r"\g<sk_words> \g<neg>_\g<text>", text)
+        # removes isolated marks "no_" if marks appear because of negation rules
         text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
+        # removes extra spaces because of transformations 
+        text = re.sub(r"\s+", r" ", text, flags=re.I)
 
-        return text
+        return text.replace(' ', '~')
     
     def filterStopWords(self, text, stopwords_option):
         if stopwords_option != 'none':
