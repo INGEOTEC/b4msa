@@ -224,7 +224,7 @@ class LangDependency():
     def italian_negation(self, text):
         
 		
-    if getattr(self, 'skip_words', None) is None:
+        if getattr(self, 'skip_words', None) is None:
             self.skip_words = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
             self.skip_words = self.skip_words + "|" + "|".join(self.neg_stopwords)
             
