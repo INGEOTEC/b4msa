@@ -186,7 +186,7 @@ class CommandLineTest(CommandLine):
         pa('--verbose', dest='verbose', type=int,
            help='Logging level default: INFO + 1',
            default=logging.INFO+1)
-        
+
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
@@ -198,6 +198,20 @@ class CommandLineTest(CommandLine):
             # fpt.write("\n".join([str(x) for x in hy]))
             for text, klass in zip(read_data(self.data.test_set), hy):
                 fpt.write(json.dumps({"text": text, "klass": klass})+"\n")
+
+
+class CommandLineTextModel(CommandLineTest):
+    def main(self):
+        self.data = self.parser.parse_args()
+        logging.basicConfig(level=self.data.verbose)
+        with open(self.data.model, 'rb') as fpt:
+            svc = pickle.load(fpt)
+        X = [svc.model[x] for x in read_data(self.data.test_set)]
+        with open(self.get_output(), 'w') as fpt:
+            # fpt.write("\n".join([str(x) for x in hy]))
+            for x in X:
+                fpt.write(json.dumps(dict(x + [('num_terms', svc.num_terms)]))+"\n")
+                    
 
         
 def params():
@@ -212,4 +226,9 @@ def train():
 
 def test():
     c = CommandLineTest()
+    c.main()
+
+
+def textmodel():
+    c = CommandLineTextModel()
     c.main()

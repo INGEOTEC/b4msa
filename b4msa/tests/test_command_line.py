@@ -168,3 +168,20 @@ def test_score():
     assert a['_score'] == a['_avgf1:POS:NEG']
     os.unlink(output)
         
+
+def test_textmodel():
+    from b4msa.command_line import params, train, textmodel
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output]
+    train()
+    output2 = tempfile.mktemp()
+    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output2]
+    textmodel()
+    os.unlink(output)
+    os.unlink(output2)
