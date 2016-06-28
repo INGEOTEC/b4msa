@@ -53,20 +53,11 @@ class CommandLine(object):
         pa = self.parser.add_argument
         pa('-l', '--lang', dest='lang', type=str, default=None,
            help="the language")
-        # pa('--negation', dest='negation', default=False,
-        #    action='store_true',
-        #    help="Determines if negation rules are applied")
-        # pa('--stemming', dest='stemming', default=False,
-        #    action='store_true',
-        #    help="Determines if stemming rules are applied")
-        # pa('--stopwords', dest='stopwords', type=str, default=OPTION_NONE,
-        #    help="Determines the action on stopwords ({0}|{1}|{2})".format(
-        #        OPTION_NONE, OPTION_GROUP, OPTION_DELETE
-        #    ))
 
     def param_search(self):
         pa = self.parser.add_argument
         pa('-s', '--sample', dest='samplesize', type=int,
+           default=8,
            help="The sample size of the parameter")
         pa('-q', '--qsize', dest='qsize', type=int, default=3,
            help="The size of the initial population of tokenizers")
@@ -100,52 +91,33 @@ class CommandLine(object):
         else:
             numprocs = self.data.numprocs
 
-        if self.data.samplesize is not None:
-            n_folds = self.data.n_folds
-            n_folds = n_folds if n_folds is not None else 5
-            assert self.data.score.split(":")[0] in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1'), "Unknown score {0}".format(self.data.score)
+        n_folds = self.data.n_folds
+        n_folds = n_folds if n_folds is not None else 5
+        assert self.data.score.split(":")[0] in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1'), "Unknown score {0}".format(self.data.score)
 
-            best_list = SVC.predict_kfold_params(
-                self.data.training_set,
-                n_folds=n_folds,
-                score=self.data.score,
-                numprocs=numprocs,
-                seed=self.data.seed,
-                param_kwargs=dict(
-                    bsize=self.data.samplesize,
-                    hill_climbing=self.data.hill_climbing,
-                    qsize=self.data.qsize,
-                    lang=self.data.lang
-                )
+        best_list = SVC.predict_kfold_params(
+            self.data.training_set,
+            n_folds=n_folds,
+            score=self.data.score,
+            numprocs=numprocs,
+            seed=self.data.seed,
+            param_kwargs=dict(
+                bsize=self.data.samplesize,
+                hill_climbing=self.data.hill_climbing,
+                qsize=self.data.qsize,
+                lang=self.data.lang
             )
-
-            with open(self.get_output(), 'w') as fpt:
-                fpt.write(json.dumps(best_list, indent=2, sort_keys=True))
-
-            return
-
-        if self.data.n_folds is not None:
-            pool = None if numprocs is None else Pool(numprocs)
-            X, y = read_data_labels(self.data.training_set)
-            hy = SVC.predict_kfold(X, y, n_folds=self.data.n_folds,
-                                   seed=self.data.seed,
-                                   pool=pool)
-            if pool is not None:
-                pool.close()
-
-            with open(self.get_output(), 'w') as fpt:
-                fpt.write("\n".join([str(x) for x in hy]))
-
-            return
+        )
+        with open(self.get_output(), 'w') as fpt:
+            fpt.write(json.dumps(best_list, indent=2, sort_keys=True))
 
 
 class CommandLineTrain(CommandLine):
     def __init__(self):
-        super(CommandLineTrain, self).__init__()
+        self.parser = argparse.ArgumentParser(description='b4msa')
+        self.param_set()
+        self.training_set()
         self.param_train()
-
-    def param_search(self):
-        pass
 
     def param_train(self):
         pa = self.parser.add_argument
@@ -168,7 +140,9 @@ class CommandLineTrain(CommandLine):
 
 class CommandLineTest(CommandLine):
     def __init__(self):
-        super(CommandLineTest, self).__init__()
+        self.parser = argparse.ArgumentParser(description='b4msa')
+        self.param_set()
+        self.training_set()
         self.param_test()
 
     def param_test(self):
@@ -186,7 +160,7 @@ class CommandLineTest(CommandLine):
         pa('--verbose', dest='verbose', type=int,
            help='Logging level default: INFO + 1',
            default=logging.INFO+1)
-        
+
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
@@ -199,7 +173,20 @@ class CommandLineTest(CommandLine):
             for text, klass in zip(read_data(self.data.test_set), hy):
                 fpt.write(json.dumps({"text": text, "klass": klass})+"\n")
 
-        
+
+class CommandLineTextModel(CommandLineTest):
+    def main(self):
+        self.data = self.parser.parse_args()
+        logging.basicConfig(level=self.data.verbose)
+        with open(self.data.model, 'rb') as fpt:
+            svc = pickle.load(fpt)
+        X = [svc.model[x] for x in read_data(self.data.test_set)]
+        with open(self.get_output(), 'w') as fpt:
+            # fpt.write("\n".join([str(x) for x in hy]))
+            for x in X:
+                fpt.write(json.dumps(dict(x + [('num_terms', svc.num_terms)]))+"\n")
+                    
+
 def params():
     c = CommandLine()
     c.main()
@@ -212,4 +199,9 @@ def train():
 
 def test():
     c = CommandLineTest()
+    c.main()
+
+
+def textmodel():
+    c = CommandLineTextModel()
     c.main()

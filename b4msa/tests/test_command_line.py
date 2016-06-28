@@ -14,18 +14,6 @@
 import numpy as np
 
 
-def test_command_line():
-    from b4msa.command_line import CommandLine
-    import os
-    import sys
-    fname = os.path.dirname(__file__) + '/text.json'
-    c = CommandLine()
-    sys.argv = ['b4msa', '-k', '2', fname]
-    c.main()
-    os.unlink(c.get_output())
-    # assert False
-
-
 def test_nparams():
     from b4msa.command_line import CommandLine
     import os
@@ -107,7 +95,7 @@ def test_train():
     with open(output) as fpt:
         print(fpt.read())
     c = CommandLineTrain()
-    sys.argv = ['b4msa', '-m', output, '-k', '2', fname]
+    sys.argv = ['b4msa', '-m', output, fname]
     print(c.main())
     os.unlink(output)
     os.unlink(c.get_output())
@@ -125,7 +113,7 @@ def test_train2():
     c.main()
     assert os.path.isfile(output)
     output2 = tempfile.mktemp()
-    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output2]
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output2]
     train()
     os.unlink(output)
     os.unlink(output2)
@@ -141,10 +129,10 @@ def test_test():
     fname = os.path.dirname(__file__) + '/text.json'
     sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
     params()
-    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output]
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output]
     train()
     output2 = tempfile.mktemp()
-    sys.argv = ['b4msa', '-m', output, '-k', '2', fname, '-o', output2]
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output2]
     test()
     X, y = read_data_labels(output2)
     print(y)
@@ -168,3 +156,20 @@ def test_score():
     assert a['_score'] == a['_avgf1:POS:NEG']
     os.unlink(output)
         
+
+def test_textmodel():
+    from b4msa.command_line import params, train, textmodel
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output]
+    train()
+    output2 = tempfile.mktemp()
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output2]
+    textmodel()
+    os.unlink(output)
+    os.unlink(output2)
