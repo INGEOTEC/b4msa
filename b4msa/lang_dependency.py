@@ -229,10 +229,7 @@ class LangDependency():
             self.skip_words = self.skip_words + "|" + "|".join(self.neg_stopwords)
             
 		
-        # pronouns = "me|te|se|lo|les|le|los"
-        #pronouns = "mi|ti|lo|gli|le|ne|li|glieli|glielo|gliela|gliene|gliele"
-        #pronouns = pronouns + "|" + self._sStopWords        
-		
+       
         text = text.replace('~', ' ')
         tags = _sURL_TAG + "|" + _sUSER_TAG + "|" + _sENTITY_TAG + "|" + \
                _sHASH_TAG + "|" + \
@@ -241,10 +238,10 @@ class LangDependency():
 		
  
         # unifies negation markers under the "no" marker                
-        text = re.sub(r"\b(mai|senza|non|no|n[ée]|ni)\b", " no ", text, flags=re.I)
+        text = re.sub(r"\b(mai|senza|non|no|né)\b", " no ", text, flags=re.I)
 		
         # reduces to unique negation marker   		
-        text = re.sub(r"\b(mai|senza|non|no|n[ée])(\s+\1)+", r"\1", text, flags=re.I)
+        text = re.sub(r"\b(mai|senza|non|no|né)(\s+\1)+", r"\1", text, flags=re.I)
 		
         p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" +
                         self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" +
@@ -258,7 +255,6 @@ class LangDependency():
         text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
         # removes extra spaces because of transformations 
         text = re.sub(r"\s+", r" ", text, flags=re.I)
-
         return text.replace(' ', '~')
     
     def filterStopWords(self, text, stopwords_option):
