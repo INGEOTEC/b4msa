@@ -4,7 +4,7 @@
 import numpy as np
 import logging
 from time import time
-from sklearn.metrics import f1_score, accuracy_score
+from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score
 from sklearn import preprocessing
 from sklearn import cross_validation
 
@@ -195,6 +195,8 @@ class Wrapper(object):
 
         conf['_macrof1'] = f1_score(self.y, hy, average='macro')
         conf['_all_f1'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(self.y, hy, average=None))}
+        conf['_all_recall'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(recall_score(self.y, hy, average=None))}
+        conf['_all_precision'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(precision_score(self.y, hy, average=None))}
         conf['_microf1'] = f1_score(self.y, hy, average='micro')
         conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
         conf['_accuracy'] = accuracy_score(self.y, hy)
