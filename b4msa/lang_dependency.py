@@ -238,10 +238,10 @@ class LangDependency():
 		
  
         # unifies negation markers under the "no" marker                
-        text = re.sub(r"\b(mai|senza|non|no|né)\b", " no ", text, flags=re.I)
+        text = re.sub(r"\b(mai|senza|non|no|né|ne)\b", " no ", text, flags=re.I)
 		
         # reduces to unique negation marker   		
-        text = re.sub(r"\b(mai|senza|non|no|né)(\s+\1)+", r"\1", text, flags=re.I)
+        text = re.sub(r"\b(mai|senza|non|no|né|ne)(\s+\1)+", r"\1", text, flags=re.I)
 		
         p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" +
                         self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" +
