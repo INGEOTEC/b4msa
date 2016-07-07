@@ -1,0 +1,42 @@
+
+
+
+
+
+
+
+
+
+
+
+from b4msa.utils import read_data_labels
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import f1_score
+import json
+import os
+import sys
+
+gold = sys.argv[1]
+predicted = sys.argv[2]
+
+_, y = read_data_labels(gold)
+le = LabelEncoder().fit(y)
+y = le.transform(y)
+
+_, hy = read_data_labels(predicted)
+hy = le.transform(hy)
+#with open(fname.replace('_output.json', '.params')) as fpt:
+#    a = json.load(fpt)
+f1 = {le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(y, hy, average=None))}
+
+report = {
+    'avg_f1_POS_NEG': (f1.get('NEG', f1.get('negative', 0.0)) + f1.get('POS', f1.get('positive', 0.0))) / 2.0,
+    'macrof1': f1_score(y, hy, average='macro'),
+    'microf1': f1_score(y, hy, average='micro'),
+    'filename': predicted,
+}
+
+for key, value in f1.items():
+    report["f1_{0}".format(key)] = value
+    
+print(json.dumps(report, sort_keys=1))

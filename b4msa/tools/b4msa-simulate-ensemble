@@ -1,0 +1,19 @@
+import sys
+import json
+from b4msa.utils import read_data_labels
+from collections import Counter
+
+clabels = None
+T = []
+for filename in sys.argv[1:]:
+    T, labels = list(read_data_labels(filename))
+    if clabels is None:
+        clabels = [Counter((label,)) for label in labels]
+    else:
+        for i, label in enumerate(labels):
+            clabels[i][label] += 1
+
+
+for i, text in enumerate(T):
+    print(json.dumps({'text': text, 'klass': clabels[i].most_common()[0][0]}))
+
