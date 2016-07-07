@@ -27,3 +27,5 @@ def test_spanish_negation():
     r = c.negation('los carros no son veloces')
     print(r)
     assert r.split('~') == 'los carros no_son veloces'.split()
+
+

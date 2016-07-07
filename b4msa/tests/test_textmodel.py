@@ -128,3 +128,31 @@ def test_negations():
     b = ['_usr', 'pol', 'vac', 'hub', 'no_permit', 'hub', 'no_hech', 'no_respect']
     assert a == b
 
+
+def test_negations_italian():
+    from b4msa.textmodel import TextModel
+
+    text = [
+        "XD"
+    ]
+
+    model = TextModel(text, **{
+        'num_option': 'group',
+        'strip_diac': False,
+        'stopwords': 'delete',
+        'negation': True,
+        'stemming': True,
+        'lc': False, 'token_list': [-1],
+        'usr_option': 'group',
+        'del_dup1': False,
+        'emo_option': 'group',
+        'lang': 'italian',
+        'url_option': 'delete'
+    })
+
+    text = """@User Come non condividere; me ne frega niente"""
+    a = model.tokenize(text)
+    print("Input:", text)
+    print("Output:", a)
+    b = ['_usr', 'com', 'no_condividere', 'me', 'no_freg', 'nient']
+    assert a == b
