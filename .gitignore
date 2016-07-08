@@ -8,4 +8,5 @@ RGP.egg-info
 TODO
 dist
 .coverage
+slurm-*.out
 b4msa.egg-info/*

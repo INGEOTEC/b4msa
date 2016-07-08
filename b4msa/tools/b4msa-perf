@@ -11,7 +11,7 @@
 
 from b4msa.utils import read_data_labels
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, accuracy_score, precision_score
 import json
 import os
 import sys
@@ -28,15 +28,22 @@ hy = le.transform(hy)
 #with open(fname.replace('_output.json', '.params')) as fpt:
 #    a = json.load(fpt)
 f1 = {le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(y, hy, average=None))}
+precision = {le.inverse_transform([klass])[0]: p for klass, p in enumerate(precision_score(y, hy, average=None))}
 
 report = {
     'avg_f1_POS_NEG': (f1.get('NEG', f1.get('negative', 0.0)) + f1.get('POS', f1.get('positive', 0.0))) / 2.0,
     'macrof1': f1_score(y, hy, average='macro'),
     'microf1': f1_score(y, hy, average='micro'),
+    'accuracy': accuracy_score(y, hy),
     'filename': predicted,
 }
 
 for key, value in f1.items():
     report["f1_{0}".format(key)] = value
+    # report["precision_{0}".format(key)] = precision[key]
+
+#report["avg_f1_f0_NEG"] = f0f1_neg = (precision["NEG"] + f1["NEG"]) / 2
+#report["avg_f1_f0_POS"] = f0f1_pos = (precision["POS"] + f1["POS"]) / 2
+report["avg_f1_f0_POS_NEG"] = (f0f1_neg + f0f1_pos) / 2
     
 print(json.dumps(report, sort_keys=1))
