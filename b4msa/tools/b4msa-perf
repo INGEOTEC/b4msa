@@ -42,8 +42,9 @@ for key, value in f1.items():
     report["f1_{0}".format(key)] = value
     # report["precision_{0}".format(key)] = precision[key]
 
-#report["avg_f1_f0_NEG"] = f0f1_neg = (precision["NEG"] + f1["NEG"]) / 2
-#report["avg_f1_f0_POS"] = f0f1_pos = (precision["POS"] + f1["POS"]) / 2
+f0f1_neg = (precision.get("NEG", precision.get("negative", 0.0)) + f1.get("NEG", precision.get("negative", 0.0))) / 2
+f0f1_pos = (precision.get("POS", precision.get("positive", 0.0)) + f1.get("POS", precision.get("positive", 0.0))) / 2
+
 report["avg_f1_f0_POS_NEG"] = (f0f1_neg + f0f1_pos) / 2
     
 print(json.dumps(report, sort_keys=1))
