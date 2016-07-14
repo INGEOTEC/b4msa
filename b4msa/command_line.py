@@ -93,7 +93,7 @@ class CommandLine(object):
 
         n_folds = self.data.n_folds
         n_folds = n_folds if n_folds is not None else 5
-        assert self.data.score.split(":")[0] in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1'), "Unknown score {0}".format(self.data.score)
+        assert self.data.score.split(":")[0] in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1', 'avgf1f0'), "Unknown score {0}".format(self.data.score)
 
         best_list = SVC.predict_kfold_params(
             self.data.training_set,
