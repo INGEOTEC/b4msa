@@ -4,3 +4,5 @@ include b4msa/resources/spanish.stopwords
 include b4msa/resources/english.stopwords
 include b4msa/resources/english.neg.stopwords
 include b4msa/resources/emoticons.json
+include b4msa/resources/italian.stopwords
+include b4msa/resources/italian.neg.stopwords

@@ -192,23 +192,29 @@ class Wrapper(object):
                                     kfolds=self.kfolds,
                                     pool=self.pool,
                                     use_tqdm=False)
-
-        conf['_macrof1'] = f1_score(self.y, hy, average='macro')
-        conf['_all_f1'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(self.y, hy, average=None))}
-        conf['_all_recall'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(recall_score(self.y, hy, average=None))}
-        conf['_all_precision'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(precision_score(self.y, hy, average=None))}
-        conf['_microf1'] = f1_score(self.y, hy, average='micro')
-        conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
-        conf['_accuracy'] = accuracy_score(self.y, hy)
-        if self.score.startswith('avgf1'):
-            _, k1, k2 = self.score.split(':')
-            conf['_' + self.score] = (M[k1] + M[k2]) / 2
-
-        conf['_score'] = conf['_' + self.score]
+        self._score(conf, hy)
         conf['_time'] = (time() - st) / self.n_folds
         return conf
 
-                
+    def _score(self, conf, hy):
+        conf['_macrof1'] = f1_score(self.y, hy, average='macro')
+        conf['_all_f1'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(self.y, hy, average=None))}
+        conf['_all_recall'] = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(recall_score(self.y, hy, average=None))}
+        conf['_all_precision'] = N = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(precision_score(self.y, hy, average=None))}
+        conf['_microf1'] = f1_score(self.y, hy, average='micro')
+        conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
+        conf['_accuracy'] = accuracy_score(self.y, hy)
+        if self.score.startswith('avgf1:'):
+            _, k1, k2 = self.score.split(':')
+            conf['_' + self.score] = (M[k1] + M[k2]) / 2
+        elif self.score.startswith('avgf1f0:'):
+            _, k1, k2 = self.score.split(':')
+            pos = (M[k1] + N[k1]) / 2.
+            neg = (M[k2] + N[k2]) / 2.
+            conf['_' + self.score] = (pos + neg) / 2.
+        conf['_score'] = conf['_' + self.score]
+
+
 def get_filename(kwargs, basename=None):
     L = []
     if basename:
