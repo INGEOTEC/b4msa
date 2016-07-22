@@ -161,6 +161,7 @@ def test_textmodel():
     from b4msa.command_line import params, train, textmodel
     import os
     import sys
+    import json
     import tempfile
     output = tempfile.mktemp()
     fname = os.path.dirname(__file__) + '/text.json'
@@ -172,4 +173,7 @@ def test_textmodel():
     sys.argv = ['b4msa', '-m', output, fname, '-o', output2]
     textmodel()
     os.unlink(output)
+    a = open(output2).readline()
     os.unlink(output2)
+    a = json.loads(a)
+    assert 'klass' in a

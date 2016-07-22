@@ -14,9 +14,9 @@
 import argparse
 import logging
 from b4msa.classifier import SVC
-from b4msa.utils import read_data_labels, read_data
+from b4msa.utils import read_data, tweet_iterator
 # from b4msa.params import OPTION_DELETE
-from multiprocessing import Pool, cpu_count
+from multiprocessing import cpu_count
 import json
 import pickle
 
@@ -180,12 +180,12 @@ class CommandLineTextModel(CommandLineTest):
         logging.basicConfig(level=self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
-        X = [svc.model[x] for x in read_data(self.data.test_set)]
         with open(self.get_output(), 'w') as fpt:
-            # fpt.write("\n".join([str(x) for x in hy]))
-            for x in X:
-                fpt.write(json.dumps(dict(x + [('num_terms', svc.num_terms)]))+"\n")
-                    
+            for tw in tweet_iterator(self.data.test_set):
+                extra = dict(svc.model[tw['text']] + [('num_terms', svc.num_terms)])
+                tw.update(extra)
+                fpt.write(json.dumps(tw) + "\n")
+
 
 def params():
     c = CommandLine()
