@@ -12,7 +12,7 @@ It is written in Python making use of [NTLK](http://www.nltk.org/), [scikit-lear
 
 In order to know the performance of B4MSA, it was decided to compare
 B4MSA against different commercial sentiment analyzers such as: [Google](http://cloud.google.com) 
-[Haven](https://www.havenondemand.com), and
+[HP Haven](https://www.havenondemand.com), and
 [Sentiment140](http://sentiment140.com). This comparison was performed
 on **July 28, 2016**.
 
@@ -35,14 +35,14 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 
 |Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
 |------|--------:|--------------:|---------------:|
-|[Haven](https://www.havenondemand.com) | 0.4693 | 0.3921 | 0.4788 |
+|[HP Haven](https://www.havenondemand.com) | 0.4693 | 0.3921 | 0.4788 |
 |B4MSA | **0.6072** | **0.6041** | **0.6354** |
 
 ## TASS 2015-small (Spanish)
 
 |Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
 |------|--------:|--------------:|---------------:|
-| [Haven](https://www.havenondemand.com) |0.5350 | 0.4564 | 0.5775 |
+| [HP Haven](https://www.havenondemand.com) |0.5350 | 0.4564 | 0.5775 |
 |[Sentiment140](http://sentiment140.com) | 0.0590 | 0.1001 | 0.3225|
 | B4MSA | **0.6330** | **0.6949** | **0.6529** |
 
@@ -50,7 +50,7 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 
 |Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
 |------|--------:|--------------:|---------------:|
-|[Haven](https://www.havenondemand.com) | 0.6241 | **0.5724** | 0.6120 |
+|[HP Haven](https://www.havenondemand.com) | 0.6241 | **0.5724** | 0.6120 |
 |[Google](http://cloud.google.com)  | 0.4218 | 0.4967 | 0.4624 |
 |[Sentiment140](http://sentiment140.com) | 0.5553 | 0.4790 | 0.5368 |
 |B4MSA | **0.6281** | 0.5281 | **0.6578** |
@@ -59,7 +59,7 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 
 |Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
 |------|--------:|--------------:|---------------:|
-|[Haven](https://www.havenondemand.com) | **0.5986** | **0.5173** | **0.5337**  |
+|[HP Haven](https://www.havenondemand.com) | **0.5986** | **0.5173** | **0.5337**  |
 |[Google](http://cloud.google.com) | 0.3952 | 0.4728 | 0.4303 |
 |[Sentiment140](http://sentiment140.com) | 0.5562 | 0.4135 | 0.4560|
 |B4MSA | 0.5106 | 0.4082 | 0.4866 |
