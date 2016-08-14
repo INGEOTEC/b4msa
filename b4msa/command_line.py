@@ -13,6 +13,7 @@
 # limitations under the License.
 import argparse
 import logging
+import b4msa
 from b4msa.classifier import SVC
 from b4msa.utils import read_data, tweet_iterator
 # from b4msa.params import OPTION_DELETE
@@ -31,6 +32,12 @@ class CommandLine(object):
         self.param_set()
         self.param_search()
         self.langdep()
+        self.version()
+
+    def version(self):
+        pa = self.parser.add_argument
+        pa('--version',
+           action='version', version='B4MSA %s' % b4msa.__version__)
 
     def predict_kfold(self):
         pa = self.parser.add_argument
@@ -118,6 +125,7 @@ class CommandLineTrain(CommandLine):
         self.param_set()
         self.training_set()
         self.param_train()
+        self.version()
 
     def param_train(self):
         pa = self.parser.add_argument
@@ -144,12 +152,16 @@ class CommandLineTest(CommandLine):
         self.param_set()
         self.training_set()
         self.param_test()
+        self.version()
 
     def param_test(self):
         pa = self.parser.add_argument
         pa('-m', '--model', dest='model', type=str,
            required=True,
            help="SVM Model file name")
+        pa('--decision-function', dest='decision_function', default=False,
+           action='store_true',
+           help='Outputs the decision functions instead of the class')
 
     def training_set(self):
         cdn = 'File containing the test set'
@@ -167,11 +179,21 @@ class CommandLineTest(CommandLine):
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
         X = [svc.model[x] for x in read_data(self.data.test_set)]
-        hy = svc.predict(X)
         with open(self.get_output(), 'w') as fpt:
             # fpt.write("\n".join([str(x) for x in hy]))
-            for text, klass in zip(read_data(self.data.test_set), hy):
-                fpt.write(json.dumps({"text": text, "klass": klass})+"\n")
+            if not self.data.decision_function:
+                hy = svc.predict(X)
+                for text, klass in zip(read_data(self.data.test_set), hy):
+                    fpt.write(json.dumps({"text": text, "klass": klass})+"\n")
+            else:
+                hy = svc.decision_function(X)
+                for text, klass in zip(read_data(self.data.test_set), hy):
+                    try:
+                        o = klass.tolist()
+                    except AttributeError:
+                        o = klass
+                    fpt.write(json.dumps({"text": text,
+                                          "decision_function": o})+"\n")
 
 
 class CommandLineTextModel(CommandLineTest):

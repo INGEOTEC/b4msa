@@ -141,6 +141,29 @@ def test_test():
     assert len(y)
 
 
+def test_decision_function():
+    from b4msa.command_line import params, train, test
+    from b4msa.utils import tweet_iterator
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output]
+    train()
+    output2 = tempfile.mktemp()
+    sys.argv = ['b4msa', '-m', output, fname,
+                '-o', output2, '--decision-function']
+    test()
+    d = [x for x in tweet_iterator(output2)]
+    os.unlink(output)
+    os.unlink(output2)
+    assert len(d)
+    assert len(d) == len([x for x in d if 'decision_function' in x])
+
+
 def test_score():
     from b4msa.command_line import params
     import os
