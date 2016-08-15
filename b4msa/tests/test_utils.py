@@ -31,7 +31,7 @@ def test_wrapper_score():
     hy = np.random.randint(3, size=100)
     w = Wrapper(None, y, 'avgf1:0:2', 10, None)
     conf = {}
-    w._score(conf, hy)
+    w.compute_score(conf, hy)
     f1 = f1_score(y.astype(np.int), hy, average=None)
     assert conf['_accuracy'] == (y.astype(np.int) == hy).mean()
     print(conf['_avgf1:0:2'], (f1[0] + f1[2]) / 2.)
@@ -40,5 +40,5 @@ def test_wrapper_score():
     pos = (f1[0] + precision[0]) / 2.
     neg = (f1[2] + precision[2]) / 2.
     w = Wrapper(None, y, 'avgf1f0:0:2', 10, None)
-    w._score(conf, hy)
+    w.compute_score(conf, hy)
     assert conf['_avgf1f0:0:2'] == (pos + neg) / 2.

@@ -44,7 +44,8 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 |------|--------:|--------------:|---------------:|
 | [HP Haven](https://www.havenondemand.com) |0.5350 | 0.4564 | 0.5775 |
 |[Sentiment140](http://sentiment140.com) | 0.0590 | 0.1001 | 0.3225|
-| B4MSA | **0.6330** | **0.6949** | **0.6529** |
+|[Meaning cloud](http://www.meaningcloud.com) |**0.6500** | 0.6640 | 0.6471|
+| B4MSA | 0.6330 | **0.6949** | **0.6529** |
 
 ## SemEval 2015 (English)
 
@@ -53,6 +54,7 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 |[HP Haven](https://www.havenondemand.com) | 0.6241 | **0.5724** | 0.6120 |
 |[Google](http://cloud.google.com)  | 0.4218 | 0.4967 | 0.4624 |
 |[Sentiment140](http://sentiment140.com) | 0.5553 | 0.4790 | 0.5368 |
+|[Meaning cloud](http://www.meaningcloud.com) | 0.5775 | 0.5522 | 0.5361|
 |B4MSA | **0.6281** | 0.5281 | **0.6578** |
 
 ## SemEval 2016 (English)
@@ -62,6 +64,7 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 |[HP Haven](https://www.havenondemand.com) | **0.5986** | **0.5173** | **0.5337**  |
 |[Google](http://cloud.google.com) | 0.3952 | 0.4728 | 0.4303 |
 |[Sentiment140](http://sentiment140.com) | 0.5562 | 0.4135 | 0.4560|
+|[Meaning cloud](http://www.meaningcloud.com) | 0.5252 | 0.5204 | 0.4861|
 |B4MSA | 0.5106 | 0.4082 | 0.4866 |
 
 ### Note regarding [Google](http://cloud.google.com): ###
