@@ -64,7 +64,7 @@ of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Pr
 |[HP Haven](https://www.havenondemand.com) | **0.5986** | **0.5173** | **0.5337**  |
 |[Google](http://cloud.google.com) | 0.3952 | 0.4728 | 0.4303 |
 |[Sentiment140](http://sentiment140.com) | 0.5562 | 0.4135 | 0.4560|
-|[Meaning cloud](http://www.meaningcloud.com) | 0.5350 | 0.5175 | 0.4847|
+|[Meaning cloud](http://www.meaningcloud.com) | 0.5252 | 0.5204 | 0.4861|
 |B4MSA | 0.5106 | 0.4082 | 0.4866 |
 
 ### Note regarding [Google](http://cloud.google.com): ###
