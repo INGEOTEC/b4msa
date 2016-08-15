@@ -10,3 +10,6 @@ dist
 .coverage
 slurm-*.out
 b4msa.egg-info/*
+*.params
+experiments-*
+run-*

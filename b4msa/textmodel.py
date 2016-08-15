@@ -180,7 +180,7 @@ class TextModel:
             self.lang = None
             
         self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
-        
+
         docs = [self.tokenize(d) for d in docs]
         self.dictionary = corpora.Dictionary(docs)
         corpus = [self.dictionary.doc2bow(d) for d in docs]
@@ -205,6 +205,9 @@ class TextModel:
 
     def tokenize(self, text):
         # print("tokenizing", str(self), text)
+        if text is None:
+            text = ''
+
         if self.lc:
             text = text.lower()
 
@@ -226,9 +229,7 @@ class TextModel:
         text = norm_chars(text, self.strip_diac)
         text = self.emoclassifier.replace(text, self.emo_option)
 
-        # print("BB", text)
         if self.lang:
-            # print("CCC", self.kwargs)
             text = self.lang.transform(text, **self.kwargs)
             
         L = []
@@ -243,7 +244,6 @@ class TextModel:
             else:
                 expand_qgrams(text, q, L)
         
-        # print("CC", L)
         return L
     
 

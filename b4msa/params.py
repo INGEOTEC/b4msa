@@ -31,6 +31,7 @@ _BASE_PARAMS = dict(
     emo_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
+    # knowledge=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
 )
 
@@ -42,6 +43,7 @@ _BASE_PARAMS_LANG = dict(
     emo_option=BASIC_OPTIONS,
     lc=[False, True],
     del_dup1=[False, True],
+    # knowledge=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
     negation=[False, True],
     stemming=[False, True],
@@ -192,17 +194,24 @@ class Wrapper(object):
                                     kfolds=self.kfolds,
                                     pool=self.pool,
                                     use_tqdm=False)
-        self._score(conf, hy)
+        self.compute_score(conf, hy)
         conf['_time'] = (time() - st) / self.n_folds
         return conf
 
-    def _score(self, conf, hy):
-        conf['_macrof1'] = f1_score(self.y, hy, average='macro')
+    def compute_score(self, conf, hy):
         conf['_all_f1'] = M = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(f1_score(self.y, hy, average=None))}
         conf['_all_recall'] = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(recall_score(self.y, hy, average=None))}
         conf['_all_precision'] = N = {self.le.inverse_transform([klass])[0]: f1 for klass, f1 in enumerate(precision_score(self.y, hy, average=None))}
-        conf['_microf1'] = f1_score(self.y, hy, average='micro')
-        conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')
+
+        if len(self.le.classes_) == 2:
+            conf['_macrof1'] = np.mean(np.array([v for v in conf['_all_f1'].values()]))
+            conf['_weightedf1'] = conf['_microf1'] = f1_score(self.y, hy, average='binary')
+        else:
+            conf['_macrof1'] = f1_score(self.y, hy, average='macro')
+            conf['_microf1'] = f1_score(self.y, hy, average='micro')
+            conf['_weightedf1'] = f1_score(self.y, hy, average='weighted')            
+
+
         conf['_accuracy'] = accuracy_score(self.y, hy)
         if self.score.startswith('avgf1:'):
             _, k1, k2 = self.score.split(':')
