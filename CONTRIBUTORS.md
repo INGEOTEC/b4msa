@@ -1,5 +1,5 @@
-Authors
-=======
+Contributors
+============
 
 - [Mario Graff](mailto:mario.graff@infotec.mx)
 - Sabino Miranda-Jimenez 
