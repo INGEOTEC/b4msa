@@ -7,4 +7,3 @@ Authors
 - [Daniela Moctezuma](mailto:daniela.moctezuma@centrogeo.edu.mx)
 - Ranyart R. Suarez
 - [Oscar S. Siordia](mailto:osanchez@centrogeo.edu.mx)
-- Elio Villaseñor
