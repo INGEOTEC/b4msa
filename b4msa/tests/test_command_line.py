@@ -125,6 +125,7 @@ def test_test():
     import os
     import sys
     import tempfile
+    import json
     output = tempfile.mktemp()
     fname = os.path.dirname(__file__) + '/text.json'
     sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
@@ -137,7 +138,11 @@ def test_test():
     X, y = read_data_labels(output2)
     print(y)
     os.unlink(output)
+    with open(output2) as fpt:
+        a = [json.loads(x) for x in fpt.readlines()]
     os.unlink(output2)
+    for x in a:
+        assert 'q_voc_ratio' in x
     assert len(y)
 
 

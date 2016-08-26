@@ -203,6 +203,11 @@ class TextModel:
     def __getitem__(self, text):
         return self.model[self.dictionary.doc2bow(self.tokenize(text))]
 
+    def transform_q_voc_ratio(self, text):
+        tok = self.tokenize(text)
+        bow = self.dictionary.doc2bow(tok)
+        return self.model[bow], len(bow) / len(tok)
+
     def tokenize(self, text):
         # print("tokenizing", str(self), text)
         if text is None:

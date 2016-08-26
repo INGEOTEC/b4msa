@@ -178,23 +178,25 @@ class CommandLineTest(CommandLine):
         logging.basicConfig(level=self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
-        X = [svc.model[x] for x in read_data(self.data.test_set)]
-
+        X = [svc.model.transform_q_voc_ratio(x) for x in read_data(self.data.test_set)]
+        qv = [x[1] for x in X]
+        X = [x[0] for x in X]
         with open(self.get_output(), 'w') as fpt:
-
             if not self.data.decision_function:
                 hy = svc.predict(X)
-                for tweet, klass in zip(tweet_iterator(self.data.test_set), hy):
+                for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
                     tweet['klass'] = klass
+                    tweet['q_voc_ratio'] = r
                     fpt.write(json.dumps(tweet)+"\n")
             else:
                 hy = svc.decision_function(X)
-                for tweet, klass in zip(tweet_iterator(self.data.test_set), hy):
+                for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
                     try:
                         o = klass.tolist()
                     except AttributeError:
                         o = klass
                     tweet['decision_function'] = o
+                    tweet['q_voc_ratio'] = r
                     fpt.write(json.dumps(tweet)+"\n")
 
 
