@@ -1,0 +1,44 @@
+package:
+  name: b4msa
+  version: "0.1.26"
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - scikit-learn
+    - gensim
+    - nltk
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - b4msa
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - b4msa-params --help
+    - b4msa-train --help
+    - b4msa-test --help
+
+  requires:
+    # Put any additional test requirements here.  For example
+    - numpy
+    - scipy
+    - scikit-learn
+    - gensim
+    - nltk
+about:
+  home: https://github.com/ingeotec/b4msa
+  summary: "Baselines for Multilingual Sentiment Analysis."
+  license: Apache
