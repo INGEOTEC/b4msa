@@ -88,6 +88,11 @@ def get_class(pol):
 ```
 
 # Installing B4MSA
+B4MSA can be installed using [conda](https://www.continuum.io)  
+```bash   
+conda install -c ingeotec b4msa
+```
+
 B4MSA can be installed using `pip`
 ```bash
 pip install b4msa
