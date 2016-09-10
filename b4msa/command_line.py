@@ -200,7 +200,6 @@ class CommandLineTest(CommandLine):
                     fpt.write(json.dumps(tweet)+"\n")
 
 
-
 class CommandLineTextModel(CommandLineTest):
     def main(self):
         self.data = self.parser.parse_args()
