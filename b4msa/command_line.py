@@ -185,7 +185,7 @@ class CommandLineTest(CommandLine):
             if not self.data.decision_function:
                 hy = svc.predict(X)
                 for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
-                    tweet['klass'] = klass
+                    tweet['klass'] = str(klass)
                     tweet['q_voc_ratio'] = r
                     fpt.write(json.dumps(tweet)+"\n")
             else:
