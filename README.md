@@ -202,7 +202,7 @@ b4msa-train -o b4msa.model -m tweets.json tweets.json.gz
 
 # Testing a sentiment classifier against a workload
 
-At this point, we are in the position to test the model (i..e,
+At this point, we are in the position to test the model (i.e,
 `b4msa.model`) in a new set. That is, we are in the position to ask
 the classifier to assign a polarity label to a particular text. For
 simplicity, let us assume that the new set is in `tweets.json.gz` and
