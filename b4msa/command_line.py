@@ -60,7 +60,7 @@ class CommandLine(object):
     def langdep(self):
         pa = self.parser.add_argument
         pa('-l', '--lang', dest='lang', type=str, default=None,
-           help="the language")
+           help="Language (spanish|english|italian) to be use in the language-dependent features. Default is None, i.e., use only language-independent features")
 
     def param_search(self):
         pa = self.parser.add_argument

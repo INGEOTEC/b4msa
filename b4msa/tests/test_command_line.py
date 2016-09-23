@@ -246,7 +246,7 @@ def test_decision_function_gzip():
     import tempfile
     output = tempfile.mktemp()
     fname = os.path.dirname(__file__) + '/text.json'
-    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2', '-n0']
     params()
     sys.argv = ['b4msa', '-m', output, fname, '-o', output]
     train()
