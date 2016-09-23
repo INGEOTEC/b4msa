@@ -189,7 +189,7 @@ The `tweets-spanish.json` file looks as follows:
 ```
 Here we can see that `negation`, `stemming` and `stopwords` parameters were considered.
 
-## Training the model to create a sentiment classifier
+# Training the model to create a sentiment classifier
 
 At this point, we are in the position to train a model. Let us that
 the workload is `tweets.json.gz` and that the parameters are in
@@ -200,7 +200,7 @@ in `b4msa.model`
 b4msa-train -o b4msa.model -m tweets.json tweets.json.gz
 ```
 
-## Testing a sentiment classifier against a workload
+# Testing a sentiment classifier against a workload
 
 At this point, we are in the position to test the model (i..e,
 `b4msa.model`) in a new set. That is, we are in the position to ask
