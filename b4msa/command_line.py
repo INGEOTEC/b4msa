@@ -112,7 +112,7 @@ class CommandLine(object):
             param_kwargs=dict(
                 bsize=self.data.samplesize,
                 hill_climbing=self.data.hill_climbing,
-                qsize=self.data.qsize,
+                # qsize=self.data.qsize,
                 lang=self.data.lang
             )
         )
