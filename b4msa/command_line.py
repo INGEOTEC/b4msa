@@ -199,7 +199,7 @@ class CommandLineTest(CommandLine):
             output = gzip.open(output, 'wb')
         else:
             gzip_flag = False
-            output = gzip.open(output, 'w')
+            output = open(output, 'w')
         with output as fpt:
             if not self.data.decision_function:
                 hy = svc.predict(X)
