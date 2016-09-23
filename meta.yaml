@@ -1,6 +1,6 @@
 package:
   name: b4msa
-  version: "0.1.29"
+  version: "1.0"
 
 build:
   number: 0
