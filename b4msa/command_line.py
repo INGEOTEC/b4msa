@@ -67,8 +67,8 @@ class CommandLine(object):
         pa('-s', '--sample', dest='samplesize', type=int,
            default=8,
            help="The sample size of the parameter")
-        pa('-q', '--qsize', dest='qsize', type=int, default=3,
-           help="The size of the initial population of tokenizers")
+        # pa('-q', '--qsize', dest='qsize', type=int, default=3,
+        #   help="The size of the initial population of tokenizers")
         pa('-H', '--hillclimbing', dest='hill_climbing', default=False,
            action='store_true',
            help="Determines if hillclimbing search is also perfomed to improve the selection of paramters")
