@@ -102,8 +102,15 @@ or cloning the [b4msa](https://github.com/INGEOTEC/b4msa) repository from github
 git clone https://github.com/INGEOTEC/b4msa.git
 ```
 
-# Predict a training set using B4MSA
-Suppose you have a workload of classified tweets `tweets.json.gz` to model your problem, let us assume that b4msa is already installed, then the stratisfied k-fold can be computed as follows:
+# Random search on the B4MSA's parameters space #
+
+Firstly, it is recommended to optimize the parameters used by
+B4MSA. In order to free the user from this task, B4MSA can perform a random
+search on the parameter space. B4MSA selects the best configuration found
+on the random search. Suppose you have a workload of classified tweets
+`tweets.json.gz` to model your problem, let us assume that b4msa is
+already installed. In order to optimize B4MSA parameters one can use
+the following command:
 
 ```bash
 b4msa-params -k5 -s24 -n24 tweets.json.gz -o tweets.json
@@ -146,7 +153,7 @@ each entry specifies a configuration, please check the code (a manual is coming 
 There exist other useful flags like:
 
 - `-H` makes b4msa to perform last hill climbing search for the parameter selection, in many cases, this will produce much better configurations (never worst, guaranteed)
-- `--lang spanish|english|german|italian` it specifies the language of the dataset, it allows b4msa to use language dependent techniques to the parameter selection procedure; currently, only `spanish` is supported.
+- `--lang spanish|english|italian` it specifies the language of the dataset, it allows b4msa to use language dependent techniques to the parameter selection procedure; currently, only `spanish` is supported.
 
 ```bash
 b4msa-params -H -k5 -s48 -n24 tweets.json.gz -o tweets-spanish.json --lang spanish
@@ -182,8 +189,28 @@ The `tweets-spanish.json` file looks as follows:
 ```
 Here we can see that `negation`, `stemming` and `stopwords` parameters were considered.
 
-## Using the models to create a sentiment classifier
+## Training the model to create a sentiment classifier
+
+At this point, we are in the position to train a model. Let us that
+the workload is `tweets.json.gz` and that the parameters are in
+`tweets.json` then the following command will save the model
+in `b4msa.model`
+
+```bash
+b4msa-train -o b4msa.model -m tweets.json tweets.json.gz
+```
+
 ## Testing a sentiment classifier against a workload
+
+At this point, we are in the position to test the model (i..e,
+`b4msa.model`) in a new set. That is, we are in the position to ask
+the classifier to assign a polarity label to a particular text. For
+simplicity, let us assume that the new set is in `tweets.json.gz` and
+the predicted labels are stored in `predicted.json.gz`.
+
+```bash
+b4msa-test -m b4msa.model -o predicted.json.gz tweets.json.gz
+```
 
 # Minimum requirements
 In the modeling stage, the minimum requirements are dependent on the knowledge database being processed. Make sure you have enough memory for it. Take into account that b4msa can take advantage of multicore architectures using the `multiprocessing` module of python, this means that the memory requirements are multiplied by the number of processes you run.
