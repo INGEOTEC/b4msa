@@ -19,6 +19,7 @@ from b4msa.utils import read_data, tweet_iterator
 # from b4msa.params import OPTION_DELETE
 from multiprocessing import cpu_count
 import json
+import gzip
 import pickle
 
 # from b4msa.params import ParameterSelection
@@ -115,8 +116,14 @@ class CommandLine(object):
                 lang=self.data.lang
             )
         )
-        with open(self.get_output(), 'w') as fpt:
-            fpt.write(json.dumps(best_list, indent=2, sort_keys=True))
+        output = self.get_output()
+        if output.endswith('.gz'):
+            with gzip.open(output, 'wb') as fpt:
+                cdn = json.dumps(best_list, indent=2, sort_keys=True)
+                fpt.write(bytes(cdn, encoding='utf-8'))
+        else:
+            with open(output, 'w') as fpt:
+                fpt.write(json.dumps(best_list, indent=2, sort_keys=True))
 
 
 class CommandLineTrain(CommandLine):
@@ -136,9 +143,14 @@ class CommandLineTrain(CommandLine):
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
-        with open(self.data.params_fname) as fpt:
-            param_list = json.loads(fpt.read())
-
+        params_fname = self.data.params_fname
+        if params_fname.endswith('.gz'):
+            with gzip.open(params_fname) as fpt:
+                cdn = fpt.read()
+                param_list = json.loads(str(cdn, encoding='utf-8'))
+        else:
+            with open(params_fname) as fpt:
+                param_list = json.loads(fpt.read())
         best = param_list[0]
         svc = SVC.fit_from_file(self.data.training_set, best)
         
@@ -181,13 +193,22 @@ class CommandLineTest(CommandLine):
         X = [svc.model.transform_q_voc_ratio(x) for x in read_data(self.data.test_set)]
         qv = [x[1] for x in X]
         X = [x[0] for x in X]
-        with open(self.get_output(), 'w') as fpt:
+        output = self.get_output()
+        if output.endswith('.gz'):
+            gzip_flag = True
+            output = gzip.open(output, 'wb')
+        else:
+            gzip_flag = False
+            output = gzip.open(output, 'w')
+        with output as fpt:
             if not self.data.decision_function:
                 hy = svc.predict(X)
                 for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
                     tweet['klass'] = str(klass)
                     tweet['q_voc_ratio'] = r
-                    fpt.write(json.dumps(tweet)+"\n")
+                    cdn = json.dumps(tweet)+"\n"
+                    cdn = bytes(cdn, encoding='utf-8') if gzip_flag else cdn
+                    fpt.write(cdn)
             else:
                 hy = svc.decision_function(X)
                 for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
@@ -197,7 +218,9 @@ class CommandLineTest(CommandLine):
                         o = klass
                     tweet['decision_function'] = o
                     tweet['q_voc_ratio'] = r
-                    fpt.write(json.dumps(tweet)+"\n")
+                    cdn = json.dumps(tweet)+"\n"
+                    cdn = bytes(cdn, encoding='utf-8') if gzip_flag else cdn
+                    fpt.write(cdn)
 
 
 class CommandLineTextModel(CommandLineTest):

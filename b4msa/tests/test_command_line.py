@@ -205,3 +205,57 @@ def test_textmodel():
     os.unlink(output2)
     a = json.loads(a)
     assert 'klass' in a
+
+
+def test_params_gzip():
+    from b4msa.command_line import params
+    import os
+    import sys
+    import tempfile
+    import json
+    import gzip
+    output = tempfile.mktemp() + '.gz'
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2', '-S', 'avgf1:POS:NEG']
+    params()
+    with gzip.open(output) as fpt:
+        b = fpt.read()
+        a = json.loads(str(b, encoding='utf-8'))[0]
+    assert a['_score'] == a['_avgf1:POS:NEG']
+    os.unlink(output)
+    
+
+def test_params_gzip2():
+    from b4msa.command_line import params, train
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp() + '.gz'
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output]
+    train()
+
+
+def test_decision_function_gzip():
+    from b4msa.command_line import params, train, test
+    from b4msa.utils import tweet_iterator
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output]
+    train()
+    output2 = tempfile.mktemp() + '.gz'
+    sys.argv = ['b4msa', '-m', output, fname,
+                '-o', output2, '--decision-function']
+    test()
+    d = [x for x in tweet_iterator(output2)]
+    os.unlink(output)
+    os.unlink(output2)
+    assert len(d)
+    assert len(d) == len([x for x in d if 'decision_function' in x])
