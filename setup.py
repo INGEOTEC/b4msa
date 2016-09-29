@@ -53,5 +53,6 @@ setup(
     scripts=['b4msa/tools/b4msa-train',
              'b4msa/tools/b4msa-test',
              'b4msa/tools/b4msa-params',
+             'b4msa/tools/b4msa-perf',
              'b4msa/tools/b4msa-textModel']
 )
