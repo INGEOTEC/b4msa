@@ -9,6 +9,28 @@ B4MSA is a Python Sentiment Analysis Classifier for Twitter-like short texts. It
 
 It is written in Python making use of [NTLK](http://www.nltk.org/), [scikit-learn](http://scikit-learn.org/) and [gensim](https://radimrehurek.com/gensim/) to create simple but effective sentiment classifiers.
 
+## Citing B4MSA ##
+
+If you like B4MSA, and it is used in a scientific publication, we would
+appreciate citations to the following journal paper: 
+
+[A Simple Approach to Multilingual Polarity Classification in Twitter](http://www.sciencedirect.com/science/article/pii/S0167865517301721)
+Eric S. Tellez, Sabino Miranda-Jiménez, Mario Graff, Daniela Moctezuma, Ranyart R. Suárez, Oscar S. Siordia. Pattern Recognition Letters.
+
+```bibtex
+@article{tellez_simple_nodate,
+	title = {A {Simple} {Approach} to {Multilingual} {Polarity} {Classification} in {Twitter}},
+	issn = {0167-8655},
+	url = {http://www.sciencedirect.com/science/article/pii/S0167865517301721},
+	doi = {10.1016/j.patrec.2017.05.024},
+	abstract = {Recently, sentiment analysis has received a lot of attention due to the interest in mining opinions of social media users. Sentiment analysis consists in determining the polarity of a given text, i.e., its degree of positiveness or negativeness. Traditionally, Sentiment Analysis algorithms have been tailored to a specific language given the complexity of having a number of lexical variations and errors introduced by the people generating content. In this contribution, our aim is to provide a simple to implement and easy to use multilingual framework, that can serve as a baseline for sentiment analysis contests, and as a starting point to build new sentiment analysis systems. We compare our approach in eight different languages, three of them correspond to important international contests, namely, SemEval (English), TASS (Spanish), and SENTIPOLC (Italian). Within the competitions, our approach reaches from medium to high positions in the rankings; whereas in the remaining languages our approach outperforms the reported results.},
+	urldate = {2017-05-24},
+	journal = {Pattern Recognition Letters},
+	author = {Tellez, Eric S. and Miranda-Jiménez, Sabino and Graff, Mario and Moctezuma, Daniela and Suárez, Ranyart R. and Siordia, Oscar S.},
+	keywords = {Error-robust text representations, Multilingual sentiment analysis, Opinion mining}
+}
+```
+
 # Performance #
 
 In order to know the performance of B4MSA, it was decided to compare
