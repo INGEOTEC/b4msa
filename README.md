@@ -18,7 +18,7 @@ appreciate citations to the following journal paper:
 Eric S. Tellez, Sabino Miranda-Jiménez, Mario Graff, Daniela Moctezuma, Ranyart R. Suárez, Oscar S. Siordia. Pattern Recognition Letters.
 
 ```bibtex
-@article{tellez_simple_nodate,
+@article{b4msa,
 	title = {A {Simple} {Approach} to {Multilingual} {Polarity} {Classification} in {Twitter}},
 	issn = {0167-8655},
 	url = {http://www.sciencedirect.com/science/article/pii/S0167865517301721},
@@ -30,6 +30,8 @@ Eric S. Tellez, Sabino Miranda-Jiménez, Mario Graff, Daniela Moctezuma, Ranyart
 	keywords = {Error-robust text representations, Multilingual sentiment analysis, Opinion mining}
 }
 ```
+
+A pre-print version can be found in [arXiv:1612.05270](https://arxiv.org/abs/1612.05270)
 
 # Performance #
 
