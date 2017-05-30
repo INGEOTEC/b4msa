@@ -11,8 +11,7 @@ It is written in Python making use of [NTLK](http://www.nltk.org/), [scikit-lear
 
 ## Citing B4MSA ##
 
-If you like B4MSA, and it is used in a scientific publication, we would
-appreciate citations to the following journal paper: 
+If you find B4MSA useful for any academic/scientific purpose, we would appreciate citations to the following journal paper: 
 
 [A Simple Approach to Multilingual Polarity Classification in Twitter](http://www.sciencedirect.com/science/article/pii/S0167865517301721)
 Eric S. Tellez, Sabino Miranda-Jiménez, Mario Graff, Daniela Moctezuma, Ranyart R. Suárez, Oscar S. Siordia. Pattern Recognition Letters.
