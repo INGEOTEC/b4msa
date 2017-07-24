@@ -260,3 +260,31 @@ def test_decision_function_gzip():
     os.unlink(output2)
     assert len(d)
     assert len(d) == len([x for x in d if 'decision_function' in x])
+
+
+def test_kfolds():
+    from b4msa.command_line import params, kfolds
+    import os
+    import sys
+    import json
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    sys.argv = ['b4msa', '-o', output, '-k', '2', fname, '-s', '2']
+    params()
+    output2 = tempfile.mktemp()
+    sys.argv = ['b4msa', '-m', output, fname, '-o', output2]
+    print(output, fname)
+    kfolds()
+    os.unlink(output)
+    a = open(output2).readline()
+    os.unlink(output2)
+    a = json.loads(a)
+    assert 'decision_function' in a
+    sys.argv = ['b4msa', '--update-klass', '-m', output, fname, '-o', output2]
+    try:
+        kfolds()
+    except AssertionError:
+        return
+    assert False
+    

@@ -15,14 +15,28 @@ import argparse
 import logging
 import b4msa
 from b4msa.classifier import SVC
-from b4msa.utils import read_data, tweet_iterator
+from b4msa.utils import read_data, tweet_iterator, read_data_labels
+from b4msa.textmodel import TextModel
 # from b4msa.params import OPTION_DELETE
 from multiprocessing import cpu_count
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import KFold
 import json
 import gzip
 import pickle
 
 # from b4msa.params import ParameterSelection
+
+
+def load_json(filename):
+    if filename.endswith(".gz"):
+        f = gzip.GzipFile(filename)
+        X = json.load(f)
+        f.close()
+        return X
+    else:
+        with open(filename) as f:
+            return json.load(f)
 
 
 class CommandLine(object):
@@ -144,16 +158,9 @@ class CommandLineTrain(CommandLine):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
         params_fname = self.data.params_fname
-        if params_fname.endswith('.gz'):
-            with gzip.open(params_fname) as fpt:
-                cdn = fpt.read()
-                param_list = json.loads(str(cdn, encoding='utf-8'))
-        else:
-            with open(params_fname) as fpt:
-                param_list = json.loads(fpt.read())
+        param_list = load_json(params_fname)
         best = param_list[0]
         svc = SVC.fit_from_file(self.data.training_set, best)
-        
         with open(self.get_output(), 'wb') as fpt:
             pickle.dump(svc, fpt)
 
@@ -236,6 +243,50 @@ class CommandLineTextModel(CommandLineTest):
                 fpt.write(json.dumps(tw) + "\n")
 
 
+class CommandLineKfolds(CommandLineTrain):
+    def __init__(self):
+        super(CommandLineKfolds, self).__init__()
+        self.param_kfold()
+
+    def param_kfold(self):
+        pa = self.parser.add_argument
+        pa('--update-klass', default=False, dest='update_klass',
+           action="store_true",
+           help='Indicates whether the klass should be updated (default False)')
+        pa('-k', '--kratio', dest='kratio',
+           help='Predict the training set using k-fold (k > 1)',
+           default="5",
+           type=int)
+
+    def main(self, args=None):
+        self.data = self.parser.parse_args(args=args)
+        assert not self.data.update_klass
+        logging.basicConfig(level=self.data.verbose)
+        best = load_json(self.data.params_fname)[0]
+        print(self.data.params_fname, self.data.training_set)
+        corpus, labels = read_data_labels(self.data.training_set)
+        le = LabelEncoder()
+        le.fit(labels)
+        y = le.transform(labels)
+        t = TextModel(corpus, **best)
+        X = [t[x] for x in corpus]
+        hy = [None for x in y]
+        for tr, ts in KFold(n_splits=self.data.kratio,
+                            shuffle=True, random_state=self.data.seed).split(X):
+            c = SVC(model=t)
+            c.fit([X[x] for x in tr], [y[x] for x in tr])
+            _ = c.decision_function([X[x] for x in ts])
+            [hy.__setitem__(k, v) for k, v in zip(ts, _)]
+
+        i = 0
+        with open(self.get_output(), 'w') as fpt:
+            for tweet in tweet_iterator(self.data.training_set):
+                tweet['decision_function'] = hy[i].tolist()
+                i += 1
+                fpt.write(json.dumps(tweet)+"\n")
+        return hy
+
+
 def params():
     c = CommandLine()
     c.main()
@@ -254,3 +305,9 @@ def test():
 def textmodel():
     c = CommandLineTextModel()
     c.main()
+
+
+def kfolds(*args, **kwargs):
+    c = CommandLineKfolds()
+    return c.main(*args, **kwargs)
+    
