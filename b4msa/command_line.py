@@ -88,8 +88,8 @@ class CommandLine(object):
            help="Determines if hillclimbing search is also perfomed to improve the selection of paramters")
         pa('-n', '--numprocs', dest='numprocs', type=int, default=1,
            help="Number of processes to compute the best setup")
-        pa('-S', '--score', dest='score', type=str, default='macrof1',
-           help="The name of the score to be optimized (macrof1|weightedf1|accuracy|avgf1:klass1:klass2); it defaults to macrof1")
+        pa('-S', '--score', dest='score', type=str, default='macrorecall',
+           help="The name of the score to be optimized (macrorecall|macrof1|weightedf1|accuracy|avgf1:klass1:klass2); it defaults to macrof1")
 
     def param_set(self):
         pa = self.parser.add_argument
@@ -115,7 +115,7 @@ class CommandLine(object):
 
         n_folds = self.data.n_folds
         n_folds = n_folds if n_folds is not None else 5
-        assert self.data.score.split(":")[0] in ('macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1', 'avgf1f0'), "Unknown score {0}".format(self.data.score)
+        assert self.data.score.split(":")[0] in ('macrorecall', 'macrof1', 'microf1', 'weightedf1', 'accuracy', 'avgf1', 'avgf1f0'), "Unknown score {0}".format(self.data.score)
 
         best_list = SVC.predict_kfold_params(
             self.data.training_set,

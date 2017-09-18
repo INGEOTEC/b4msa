@@ -37,6 +37,8 @@ class SVC(object):
         self.le = preprocessing.LabelEncoder()
         self.le.fit(y)
         y = self.le.transform(y)
+        if self.num_terms == 0:
+            return self
         self.svc.fit(X, y)
         return self
 
@@ -45,6 +47,8 @@ class SVC(object):
         return self.svc.decision_function(Xnew)
 
     def predict(self, Xnew):
+        if self.num_terms == 0:
+            return self.le.inverse_transform(np.zeros(len(Xnew), dtype=np.int))
         Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
         ynew = self.svc.predict(Xnew)
         return self.le.inverse_transform(ynew)
