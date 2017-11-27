@@ -16,22 +16,22 @@ requirements:
     - python
 
 test:
-    requires:
-        - nose
-	- numpy
-	- scipy
-	- scikit-learn
-	- gensim
-	- nltk
-	
-    imports:
-        - b4msa
+  requires:
+    - nose
+    - numpy
+    - scipy
+    - scikit-learn
+    - gensim
+    - nltk
 
-    commands:
-        - nosetests --exe b4msa
-	- b4msa-params --help
-	- b4msa-train --help
-	- b4msa-test --help
+  imports:
+    - b4msa
+
+  commands:
+    - nosetests --exe b4msa
+    - b4msa-params --help
+    - b4msa-train --help
+    - b4msa-test --help
 
 about:
   home: https://github.com/ingeotec/b4msa
