@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/INGEOTEC/b4msa.svg?branch=master)](https://travis-ci.org/INGEOTEC/b4msa)
+[![Build status](https://ci.appveyor.com/api/projects/status/y8vwd9998p74hw0n?svg=true)](https://ci.appveyor.com/project/mgraffg/b4msa)
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/version.svg)](https://anaconda.org/ingeotec/b4msa)
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/installer/conda.svg)](https://conda.anaconda.org/ingeotec)
 [![Coverage Status](https://coveralls.io/repos/github/INGEOTEC/b4msa/badge.svg?branch=master)](https://coveralls.io/github/INGEOTEC/b4msa?branch=master)
