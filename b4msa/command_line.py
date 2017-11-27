@@ -29,14 +29,16 @@ import pickle
 
 
 def load_json(filename):
-    if filename.endswith(".gz"):
-        f = gzip.GzipFile(filename)
-        X = json.load(f)
-        f.close()
-        return X
+    if filename.endswith('.gz'):
+        func = gzip.open
     else:
-        with open(filename) as f:
-            return json.load(f)
+        func = open
+    with func(filename, 'rb') as fpt:
+        try:
+            d = fpt.read()
+            return json.loads(str(d, encoding='utf-8'))
+        except TypeError:
+            return json.loads(d)
 
 
 class CommandLine(object):
