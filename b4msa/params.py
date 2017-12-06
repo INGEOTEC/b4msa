@@ -178,7 +178,8 @@ class Wrapper(object):
         self.pool = pool
         np.random.seed(seed)
         self.kfolds = [x for x in StratifiedKFold(n_splits=n_folds, shuffle=True,
-                                                  random_state=seed).split(X, y)]
+                                                  random_state=seed).split(np.zeros(self.y.shape[0]),
+                                                                           self.y)]
 
     def f(self, conf_code):
         conf, code = conf_code
