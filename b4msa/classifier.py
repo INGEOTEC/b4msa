@@ -18,7 +18,7 @@ import numpy as np
 from b4msa.utils import read_data_labels, read_data
 from gensim.matutils import corpus2csc
 from sklearn import preprocessing
-from sklearn import cross_validation
+from sklearn.model_selection import StratifiedKFold
 from b4msa.textmodel import TextModel
 from multiprocessing import Pool
 import logging
@@ -85,10 +85,8 @@ class SVC(object):
         y = np.array(le.transform(y))
         hy = np.zeros(len(y), dtype=np.int)
         if kfolds is None:
-            kfolds = cross_validation.StratifiedKFold(y,
-                                                      n_folds=n_folds,
-                                                      shuffle=True,
-                                                      random_state=seed)
+            kfolds = StratifiedKFold(n_splits=n_folds, shuffle=True,
+                                     random_state=seed).split(X, y)
         args = [(X, y, tr, ts, textModel_params) for tr, ts in kfolds]
         if pool is not None:
             if use_tqdm:
