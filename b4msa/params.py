@@ -6,7 +6,7 @@ import logging
 from time import time
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score
 from sklearn import preprocessing
-from sklearn import cross_validation
+from sklearn.model_selection import StratifiedKFold
 
 try:
     from tqdm import tqdm
@@ -177,14 +177,8 @@ class Wrapper(object):
         self.cls = cls
         self.pool = pool
         np.random.seed(seed)
-        self.kfolds = [
-            x for x in cross_validation.StratifiedKFold(
-                y,
-                n_folds=n_folds,
-                shuffle=True,
-                random_state=seed
-            )
-        ]
+        self.kfolds = [x for x in StratifiedKFold(n_splits=n_folds, shuffle=True,
+                                                  random_state=seed).split(X, y)]
 
     def f(self, conf_code):
         conf, code = conf_code
