@@ -72,9 +72,7 @@ class SVC(object):
 
     @classmethod
     def predict_kfold(cls, X, y, n_folds=10, seed=0, textModel_params={},
-                      kfolds=None,
-                      pool=None,
-                      use_tqdm=True):
+                      kfolds=None, pool=None, use_tqdm=True):
         try:
             from tqdm import tqdm
         except ImportError:
@@ -91,8 +89,7 @@ class SVC(object):
         if pool is not None:
             if use_tqdm:
                 res = [x for x in tqdm(pool.imap_unordered(cls.train_predict_pool, args),
-                                       desc='Params',
-                                       total=len(args))]
+                                       desc='Params', total=len(args))]
             else:
                 res = [x for x in pool.imap_unordered(cls.train_predict_pool, args)]
         else:
