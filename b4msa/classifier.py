@@ -26,8 +26,8 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 class SVC(object):
-    def __init__(self, model):
-        self.svc = LinearSVC()
+    def __init__(self, model, **kwargs):
+        self.svc = LinearSVC(**kwargs)
         self.model = model
         self.num_terms = -1
 

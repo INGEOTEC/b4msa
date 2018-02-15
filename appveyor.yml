@@ -1,7 +1,7 @@
 environment:
   # See README for information on the token
-  binstar_token:
-    secure: PMkBHNto36lmKaoqz+hafAJCsqnlyTGWafsc++C7l3RbAxsU5bC7zEFeuKZTCHEU
+  BINSTAR_TOKEN:
+    secure: Z2HheE7qyOO1n0C9j/TiGyOzEVAdy+KTRL4wg7Gwlxo+ziUJq+I0gzjTPJkOw4Aa  
 
   global:
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
@@ -62,5 +62,5 @@ on_success:
   # Upload built binaries to binstar.org. The globbing and handling of the
   # exit-status code is tricky in cmd.exe or powershell, so we're just using
   # a python script.
-  # - python continuous-integration\binstar-push.py
+  - IF %APPVEYOR_REPO_BRANCH%==master python continuous-integration\binstar-push.py
 
