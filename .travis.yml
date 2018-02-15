@@ -1,36 +1,32 @@
-language: python
-python:
-  - "3.5"
+env:
+  matrix:
+    - python=3.5  CONDA_PY=35  CONDA_NPY=18
+    - python=3.6  CONDA_PY=36  CONDA_NPY=18
+
+  global:
+    - secure: "L2zrE9iFoi4MRXxhif1WtevwymjWY+/uBCrz3Q8WK89Kq95UhAmkt4w/Dnrkuzd7KpKoyCui5XynYH5SSMJ+Qra7AdWhNILm1T625UISWJJWXPjrJr6LOBRWdhDsR3P3ZCcyuDONv7chisYlEKvZOW60EO9TUfAqhj6LhMZPb19VvsSbVyXI/SjljgpaN5RRTboJ1Fg2iCHTVWJpVS6Ve+w3XSR7r4N1iXuv8hpbmq3ddkF0aUT/aFv6Zod6qRlRuQAyaP9dpa0wxkNLHnkTuycDvRIgAzaBMoF4to0v5HKLwZiJTsp3hm8ONMQ6NiUIqRdcrzaRxD09c8I4ADgo3NZJf1I0zPmOmfEusgLzdy3/ASs4EXI97Jlr+YF57N9SlsboQrxlRYnDQwwW+DjeOyZG4lqFPGg8bfPU+QRcea4kAegq9zjfucX36T8zLNZJqxsTBoSdXo/uHXxn8dv605e565EDNPtRYpCamNh0JlAbVQt7khPAWXFPId4ZpxCpdPxntpCmOBpAb5bO6n5ifqkPmPbMXznNQEaMk0lsbH2c6zuFovHEJ4cPM3tyrZRU+BKWMxCpw1sKD1LaDf0eZpHYPI+3FK5cqrlZzva2dkea/v+Iaya0+6P2ykRgYRyiP1+zLpL8Tl3pqxUY9eEMkw26JoU+610aRcUh4C9dM2g="
 
 before_install:
   - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
   - chmod 755 miniconda.sh
   - ./miniconda.sh -b
   - export PATH=/home/travis/miniconda3/bin:$PATH
-  - pip install coverage
-  - pip install coveralls
-  - pip install numpy
-  - pip install scipy 
-  - pip install scikit-learn
-  - pip install gensim
-  - pip install nose
-  - conda install --yes nltk
-  - python setup.py build_ext --inplace
+  - conda update --yes conda
+  - conda install --yes pip conda-build jinja2 binstar
 
-script: nosetests --with-coverage --cover-package=b4msa
+script: conda build conda-recipe --quiet
 
-after_success: coveralls || echo "Coveralls upload failed"
+after_success:
+  - coveralls || echo "Coveralls upload failed"
+  - if [ $TRAVIS_BRANCH = 'master' ]; binstar -u ingeotec -t $BINSTAR_TOKEN upload --force *.tar.bz2
 
 notifications:
     email:
       recipients:
         - mario.graff@infotec.mx
         - eric.tellez@infotec.mx
-        - elio.villasenor@infotec.mx
         - sabino.miranda@infotec.mx
-        - ranyart.rodrigo@gmail.com
         - dmoctezuma@centrogeo.edu.mx
-        - osanchez@centrogeo.edu.mx
     on_success: change  # options: [always|never|change] default: always
     on_failure: always  # options: [always|never|change] default: always
     on_start: never     # options: [always|never|change] default: always
