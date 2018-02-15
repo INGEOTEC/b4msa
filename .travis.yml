@@ -21,7 +21,7 @@ script: conda build conda-recipe --quiet
 
 after_success:
   - coveralls || echo "Coveralls upload failed"
-  - [ $TRAVIS_BRANCH = 'master' ] && binstar -u ingeotec -t $BINSTAR_TOKEN upload --force *.tar.bz2
+  - if [ $TRAVIS_BRANCH = 'master' ] then binstar -u ingeotec -t $BINSTAR_TOKEN upload --force *.tar.bz2 fi
 
 notifications:
     email:
