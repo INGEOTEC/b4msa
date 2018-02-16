@@ -1,6 +1,6 @@
 package:
   name: b4msa
-  version: "1.2.4"
+  version: "1.2.5"
 
 requirements:
   build:
@@ -23,12 +23,13 @@ test:
     - scikit-learn
     - gensim
     - nltk
+    - coverage
 
   imports:
     - b4msa
 
   commands:
-    - nosetests --exe b4msa
+    - nosetests --verbose -exe b4msa
     - b4msa-params --help
     - b4msa-train --help
     - b4msa-test --help
