@@ -17,6 +17,8 @@ before_install:
   - ./miniconda.sh -b
   - export PATH=/home/travis/miniconda3/bin:$PATH
   - conda update --yes conda
+  - conda create --yes -n ingeotec python=$python
+  - source activate ingeotec
   - conda install --yes pip conda-build jinja2 binstar
   - pip install coverage
   - pip install coveralls
@@ -30,8 +32,8 @@ script:
   - coverage run setup.py nosetests
 
 after_success:
-  - if [ $TRAVIS_BRANCH = "master" ]; then conda build conda-recipe --quiet; fi
   - coveralls || echo "Coveralls upload failed"
+  - if [ $TRAVIS_BRANCH = "master" ]; then source deactivate; conda install --yes pip conda-build jinja2 binstar; conda build conda-recipe --quiet; fi
   - python continuous-integration/binstar-push.py
 
 notifications:
