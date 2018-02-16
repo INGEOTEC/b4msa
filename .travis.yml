@@ -17,7 +17,7 @@ before_install:
   - conda install --yes pip conda-build jinja2 binstar
   - pip install coverage
   - pip install coveralls
-  - conda install --yes numpy scipy scikit-learn gensim nltk
+  - conda install --yes numpy scipy scikit-learn gensim nltk nose
   - python setup.py build_ext --inplace
 
 script:
