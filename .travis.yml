@@ -16,8 +16,12 @@ before_install:
   - conda update --yes conda
   - conda install --yes pip conda-build jinja2 binstar
   - pip install coveralls
+  - conda install --yes coverage numpy scipy scikit-learn gensim nltk
+  - python setup.py build_ext --inplace
 
-script: conda build conda-recipe --quiet
+script:
+  - nosetests --with-coverage --cover-package=b4msa
+  - conda build conda-recipe --quiet
 
 after_success:
   - coveralls || echo "Coveralls upload failed"

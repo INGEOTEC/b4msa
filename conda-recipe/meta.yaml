@@ -29,8 +29,7 @@ test:
     - b4msa
 
   commands:
-    - nosetests --verbose --with-coverage --cover-package=b4msa -exe b4msa
-    - cp .coverage $HOME/b4msa
+    - nosetests --verbose -exe b4msa
     - b4msa-params --help
     - b4msa-train --help
     - b4msa-test --help
