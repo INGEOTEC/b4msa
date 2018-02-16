@@ -1,6 +1,6 @@
 os:
   - linux
-  - osx
+
 language: python
 
 env:
@@ -24,14 +24,13 @@ before_install:
   - python setup.py build_ext --inplace
 
 script:
-#  - conda build conda-recipe --quiet
   - which python
   - python --version
   - which coverage
   - coverage run setup.py nosetests
 
 after_success:
-  - if [ $TRAVIS_BRANCH = "master" ]; then echo sxxxxxxxx; fi
+  - if [ $TRAVIS_BRANCH = "master" ]; then conda build conda-recipe --quiet; fi
   - coveralls || echo "Coveralls upload failed"
   - python continuous-integration/binstar-push.py
 
