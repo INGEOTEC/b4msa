@@ -21,8 +21,8 @@ before_install:
   - python setup.py build_ext --inplace
 
 script:
-  - nosetests --with-coverage --cover-package=b4msa
   - conda build conda-recipe --quiet
+  - nosetests --with-coverage --cover-package=b4msa
 
 after_success:
   - coveralls || echo "Coveralls upload failed"
