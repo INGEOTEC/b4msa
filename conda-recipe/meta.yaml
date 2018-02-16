@@ -30,6 +30,7 @@ test:
 
   commands:
     - nosetests --verbose --with-coverage --cover-package=b4msa -exe b4msa
+    - coveralls
     - b4msa-params --help
     - b4msa-train --help
     - b4msa-test --help

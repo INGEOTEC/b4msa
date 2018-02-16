@@ -20,7 +20,6 @@ before_install:
 script: conda build conda-recipe --quiet
 
 after_success:
-  - coveralls || echo "Coveralls upload failed"
   - python continuous-integration/binstar-push.py
 
 notifications:
