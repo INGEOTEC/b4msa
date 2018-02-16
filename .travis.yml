@@ -15,8 +15,9 @@ before_install:
   - export PATH=/home/travis/miniconda3/bin:$PATH
   - conda update --yes conda
   - conda install --yes pip conda-build jinja2 binstar
+  - pip install coverage
   - pip install coveralls
-  - conda install --yes coverage numpy scipy scikit-learn gensim nltk
+  - conda install --yes numpy scipy scikit-learn gensim nltk
   - python setup.py build_ext --inplace
 
 script:
