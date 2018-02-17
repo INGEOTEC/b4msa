@@ -34,6 +34,7 @@ script:
 after_success:
   - coveralls || echo "Coveralls upload failed"
   - if [ $TRAVIS_BRANCH = "master" ]; then source deactivate; conda install --yes pip conda-build jinja2 anaconda-client; conda build conda-recipe --quiet; fi
+  - python continuous-integration/move-conda-package.py conda-recipe  
   - which binstar
   - python continuous-integration/binstar-push.py
 
