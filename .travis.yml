@@ -19,7 +19,7 @@ before_install:
   - conda update --yes conda
   - conda create --yes -n ingeotec python=$python
   - source activate ingeotec
-  - conda install --yes pip conda-build jinja2 binstar
+  - conda install --yes pip
   - pip install coverage
   - pip install coveralls
   - conda install --yes numpy scipy scikit-learn gensim nltk nose
@@ -33,7 +33,8 @@ script:
 
 after_success:
   - coveralls || echo "Coveralls upload failed"
-  - if [ $TRAVIS_BRANCH = "master" ]; then source deactivate; conda install --yes pip conda-build jinja2 binstar; conda build conda-recipe --quiet; fi
+  - if [ $TRAVIS_BRANCH = "master" ]; then source deactivate; conda install --yes pip conda-build jinja2 anaconda-client; conda build conda-recipe --quiet; fi
+  - which binstar
   - python continuous-integration/binstar-push.py
 
 notifications:
