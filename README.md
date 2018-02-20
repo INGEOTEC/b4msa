@@ -7,6 +7,7 @@
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/latest_release_date.svg)](https://anaconda.org/ingeotec/b4msa)
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/platforms.svg)](https://anaconda.org/ingeotec/b4msa)
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/installer/conda.svg)](https://conda.anaconda.org/ingeotec)
+[![PyPI version](https://badge.fury.io/py/b4msa.svg)](https://badge.fury.io/py/b4msa)
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/license.svg)](https://anaconda.org/ingeotec/b4msa)
 
 # A Baseline for Multilingual Sentiment Analysis (B4MSA)
