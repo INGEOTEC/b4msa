@@ -15,12 +15,12 @@
 import json
 import gzip
 import logging
-from sklearn.metrics import f1_score
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 def tweet_iterator(filename):
-
+    logger = logging.getLogger('b4msa')
+    
     # The file is a gz file...
     if filename.endswith(".gz"):
         # Uncompress the file and open it...
@@ -28,9 +28,9 @@ def tweet_iterator(filename):
     else:
         # Not JSON extension, show warning...
         if not filename.endswith(".json"):
-            # Print warning to user...
-            print("WARNING! File extension not supported (" + filename.split(".")[-1] + ")")
-            print("Assuming JSON format: {\"text\":, \"klass\":}")
+            # warning to user...
+            logger.warning("WARNING! File extension not supported (" + filename.split(".")[-1] + ")")
+            logger.warning("Assuming JSON format: {\"text\":, \"klass\":}")
         # Open the file...
         f = open(filename, encoding='utf8')
 
@@ -59,9 +59,9 @@ def tweet_iterator(filename):
             yield t
         # Catch the JSON Decode Error...
         except (json.decoder.JSONDecodeError, ValueError):
-            # Print warning to user...
-            print("WARNING! we found and error while parsing file:", str(f))
-            print("most of these errors occur due to concurrent writes")
+            # warning to user...
+            logger.warning("WARNING! we found and error while parsing file:", str(f))
+            logger.warning("most of these errors occur due to concurrent writes")
 
     # Close the file...
     f.close()
