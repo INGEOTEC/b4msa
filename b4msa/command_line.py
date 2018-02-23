@@ -70,7 +70,7 @@ class CommandLine(object):
            default=None,
            help=cdn)
         pa('--verbose', dest='verbose', type=int,
-           help='Logging level default: INFO + 1',
+           help='Logging level default: INFO+1',
            default=logging.INFO+1)
 
     def langdep(self):
@@ -107,7 +107,8 @@ class CommandLine(object):
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
-
+        logger = logging.getLogger('b4msa')
+        logger.setLevel(self.data.verbose)
         if self.data.numprocs == 1:
             numprocs = None
         elif self.data.numprocs == 0:
@@ -159,6 +160,8 @@ class CommandLineTrain(CommandLine):
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
+        logger = logging.getLogger('b4msa')
+        logger.setLevel(self.data.verbose)
         params_fname = self.data.params_fname
         param_list = load_json(params_fname)
         best = param_list[0]
@@ -191,12 +194,14 @@ class CommandLineTest(CommandLine):
            default=None,
            help=cdn)
         pa('--verbose', dest='verbose', type=int,
-           help='Logging level default: INFO + 1',
+           help='Logging level default: INFO+1',
            default=logging.INFO+1)
 
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
+        logger = logging.getLogger('b4msa')
+        logger.setLevel(self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
         X = [svc.model.transform_q_voc_ratio(x) for x in read_data(self.data.test_set)]
@@ -236,6 +241,8 @@ class CommandLineTextModel(CommandLineTest):
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
+        logger = logging.getLogger('b4msa')
+        logger.setLevel(self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
         with open(self.get_output(), 'w') as fpt:
@@ -264,6 +271,8 @@ class CommandLineKfolds(CommandLineTrain):
         self.data = self.parser.parse_args(args=args)
         assert not self.data.update_klass
         logging.basicConfig(level=self.data.verbose)
+        logger = logging.getLogger('b4msa')
+        logger.setLevel(self.data.verbose)
         best = load_json(self.data.params_fname)[0]
         print(self.data.params_fname, self.data.training_set)
         corpus, labels = read_data_labels(self.data.training_set)
