@@ -70,8 +70,8 @@ class CommandLine(object):
            default=None,
            help=cdn)
         pa('--verbose', dest='verbose', type=int,
-           help='Logging level default: NOTSET',
-           default=logging.NOTSET)
+           help='Logging level default: INFO+1',
+           default=logging.INFO+1)
 
     def langdep(self):
         pa = self.parser.add_argument
@@ -161,7 +161,7 @@ class CommandLineTrain(CommandLine):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
         logger = logging.getLogger('b4msa')
-        logger.setLevel(self.data.verbose)        
+        logger.setLevel(self.data.verbose)
         params_fname = self.data.params_fname
         param_list = load_json(params_fname)
         best = param_list[0]
@@ -194,14 +194,14 @@ class CommandLineTest(CommandLine):
            default=None,
            help=cdn)
         pa('--verbose', dest='verbose', type=int,
-           help='Logging level default: NOTSET',
-           default=logging.NOTSET)
+           help='Logging level default: INFO+1',
+           default=logging.INFO+1)
 
     def main(self):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
         logger = logging.getLogger('b4msa')
-        logger.setLevel(self.data.verbose)        
+        logger.setLevel(self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
         X = [svc.model.transform_q_voc_ratio(x) for x in read_data(self.data.test_set)]
@@ -242,7 +242,7 @@ class CommandLineTextModel(CommandLineTest):
         self.data = self.parser.parse_args()
         logging.basicConfig(level=self.data.verbose)
         logger = logging.getLogger('b4msa')
-        logger.setLevel(self.data.verbose)        
+        logger.setLevel(self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
         with open(self.get_output(), 'w') as fpt:
@@ -272,7 +272,7 @@ class CommandLineKfolds(CommandLineTrain):
         assert not self.data.update_klass
         logging.basicConfig(level=self.data.verbose)
         logger = logging.getLogger('b4msa')
-        logger.setLevel(self.data.verbose)        
+        logger.setLevel(self.data.verbose)
         best = load_json(self.data.params_fname)[0]
         print(self.data.params_fname, self.data.training_set)
         corpus, labels = read_data_labels(self.data.training_set)
