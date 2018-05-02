@@ -1,7 +1,8 @@
 os:
   - linux
+  - osx
 
-language: python
+language: generic
 
 env:
   matrix:
@@ -13,10 +14,11 @@ env:
     - secure: "xGQ4F56pKwc6vEIQYlNSib3E+BxTbNt2KgdJ8CBZIgeL7onuR2aMcZ63YeLWCvq/dWvLQEhWtM8C1Fv2KZPXU8HcuUSXGus8rlhcm6cpOTFUSogva043hQPpq3wctUAXVVDr3UMbWx6NUV2X1UWbQ86FHb1gMB3PL/Qh75jy8dbFxOYGuLG939vrbjXTtrUAJmoJcQG6O2HSoNuJfW2WLTxuw1lRTiZjDxmetahf5g3lNKseEZQfVxenww0ewzoxXgo8rUywqmFJM25t8Tu1pDxNgeOVeeoG/juVmvBBc5sh95sdJsSkJRvsW5P2mviaPnm8ESP6IwcD+OPBrv3yLwZcIS2hAn0IGdM0Mn4u2IMi49HoFaQTTrc8eI3X299/dw/2PpeWYb6HEaFbWL7Vd5u128KBRZIUk1QKDJdc1JGtLW+EETxgNF5TixmLlUGKT87vvF/snsptWlZqUnIDcRmHRNOFuiZfsWSvEc+5zHvHIeU9voHZgO260t2C+g493nfCQ5QFM5GaHlXZTB+zPrQ8bueOZE9XcVUINhNBqLGWppNHAfbmE9NWaFDh8gQrVtPF/X8T50CgTVGgiXDjtMKC8Gm+WIVehHlVoBnI6LUoSr00bD1L1eWnnARkQ61VELklahpPNzEegiH9e+ZrIC5tLziC7zvS6qGayqQPFWQ="    
 
 before_install:
-  - wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then curl -L -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh; fi
   - chmod 755 miniconda.sh
   - ./miniconda.sh -b
-  - export PATH=/home/travis/miniconda3/bin:$PATH
+  - export PATH=$HOME/miniconda3/bin:$PATH
   - conda update --yes conda
   - conda create --yes -n ingeotec python=$python
   - source activate ingeotec
@@ -26,14 +28,16 @@ before_install:
   - conda install --yes numpy scipy scikit-learn gensim nltk nose
   - python setup.py build_ext --inplace
 
+# command to run tests
 script:
   - which python
   - python --version
   - which coverage
-  - coverage run setup.py nosetests
+  - if [ $python = 3.5 ]; then nosetests --verbose -exe b4msa; fi
+  - if [ $python = 3.6 ]; then coverage run setup.py nosetests; fi
 
 after_success:
-  - coveralls || echo "Coveralls upload failed"
+  - if [ $python = 3.6 ]; then coveralls || echo "Coveralls upload failed"; fi
   - if [ $TRAVIS_BRANCH = "master" -a $python = 3.6 ]; then python setup.py sdist; pip install twine; twine upload -u mgraffg -p $TWINE dist/*.tar.gz; fi  
   - if [ $TRAVIS_BRANCH = "master" ]; then source deactivate; conda install --yes pip conda-build jinja2 anaconda-client; conda build conda-recipe --quiet; fi
   - python continuous-integration/move-conda-package.py conda-recipe  
