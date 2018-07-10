@@ -33,7 +33,8 @@ Eric S. Tellez, Sabino Miranda-Jiménez, Mario Graff, Daniela Moctezuma, Ranyart
 	urldate = {2017-05-24},
 	journal = {Pattern Recognition Letters},
 	author = {Tellez, Eric S. and Miranda-Jiménez, Sabino and Graff, Mario and Moctezuma, Daniela and Suárez, Ranyart R. and Siordia, Oscar S.},
-	keywords = {Error-robust text representations, Multilingual sentiment analysis, Opinion mining}
+	keywords = {Error-robust text representations, Multilingual sentiment analysis, Opinion mining},
+	year = {2017}
 }
 ```
 
