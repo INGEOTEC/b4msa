@@ -8,6 +8,7 @@ env:
   matrix:
     - python=3.5  CONDA_PY=35
     - python=3.6  CONDA_PY=36
+    - python=3.7  CONDA_PY=37
 
   global:
     - secure: "yEOLzhqY0fNh8CQb/aQtAjiDG+o5VWqFmigaR3W1v80LnpeW/rcyhsr7of2GtOCK/SUvhdCMqTu+QWO24qj7W4GOcbZSUY8X5I2nS82VH3G3viIQHBhFbWA78UCOr4tJMEC1cfDoVGCjhuQHeVIRpoujQfTO2Zju6X5sbx6xO+PKTW0fH9f4F3UdtWerLYv/ErPhE+W7ss1pkcXzovDU+6wlQLUm46BHhdKF4/AVKKqf04h6J6Yr6x83peoCzt+pxGn/GPXJS4youOxycXAKYrn9d+gN+6ZBj/9VGgeYHPoP+oTPKhy9WesPKdcz1rARQSuy63YUrXGyVY4pXUyXjuQ39awO0LchdBUESTAQjQEiHxVnDWdUV9RArX4k3ru+Mhqk/6dcCgWPZqCZOqBuLkBi7cGOIqLrwjCtpm8c+hDlURWGYBHvM/vJXhHdE9V43/ElB3Q60SKVwzuYYmZjY+3RMV+OvZKjP2UtCkeoyKx5GjFSZ3pAFtRwDxUzZjsO2VHBaopWEhXrCXLgYDS/PQl1m39TqiENNz5OnGmDhyaaijnDMJ+NZMvD6rKfOx89BkvsxXgj4CogRs3yFbuHJIogt0oeR9+thcfc0huDLGjUCB4QlGYjaUsvcRdDz4xvwL0R5aV8HHZJIRb3WgrCC4k1md9GhZm+UM6EILS04jA="
@@ -34,11 +35,13 @@ script:
   - python --version
   - which coverage
   - if [ $python = 3.5 ]; then nosetests --verbose -exe b4msa; fi
+  - if [ $python = 3.7 ]; then nosetests --verbose -exe b4msa; fi
   - if [ $python = 3.6 ]; then coverage run setup.py nosetests; fi
 
 after_success:
   - if [ $python = 3.6 ]; then coveralls || echo "Coveralls upload failed"; fi
-  - if [ $TRAVIS_BRANCH = "master" -a $python = 3.6 ]; then python setup.py sdist; pip install twine; twine upload -u mgraffg -p $TWINE dist/*.tar.gz; fi  
+  - if [ $TRAVIS_BRANCH = "master" -a $python = 3.6 ]; then python setup.py sdist; pip install twine; twine upload -u mgraffg -p $TWINE dist/*.tar.gz; fi
+  - if [ $TRAVIS_BRANCH = "master" ]; then python setup.py bdist_wheel; pip install twine; twine upload -u mgraffg -p $TWINE dist/*.whl; fi  
   - if [ $TRAVIS_BRANCH = "master" ]; then source deactivate; conda install --yes pip conda-build jinja2 anaconda-client; conda build conda-recipe --quiet; fi
   - python continuous-integration/move-conda-package.py conda-recipe  
   - which binstar
