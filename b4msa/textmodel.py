@@ -162,8 +162,7 @@ class TextModel:
                  del_dup1=True,
                  token_list=[-1],
                  lang=None,
-                 **kwargs
-    ):
+                 **kwargs):
         self.strip_diac = strip_diac
         self.num_option = num_option
         self.usr_option = usr_option
@@ -240,7 +239,7 @@ class TextModel:
 
         if self.lang:
             text = self.lang.transform(text, **self.kwargs)
-            
+
         L = []
         textlist = None
 
@@ -252,9 +251,24 @@ class TextModel:
                 expand_qgrams_word_list(textlist, abs(q), L)
             else:
                 expand_qgrams(text, q, L)
-        
+
         return L
-    
+
+
+class Space(object):
+    def __init__(self, data):
+        w2id = {}
+        weight = {}
+        for texts in data:
+            for x in texts:
+                try:
+                    weight[x] = weight[x] + 1
+                except KeyError:
+                    weight[x] = 1
+                    w2id[x] = len(w2id)
+        self._w2id = w2id
+        self._weight = weight
+
 
 def load_model(modelfile):
     logging.info("Loading model {0}".format(modelfile))

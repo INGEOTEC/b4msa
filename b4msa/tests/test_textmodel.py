@@ -61,6 +61,7 @@ def test_params():
         ins = TextModel(text, **args)
         assert isinstance(ins[text[0]], list)
 
+
 def test_emoticons():
     from b4msa.textmodel import EmoticonClassifier, norm_chars
     emo = EmoticonClassifier()
@@ -156,3 +157,20 @@ def test_negations_italian():
     print("Output:", a)
     b = ['_usr', 'com', 'no_condividere', 'me', 'no_freg', 'nient']
     assert a == b
+
+
+def test_space():
+    from b4msa.textmodel import TextModel
+    from b4msa.textmodel import Space
+    from b4msa.utils import tweet_iterator
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    tw = list(tweet_iterator(fname))
+    docs = [x['text'] for x in tw]
+    text = TextModel(docs, token_list=[-1, 3])
+    docs = [text.tokenize(d) for d in docs]
+    sp = Space(docs)
+    print(sp._weight)
+    print(sp._w2id)
+    assert False
+
