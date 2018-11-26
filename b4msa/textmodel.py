@@ -14,11 +14,12 @@
 import re
 import os
 import unicodedata
-from gensim import corpora
-from gensim.models.tfidfmodel import TfidfModel
+# from gensim import corpora
+# from gensim.models.tfidfmodel import TfidfModel
 from .params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE, get_filename
 from .lang_dependency import LangDependency
 from .utils import tweet_iterator
+from .space import Space
 from collections import defaultdict
 import pickle
 import logging
@@ -61,7 +62,7 @@ class EmoticonClassifier:
         for pat, klass in self.emoreg:
             if option == OPTION_DELETE:
                 klass = ''
- 
+
             text = pat.sub(klass, text)
 
         T = []
@@ -83,7 +84,7 @@ class EmoticonClassifier:
                             replaced = True
                             i += lcode
                             break
-            
+
             if not replaced:
                 T.append(text[i])
                 i += 1
@@ -116,7 +117,7 @@ def norm_chars(text, strip_diac=True, del_dup1=True):
             o = ord(u)
             if 0x300 <= o and o <= 0x036F:
                 continue
-            
+
         if u in ('\n', '\r', ' ', '\t'):
             u = '~'
 
@@ -177,13 +178,15 @@ class TextModel:
             self.lang = LangDependency(lang)
         else:
             self.lang = None
-            
+
         self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
 
         docs = [self.tokenize(d) for d in docs]
-        self.dictionary = corpora.Dictionary(docs)
-        corpus = [self.dictionary.doc2bow(d) for d in docs]
-        self.model = TfidfModel(corpus)
+        # self.dictionary = corpora.Dictionary(docs)
+        self.dictionary = Space(docs)
+        # corpus = [self.dictionary.doc2bow(d) for d in docs]
+        # self.model = TfidfModel(corpus)
+        self.model = self.dictionary
 
     def __str__(self):
         return "[TextModel {0}]".format(dict(
@@ -253,21 +256,6 @@ class TextModel:
                 expand_qgrams(text, q, L)
 
         return L
-
-
-class Space(object):
-    def __init__(self, data):
-        w2id = {}
-        weight = {}
-        for texts in data:
-            for x in texts:
-                try:
-                    weight[x] = weight[x] + 1
-                except KeyError:
-                    weight[x] = 1
-                    w2id[x] = len(w2id)
-        self._w2id = w2id
-        self._weight = weight
 
 
 def load_model(modelfile):
