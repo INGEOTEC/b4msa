@@ -30,7 +30,6 @@ class SVC(object):
     def __init__(self, model, **kwargs):
         self.svc = LinearSVC(**kwargs)
         self.model = model
-        self._num_terms = -1
 
     @property
     def num_terms(self):
@@ -79,13 +78,13 @@ class SVC(object):
         return self
 
     def decision_function(self, Xnew):
-        Xnew = self.tonp(Xnew, num_terms=self.num_terms)
+        Xnew = self.tonp(Xnew)
         return self.svc.decision_function(Xnew)
 
     def predict(self, Xnew):
         if self.num_terms == 0:
             return self.le.inverse_transform(np.zeros(len(Xnew), dtype=np.int))
-        Xnew = self.tonp(Xnew, num_terms=self.num_terms)
+        Xnew = self.tonp(Xnew)
         ynew = self.svc.predict(Xnew)
         return self.le.inverse_transform(ynew)
 
