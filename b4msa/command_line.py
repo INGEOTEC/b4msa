@@ -247,7 +247,8 @@ class CommandLineTextModel(CommandLineTest):
             svc = pickle.load(fpt)
         with open(self.get_output(), 'w') as fpt:
             for tw in tweet_iterator(self.data.test_set):
-                extra = dict(svc.model[tw['text']] + [('num_terms', svc.num_terms)])
+                extra = dict([(int(a), float(b)) for a, b in svc.model[tw['text']]]
+                             + [('num_terms', svc.num_terms)])
                 tw.update(extra)
                 fpt.write(json.dumps(tw) + "\n")
 

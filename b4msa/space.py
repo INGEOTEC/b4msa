@@ -31,7 +31,14 @@ class Space(object):
                     w2id[x] = ident
                     weight[ident] = 1
         self._w2id = w2id
+        self._num_terms = len(w2id)
         self.wordWeight = weight
+
+    @property
+    def num_terms(self):
+        """Number of terms"""
+
+        return self._num_terms
 
     @property
     def wordWeight(self):

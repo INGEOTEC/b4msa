@@ -56,15 +56,16 @@ class SVC(object):
         row = []
         col = []
         for r, x in enumerate(X):
-            cc = [_[0] for _ in x if np.isfinite(_[1])]
+            cc = [_[0] for _ in x if np.isfinite(_[1]) and (self.num_terms is None or _[0] < self.num_terms)]
             col += cc
-            data += [_[1] for _ in x if np.isfinite(_[1])]
+            data += [_[1] for _ in x if np.isfinite(_[1]) and (self.num_terms is None or _[0] < self.num_terms)]
             _ = [r] * len(cc)
             row += _
         if self.num_terms is None:
             _ = csr_matrix((data, (row, col)))
             self._num_terms = _.shape[1]
             return _
+        print(max(col), self.num_terms, len(self.model.model._w2id))
         return csr_matrix((data, (row, col)), shape=(len(X), self.num_terms))
 
     def fit(self, X, y):
