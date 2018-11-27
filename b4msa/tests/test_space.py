@@ -15,7 +15,7 @@
 
 def test_space():
     from b4msa.textmodel import TextModel
-    from b4msa.space import Space
+    from b4msa.space import TFIDF
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
@@ -24,7 +24,7 @@ def test_space():
     text = TextModel(docs, token_list=[-1, 3])
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
-    sp = Space(docs)
+    sp = TFIDF(docs)
     assert len(sp.wordWeight) == len(sp._w2id)
     # print(sp._weight)
     # print(sp._w2id)
@@ -32,7 +32,7 @@ def test_space():
 
 def test_doc2weight():
     from b4msa.textmodel import TextModel
-    from b4msa.space import Space
+    from b4msa.space import TFIDF
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
@@ -41,13 +41,13 @@ def test_doc2weight():
     text = TextModel(docs, token_list=[-1, 3])
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
-    sp = Space(docs)
+    sp = TFIDF(docs)
     assert len(sp.doc2weight(text.tokenize('odio odio los los'))) == 3
 
 
 def test_getitem():
     from b4msa.textmodel import TextModel
-    from b4msa.space import Space
+    from b4msa.space import TFIDF
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
@@ -56,7 +56,7 @@ def test_getitem():
     text = TextModel(docs, token_list=[-1, 3])
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
-    sp = Space(docs)
+    sp = TFIDF(docs)
     bow = sp.doc2weight(text.tokenize('buenos dias'))
     ids, tf, df = bow
     assert len(ids) == len(sp[bow])

@@ -16,7 +16,7 @@
 import numpy as np
 
 
-class Space(object):
+class TFIDF(object):
     def __init__(self, docs):
         w2id = {}
         weight = {}
@@ -53,7 +53,7 @@ class Space(object):
         """
 
         N = self._ndocs
-        self._weight = {k: np.log(N / v) for k, v in value.items()}
+        self._weight = {k: np.log2(N / v) for k, v in value.items()}
 
     def doc2weight(self, tokens):
         """Weight associated to each token
@@ -76,5 +76,13 @@ class Space(object):
         return ids, tf, df
 
     def __getitem__(self, text):
-        return [(i, _tf * _df) for i, _tf, _df in zip(*text)]
+        """
+        TF-IDF and the vectors are normalised.
 
+        :param tuple: output of doc2weight
+        :rtype: lst
+        """
+        
+        r = [(i, _tf * _df) for i, _tf, _df in zip(*text)]
+        n = np.sqrt(sum([x * x for _, x in r]))
+        return [(i, x/n) for i, x in r]

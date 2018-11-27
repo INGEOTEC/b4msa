@@ -19,7 +19,7 @@ import unicodedata
 from .params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE, get_filename
 from .lang_dependency import LangDependency
 from .utils import tweet_iterator
-from .space import Space
+from .space import TFIDF
 from collections import defaultdict
 import pickle
 import logging
@@ -185,7 +185,7 @@ class TextModel:
         # self.dictionary = corpora.Dictionary(docs)
         # corpus = [self.dictionary.doc2bow(d) for d in docs]
         # self.model = TfidfModel(corpus)
-        self.model = Space(docs)
+        self.model = TFIDF(docs)
 
     def __str__(self):
         return "[TextModel {0}]".format(dict(
