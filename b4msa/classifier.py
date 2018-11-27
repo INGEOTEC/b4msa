@@ -65,7 +65,6 @@ class SVC(object):
             _ = csr_matrix((data, (row, col)))
             self._num_terms = _.shape[1]
             return _
-        print(max(col), self.num_terms, len(self.model.model._w2id))
         return csr_matrix((data, (row, col)), shape=(len(X), self.num_terms))
 
     def fit(self, X, y):
