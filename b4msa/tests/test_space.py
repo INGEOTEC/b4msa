@@ -25,12 +25,12 @@ def test_space():
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
     sp = Space(docs)
-    assert len(sp._weight) == len(sp._w2id)
+    assert len(sp.wordWeight) == len(sp._w2id)
     # print(sp._weight)
     # print(sp._w2id)
 
 
-def test_doc2bow():
+def test_doc2weight():
     from b4msa.textmodel import TextModel
     from b4msa.space import Space
     from b4msa.utils import tweet_iterator
@@ -42,7 +42,7 @@ def test_doc2bow():
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
     sp = Space(docs)
-    assert len(sp.doc2bow(text.tokenize('odio odio los los'))) == 3
+    assert len(sp.doc2weight(text.tokenize('odio odio los los'))) == 3
 
 
 def test_getitem():
@@ -57,6 +57,6 @@ def test_getitem():
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
     sp = Space(docs)
-    bow = sp.doc2bow(text.tokenize('buenos dias'))
+    bow = sp.doc2weight(text.tokenize('buenos dias'))
     ids, tf, df = bow
     assert len(ids) == len(sp[bow])

@@ -183,10 +183,9 @@ class TextModel:
 
         docs = [self.tokenize(d) for d in docs]
         # self.dictionary = corpora.Dictionary(docs)
-        self.dictionary = Space(docs)
         # corpus = [self.dictionary.doc2bow(d) for d in docs]
         # self.model = TfidfModel(corpus)
-        self.model = self.dictionary
+        self.model = Space(docs)
 
     def __str__(self):
         return "[TextModel {0}]".format(dict(
@@ -203,11 +202,11 @@ class TextModel:
         ))
 
     def __getitem__(self, text):
-        return self.model[self.dictionary.doc2bow(self.tokenize(text))]
+        return self.model[self.model.doc2weight(self.tokenize(text))]
 
     def transform_q_voc_ratio(self, text):
         tok = self.tokenize(text)
-        bow = self.dictionary.doc2bow(tok)
+        bow = self.model.doc2weight(tok)
         m = self.model[bow]
         try:
             return m, len(bow) / len(tok)

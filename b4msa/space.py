@@ -17,11 +17,12 @@ import numpy as np
 
 
 class Space(object):
-    def __init__(self, data):
+    def __init__(self, docs):
         w2id = {}
         weight = {}
-        for texts in data:
-            for x in texts:
+        self._ndocs = len(docs)
+        for tokens in docs:
+            for x, freq in zip(*np.unique(tokens, return_counts=True)):
                 try:
                     ident = w2id[x]
                     weight[ident] = weight[ident] + 1
@@ -30,13 +31,32 @@ class Space(object):
                     w2id[x] = ident
                     weight[ident] = 1
         self._w2id = w2id
-        tot = len(weight)
-        self._weight = {k: np.log(tot / v) for k, v in weight.items()}
+        self.wordWeight = weight
 
-    def doc2bow(self, tokens):
+    @property
+    def wordWeight(self):
+        """Word associated to each word, this could be the inverse document frequency"""
+        return self._weight
+
+    @wordWeight.setter
+    def wordWeight(self, value):
+        """Inverse document frequency
+
+        :param value: dict
+        """
+
+        N = self._ndocs
+        self._weight = {k: np.log(N / v) for k, v in value.items()}
+
+    def doc2weight(self, tokens):
+        """Weight associated to each token
+
+        :param tokes: list of tokens
+        :rtype: tuple - ids, term frequency, wordWeight
+        """
         lst = []
         w2id = self._w2id
-        weight = self._weight
+        weight = self.wordWeight
         for token in tokens:
             try:
                 id = w2id[token]
@@ -44,6 +64,7 @@ class Space(object):
             except KeyError:
                 continue
         ids, tf = np.unique(lst, return_counts=True)
+        tf = tf / tf.sum()
         df = np.array([weight[x] for x in ids])
         return ids, tf, df
 
