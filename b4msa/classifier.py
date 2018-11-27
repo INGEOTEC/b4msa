@@ -16,11 +16,12 @@ from sklearn.svm import LinearSVC
 # from b4msa.textmodel import TextModel
 import numpy as np
 from b4msa.utils import read_data_labels, read_data
-from gensim.matutils import corpus2csc
+# from gensim.matutils import corpus2csc
 from sklearn import preprocessing
 from sklearn.model_selection import StratifiedKFold
 from b4msa.textmodel import TextModel
 from multiprocessing import Pool
+from scipy.sparse import csr_matrix
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
@@ -29,11 +30,46 @@ class SVC(object):
     def __init__(self, model, **kwargs):
         self.svc = LinearSVC(**kwargs)
         self.model = model
-        self.num_terms = -1
+        self._num_terms = -1
+
+    @property
+    def num_terms(self):
+        """Dimension which is the number of terms of the corpus
+
+        :rtype: int
+        """
+
+        try:
+            return self._num_terms
+        except AttributeError:
+            self._num_terms = None
+        return None
+
+    def tonp(self, X):
+        """Sparse representation to sparce matrix
+
+        :param X: Sparse representation of matrix
+        :type X: list
+        :rtype: csr_matrix
+        """
+
+        data = []
+        row = []
+        col = []
+        for r, x in enumerate(X):
+            cc = [_[0] for _ in x if np.isfinite(_[1])]
+            col += cc
+            data += [_[1] for _ in x if np.isfinite(_[1])]
+            _ = [r] * len(cc)
+            row += _
+        if self.num_terms is None:
+            _ = csr_matrix((data, (row, col)))
+            self._num_terms = _.shape[1]
+            return _
+        return csr_matrix((data, (row, col)), shape=(len(X), self.num_terms))
 
     def fit(self, X, y):
-        X = corpus2csc(X).T
-        self.num_terms = X.shape[1]
+        X = self.tonp(X)
         self.le = preprocessing.LabelEncoder()
         self.le.fit(y)
         y = self.le.transform(y)
@@ -43,13 +79,13 @@ class SVC(object):
         return self
 
     def decision_function(self, Xnew):
-        Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
+        Xnew = self.tonp(Xnew, num_terms=self.num_terms)
         return self.svc.decision_function(Xnew)
 
     def predict(self, Xnew):
         if self.num_terms == 0:
             return self.le.inverse_transform(np.zeros(len(Xnew), dtype=np.int))
-        Xnew = corpus2csc(Xnew, num_terms=self.num_terms).T
+        Xnew = self.tonp(Xnew, num_terms=self.num_terms)
         ynew = self.svc.predict(Xnew)
         return self.le.inverse_transform(ynew)
 

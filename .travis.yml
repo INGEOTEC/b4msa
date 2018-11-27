@@ -26,7 +26,7 @@ before_install:
   - conda install --yes pip
   - pip install coverage
   - pip install coveralls
-  - conda install --yes numpy scipy scikit-learn gensim nltk nose
+  - conda install --yes numpy scipy scikit-learn nltk nose
   - python setup.py build_ext --inplace
 
 # command to run tests

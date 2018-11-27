@@ -9,13 +9,11 @@ requirements:
     - numpy
     - scipy
     - scikit-learn
-    - gensim
     - nltk
 
   run:
     - python
     - scikit-learn
-    - gensim
     - nltk
 
 test:
@@ -24,7 +22,6 @@ test:
     - numpy
     - scipy
     - scikit-learn
-    - gensim
     - nltk
     - coverage
 
