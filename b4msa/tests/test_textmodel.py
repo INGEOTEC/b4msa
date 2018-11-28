@@ -61,6 +61,7 @@ def test_params():
         ins = TextModel(text, **args)
         assert isinstance(ins[text[0]], list)
 
+
 def test_emoticons():
     from b4msa.textmodel import EmoticonClassifier, norm_chars
     emo = EmoticonClassifier()
