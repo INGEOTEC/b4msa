@@ -16,7 +16,7 @@ token = get_token()
 if token is not None:
     cmd = ['-t', token, 'upload', '--force', '-u', 'ingeotec']
     cmd.extend(glob.glob('*.tar.bz2'))
-    print(cmd)
+    # print(cmd)
     cli.main(args=cmd)
     # try:
     #     print('*', cmd, platform.system())
