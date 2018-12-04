@@ -72,7 +72,7 @@ test_script:
   - set R=
   - echo "safety_checks: disabled" >> ~/.condarc
   - echo "local_repodata_ttl: 1800" >> ~/.condarc
-  - "%CMD_IN_ENV% conda build conda-recipe --quiet"
+  - conda build conda-recipe --quiet
   # Move the conda package into the current directory, to register it
   # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
   # we'll use a simple python script.
