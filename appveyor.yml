@@ -59,6 +59,7 @@ install:
   - python -c "import sys; print(sys.prefix)"
   - conda update -q --all
   - conda install -q pip conda-build jinja2 anaconda-client
+  - conda install -yq conda-build=3.15.1
   - set PATH
   - conda build --version
 
