@@ -47,7 +47,8 @@ install:
 
   # this installs the appropriate Miniconda (Py2/Py3, 32/64 bit),
   # as well as pip, conda-build, and the binstar CLI
-  - set "CONDA_ROOT=C:\Miniconda%BASE_PYTHON_VERSION%%ARCH_LABEL%"
+  - if "%PYTHON_ARCH%" == "64" set "ARCH_LABEL=-x64"
+  - set "CONDA_ROOT=C:\Miniconda%CONDA_PY%%ARCH_LABEL%"
   - set "PATH=%CONDA_ROOT%;%CONDA_ROOT%\Scripts;%CONDA_ROOT%\Library\bin;%PATH%"
   - conda config --set always_yes yes
   - conda update -q conda
