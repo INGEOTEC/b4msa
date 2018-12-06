@@ -161,7 +161,7 @@ class TextModel:
                  emo_option=OPTION_GROUP,
                  lc=True,
                  del_dup1=True,
-                 token_list=[-1],
+                 token_list=[-2, -1, 2, 3, 4],
                  lang=None,
                  **kwargs):
         self.strip_diac = strip_diac
