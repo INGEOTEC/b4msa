@@ -14,12 +14,11 @@
 import re
 import os
 import unicodedata
-# from gensim import corpora
-# from gensim.models.tfidfmodel import TfidfModel
+import importlib
 from .params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE, get_filename
 from .lang_dependency import LangDependency
 from .utils import tweet_iterator
-from .space import TFIDF
+from .weighting import TFIDF
 from collections import defaultdict
 import pickle
 import logging
@@ -163,6 +162,7 @@ class TextModel:
                  del_dup1=True,
                  token_list=[-2, -1, 2, 3, 4],
                  lang=None,
+                 weighting=TFIDF,
                  **kwargs):
         self.strip_diac = strip_diac
         self.num_option = num_option
@@ -182,10 +182,20 @@ class TextModel:
         self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
 
         docs = [self.tokenize(d) for d in docs]
-        # self.dictionary = corpora.Dictionary(docs)
-        # corpus = [self.dictionary.doc2bow(d) for d in docs]
-        # self.model = TfidfModel(corpus)
-        self.model = TFIDF(docs)
+        self.model = self.get_class(weighting)(docs)
+
+    def get_class(self, m):
+        """Import class from string
+
+        :param m: string or class to be imported
+        :type m: str or class
+        :rtype: class
+        """
+        if isinstance(m, str):
+            a = m.split('.')
+            p = importlib.import_module('.'.join(a[:-1]))
+            return getattr(p, a[-1])
+        return m
 
     def __str__(self):
         return "[TextModel {0}]".format(dict(

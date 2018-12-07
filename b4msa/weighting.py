@@ -17,6 +17,13 @@ import numpy as np
 
 
 class TFIDF(object):
+    """
+    Vector Space model using TFIDF
+
+    :param docs: corpus as a list of list of tokens
+    :type docs: lst
+    """
+
     def __init__(self, docs):
         w2id = {}
         weight = {}
@@ -49,7 +56,8 @@ class TFIDF(object):
     def wordWeight(self, value):
         """Inverse document frequency
 
-        :param value: dict
+        :param value: weights
+        :type value: dict
         """
 
         N = self._ndocs
@@ -58,7 +66,9 @@ class TFIDF(object):
     def doc2weight(self, tokens):
         """Weight associated to each token
 
-        :param tokes: list of tokens
+        :param tokens: list of tokens
+        :type tokens: lst
+
         :rtype: tuple - ids, term frequency, wordWeight
         """
         lst = []
@@ -79,7 +89,9 @@ class TFIDF(object):
         """
         TF-IDF and the vectors are normalised.
 
-        :param tuple: output of doc2weight
+        :param text: tuple of identifier, term frequency and document frequency
+        :type text: tuple
+
         :rtype: lst
         """
         
