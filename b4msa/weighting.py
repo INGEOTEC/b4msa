@@ -85,16 +85,17 @@ class TFIDF(object):
         df = np.array([weight[x] for x in ids])
         return ids, tf, df
 
-    def __getitem__(self, text):
+    def __getitem__(self, tokens):
         """
         TF-IDF and the vectors are normalised.
 
-        :param text: tuple of identifier, term frequency and document frequency
-        :type text: tuple
+        :param tokens: list of tokens
+        :type tokens: lst
 
         :rtype: lst
         """
-        
-        r = [(i, _tf * _df) for i, _tf, _df in zip(*text)]
+
+        __ = self.doc2weight(tokens)
+        r = [(i, _tf * _df) for i, _tf, _df in zip(*__)]
         n = np.sqrt(sum([x * x for _, x in r]))
         return [(i, x/n) for i, x in r]

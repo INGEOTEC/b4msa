@@ -151,6 +151,24 @@ def expand_qgrams_word_list(wlist, qsize, output, sep='~'):
 
 
 class TextModel:
+    """
+
+    Usage:
+
+    >>> from b4msa.textmodel import TextModel
+    >>> textmodel = TextModel([['buenos dias'], ['catedras conacyt'], ['categorizacion de texto ingeotec']])
+
+    Represent a text into a vector
+
+    >>> textmodel['cat']
+    [(38, 0.24737436144422534),
+     (41, 0.24737436144422534),
+     (42, 0.4947487228884507),
+     (73, 0.6702636255239844),
+     (76, 0.24737436144422534),
+     (77, 0.24737436144422534),
+     (78, 0.24737436144422534)]
+    """
     def __init__(self,
                  docs,
                  strip_diac=True,
@@ -212,7 +230,7 @@ class TextModel:
         ))
 
     def __getitem__(self, text):
-        return self.model[self.model.doc2weight(self.tokenize(text))]
+        return self.model[self.tokenize(text)]
 
     def transform_q_voc_ratio(self, text):
         tok = self.tokenize(text)
