@@ -235,9 +235,9 @@ class TextModel:
     def transform_q_voc_ratio(self, text):
         tok = self.tokenize(text)
         bow = self.model.doc2weight(tok)
-        m = self.model[bow]
+        m = self.model[tok]
         try:
-            return m, len(bow) / len(tok)
+            return m, len(bow[0]) / len(tok)
         except ZeroDivisionError:
             return m, 0
 
