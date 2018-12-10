@@ -264,7 +264,7 @@ class TextModel:
         elif self.usr_option == OPTION_GROUP:
             text = re.sub(r"@\S+", "_usr", text)
 
-        text = norm_chars(text, self.strip_diac)
+        text = norm_chars(text, strip_diac=self.strip_diac, del_dup1=self.del_dup1)
         text = self.emoclassifier.replace(text, self.emo_option)
 
         if self.lang:
