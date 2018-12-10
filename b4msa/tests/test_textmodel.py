@@ -126,7 +126,8 @@ def test_negations():
 
     text = """@usuario los pollos y las vacas nunca hubiesen permitido que no se hubiese hecho nada al respecto"""
     a = model.tokenize(text)
-    b = ['_usr', 'pol', 'vac', 'hub', 'no_permit', 'hub', 'no_hech', 'no_respect']
+    b = ['_usr', 'poll', 'vac', 'hub', 'no_permit', 'hub', 'no_hech', 'no_respect']
+    print(a, b)
     assert a == b
 
 
