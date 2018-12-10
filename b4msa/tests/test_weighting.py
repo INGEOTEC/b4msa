@@ -15,7 +15,7 @@
 
 def test_space():
     from b4msa.textmodel import TextModel
-    from b4msa.space import TFIDF
+    from b4msa.weighting import TFIDF
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
@@ -32,7 +32,7 @@ def test_space():
 
 def test_doc2weight():
     from b4msa.textmodel import TextModel
-    from b4msa.space import TFIDF
+    from b4msa.weighting import TFIDF
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
@@ -47,7 +47,7 @@ def test_doc2weight():
 
 def test_getitem():
     from b4msa.textmodel import TextModel
-    from b4msa.space import TFIDF
+    from b4msa.weighting import TFIDF
     from b4msa.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
@@ -57,6 +57,7 @@ def test_getitem():
     # print(text['buenos dias'])
     docs = [text.tokenize(d) for d in docs]
     sp = TFIDF(docs)
-    bow = sp.doc2weight(text.tokenize('buenos dias'))
+    tok = text.tokenize('buenos dias')
+    bow = sp.doc2weight(tok)
     ids, tf, df = bow
-    assert len(ids) == len(sp[bow])
+    assert len(ids) == len(sp[tok])

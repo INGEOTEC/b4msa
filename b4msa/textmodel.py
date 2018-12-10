@@ -14,12 +14,11 @@
 import re
 import os
 import unicodedata
-# from gensim import corpora
-# from gensim.models.tfidfmodel import TfidfModel
+import importlib
 from .params import OPTION_DELETE, OPTION_GROUP, OPTION_NONE, get_filename
 from .lang_dependency import LangDependency
 from .utils import tweet_iterator
-from .space import TFIDF
+from .weighting import TFIDF
 from collections import defaultdict
 import pickle
 import logging
@@ -152,6 +151,24 @@ def expand_qgrams_word_list(wlist, qsize, output, sep='~'):
 
 
 class TextModel:
+    """
+
+    Usage:
+
+    >>> from b4msa.textmodel import TextModel
+    >>> textmodel = TextModel([['buenos dias'], ['catedras conacyt'], ['categorizacion de texto ingeotec']])
+
+    Represent a text into a vector
+
+    >>> textmodel['cat']
+    [(38, 0.24737436144422534),
+     (41, 0.24737436144422534),
+     (42, 0.4947487228884507),
+     (73, 0.6702636255239844),
+     (76, 0.24737436144422534),
+     (77, 0.24737436144422534),
+     (78, 0.24737436144422534)]
+    """
     def __init__(self,
                  docs,
                  strip_diac=True,
@@ -161,8 +178,9 @@ class TextModel:
                  emo_option=OPTION_GROUP,
                  lc=True,
                  del_dup1=True,
-                 token_list=[-1],
+                 token_list=[-2, -1, 2, 3, 4],
                  lang=None,
+                 weighting=TFIDF,
                  **kwargs):
         self.strip_diac = strip_diac
         self.num_option = num_option
@@ -182,10 +200,20 @@ class TextModel:
         self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
 
         docs = [self.tokenize(d) for d in docs]
-        # self.dictionary = corpora.Dictionary(docs)
-        # corpus = [self.dictionary.doc2bow(d) for d in docs]
-        # self.model = TfidfModel(corpus)
-        self.model = TFIDF(docs)
+        self.model = self.get_class(weighting)(docs)
+
+    def get_class(self, m):
+        """Import class from string
+
+        :param m: string or class to be imported
+        :type m: str or class
+        :rtype: class
+        """
+        if isinstance(m, str):
+            a = m.split('.')
+            p = importlib.import_module('.'.join(a[:-1]))
+            return getattr(p, a[-1])
+        return m
 
     def __str__(self):
         return "[TextModel {0}]".format(dict(
@@ -202,14 +230,14 @@ class TextModel:
         ))
 
     def __getitem__(self, text):
-        return self.model[self.model.doc2weight(self.tokenize(text))]
+        return self.model[self.tokenize(text)]
 
     def transform_q_voc_ratio(self, text):
         tok = self.tokenize(text)
         bow = self.model.doc2weight(tok)
-        m = self.model[bow]
+        m = self.model[tok]
         try:
-            return m, len(bow) / len(tok)
+            return m, len(bow[0]) / len(tok)
         except ZeroDivisionError:
             return m, 0
 
@@ -236,7 +264,7 @@ class TextModel:
         elif self.usr_option == OPTION_GROUP:
             text = re.sub(r"@\S+", "_usr", text)
 
-        text = norm_chars(text, self.strip_diac)
+        text = norm_chars(text, strip_diac=self.strip_diac, del_dup1=self.del_dup1)
         text = self.emoclassifier.replace(text, self.emo_option)
 
         if self.lang:
