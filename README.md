@@ -9,6 +9,7 @@
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/installer/conda.svg)](https://conda.anaconda.org/ingeotec)
 [![PyPI version](https://badge.fury.io/py/b4msa.svg)](https://badge.fury.io/py/b4msa)
 [![Anaconda-Server Badge](https://anaconda.org/ingeotec/b4msa/badges/license.svg)](https://anaconda.org/ingeotec/b4msa)
+[![Documentation Status](https://readthedocs.org/projects/b4msa/badge/?version=latest)](https://b4msa.readthedocs.io/en/latest/?badge=latest)
 
 # A Baseline for Multilingual Sentiment Analysis (B4MSA)
 
@@ -39,81 +40,6 @@ Eric S. Tellez, Sabino Miranda-Jiménez, Mario Graff, Daniela Moctezuma, Ranyart
 ```
 
 A pre-print version can be found in [arXiv:1612.05270](https://arxiv.org/abs/1612.05270)
-
-# Performance #
-
-In order to know the performance of B4MSA, it was decided to compare
-B4MSA against different commercial sentiment analyzers such as: [Google](http://cloud.google.com) 
-[HP Haven](https://www.havenondemand.com), and
-[Sentiment140](http://sentiment140.com). This comparison was performed
-on **July 28, 2016**.
-
-The performance
-measures used in the comparison are taken from three different sentiment analysis competitions: TASS, 
-SemEval, and SENTIPOLC. These measures are the accuracy, F1-positive-negative, and
-F0F1-positive-negative. 
-
-F1-positive-negative is defined as the average of the F1 obtained from
-the positive class and F1 of the negative class.
-
-F0F1-positive-negative is defined as the average between
-F0-positive-negative and F1-positive-negative. F0-positive-negative is
-defined as the average of the F0 of the positive class and F0 of the
-negative class; F1-positive-negative is defined similarly. For more
-information regarding this measure we refer the reader to the overview
-of [SENTIPOLC challenge](http://www.fileli.unipi.it/projects/clic/proceedings/Proceedings-EVALITA-2014.pdf)
-
-## SENTIPOLC 2014 (Italian)
-
-|Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
-|------|--------:|--------------:|---------------:|
-|[HP Haven](https://www.havenondemand.com) | 0.4693 | 0.3921 | 0.4788 |
-|B4MSA | **0.6072** | **0.6041** | **0.6354** |
-
-## TASS 2015-small (Spanish)
-
-|Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
-|------|--------:|--------------:|---------------:|
-| [HP Haven](https://www.havenondemand.com) |0.5350 | 0.4564 | 0.5775 |
-|[Sentiment140](http://sentiment140.com) | 0.0590 | 0.1001 | 0.3225|
-|[Meaning cloud](http://www.meaningcloud.com) |**0.6500** | 0.6640 | 0.6471|
-| B4MSA | 0.6330 | **0.6949** | **0.6529** |
-
-## SemEval 2015 (English)
-
-|Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
-|------|--------:|--------------:|---------------:|
-|[HP Haven](https://www.havenondemand.com) | 0.6241 | **0.5724** | 0.6120 |
-|[Google](http://cloud.google.com)  | 0.4218 | 0.4967 | 0.4624 |
-|[Sentiment140](http://sentiment140.com) | 0.5553 | 0.4790 | 0.5368 |
-|[Meaning cloud](http://www.meaningcloud.com) | 0.5775 | 0.5522 | 0.5361|
-|B4MSA | **0.6281** | 0.5281 | **0.6578** |
-
-## SemEval 2016 (English)
-
-|Algorithm | Accuracy | F1-positive-negative | F0F1-positive-negative |
-|------|--------:|--------------:|---------------:|
-|[HP Haven](https://www.havenondemand.com) | **0.5986** | **0.5173** | **0.5337**  |
-|[Google](http://cloud.google.com) | 0.3952 | 0.4728 | 0.4303 |
-|[Sentiment140](http://sentiment140.com) | 0.5562 | 0.4135 | 0.4560|
-|[Meaning cloud](http://www.meaningcloud.com) | 0.5252 | 0.5204 | 0.4861|
-|B4MSA | 0.5106 | 0.4082 | 0.4866 |
-
-### Note regarding [Google](http://cloud.google.com): ###
-
- [Google](http://cloud.google.com)'s sentiment analysis algorithm does
- not provide classes instead the service returns a continuous value
- between -1 and 1; however, in the api documentation it was mentioned
- the following rule:
-
-```python
-def get_class(pol):
-    if pol < -0.75:
-        return 'negative'
-    elif pol > 0.25:
-        return 'positive'
-    return 'neutral'
-```
 
 # Installing B4MSA
 B4MSA can be installed using [conda](https://www.continuum.io)  
