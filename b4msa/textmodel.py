@@ -179,7 +179,7 @@ class TextModel:
     Usage:
 
     >>> from b4msa.textmodel import TextModel
-    >>> textmodel = TextModel([['buenos dias'], ['catedras conacyt'], ['categorizacion de texto ingeotec']])
+    >>> textmodel = TextModel(['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec'])
 
     Represent a text into a vector
 

@@ -27,6 +27,22 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 class SVC(object):
+    """Classifier
+
+    :param model: TextModel
+    :type model: class
+
+    Usage:
+
+    >>> from b4msa.textmodel import TextModel
+    >>> from b4msa.classifier import SVC
+    >>> X = ['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec']
+    >>> textmodel = TextModel(X)
+    >>> svc = SVC(textmodel)
+    >>> svc.fit([textmodel[x] for x in X], [1, 0, 0])
+    >>> print(svc.predict_text('hola'))
+    0
+    """
     def __init__(self, model, **kwargs):
         self.svc = LinearSVC(**kwargs)
         self.model = model
@@ -68,6 +84,15 @@ class SVC(object):
         return csr_matrix((data, (row, col)), shape=(len(X), self.num_terms))
 
     def fit(self, X, y):
+        """Train the classifier
+
+        :param X: inputs - independent variables
+        :type X: lst
+        :param y: output - dependent variable
+
+        :rtype: instance
+        """
+
         X = self.tonp(X)
         self.le = preprocessing.LabelEncoder()
         self.le.fit(y)

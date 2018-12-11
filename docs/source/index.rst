@@ -17,3 +17,4 @@ Modules
    :maxdepth: 2
 
    weighting
+   classifier
