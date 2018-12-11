@@ -152,6 +152,29 @@ def expand_qgrams_word_list(wlist, qsize, output, sep='~'):
 
 class TextModel:
     """
+    
+    :param docs: Corpus
+    :type docs: lst
+    :param strip_diac: Remove diacritics
+    :type strip_diac: bool
+    :param num_option: Transformations on numbers
+    :type num_option: str
+    :param usr_option: Transformations on users
+    :type usr_option: str
+    :param url_option: Transformations on urls
+    :type url_option: str
+    :param emo_option: Transformations on emojis and emoticons
+    :type emo_option: str
+    :param lc: Lower case
+    :type lc: bool
+    :param del_dup1: Remove duplicates e.g. hooola -> hola
+    :type del_dup1: bool
+    :param token_list: Tokens > 0 qgrams < 0 word-grams
+    :type token_list: lst
+    :param lang: Language
+    :type lang: str
+    :param weighting: Weighting scheme
+    :type weighting: class or str
 
     Usage:
 
@@ -216,6 +239,8 @@ class TextModel:
         return m
 
     def __str__(self):
+        """String representation"""
+
         return "[TextModel {0}]".format(dict(
             strip_diac=self.strip_diac,
             num_option=self.num_option,
@@ -230,6 +255,13 @@ class TextModel:
         ))
 
     def __getitem__(self, text):
+        """Convert test into a vector
+
+        :param text: Text to be transformed
+        :type text: str
+
+        :rtype: lst
+        """
         return self.model[self.tokenize(text)]
 
     def transform_q_voc_ratio(self, text):
@@ -242,6 +274,13 @@ class TextModel:
             return m, 0
 
     def tokenize(self, text):
+        """Transform text to tokens
+
+        :param text: Text
+        :type text: str
+
+        :rtype: lst
+        """
         # print("tokenizing", str(self), text)
         if text is None:
             text = ''

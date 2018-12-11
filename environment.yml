@@ -1,0 +1,10 @@
+name: b4msa
+channels:
+  - ingeotec
+dependencies:
+  - python
+  - setuptools
+  - numpy
+  - scipy
+  - scikit-learn
+  - nltk
