@@ -176,6 +176,8 @@ class TextModel:
     :type lang: str
     :param weighting: Weighting scheme
     :type weighting: class or str
+    :param threshold: Threshold to remove those tokens less than 1 - entropy
+    :type threshold: float
 
     Usage:
 
