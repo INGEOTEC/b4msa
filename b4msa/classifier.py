@@ -15,8 +15,7 @@
 from sklearn.svm import LinearSVC
 # from b4msa.textmodel import TextModel
 import numpy as np
-from b4msa.utils import read_data_labels, read_data
-# from gensim.matutils import corpus2csc
+from b4msa.utils import read_data_labels, read_data, tweet_iterator
 from sklearn import preprocessing
 from sklearn.model_selection import StratifiedKFold
 from b4msa.textmodel import TextModel
@@ -187,7 +186,9 @@ class SVC(object):
 
     @classmethod
     def fit_from_file(cls, fname, textModel_params={}):
-        X, y = read_data_labels(fname)
-        model = TextModel(X, **textModel_params)
+        D = [x for x in tweet_iterator(fname)]
+        # X, y = read_data_labels(fname)
+        y = [x['klass'] for x in D]
+        model = TextModel(D, **textModel_params)
         svc = cls(model)
-        return svc.fit([model[x] for x in X], y)
+        return svc.fit([model[x] for x in D], y)

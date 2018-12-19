@@ -21,6 +21,7 @@ from .utils import tweet_iterator
 from .weighting import TFIDF
 from collections import defaultdict
 import pickle
+import numpy as np
 import logging
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
@@ -152,7 +153,7 @@ def expand_qgrams_word_list(wlist, qsize, output, sep='~'):
 
 class TextModel:
     """
-    
+
     :param docs: Corpus
     :type docs: lst
     :param strip_diac: Remove diacritics
@@ -192,19 +193,12 @@ class TextModel:
      (77, 0.24737436144422534),
      (78, 0.24737436144422534)]
     """
-    def __init__(self,
-                 docs,
-                 strip_diac=True,
-                 num_option=OPTION_GROUP,
-                 usr_option=OPTION_GROUP,
-                 url_option=OPTION_GROUP,
-                 emo_option=OPTION_GROUP,
-                 lc=True,
-                 del_dup1=True,
-                 token_list=[-2, -1, 2, 3, 4],
-                 lang=None,
-                 weighting=TFIDF,
-                 **kwargs):
+    def __init__(self, docs, strip_diac=True,
+                 num_option=OPTION_GROUP, usr_option=OPTION_GROUP,
+                 url_option=OPTION_GROUP, emo_option=OPTION_GROUP,
+                 lc=True, del_dup1=True, token_list=[-2, -1, 2, 3, 4],
+                 lang=None, weighting=TFIDF, threshold=0, **kwargs):
+        self._text = os.getenv('TEXT', default='text')
         self.strip_diac = strip_diac
         self.num_option = num_option
         self.usr_option = usr_option
@@ -222,8 +216,33 @@ class TextModel:
 
         self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
 
-        docs = [self.tokenize(d) for d in docs]
-        self.model = self.get_class(weighting)(docs)
+        tokens = [self.tokenize(d) for d in docs]
+        self.model = self.get_class(weighting)(tokens)
+        if threshold > 0:
+            w = self.entropy(tokens, docs)
+            self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > threshold}
+
+    def entropy(self, corpus, docs):
+        model = self.model
+        m = model._w2id
+        y = [x['klass'] for x in docs]
+        klasses = np.unique(y)
+        nklasses = klasses.shape[0]
+        ntokens = len(m)
+        weight = np.zeros((klasses.shape[0], ntokens))
+        for ki, klass in enumerate(klasses):
+            for _y, tokens in zip(y, corpus):
+                if _y != klass:
+                    continue
+                for x in np.unique(tokens):
+                    weight[ki, m[x]] += 1
+        weight = weight / weight.sum(axis=0)
+        weight[~np.isfinite(weight)] = 1.0 / nklasses
+        logc = np.log2(weight)
+        logc[~np.isfinite(logc)] = 0
+        if nklasses > 2:
+            logc = logc / np.log2(nklasses)
+        return (1 + (weight * logc).sum(axis=0))
 
     def get_class(self, m):
         """Import class from string
@@ -273,6 +292,15 @@ class TextModel:
         except ZeroDivisionError:
             return m, 0
 
+    def get_text(self, text):
+        """Return self._text key from text
+
+        :param text: Text
+        :type text: dict
+        """
+
+        return text[self._text]
+
     def tokenize(self, text):
         """Transform text to tokens
 
@@ -284,6 +312,9 @@ class TextModel:
         # print("tokenizing", str(self), text)
         if text is None:
             text = ''
+
+        if isinstance(text, dict):
+            text = self.get_text(text)
 
         if self.lc:
             text = text.lower()

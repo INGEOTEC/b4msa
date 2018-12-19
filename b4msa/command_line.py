@@ -164,7 +164,8 @@ class CommandLineTrain(CommandLine):
         logger.setLevel(self.data.verbose)
         params_fname = self.data.params_fname
         param_list = load_json(params_fname)
-        best = param_list[0]
+        if isinstance(param_list, list):
+            best = param_list[0]
         svc = SVC.fit_from_file(self.data.training_set, best)
         with open(self.get_output(), 'wb') as fpt:
             pickle.dump(svc, fpt)
@@ -274,7 +275,9 @@ class CommandLineKfolds(CommandLineTrain):
         logging.basicConfig(level=self.data.verbose)
         logger = logging.getLogger('b4msa')
         logger.setLevel(self.data.verbose)
-        best = load_json(self.data.params_fname)[0]
+        best = load_json(self.data.params_fname)
+        if isinstance(best, list):
+            best = best[0]
         print(self.data.params_fname, self.data.training_set)
         corpus, labels = read_data_labels(self.data.training_set)
         le = LabelEncoder()

@@ -158,3 +158,17 @@ def test_negations_italian():
     print("Output:", a)
     b = ['_usr', 'com', 'no_condividere', 'me', 'no_freg', 'nient']
     assert a == b
+
+
+def test_textmodel_entropy():
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import tweet_iterator
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    tw = list(tweet_iterator(fname))
+    text = TextModel(tw, threshold=0.01)
+    assert isinstance(text, TextModel)
+    assert len(text.model._w2id) == 299
+
+
+    
