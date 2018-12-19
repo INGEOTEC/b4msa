@@ -163,9 +163,9 @@ class CommandLineTrain(CommandLine):
         logger = logging.getLogger('b4msa')
         logger.setLevel(self.data.verbose)
         params_fname = self.data.params_fname
-        param_list = load_json(params_fname)
-        if isinstance(param_list, list):
-            best = param_list[0]
+        best = load_json(params_fname)
+        if isinstance(best, list):
+            best = best[0]
         svc = SVC.fit_from_file(self.data.training_set, best)
         with open(self.get_output(), 'wb') as fpt:
             pickle.dump(svc, fpt)
