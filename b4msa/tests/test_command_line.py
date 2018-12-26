@@ -287,4 +287,32 @@ def test_kfolds():
     except AssertionError:
         return
     assert False
+
+
+def test_train_no_param():
+    from b4msa.command_line import CommandLineTrain
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLineTrain()
+    sys.argv = ['b4msa', '-o', output, fname]
+    print(c.main())
+    os.unlink(output)
+    # os.unlink(c.get_output())
+
+
+def test_train_kw():
+    from b4msa.command_line import CommandLineTrain
+    import os
+    import sys
+    import tempfile
+    output = tempfile.mktemp()
+    fname = os.path.dirname(__file__) + '/text.json'
+    c = CommandLineTrain()
+    sys.argv = ['b4msa', '--kw', '{"lang": "english"}', '-o', output, fname]
+    print(c.main())
+    os.unlink(output)
+    # os.unlink(c.get_output())
     

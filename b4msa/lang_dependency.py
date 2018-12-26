@@ -247,13 +247,13 @@ class LangDependency():
                         self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" +
                         tags + ")(\s+|\b|$)))", flags=re.I)
         
-        m = p1.search(text)	
+        m = p1.search(text)
         
         if m:
             text = p1.sub(r"\g<sk_words> \g<neg>_\g<text>", text)
         # removes isolated marks "no_" if marks appear because of negation rules
         text = re.sub(r"\b(no_)\b", r" no ", text, flags=re.I)
-        # removes extra spaces because of transformations 
+        # removes extra spaces because of transformations
         text = re.sub(r"\s+", r" ", text, flags=re.I)
         return text.replace(' ', '~')
     
