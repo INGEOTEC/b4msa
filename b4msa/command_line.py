@@ -154,8 +154,9 @@ class CommandLineTrain(CommandLine):
     def param_train(self):
         pa = self.parser.add_argument
         pa('-m', '--model-params', dest='params_fname', type=str,
-           required=True,
-           help="TextModel params")
+           required=False, help="TextModel params")
+        pa('--kw', dest='kwargs', default=None, type=str,
+           help='Parameters in json that overwrite b4msa default parameters')
 
     def main(self):
         self.data = self.parser.parse_args()
@@ -163,8 +164,14 @@ class CommandLineTrain(CommandLine):
         logger = logging.getLogger('b4msa')
         logger.setLevel(self.data.verbose)
         params_fname = self.data.params_fname
-        param_list = load_json(params_fname)
-        best = param_list[0]
+        if params_fname is not None:
+            best = load_json(params_fname)
+            if isinstance(best, list):
+                best = best[0]
+        else:
+            best = dict()
+        kw = json.loads(self.data.kwargs) if self.data.kwargs is not None else dict()
+        best.update(kw)
         svc = SVC.fit_from_file(self.data.training_set, best)
         with open(self.get_output(), 'wb') as fpt:
             pickle.dump(svc, fpt)
@@ -274,7 +281,9 @@ class CommandLineKfolds(CommandLineTrain):
         logging.basicConfig(level=self.data.verbose)
         logger = logging.getLogger('b4msa')
         logger.setLevel(self.data.verbose)
-        best = load_json(self.data.params_fname)[0]
+        best = load_json(self.data.params_fname)
+        if isinstance(best, list):
+            best = best[0]
         print(self.data.params_fname, self.data.training_set)
         corpus, labels = read_data_labels(self.data.training_set)
         le = LabelEncoder()
