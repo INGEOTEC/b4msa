@@ -178,6 +178,14 @@ class TextModel:
     :type weighting: class or str
     :param threshold: Threshold to remove those tokens less than 1 - entropy
     :type threshold: float
+    :param lang: Language (spanish | english | italian | german)
+    :type lang: str
+    :param negation: Negation
+    :type negation: bool
+    :param stemming: Stemming
+    :type stemming: bool
+    :param stopwords: Stopwords (none | group | delete)
+    :type stopwords: str
 
     Usage:
 

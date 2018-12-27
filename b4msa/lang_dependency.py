@@ -57,7 +57,7 @@ class LangDependencyError(Exception):
 
 class LangDependency():
     """
-    Defines a set of functions to change text using laguage dependent transformations, e.g., 
+    Defines a set of functions to change text using laguage dependent transformations, e.g.,
     - Negation
     - Stemming
     - Stopwords
@@ -98,7 +98,7 @@ class LangDependency():
         """
         logger.debug("loading stopwords... " + fileName)
         if not os.path.isfile(fileName):
-            raise LangDependencyError("File not found: " + fileName)                             
+            raise LangDependencyError("File not found: " + fileName)
         
         StopWords = []
         with io.open(fileName, encoding='utf8') as f:
@@ -157,9 +157,9 @@ class LangDependency():
                _sNUM_TAG + "|" + _sNEGATIVE + "|" + \
                _sPOSITIVE + "|" + _sNEUTRAL + "|"
         
-        # unifies negation markers under the "no" marker 
+        # unifies negation markers under the "no" marker
         text = re.sub(r"\b(jam[aá]s|nunca|sin|ni|nada)\b", " no ", text, flags=re.I)
-        # reduces to unique negation marker        
+        # reduces to unique negation marker
         text = re.sub(r"\b(jam[aá]s|nunca|sin|no|nada)(\s+\1)+", r"\1", text, flags=re.I)
         p1 = re.compile(r"(?P<neg>((\s+|\b|^)no))(?P<sk_words>(\s+(" +
                         self.skip_words + "|" + tags + r"))*)\s+(?P<text>(?!(" +
