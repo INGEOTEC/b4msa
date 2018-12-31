@@ -29,3 +29,41 @@ def test_spanish_negation():
     assert r.split('~') == 'los carros no_son veloces'.split()
 
 
+def test_arabic_stemming():
+    from b4msa.lang_dependency import LangDependency
+    c = LangDependency(lang='arabic')
+    r = c.stemming('los~carros~no~son~veloces')
+    print(r)
+
+
+def test_stopwords_property():
+    from b4msa.lang_dependency import LangDependency, LangDependencyError
+    c = LangDependency(lang='spanish')
+    assert len(c.stopwords) == 330
+    c = LangDependency(lang='arabic')
+    try:
+        print(c.stopwords)
+    except LangDependencyError:
+        return
+    assert False
+
+
+def test_neg_stopwords_property():
+    from b4msa.lang_dependency import LangDependency, LangDependencyError
+    c = LangDependency(lang='spanish')
+    print(len(c.neg_stopwords))
+    assert len(c.neg_stopwords) == 180
+    c = LangDependency(lang='arabic')
+    try:
+        print(c.neg_stopwords)
+    except LangDependencyError:
+        return
+    assert False
+
+
+def test_lang_abbr():
+    from b4msa.lang_dependency import LangDependency
+    c = LangDependency(lang='es')
+    assert c.lang == 'spanish'
+
+
