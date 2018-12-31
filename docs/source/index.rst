@@ -18,3 +18,4 @@ Modules
 
    weighting
    classifier
+   lang_dependency
