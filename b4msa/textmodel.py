@@ -206,7 +206,7 @@ class TextModel:
     def __init__(self, docs, strip_diac=True,
                  num_option=OPTION_GROUP, usr_option=OPTION_GROUP,
                  url_option=OPTION_GROUP, emo_option=OPTION_GROUP,
-                 lc=True, del_dup1=True, token_list=[-2, -1, 2, 3, 4],
+                 lc=True, del_dup1=True, token_list=[-2, -1, 3, 4],
                  lang=None, weighting=TFIDF, threshold=0, **kwargs):
         self._text = os.getenv('TEXT', default='text')
         self.strip_diac = strip_diac
