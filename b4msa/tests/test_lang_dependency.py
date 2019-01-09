@@ -37,15 +37,11 @@ def test_arabic_stemming():
 
 
 def test_stopwords_property():
-    from b4msa.lang_dependency import LangDependency, LangDependencyError
+    from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
     assert len(c.stopwords) == 330
     c = LangDependency(lang='arabic')
-    try:
-        print(c.stopwords)
-    except LangDependencyError:
-        return
-    assert False
+    assert len(c.stopwords) == 750
 
 
 def test_neg_stopwords_property():
