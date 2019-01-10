@@ -183,3 +183,5 @@ def test_textmodel_token_min_filter():
     text = TextModel(tw, token_min_filter=0.3)
     print(len(text.model._w2id))
     assert len(text.model._w2id) == 4
+    text = TextModel(tw, token_min_filter=1, threshold=0.01)
+    

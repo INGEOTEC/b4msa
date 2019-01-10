@@ -248,7 +248,10 @@ class TextModel:
                 if _y != klass:
                     continue
                 for x in np.unique(tokens):
-                    weight[ki, m[x]] += 1
+                    try:
+                        weight[ki, m[x]] += 1
+                    except KeyError:
+                        continue
         weight = weight / weight.sum(axis=0)
         weight[~np.isfinite(weight)] = 1.0 / nklasses
         logc = np.log2(weight)

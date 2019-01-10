@@ -42,8 +42,11 @@ class TFIDF(object):
         if token_min_filter > 0:
             if token_min_filter < 1:
                 token_min_filter = int(self._ndocs * token_min_filter)
-            w2id = {k: v for k, v in w2id.items() if weight[v] > token_min_filter}
-            weight = {ident: weight[ident] for ident in w2id.values()}
+            w2id = [(k, v) for k, v in w2id.items() if weight[v] > token_min_filter]
+            w2id.sort(key=lambda x: x[1])
+            mm = {k: v[1] for k, v in enumerate(w2id)}
+            w2id = {v[0]: k for k, v in enumerate(w2id)}
+            weight = {ident: weight[mm[ident]] for ident in w2id.values()}
         self._w2id = w2id
         self._num_terms = len(w2id)
         self.wordWeight = weight
