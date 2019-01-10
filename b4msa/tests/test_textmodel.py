@@ -172,4 +172,14 @@ def test_textmodel_entropy():
     assert len(text.model._w2id) == 233
 
 
-    
+def test_textmodel_token_min_filter():
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import tweet_iterator
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    tw = list(tweet_iterator(fname))
+    text = TextModel(tw, token_min_filter=1)
+    assert len(text.model._w2id) == 28
+    text = TextModel(tw, token_min_filter=0.3)
+    print(len(text.model._w2id))
+    assert len(text.model._w2id) == 4

@@ -178,6 +178,8 @@ class TextModel:
     :type weighting: class or str
     :param threshold: Threshold to remove those tokens less than 1 - entropy
     :type threshold: float
+    :param token_min_filter: Keep those tokens that appear more times than the parameter (used in weighting class)
+    :type token_min_filter: int or float
     :param lang: Language (spanish | english | italian | german)
     :type lang: str
     :param negation: Negation
@@ -207,7 +209,8 @@ class TextModel:
                  num_option=OPTION_GROUP, usr_option=OPTION_GROUP,
                  url_option=OPTION_GROUP, emo_option=OPTION_GROUP,
                  lc=True, del_dup1=True, token_list=[-2, -1, 3, 4],
-                 lang=None, weighting=TFIDF, threshold=0, **kwargs):
+                 lang=None, weighting=TFIDF, threshold=0, token_min_filter=0,
+                 **kwargs):
         self._text = os.getenv('TEXT', default='text')
         self.strip_diac = strip_diac
         self.num_option = num_option
@@ -227,7 +230,7 @@ class TextModel:
         self.kwargs = {k: v for k, v in kwargs.items() if k[0] != '_'}
 
         tokens = [self.tokenize(d) for d in docs]
-        self.model = self.get_class(weighting)(tokens)
+        self.model = self.get_class(weighting)(tokens, token_min_filter=token_min_filter)
         if threshold > 0:
             w = self.entropy(tokens, docs)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > threshold}
