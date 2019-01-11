@@ -211,9 +211,7 @@ class CommandLineTest(CommandLine):
         logger.setLevel(self.data.verbose)
         with open(self.data.model, 'rb') as fpt:
             svc = pickle.load(fpt)
-        X = [svc.model.transform_q_voc_ratio(x) for x in read_data(self.data.test_set)]
-        qv = [x[1] for x in X]
-        X = [x[0] for x in X]
+        X = [svc.model[x] for x in read_data(self.data.test_set)]
         output = self.get_output()
         if output.endswith('.gz'):
             gzip_flag = True
@@ -224,21 +222,19 @@ class CommandLineTest(CommandLine):
         with output as fpt:
             if not self.data.decision_function:
                 hy = svc.predict(X)
-                for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
+                for tweet, klass in zip(tweet_iterator(self.data.test_set), hy):
                     tweet['klass'] = str(klass)
-                    tweet['q_voc_ratio'] = r
                     cdn = json.dumps(tweet)+"\n"
                     cdn = bytes(cdn, encoding='utf-8') if gzip_flag else cdn
                     fpt.write(cdn)
             else:
                 hy = svc.decision_function(X)
-                for tweet, klass, r in zip(tweet_iterator(self.data.test_set), hy, qv):
+                for tweet, klass in zip(tweet_iterator(self.data.test_set), hy):
                     try:
                         o = klass.tolist()
                     except AttributeError:
                         o = klass
                     tweet['decision_function'] = o
-                    tweet['q_voc_ratio'] = r
                     cdn = json.dumps(tweet)+"\n"
                     cdn = bytes(cdn, encoding='utf-8') if gzip_flag else cdn
                     fpt.write(cdn)
