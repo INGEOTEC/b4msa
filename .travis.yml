@@ -14,7 +14,6 @@ env:
     - secure: "oCXZbOL/HllAGi/GYQb1WT0rw8pnjwuplqzhprcq25f3Nm4XvuqhvnCBziVmbjC1KCXVhySfPX3Dy9waqRfnQI5eg5//tmnkH8QnAQjxtPoSeHr+UeuYgwJSDprSqXVCBfGJxKsy2RZx8ZuKe9gChDaQX9qXG+sfGf/P6Sx4AAvbHL0JCkI1FAAhxP089e3UfjcWkuhZZWdwuZ8DlNzUU8r2z4KvdzOPKLbRIOtoXmi58AlyzKHqZX7JKC7I1RAopkBHDALq9Jp0a0VfW3FNv84sfNBnfrAeJ1vk/3ISH7d/CV62g4FFVXb8SfYDWGr7lokC2yw+btzJ478ZbTLFsvTRfgVti+DQ/fr+4Z3FOCbE9sxaNt37tFNW1nSrVXDoTqEwFhzpoRV4DHfS5PxreVhFOxWzG4j38ARBkA4jfmuDKGSPE1rp3RhtFeTZ7/Uwu6loO1HbBrJMVre99gbdBvrbYPmd9n3wOLQZSnrcX/8uIlonhgRxPOUaEvcOJIZqpiZd2tbsyD3wDmqckS3W8ZajrSaPpJ+4DY+/gHT/gFhKnAd9bG1QgSVYDQLR34EJCaW8BdrD/qxXmb+ob5RvcDBjKDXIaPujqBaQToLberFUJjSRSrRW4BQdwkCknyfJP0uRCYPanO0Uyz7Q/J9s6yqRm8UYAkBLnr6hvgQfZ/o="
     - secure: "xGQ4F56pKwc6vEIQYlNSib3E+BxTbNt2KgdJ8CBZIgeL7onuR2aMcZ63YeLWCvq/dWvLQEhWtM8C1Fv2KZPXU8HcuUSXGus8rlhcm6cpOTFUSogva043hQPpq3wctUAXVVDr3UMbWx6NUV2X1UWbQ86FHb1gMB3PL/Qh75jy8dbFxOYGuLG939vrbjXTtrUAJmoJcQG6O2HSoNuJfW2WLTxuw1lRTiZjDxmetahf5g3lNKseEZQfVxenww0ewzoxXgo8rUywqmFJM25t8Tu1pDxNgeOVeeoG/juVmvBBc5sh95sdJsSkJRvsW5P2mviaPnm8ESP6IwcD+OPBrv3yLwZcIS2hAn0IGdM0Mn4u2IMi49HoFaQTTrc8eI3X299/dw/2PpeWYb6HEaFbWL7Vd5u128KBRZIUk1QKDJdc1JGtLW+EETxgNF5TixmLlUGKT87vvF/snsptWlZqUnIDcRmHRNOFuiZfsWSvEc+5zHvHIeU9voHZgO260t2C+g493nfCQ5QFM5GaHlXZTB+zPrQ8bueOZE9XcVUINhNBqLGWppNHAfbmE9NWaFDh8gQrVtPF/X8T50CgTVGgiXDjtMKC8Gm+WIVehHlVoBnI6LUoSr00bD1L1eWnnARkQ61VELklahpPNzEegiH9e+ZrIC5tLziC7zvS6qGayqQPFWQ="
     
-
 before_install:
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then curl -L -o miniconda.sh http://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh; fi
@@ -27,7 +26,8 @@ before_install:
   - conda install --yes pip
   - pip install coverage
   - pip install coveralls
-  - conda install --yes numpy scipy scikit-learn nltk nose
+  - conda config --append channels ingeotec    
+  - conda install --yes numpy scipy scikit-learn nltk nose microtc
   - python setup.py build_ext --inplace
 
 # command to run tests
