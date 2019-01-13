@@ -10,11 +10,13 @@ requirements:
     - scipy
     - scikit-learn
     - nltk
+    - microtc
 
   run:
     - python
     - scikit-learn
     - nltk
+    - microtc    
 
 test:
   requires:
@@ -24,6 +26,7 @@ test:
     - scikit-learn
     - nltk
     - coverage
+    - microtc    
 
   imports:
     - b4msa
