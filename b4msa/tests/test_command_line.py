@@ -142,7 +142,7 @@ def test_test():
         a = [json.loads(x) for x in fpt.readlines()]
     os.unlink(output2)
     for x in a:
-        assert 'q_voc_ratio' in x
+        assert 'klass' in x
     assert len(y)
 
 

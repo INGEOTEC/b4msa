@@ -1,6 +1,6 @@
 package:
   name: b4msa
-  version: "1.4.1"
+  version: "1.5"
 
 requirements:
   build:
@@ -10,11 +10,13 @@ requirements:
     - scipy
     - scikit-learn
     - nltk
+    - microtc
 
   run:
     - python
     - scikit-learn
     - nltk
+    - microtc    
 
 test:
   requires:
@@ -24,6 +26,7 @@ test:
     - scikit-learn
     - nltk
     - coverage
+    - microtc    
 
   imports:
     - b4msa

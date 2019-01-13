@@ -72,7 +72,7 @@ class LangDependency():
         """
         Initializes the parameters for specific language
         """
-        self.languages = ["spanish", "english", "italian", "german"]
+        self.languages = ["spanish", "english", "italian", "german", "arabic"]
         self.lang = lang
 
         if self.lang not in SnowballStemmer.languages:
@@ -123,9 +123,7 @@ class LangDependency():
         return self._stopwords
 
     def load_stopwords(self, fileName):
-        """
-        it loads stopwords from file
-        """
+        """Load stopwords from file"""
         logger.debug("loading stopwords... " + fileName)
         if not os.path.isfile(fileName):
             raise LangDependencyError("File not found: " + fileName)
@@ -143,9 +141,7 @@ class LangDependency():
         return StopWords
 
     def stemming(self, text):
-        """
-        Applies the stemming process to `text` parameter
-        """
+        """Applies the stemming process to `text` parameter"""
 
         tokens = re.split(r"~", text.strip())
         t = []
@@ -157,9 +153,7 @@ class LangDependency():
         return "~".join(t)
 
     def negation(self, text):
-        """
-        Applies negation process to the given text
-        """
+        """Applies negation process to the given text"""
         if self.lang not in self.languages:
             raise LangDependencyError("Negation - language not defined")
 

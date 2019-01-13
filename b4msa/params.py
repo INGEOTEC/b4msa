@@ -24,25 +24,25 @@ OPTION_DELETE = 'delete'
 BASIC_OPTIONS = [OPTION_DELETE, OPTION_GROUP, OPTION_NONE]
 
 _BASE_PARAMS = dict(
-    strip_diac=[False, True],
+    del_diac=[False, True],
     num_option=BASIC_OPTIONS,
     usr_option=BASIC_OPTIONS,
     url_option=BASIC_OPTIONS,
     emo_option=BASIC_OPTIONS,
     lc=[False, True],
-    del_dup1=[False, True],
+    del_dup=[False, True],
     # knowledge=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
 )
 
 _BASE_PARAMS_LANG = dict(
-    strip_diac=[False, True],
+    del_diac=[False, True],
     num_option=BASIC_OPTIONS,
     usr_option=BASIC_OPTIONS,
     url_option=BASIC_OPTIONS,
     emo_option=BASIC_OPTIONS,
     lc=[False, True],
-    del_dup1=[False, True],
+    del_dup=[False, True],
     # knowledge=[False, True],
     token_list=[-2, -1, 1, 2, 3, 4, 5, 6, 7],
     negation=[False, True],

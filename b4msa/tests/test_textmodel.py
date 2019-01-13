@@ -63,7 +63,8 @@ def test_params():
 
 
 def test_emoticons():
-    from b4msa.textmodel import EmoticonClassifier, norm_chars
+    from microtc.textmodel import norm_chars
+    from microtc.emoticons import EmoticonClassifier
     emo = EmoticonClassifier()
     for a, b in [
             ("Hi :) :P XD", "~Hi~_pos~_pos~_pos~"),
@@ -92,7 +93,7 @@ def test_lang():
         "num_option": "group",
         "stemming": True,
         "stopwords": "group",
-        "strip_diac": False,
+        "del_diac": False,
         "token_list": [
             -1,
             # 5,
@@ -116,12 +117,12 @@ def test_negations():
     ]
     model = TextModel(text, **{
         'num_option': 'group',
-        'strip_diac': False,
+        'del_diac': False,
         'stopwords': 'delete',
         'negation': True,
         'stemming': True,
         'lc': False, 'token_list': [-1],
-        'usr_option': 'group', 'del_dup1': False, 'emo_option': 'group', 'lang': 'spanish', 'url_option': 'delete'
+        'usr_option': 'group', 'del_dup': False, 'emo_option': 'group', 'lang': 'spanish', 'url_option': 'delete'
     })
 
     text = """@usuario los pollos y las vacas nunca hubiesen permitido que no se hubiese hecho nada al respecto"""
@@ -140,7 +141,7 @@ def test_negations_italian():
 
     model = TextModel(text, **{
         'num_option': 'group',
-        'strip_diac': False,
+        'del_diac': False,
         'stopwords': 'delete',
         'negation': True,
         'stemming': True,
@@ -168,7 +169,20 @@ def test_textmodel_entropy():
     tw = list(tweet_iterator(fname))
     text = TextModel(tw, threshold=0.01)
     assert isinstance(text, TextModel)
-    assert len(text.model._w2id) == 299
+    print(len(text.model._w2id))
+    assert len(text.model._w2id) == 233
 
 
+def test_textmodel_token_min_filter():
+    from b4msa.textmodel import TextModel
+    from b4msa.utils import tweet_iterator
+    import os
+    fname = os.path.dirname(__file__) + '/text.json'
+    tw = list(tweet_iterator(fname))
+    text = TextModel(tw, token_min_filter=1)
+    assert len(text.model._w2id) == 28
+    text = TextModel(tw, token_min_filter=0.3)
+    print(len(text.model._w2id))
+    assert len(text.model._w2id) == 4
+    text = TextModel(tw, token_min_filter=1, threshold=0.01)
     
