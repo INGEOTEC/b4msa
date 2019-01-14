@@ -16,6 +16,5 @@ Modules
 .. toctree::
    :maxdepth: 2
 
-   weighting
    classifier
    lang_dependency
