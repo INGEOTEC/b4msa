@@ -14,6 +14,7 @@
 import os
 from microtc.textmodel import TextModel as mTCTextModel
 from microtc.params import OPTION_NONE, get_filename
+from microtc.weighting import Entropy
 from .lang_dependency import LangDependency
 import pickle
 import numpy as np
@@ -78,33 +79,8 @@ class TextModel(mTCTextModel):
         super(TextModel, self).fit(X)
 
         if self._threshold > 0:
-            w = self.entropy([self.tokenize(d) for d in X], X)
+            w = Entropy.entropy([self.tokenize(d) for d in X], X, self.model.word2id)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > self._threshold}
-
-    def entropy(self, corpus, docs):
-        model = self.model
-        m = model._w2id
-        y = [x['klass'] for x in docs]
-        klasses = np.unique(y)
-        nklasses = klasses.shape[0]
-        ntokens = len(m)
-        weight = np.zeros((klasses.shape[0], ntokens))
-        for ki, klass in enumerate(klasses):
-            for _y, tokens in zip(y, corpus):
-                if _y != klass:
-                    continue
-                for x in np.unique(tokens):
-                    try:
-                        weight[ki, m[x]] += 1
-                    except KeyError:
-                        continue
-        weight = weight / weight.sum(axis=0)
-        weight[~np.isfinite(weight)] = 1.0 / nklasses
-        logc = np.log2(weight)
-        logc[~np.isfinite(logc)] = 0
-        if nklasses > 2:
-            logc = logc / np.log2(nklasses)
-        return (1 + (weight * logc).sum(axis=0))
 
     def extra_transformations(self, text):
         """Language dependent transformations
