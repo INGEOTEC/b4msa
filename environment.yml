@@ -7,4 +7,5 @@ dependencies:
   - numpy
   - scipy
   - scikit-learn
+  - microtc
   - nltk
