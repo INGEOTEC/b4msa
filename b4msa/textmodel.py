@@ -55,7 +55,7 @@ class TextModel(mTCTextModel):
      (77, 0.24737436144422534),
      (78, 0.24737436144422534)]
     """
-    def __init__(self, docs, token_list=[-2, -1, 3, 4],
+    def __init__(self, docs=None, token_list=[-2, -1, 3, 4],
                  threshold=0, lang=None, negation=False, stemming=False,
                  stopwords=OPTION_NONE, **kwargs):
         if lang:
@@ -82,7 +82,7 @@ class TextModel(mTCTextModel):
             w = Entropy.entropy([self.tokenize(d) for d in X], X, self.model.word2id)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > self._threshold}
 
-    def extra_transformations(self, text):
+    def text_transformations(self, text):
         """Language dependent transformations
 
         :param text: text
@@ -91,6 +91,7 @@ class TextModel(mTCTextModel):
         :rtype: str
         """
 
+        text = super(TextModel, self).text_trasformations(text)
         if self.lang:
             text = self.lang.transform(text, **self._lang_kw)
 
