@@ -120,6 +120,14 @@ class LangDependency():
             if self._stopwords is None:
                 self._stopwords = self.load_stopwords(os.path.join(PATH, "{0}.stopwords".format(lang)))
                 LangDependency.STOPWORDS_CACHE[lang] = self._stopwords
+        stw = dict()
+        for x in self._stopwords:
+            try:
+                ident = len(x)
+                stw[ident][x] = 1
+            except KeyError:
+                stw[ident] = {x: 1}
+        self._stopwords = stw
         return self._stopwords
 
     def load_stopwords(self, fileName):
@@ -275,14 +283,22 @@ class LangDependency():
         return text.replace(' ', '~')
 
     def filterStopWords(self, text, stopwords_option):
-        if stopwords_option != 'none':
-            for sw in self.stopwords:
-                if stopwords_option == 'delete':
-                    text = re.sub(r"\b(" + sw + r")\b", r"~", text, flags=re.I)
-                elif stopwords_option == 'group':
-                    text = re.sub(r"\b(" + sw + r")\b", r"~_sw~", text, flags=re.I)
-
-        return text
+        if stopwords_option == 'none':
+            return text
+        sw = self.stopwords
+        d = text.split('~')
+        R = []
+        for x in d:
+            try:
+                if x in sw[len(x)]:
+                    if stopwords_option == 'delete':
+                        continue
+                    elif stopwords_option == 'group':
+                        x = "_sw"
+            except KeyError:
+                pass
+            R.append(x)
+        return "~".join(R)
 
     def transform(self, text, negation=False, stemming=False, stopwords=OPTION_NONE):
         if negation:

@@ -86,7 +86,7 @@ def test_lang():
         "el alma de la fiesta XD"
     ]
     model = TextModel(text, **{
-        "del_dup1": True,
+        "del_dup": True,
         "emo_option": "group",
         "lc": True,
         "negation": True,
@@ -103,6 +103,7 @@ def test_lang():
         "lang": "spanish",
     })
     text = "El alma de la fiesta :) conociendo la maquinaria @user bebiendo nunca manches que onda"
+    print(model.tokenize)
     a = model.tokenize(text)
     b = ['_sw', 'alma', '_sw', '_sw', 'fiest', '_pos', 'conoc', '_sw', 'maquinari', '_usr', 'beb', 'no_manch', '_sw', 'onda']
     print(text)

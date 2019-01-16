@@ -17,7 +17,6 @@ from microtc.params import OPTION_NONE, get_filename
 from microtc.weighting import Entropy
 from .lang_dependency import LangDependency
 import pickle
-import numpy as np
 import logging
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
@@ -42,18 +41,13 @@ class TextModel(mTCTextModel):
     Usage:
 
     >>> from b4msa.textmodel import TextModel
-    >>> textmodel = TextModel(['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec'])
+    >>> corpus = ['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec']
+    >>> textmodel = TextModel().fit(corpus)
 
     Represent a text into a vector
 
     >>> textmodel['cat']
-    [(38, 0.24737436144422534),
-     (41, 0.24737436144422534),
-     (42, 0.4947487228884507),
-     (73, 0.6702636255239844),
-     (76, 0.24737436144422534),
-     (77, 0.24737436144422534),
-     (78, 0.24737436144422534)]
+    [(28, 0.816496580927726), (52, 0.408248290463863), (53, 0.408248290463863)]
     """
     def __init__(self, docs=None, token_list=[-2, -1, 3, 4],
                  threshold=0, lang=None, negation=False, stemming=False,
@@ -81,6 +75,7 @@ class TextModel(mTCTextModel):
         if self._threshold > 0:
             w = Entropy.entropy([self.tokenize(d) for d in X], X, self.model.word2id)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > self._threshold}
+        return self
 
     def text_transformations(self, text):
         """Language dependent transformations
@@ -91,7 +86,7 @@ class TextModel(mTCTextModel):
         :rtype: str
         """
 
-        text = super(TextModel, self).text_trasformations(text)
+        text = super(TextModel, self).text_transformations(text)
         if self.lang:
             text = self.lang.transform(text, **self._lang_kw)
 
