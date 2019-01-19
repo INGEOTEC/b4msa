@@ -92,6 +92,20 @@ class TextModel(mTCTextModel):
 
         return text
 
+    @classmethod
+    def default_parameters(self, lang=None):
+        """
+        Default parameters per language
+
+        >>> from b4msa.textmodel import TextModel
+        >>> TextModel.default_parameters(lang='es')
+        {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6]}
+        """
+        if lang is None:
+            return dict()
+        if lang is 'es':
+            return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6])
+
 
 def load_model(modelfile):
     logging.info("Loading model {0}".format(modelfile))
