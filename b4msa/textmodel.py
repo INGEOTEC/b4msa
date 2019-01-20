@@ -100,11 +100,19 @@ class TextModel(mTCTextModel):
         >>> from b4msa.textmodel import TextModel
         >>> TextModel.default_parameters(lang='es')
         {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6]}
+        >>> TextModel.default_parameters(lang='en')
+        {'token_list': [[3, 1], [2, 2], -1, 3, 4]}
+        >>> TextModel.default_parameters(lang='ar')
+        {'token_list': [-1, 2, 3, 4]}
         """
         if lang is None:
             return dict()
-        if lang is 'es':
+        if lang == 'es':
             return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6])
+        elif lang == 'en':
+            return dict(token_list=[[3, 1], [2, 2], -1, 3, 4])
+        elif lang == 'ar':
+            return dict(token_list=[-1, 2, 3, 4])
 
 
 def load_model(modelfile):
