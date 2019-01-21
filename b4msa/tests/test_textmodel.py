@@ -50,7 +50,7 @@ def test_params():
     from b4msa.textmodel import TextModel
     from b4msa.utils import tweet_iterator
 
-    params = dict(strip_diac=[True, False], usr_option=BASIC_OPTIONS,
+    params = dict(del_diac=[True, False], usr_option=BASIC_OPTIONS,
                   url_option=BASIC_OPTIONS)
     params = sorted(params.items())
     fname = os.path.dirname(__file__) + '/text.json'
@@ -148,7 +148,7 @@ def test_negations_italian():
         'stemming': True,
         'lc': False, 'token_list': [-1],
         'usr_option': 'group',
-        'del_dup1': False,
+        'del_dup': False,
         'emo_option': 'group',
         'lang': 'italian',
         'url_option': 'delete'
@@ -186,4 +186,15 @@ def test_textmodel_token_min_filter():
     print(len(text.model._w2id))
     assert len(text.model._w2id) == 4
     text = TextModel(tw, token_min_filter=1, threshold=0.01)
+
+
+def test_textmodel_default():
+    from b4msa.textmodel import TextModel
+    for lang in ['spanish', 'english', 'arabic']:
+        text = TextModel(lang=lang)
+        print(text.token_list, TextModel.default_parameters(lang=lang)['token_list'])
+        for a, b in zip(text.token_list,
+                        TextModel.default_parameters(lang=lang)['token_list']):
+            print(a, b)
+            assert a == b
     

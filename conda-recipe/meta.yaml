@@ -1,6 +1,6 @@
 package:
   name: b4msa
-  version: "1.7"
+  version: "1.8"
 
 requirements:
   build:

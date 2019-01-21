@@ -47,6 +47,13 @@ _sPOSITIVE = "_pos"
 _sNEUTRAL = "_neu"
 
 
+def get_lang(l):
+    """Convert language abbr to full names"""
+    l = l.strip().lower()
+    h = dict(es='spanish', en='english', ar='arabic', it='italian', de='german')
+    return h.get(l, l)
+
+
 class LangDependencyError(Exception):
     def __init__(self, message):
         self.message = message
@@ -88,9 +95,7 @@ class LangDependency():
 
     @lang.setter
     def lang(self, l):
-        l = l.strip().lower()
-        h = dict(es='spanish', en='english', ar='arabic', it='italian', de='german')
-        self._lang = h.get(l, l)
+        self._lang = get_lang(l)
 
     @property
     def neg_stopwords(self):

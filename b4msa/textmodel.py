@@ -49,17 +49,21 @@ class TextModel(mTCTextModel):
     >>> textmodel['cat']
     [(28, 0.816496580927726), (52, 0.408248290463863), (53, 0.408248290463863)]
     """
-    def __init__(self, docs=None, token_list=[-2, -1, 3, 4],
-                 threshold=0, lang=None, negation=False, stemming=False,
+    def __init__(self, docs=None, threshold=0, lang=None, negation=False, stemming=False,
                  stopwords=OPTION_NONE, **kwargs):
+        default_parameters = dict(token_list=[-2, -1, 3, 4])
         if lang:
             self.lang = LangDependency(lang)
+            _ = self.default_parameters(lang=lang)
+            if _ is not None:
+                default_parameters = _
         else:
             self.lang = False
 
         self._threshold = threshold
         self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
-        super(TextModel, self).__init__(docs, token_list=token_list, **kwargs)
+        default_parameters.update(kwargs)
+        super(TextModel, self).__init__(docs, **default_parameters)
 
     def fit(self, X):
         """
@@ -107,11 +111,11 @@ class TextModel(mTCTextModel):
         """
         if lang is None:
             return dict()
-        if lang == 'es':
+        if lang == 'spanish':
             return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6])
-        elif lang == 'en':
+        elif lang == 'english':
             return dict(token_list=[[3, 1], [2, 2], -1, 3, 4])
-        elif lang == 'ar':
+        elif lang == 'arabic':
             return dict(token_list=[-1, 2, 3, 4])
 
 
