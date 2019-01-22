@@ -102,11 +102,11 @@ class TextModel(mTCTextModel):
         Default parameters per language
 
         >>> from b4msa.textmodel import TextModel
-        >>> TextModel.default_parameters(lang='es')
+        >>> TextModel.default_parameters(lang='spanish')
         {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6]}
-        >>> TextModel.default_parameters(lang='en')
+        >>> TextModel.default_parameters(lang='english')
         {'token_list': [[3, 1], [2, 2], -1, 3, 4]}
-        >>> TextModel.default_parameters(lang='ar')
+        >>> TextModel.default_parameters(lang='arabic')
         {'token_list': [-1, 2, 3, 4]}
         """
         if lang is None:
@@ -117,6 +117,21 @@ class TextModel(mTCTextModel):
             return dict(token_list=[[3, 1], [2, 2], -1, 3, 4])
         elif lang == 'arabic':
             return dict(token_list=[-1, 2, 3, 4])
+
+    @classmethod
+    def params(cls):
+        """
+        Parameters
+
+        >>> from b4msa.textmodel import TextModel
+        >>> TextModel.params()
+        ['docs', 'threshold', 'lang', 'negation', 'stemming', 'stopwords', 'kwargs', 'docs', 'text', 'num_option', 'usr_option', 'url_option', 'emo_option', 'hashtag_option', 'ent_option', 'lc', 'del_dup', 'del_punc', 'del_diac', 'token_list', 'token_min_filter', 'token_max_filter', 'select_ent', 'select_suff', 'select_conn', 'weighting']
+        """
+        import inspect
+        r = mTCTextModel.params()
+        sig = inspect.signature(cls)
+        params = sig.parameters.keys()
+        return list(params) + list(r)
 
 
 def load_model(modelfile):
