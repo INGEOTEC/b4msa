@@ -69,7 +69,11 @@ scikit-learn.
 
 Text Model
 =============
-	  
+
+b4msa extends our work on creating a text classifier (specifically,
+:py:class:`microtc.textmodel.TextModel`) by incorporating different
+language dependant techniques. 
+
 .. autoclass:: b4msa.textmodel.TextModel
    :members:
 
