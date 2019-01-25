@@ -35,9 +35,9 @@ script:
   - which python
   - python --version
   - which coverage
-  - if [ $python = 3.5 ]; then nosetests --verbose -exe b4msa; fi
-  - if [ $python = 3.7 ]; then nosetests --verbose -exe b4msa; fi
-  - if [ $python = 3.6 ]; then coverage run setup.py nosetests; fi
+  - if [ $python = 3.5 ]; then nosetests --verbose -exe b4msa --with-doctest; fi
+  - if [ $python = 3.7 ]; then nosetests --verbose -exe b4msa --with-doctest; fi
+  - if [ $python = 3.6 ]; then coverage run setup.py nosetests --with-doctest; fi
 
 after_success:
   - if [ $python = 3.6 ]; then coveralls || echo "Coveralls upload failed"; fi
