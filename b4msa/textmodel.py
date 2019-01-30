@@ -13,7 +13,7 @@
 # limitations under the License.
 import os
 from microtc.textmodel import TextModel as mTCTextModel
-from microtc.params import OPTION_NONE, get_filename
+from microtc.params import OPTION_NONE, get_filename, OPTION_DELETE
 from microtc.weighting import Entropy
 from .lang_dependency import LangDependency
 import pickle
@@ -49,19 +49,26 @@ class TextModel(mTCTextModel):
     >>> textmodel['cat']
     [(28, 0.816496580927726), (52, 0.408248290463863), (53, 0.408248290463863)]
     """
-    def __init__(self, docs=None, threshold=0, lang=None, negation=False, stemming=False,
-                 stopwords=OPTION_NONE, **kwargs):
+    def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
+                 stopwords=None, **kwargs):
         default_parameters = dict(token_list=[-2, -1, 3, 4])
+        self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         if lang:
             self.lang = LangDependency(lang)
             _ = self.default_parameters(lang=lang)
             if _ is not None:
                 default_parameters = _
+                print(default_parameters)
+                for k in self._lang_kw.keys():
+                    if self._lang_kw[k] is None and k in default_parameters:
+                        self._lang_kw[k] = default_parameters[k]
+                    try:
+                        del default_parameters[k]
+                    except KeyError:
+                        pass
         else:
             self.lang = False
-
         self._threshold = threshold
-        self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         default_parameters.update(kwargs)
         super(TextModel, self).__init__(docs, **default_parameters)
 
@@ -103,20 +110,20 @@ class TextModel(mTCTextModel):
 
         >>> from b4msa.textmodel import TextModel
         >>> TextModel.default_parameters(lang='spanish')
-        {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6]}
+        {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6], 'negation': False, 'stemming': False, 'stopwords': 'none'}
         >>> TextModel.default_parameters(lang='english')
-        {'token_list': [[3, 1], -2, -1, 3, 4], 'num_option': 'delete', 'del_diac': False}
+        {'token_list': [[3, 1], -2, -1, 3, 4], 'num_option': 'delete', 'del_diac': False, 'negation': False, 'stemming': False, 'stopwords': 'none'}
         >>> TextModel.default_parameters(lang='arabic')
-        {'token_list': [-1, 2, 3, 4], 'del_punc': True, 'ent_option': 'delete', 'stopwords': 'delete'}
+        {'token_list': [-1, 2, 3, 4], 'del_punc': True, 'ent_option': 'delete', 'stopwords': 'delete', 'negation': False, 'stemming': False}
         """
         if lang is None:
             return dict()
         if lang == 'spanish':
-            return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6])
+            return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6], negation=False, stemming=False, stopwords=OPTION_NONE)
         elif lang == 'english':
-            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False)
+            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False, negation=False, stemming=False, stopwords=OPTION_NONE) 
         elif lang == 'arabic':
-            return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option='delete', stopwords='delete')
+            return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option='delete', stopwords=OPTION_DELETE, negation=False, stemming=False)
 
     @classmethod
     def params(cls):

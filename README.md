@@ -17,6 +17,8 @@ B4MSA is a Python Sentiment Analysis Classifier for Twitter-like short texts. It
 
 It is written in Python making use of [NTLK](http://www.nltk.org/) and [scikit-learn](http://scikit-learn.org/) to create simple but effective sentiment classifiers.
 
+The documentation is on [readthedocs](https://b4msa.readthedocs.io).
+
 ## Citing B4MSA ##
 
 If you find B4MSA useful for any academic/scientific purpose, we would appreciate citations to the following journal paper: 

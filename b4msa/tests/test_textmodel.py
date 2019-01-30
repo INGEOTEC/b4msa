@@ -197,4 +197,6 @@ def test_textmodel_default():
                         TextModel.default_parameters(lang=lang)['token_list']):
             print(a, b)
             assert a == b
+    text = TextModel(lang='arabic', stopwords='xxx')
+    assert text._lang_kw['stopwords'] == 'xxx'
     
