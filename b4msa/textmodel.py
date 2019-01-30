@@ -105,7 +105,7 @@ class TextModel(mTCTextModel):
         >>> TextModel.default_parameters(lang='spanish')
         {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6]}
         >>> TextModel.default_parameters(lang='english')
-        {'token_list': [[3, 1], [2, 1], -3, -1, 3, 4], 'num_option': 'delete'}
+        {'token_list': [[3, 1], -2, -1, 3, 4], 'num_option': 'delete', 'del_diac': False}
         >>> TextModel.default_parameters(lang='arabic')
         {'token_list': [-1, 2, 3, 4], 'del_punc': True, 'ent_option': 'delete', 'stopwords': 'delete'}
         """
@@ -114,7 +114,7 @@ class TextModel(mTCTextModel):
         if lang == 'spanish':
             return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6])
         elif lang == 'english':
-            return dict(token_list=[[3, 1], [2, 1], -3, -1, 3, 4], num_option='delete')
+            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False)
         elif lang == 'arabic':
             return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option='delete', stopwords='delete')
 
