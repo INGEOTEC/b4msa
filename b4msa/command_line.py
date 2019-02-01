@@ -28,6 +28,11 @@ import pickle
 # from b4msa.params import ParameterSelection
 
 
+def clean_params(kw):
+    params = TextModel.params()
+    return {k: v for k, v in kw.items() if k in params}
+
+
 def load_json(filename):
     if filename.endswith('.gz'):
         func = gzip.open
@@ -170,6 +175,7 @@ class CommandLineTrain(CommandLine):
                 best = best[0]
         else:
             best = dict()
+        best = clean_params(best)
         kw = json.loads(self.data.kwargs) if self.data.kwargs is not None else dict()
         best.update(kw)
         svc = SVC.fit_from_file(self.data.training_set, best)
@@ -280,6 +286,7 @@ class CommandLineKfolds(CommandLineTrain):
         best = load_json(self.data.params_fname)
         if isinstance(best, list):
             best = best[0]
+        best = clean_params(best)
         print(self.data.params_fname, self.data.training_set)
         corpus, labels = read_data_labels(self.data.training_set)
         le = LabelEncoder()

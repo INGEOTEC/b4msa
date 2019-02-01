@@ -13,10 +13,10 @@
 # limitations under the License.
 import os
 from microtc.textmodel import TextModel as mTCTextModel
-from microtc.params import OPTION_NONE, get_filename
+from microtc.params import OPTION_NONE, get_filename, OPTION_DELETE
+from microtc.weighting import Entropy
 from .lang_dependency import LangDependency
 import pickle
-import numpy as np
 import logging
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
@@ -41,30 +41,36 @@ class TextModel(mTCTextModel):
     Usage:
 
     >>> from b4msa.textmodel import TextModel
-    >>> textmodel = TextModel(['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec'])
+    >>> corpus = ['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec']
+    >>> textmodel = TextModel().fit(corpus)
 
     Represent a text into a vector
 
     >>> textmodel['cat']
-    [(38, 0.24737436144422534),
-     (41, 0.24737436144422534),
-     (42, 0.4947487228884507),
-     (73, 0.6702636255239844),
-     (76, 0.24737436144422534),
-     (77, 0.24737436144422534),
-     (78, 0.24737436144422534)]
+    [(28, 0.816496580927726), (52, 0.408248290463863), (53, 0.408248290463863)]
     """
-    def __init__(self, docs, token_list=[-2, -1, 3, 4],
-                 threshold=0, lang=None, negation=False, stemming=False,
-                 stopwords=OPTION_NONE, **kwargs):
+    def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
+                 stopwords=None, **kwargs):
+        default_parameters = dict(token_list=[-2, -1, 3, 4])
+        self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         if lang:
             self.lang = LangDependency(lang)
+            _ = self.default_parameters(lang=lang)
+            if _ is not None:
+                default_parameters = _
+                print(default_parameters)
+                for k in self._lang_kw.keys():
+                    if self._lang_kw[k] is None and k in default_parameters:
+                        self._lang_kw[k] = default_parameters[k]
+                    try:
+                        del default_parameters[k]
+                    except KeyError:
+                        pass
         else:
             self.lang = False
-
         self._threshold = threshold
-        self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
-        super(TextModel, self).__init__(docs, token_list=token_list, **kwargs)
+        default_parameters.update(kwargs)
+        super(TextModel, self).__init__(docs, **default_parameters)
 
     def fit(self, X):
         """
@@ -78,35 +84,11 @@ class TextModel(mTCTextModel):
         super(TextModel, self).fit(X)
 
         if self._threshold > 0:
-            w = self.entropy([self.tokenize(d) for d in X], X)
+            w = Entropy.entropy([self.tokenize(d) for d in X], X, self.model.word2id)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > self._threshold}
+        return self
 
-    def entropy(self, corpus, docs):
-        model = self.model
-        m = model._w2id
-        y = [x['klass'] for x in docs]
-        klasses = np.unique(y)
-        nklasses = klasses.shape[0]
-        ntokens = len(m)
-        weight = np.zeros((klasses.shape[0], ntokens))
-        for ki, klass in enumerate(klasses):
-            for _y, tokens in zip(y, corpus):
-                if _y != klass:
-                    continue
-                for x in np.unique(tokens):
-                    try:
-                        weight[ki, m[x]] += 1
-                    except KeyError:
-                        continue
-        weight = weight / weight.sum(axis=0)
-        weight[~np.isfinite(weight)] = 1.0 / nklasses
-        logc = np.log2(weight)
-        logc[~np.isfinite(logc)] = 0
-        if nklasses > 2:
-            logc = logc / np.log2(nklasses)
-        return (1 + (weight * logc).sum(axis=0))
-
-    def extra_transformations(self, text):
+    def text_transformations(self, text):
         """Language dependent transformations
 
         :param text: text
@@ -115,10 +97,57 @@ class TextModel(mTCTextModel):
         :rtype: str
         """
 
+        text = super(TextModel, self).text_transformations(text)
         if self.lang:
             text = self.lang.transform(text, **self._lang_kw)
 
         return text
+
+    @classmethod
+    def default_parameters(self, lang=None):
+        """
+        Default parameters per language
+
+        >>> from b4msa.textmodel import TextModel
+        >>> _ = TextModel.default_parameters(lang='arabic')
+        >>> k = list(_.keys())
+        >>> k.sort()
+        >>> [(i, _[i]) for i in k]
+        [('del_punc', True), ('ent_option', 'delete'), ('negation', False), ('stemming', False), ('stopwords', 'delete'), ('token_list', [-1, 2, 3, 4])]
+        >>> _ = TextModel.default_parameters(lang='english')
+        >>> k = list(_.keys())
+        >>> k.sort()
+        >>> [(i, _[i]) for i in k]
+        [('del_diac', False), ('negation', False), ('num_option', 'delete'), ('stemming', False), ('stopwords', 'none'), ('token_list', [[3, 1], -2, -1, 3, 4])]
+        >>> _ = TextModel.default_parameters(lang='spanish')
+        >>> k = list(_.keys())
+        >>> k.sort()
+        >>> [(i, _[i]) for i in k]
+        [('negation', False), ('stemming', False), ('stopwords', 'none'), ('token_list', [[2, 1], -1, 2, 3, 4, 5, 6])]
+        """
+        if lang is None:
+            return dict()
+        if lang == 'spanish':
+            return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6], negation=False, stemming=False, stopwords=OPTION_NONE)
+        elif lang == 'english':
+            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False, negation=False, stemming=False, stopwords=OPTION_NONE)
+        elif lang == 'arabic':
+            return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option='delete', stopwords=OPTION_DELETE, negation=False, stemming=False)
+
+    @classmethod
+    def params(cls):
+        """
+        Parameters
+
+        >>> from b4msa.textmodel import TextModel
+        >>> TextModel.params()
+        ['docs', 'threshold', 'lang', 'negation', 'stemming', 'stopwords', 'kwargs', 'docs', 'text', 'num_option', 'usr_option', 'url_option', 'emo_option', 'hashtag_option', 'ent_option', 'lc', 'del_dup', 'del_punc', 'del_diac', 'token_list', 'token_min_filter', 'token_max_filter', 'select_ent', 'select_suff', 'select_conn', 'weighting']
+        """
+        import inspect
+        r = mTCTextModel.params()
+        sig = inspect.signature(cls)
+        params = sig.parameters.keys()
+        return list(params) + list(r)
 
 
 def load_model(modelfile):

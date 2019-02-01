@@ -35,11 +35,11 @@ class SVC(object):
 
     >>> from b4msa.textmodel import TextModel
     >>> from b4msa.classifier import SVC
-    >>> X = ['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec']
-    >>> textmodel = TextModel(X)
+    >>> corpus = ['buenos dias', 'catedras conacyt', 'categorizacion de texto ingeotec']
+    >>> textmodel = TextModel(corpus)
     >>> svc = SVC(textmodel)
-    >>> svc.fit([textmodel[x] for x in X], [1, 0, 0])
-    >>> print(svc.predict_text('hola'))
+    >>> _ = svc.fit([textmodel[x] for x in corpus], [1, 0, 0])
+    >>> svc.predict_text('hola')
     0
     """
     def __init__(self, model, **kwargs):
@@ -162,6 +162,8 @@ class SVC(object):
     @classmethod
     def train_predict_pool(cls, args):
         X, y, tr, ts, textModel_params = args
+        params = TextModel.params()
+        textModel_params = {k: v for k, v in textModel_params.items() if k in params}
         t = TextModel([X[x] for x in tr], **textModel_params)
         m = cls(t).fit([t[X[x]] for x in tr], [y[x] for x in tr])
         return ts, np.array(m.predict([t[X[x]] for x in ts]))

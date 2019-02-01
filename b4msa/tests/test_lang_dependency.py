@@ -39,9 +39,11 @@ def test_arabic_stemming():
 def test_stopwords_property():
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
-    assert len(c.stopwords) == 330
+    print(len(c.stopwords))
+    assert len(c.stopwords) == 12
     c = LangDependency(lang='arabic')
-    assert len(c.stopwords) == 750
+    print(len(c.stopwords))
+    assert len(c.stopwords) == 9
 
 
 def test_neg_stopwords_property():
@@ -63,3 +65,14 @@ def test_lang_abbr():
     assert c.lang == 'spanish'
 
 
+def test_stopwords():
+    from b4msa.textmodel import TextModel
+    tm = TextModel(lang='es', del_dup=False)
+    text = tm.text_transformations('como esta mi carro')
+    print(text)
+    text1 = tm.lang.transform(text, stopwords='delete')
+    print(text1)
+    assert text1 == '~carro~'
+    text1 = tm.lang.transform(text, stopwords='group')
+    print(text1)
+    assert text1 == '~_sw~_sw~_sw~carro~'
