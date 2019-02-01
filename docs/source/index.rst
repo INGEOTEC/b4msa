@@ -6,6 +6,24 @@
 b4msa
 ==================================
 
+.. image:: https://travis-ci.org/INGEOTEC/b4msa.svg?branch=master
+	:target: https://travis-ci.org/INGEOTEC/b4msa   
+
+.. image:: https://ci.appveyor.com/api/projects/status/y8vwd9998p74hw0n/branch/master?svg=true
+	:target: https://ci.appveyor.com/project/mgraffg/b4msa/branch/master   
+
+.. image:: https://coveralls.io/repos/github/INGEOTEC/b4msa/badge.svg?branch=master
+	:target: https://coveralls.io/github/INGEOTEC/b4msa?branch=master
+
+.. image:: https://anaconda.org/ingeotec/b4msa/badges/version.svg
+	:target: https://anaconda.org/ingeotec/b4msa   
+
+.. image:: https://badge.fury.io/py/b4msa.svg
+	:target: https://badge.fury.io/py/b4msa
+
+.. image:: https://readthedocs.org/projects/b4msa/badge/?version=latest		 
+        :target: https://b4msa.readthedocs.io/en/latest/?badge=latest
+
 b4msa is multilingual framework, that can be served as a baseline for sentiment analysis
 classifiers, as well as a starting point to build new sentiment analysis
 systems.
@@ -70,7 +88,7 @@ scikit-learn.
 Text Model
 =============
 
-b4msa extends our work on creating a text classifier (specifically,
+b4msa extends our work on creating a text classifier (specifically
 :py:class:`microtc.textmodel.TextModel`) by incorporating different
 language dependant techniques. 
 

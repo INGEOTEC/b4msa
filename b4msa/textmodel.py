@@ -109,19 +109,28 @@ class TextModel(mTCTextModel):
         Default parameters per language
 
         >>> from b4msa.textmodel import TextModel
-        >>> TextModel.default_parameters(lang='spanish')
-        {'token_list': [[2, 1], -1, 2, 3, 4, 5, 6], 'negation': False, 'stemming': False, 'stopwords': 'none'}
-        >>> TextModel.default_parameters(lang='english')
-        {'token_list': [[3, 1], -2, -1, 3, 4], 'num_option': 'delete', 'del_diac': False, 'negation': False, 'stemming': False, 'stopwords': 'none'}
-        >>> TextModel.default_parameters(lang='arabic')
-        {'token_list': [-1, 2, 3, 4], 'del_punc': True, 'ent_option': 'delete', 'stopwords': 'delete', 'negation': False, 'stemming': False}
+        >>> _ = TextModel.default_parameters(lang='arabic')
+        >>> k = list(_.keys())
+        >>> k.sort()
+        >>> [(i, _[i]) for i in k]
+        [('del_punc', True), ('ent_option', 'delete'), ('negation', False), ('stemming', False), ('stopwords', 'delete'), ('token_list', [-1, 2, 3, 4])]
+        >>> _ = TextModel.default_parameters(lang='english')
+        >>> k = list(_.keys())
+        >>> k.sort()
+        >>> [(i, _[i]) for i in k]
+        [('del_diac', False), ('negation', False), ('num_option', 'delete'), ('stemming', False), ('stopwords', 'none'), ('token_list', [[3, 1], -2, -1, 3, 4])]
+        >>> _ = TextModel.default_parameters(lang='spanish')
+        >>> k = list(_.keys())
+        >>> k.sort()
+        >>> [(i, _[i]) for i in k]
+        [('negation', False), ('stemming', False), ('stopwords', 'none'), ('token_list', [[2, 1], -1, 2, 3, 4, 5, 6])]
         """
         if lang is None:
             return dict()
         if lang == 'spanish':
             return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6], negation=False, stemming=False, stopwords=OPTION_NONE)
         elif lang == 'english':
-            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False, negation=False, stemming=False, stopwords=OPTION_NONE) 
+            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False, negation=False, stemming=False, stopwords=OPTION_NONE)
         elif lang == 'arabic':
             return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option='delete', stopwords=OPTION_DELETE, negation=False, stemming=False)
 
