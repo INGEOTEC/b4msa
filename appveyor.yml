@@ -59,7 +59,7 @@ install:
   - python -c "import sys; print(sys.prefix)"
   - conda update -q --all
   - conda install -q pip conda-build jinja2 anaconda-client
-  - conda install -yq conda-build=3.15.1
+  # conda install -yq conda-build=3.15.1
   - conda config --append channels ingeotec  
   - set PATH
   - conda build --version
@@ -69,8 +69,8 @@ build: false
 test_script:
   - set "PATH=%CONDA_ROOT%;%CONDA_ROOT%\Scripts;%CONDA_ROOT%\Library\bin;%PATH%"
   - set PATH
-  - echo "safety_checks: disabled" >> ~/.condarc
-  - echo "local_repodata_ttl: 1800" >> ~/.condarc
+  # echo "safety_checks: disabled" >> ~/.condarc
+  # echo "local_repodata_ttl: 1800" >> ~/.condarc
   - conda install -y conda-verify
   - conda build conda-recipe --quiet
   # Move the conda package into the current directory, to register it
