@@ -55,7 +55,7 @@ class TextModel(mTCTextModel):
         self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         if lang:
             self.lang = LangDependency(lang)
-            _ = self.default_parameters(lang=lang)
+            _ = self.default_parameters(lang=self.lang.lang)
             if _ is not None:
                 default_parameters = _
                 print(default_parameters)
