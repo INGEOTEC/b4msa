@@ -108,6 +108,8 @@ class TextModel(mTCTextModel):
         Default parameters per language
 
         >>> from b4msa.textmodel import TextModel
+        >>> TextModel.default_parameters()
+        {'token_list': [-2, -1, 2, 3, 4]}
         >>> _ = TextModel.default_parameters(lang='arabic')
         >>> k = list(_.keys())
         >>> k.sort()
@@ -125,7 +127,7 @@ class TextModel(mTCTextModel):
         [('negation', False), ('stemming', False), ('stopwords', 'none'), ('token_list', [[2, 1], -1, 2, 3, 4, 5, 6])]
         """
         if lang is None:
-            return dict()
+            return dict(token_list=[-2, -1, 2, 3, 4])
         if lang == 'spanish':
             return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6], negation=False, stemming=False, stopwords=OPTION_NONE)
         elif lang == 'english':
