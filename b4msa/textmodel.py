@@ -51,7 +51,7 @@ class TextModel(mTCTextModel):
     """
     def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
                  stopwords=None, **kwargs):
-        default_parameters = dict(token_list=[-2, -1, 3, 4])
+        default_parameters = dict(token_list=[-2, -1, 2, 3, 4])
         self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         if lang:
             self.lang = LangDependency(lang)
