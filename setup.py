@@ -51,6 +51,7 @@ setup(
                                       'italian.stopwords',
                                       'italian.neg.stopwords'],
                   'b4msa/tests': ['text.json']},
+    install_requires=['microtc'],
     scripts=['b4msa/tools/b4msa-train',
              'b4msa/tools/b4msa-test',
              'b4msa/tools/b4msa-params',
