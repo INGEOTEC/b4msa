@@ -47,7 +47,7 @@ class TextModel(mTCTextModel):
     Represent a text into a vector
 
     >>> textmodel['cat']
-    [(28, 0.816496580927726), (52, 0.408248290463863), (53, 0.408248290463863)]
+    [(38, 0.24737436144422534), (41, 0.24737436144422534), (42, 0.4947487228884507), (73, 0.6702636255239844), (76, 0.24737436144422534), (77, 0.24737436144422534), (78, 0.24737436144422534)]
     """
     def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
                  stopwords=None, **kwargs):
