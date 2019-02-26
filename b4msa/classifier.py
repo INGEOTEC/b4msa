@@ -21,8 +21,6 @@ from sklearn.model_selection import StratifiedKFold
 from b4msa.textmodel import TextModel
 from multiprocessing import Pool
 from scipy.sparse import csr_matrix
-import logging
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 class SVC(object):

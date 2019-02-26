@@ -2,7 +2,6 @@
 # under the same terms than the multilingual benchmark
 
 import numpy as np
-import logging
 from time import time
 from sklearn.metrics import f1_score, accuracy_score, recall_score, precision_score
 from sklearn import preprocessing
@@ -14,7 +13,6 @@ except ImportError:
     def tqdm(x, **kwargs):
         return x
 
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 OPTION_NONE = 'none'
 OPTION_GROUP = 'group'
