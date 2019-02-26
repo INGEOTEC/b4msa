@@ -171,7 +171,7 @@ def test_textmodel_entropy():
     text = TextModel(tw, threshold=0.01)
     assert isinstance(text, TextModel)
     print(len(text.model._w2id))
-    assert len(text.model._w2id) == 233
+    assert len(text.model._w2id) == 299
 
 
 def test_textmodel_token_min_filter():
@@ -181,10 +181,11 @@ def test_textmodel_token_min_filter():
     fname = os.path.dirname(__file__) + '/text.json'
     tw = list(tweet_iterator(fname))
     text = TextModel(tw, token_min_filter=1)
-    assert len(text.model._w2id) == 28
+    print(len(text.model._w2id))
+    assert len(text.model._w2id) == 59
     text = TextModel(tw, token_min_filter=0.3)
     print(len(text.model._w2id))
-    assert len(text.model._w2id) == 4
+    assert len(text.model._w2id) == 12
     text = TextModel(tw, token_min_filter=1, threshold=0.01)
 
 

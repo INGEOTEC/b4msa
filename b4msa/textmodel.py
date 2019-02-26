@@ -47,11 +47,11 @@ class TextModel(mTCTextModel):
     Represent a text into a vector
 
     >>> textmodel['cat']
-    [(28, 0.816496580927726), (52, 0.408248290463863), (53, 0.408248290463863)]
+    [(38, 0.24737436144422534), (41, 0.24737436144422534), (42, 0.4947487228884507), (73, 0.6702636255239844), (76, 0.24737436144422534), (77, 0.24737436144422534), (78, 0.24737436144422534)]
     """
     def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
                  stopwords=None, **kwargs):
-        default_parameters = dict(token_list=[-2, -1, 3, 4])
+        default_parameters = dict(token_list=[-2, -1, 2, 3, 4])
         self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         if lang:
             self.lang = LangDependency(lang)
