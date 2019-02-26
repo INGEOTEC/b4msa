@@ -18,18 +18,11 @@
 import io
 import re
 import os
-import logging
 from nltk.stem.snowball import SnowballStemmer
 from b4msa.params import OPTION_NONE
 from nltk.stem.porter import PorterStemmer
 idModule = "language_dependency"
-logger = logging.getLogger(idModule)
-ch = logging.StreamHandler()
-# ch.setLevel(logging.DEBUG)
-# formatterC = logging.Formatter('%(asctime)s\t%(levelname)s\t%(filename)s\t%(message)s')
-formatterC = logging.Formatter('%(module)s-%(funcName)s\n\t%(levelname)s\t%(message)s')
-ch.setFormatter(formatterC)
-logger.addHandler(ch)
+
 
 PATH = os.path.join(os.path.dirname(__file__), 'resources')
 
@@ -137,7 +130,6 @@ class LangDependency():
 
     def load_stopwords(self, fileName):
         """Load stopwords from file"""
-        logger.debug("loading stopwords... " + fileName)
         if not os.path.isfile(fileName):
             raise LangDependencyError("File not found: " + fileName)
 

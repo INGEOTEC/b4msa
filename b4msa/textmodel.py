@@ -17,9 +17,6 @@ from microtc.params import OPTION_NONE, get_filename, OPTION_DELETE
 from microtc.weighting import Entropy
 from .lang_dependency import LangDependency
 import pickle
-import logging
-
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
 
 
 class TextModel(mTCTextModel):
@@ -152,17 +149,14 @@ class TextModel(mTCTextModel):
 
 
 def load_model(modelfile):
-    logging.info("Loading model {0}".format(modelfile))
     with open(modelfile, 'rb') as f:
         return pickle.load(f)
 
 
 def get_model(basename, data, labels, args):
     modelfile = get_filename(args, os.path.join("models", os.path.basename(basename)))
-    logging.info(args)
 
     if not os.path.exists(modelfile):
-        logging.info("Creating model {0}".format(modelfile))
 
         if not os.path.isdir("models"):
             os.mkdir("models")

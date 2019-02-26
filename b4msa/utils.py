@@ -14,24 +14,15 @@
 
 import json
 import gzip
-import logging
-logging.basicConfig(format='%(asctime)s : %(levelname)s :%(message)s')
-logger = logging.getLogger('b4msa')
-# logger.setLevel(logging.INFO + 1)
 
 
 def tweet_iterator(filename):
-    # logger = logging.getLogger('b4msa')
     # The file is a gz file...
     if filename.endswith(".gz"):
         # Uncompress the file and open it...
         f = gzip.GzipFile(filename)
     else:
         # Not JSON extension, show warning...
-        if not filename.endswith(".json"):
-            # warning to user...
-            logger.info("WARNING! File extension not supported (" + filename.split(".")[-1] + ")")
-            logger.info("Assuming JSON format: {\"text\":, \"klass\":}")
         # Open the file...
         f = open(filename, encoding='utf8')
 
@@ -61,9 +52,7 @@ def tweet_iterator(filename):
         # Catch the JSON Decode Error...
         except (json.decoder.JSONDecodeError, ValueError):
             # warning to user...
-            logger.info("WARNING! we found and error while parsing file:", str(f))
-            logger.info("most of these errors occur due to concurrent writes")
-
+            pass
     # Close the file...
     f.close()
 
