@@ -121,7 +121,7 @@ def test_train2():
 
 def test_test():
     from b4msa.command_line import params, train, test
-    from b4msa.utils import read_data_labels
+    from microtc.utils import read_data_labels
     import os
     import sys
     import tempfile
@@ -148,7 +148,7 @@ def test_test():
 
 def test_decision_function():
     from b4msa.command_line import params, train, test
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
     import os
     import sys
     import tempfile
@@ -240,7 +240,7 @@ def test_params_gzip2():
 
 def test_decision_function_gzip():
     from b4msa.command_line import params, train, test
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
     import os
     import sys
     import tempfile

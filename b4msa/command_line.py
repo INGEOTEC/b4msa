@@ -14,7 +14,7 @@
 import argparse
 import b4msa
 from b4msa.classifier import SVC
-from b4msa.utils import read_data, tweet_iterator, read_data_labels
+from microtc.utils import read_data, tweet_iterator, read_data_labels, load_model, save_model
 from b4msa.textmodel import TextModel
 # from b4msa.params import OPTION_DELETE
 from multiprocessing import cpu_count
@@ -22,7 +22,6 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import KFold
 import json
 import gzip
-import pickle
 
 # from b4msa.params import ParameterSelection
 
@@ -169,8 +168,7 @@ class CommandLineTrain(CommandLine):
         kw = json.loads(self.data.kwargs) if self.data.kwargs is not None else dict()
         best.update(kw)
         svc = SVC.fit_from_file(self.data.training_set, best)
-        with open(self.get_output(), 'wb') as fpt:
-            pickle.dump(svc, fpt)
+        save_model(svc, self.get_output())
 
 
 class CommandLineTest(CommandLine):
@@ -199,8 +197,7 @@ class CommandLineTest(CommandLine):
 
     def main(self):
         self.data = self.parser.parse_args()
-        with open(self.data.model, 'rb') as fpt:
-            svc = pickle.load(fpt)
+        svc = load_model(self.data.model)
         X = [svc.model[x] for x in read_data(self.data.test_set)]
         output = self.get_output()
         if output.endswith('.gz'):
@@ -233,8 +230,7 @@ class CommandLineTest(CommandLine):
 class CommandLineTextModel(CommandLineTest):
     def main(self):
         self.data = self.parser.parse_args()
-        with open(self.data.model, 'rb') as fpt:
-            svc = pickle.load(fpt)
+        svc = load_model(self.data.model)
         with open(self.get_output(), 'w') as fpt:
             for tw in tweet_iterator(self.data.test_set):
                 extra = dict([(int(a), float(b)) for a, b in svc.model[tw['text']]]

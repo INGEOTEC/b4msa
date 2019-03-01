@@ -16,7 +16,7 @@
 def test_SVC_predict_from_file():
     from b4msa.classifier import SVC
     from b4msa.textmodel import TextModel
-    from b4msa.utils import read_data_labels
+    from microtc.utils import read_data_labels
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     X, y = read_data_labels(fname)
@@ -31,7 +31,7 @@ def test_SVC_predict_from_file():
 def test_SVC_predict():
     from b4msa.classifier import SVC
     from b4msa.textmodel import TextModel
-    from b4msa.utils import read_data_labels
+    from microtc.utils import read_data_labels
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     X, y = read_data_labels(fname)
@@ -45,7 +45,7 @@ def test_SVC_predict():
 def test_kfold():
     import os
     from b4msa.classifier import SVC
-    from b4msa.utils import read_data_labels
+    from microtc.utils import read_data_labels
     fname = os.path.dirname(__file__) + '/text.json'
     X, y = read_data_labels(fname, get_klass='klass',
                             get_tweet='text')
@@ -57,7 +57,7 @@ def test_kfold():
 def test_kfold_pool():
     import os
     from b4msa.classifier import SVC
-    from b4msa.utils import read_data_labels
+    from microtc.utils import read_data_labels
     from multiprocessing import Pool
     fname = os.path.dirname(__file__) + '/text.json'
     X, y = read_data_labels(fname, get_klass='klass',

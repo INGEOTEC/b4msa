@@ -16,7 +16,7 @@
 def test_tweet_iterator():
     import os
     import gzip
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
     
     fname = os.path.dirname(__file__) + '/text.json'
     a = [x for x in tweet_iterator(fname)]
@@ -33,7 +33,7 @@ def test_tweet_iterator():
 
 def test_textmodel():
     from b4msa.textmodel import TextModel
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     tw = list(tweet_iterator(fname))
@@ -48,7 +48,7 @@ def test_params():
     import itertools
     from b4msa.params import BASIC_OPTIONS
     from b4msa.textmodel import TextModel
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
 
     params = dict(del_diac=[True, False], usr_option=BASIC_OPTIONS,
                   url_option=BASIC_OPTIONS)
@@ -164,7 +164,7 @@ def test_negations_italian():
 
 def test_textmodel_entropy():
     from b4msa.textmodel import TextModel
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     tw = list(tweet_iterator(fname))
@@ -176,7 +176,7 @@ def test_textmodel_entropy():
 
 def test_textmodel_token_min_filter():
     from b4msa.textmodel import TextModel
-    from b4msa.utils import tweet_iterator
+    from microtc.utils import tweet_iterator
     import os
     fname = os.path.dirname(__file__) + '/text.json'
     tw = list(tweet_iterator(fname))

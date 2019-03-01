@@ -15,8 +15,8 @@ import os
 from microtc.textmodel import TextModel as mTCTextModel
 from microtc.params import OPTION_NONE, get_filename, OPTION_DELETE
 from microtc.weighting import Entropy
+from microtc.utils import load_model, save_model
 from .lang_dependency import LangDependency
-import pickle
 
 
 class TextModel(mTCTextModel):
@@ -43,8 +43,7 @@ class TextModel(mTCTextModel):
 
     Represent a text into a vector
 
-    >>> textmodel['cat']
-    [(38, 0.24737436144422534), (41, 0.24737436144422534), (42, 0.4947487228884507), (73, 0.6702636255239844), (76, 0.24737436144422534), (77, 0.24737436144422534), (78, 0.24737436144422534)]
+    >>> vector = textmodel['cat']
     """
     def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
                  stopwords=None, **kwargs):
@@ -148,11 +147,6 @@ class TextModel(mTCTextModel):
         return list(params) + list(r)
 
 
-def load_model(modelfile):
-    with open(modelfile, 'rb') as f:
-        return pickle.load(f)
-
-
 def get_model(basename, data, labels, args):
     modelfile = get_filename(args, os.path.join("models", os.path.basename(basename)))
 
@@ -163,8 +157,7 @@ def get_model(basename, data, labels, args):
 
         args['docs'] = data
         model = TextModel(**args)
-        with open(modelfile, 'wb') as f:
-            pickle.dump(model, f)
+        save_model(model, modelfile)
     else:
         model = load_model(modelfile)
     return model
