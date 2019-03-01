@@ -15,7 +15,7 @@
 from sklearn.svm import LinearSVC
 # from b4msa.textmodel import TextModel
 import numpy as np
-from b4msa.utils import read_data_labels, read_data, tweet_iterator
+from microtc.utils import read_data_labels, read_data, tweet_iterator
 from sklearn import preprocessing
 from sklearn.model_selection import StratifiedKFold
 from b4msa.textmodel import TextModel

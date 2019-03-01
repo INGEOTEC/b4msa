@@ -11,4 +11,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-__version__ = "2.0.4"
+"""b4msa extends our work on creating a text classifier (specifically
+:py:class:`microtc.textmodel.TextModel`) by incorporating different
+language dependant techniques.
+
+The starting point is :py:class:`b4msa.textmodel.TextModel`
+"""
+__version__ = "2.1"
