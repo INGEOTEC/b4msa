@@ -44,6 +44,15 @@ class TextModel(mTCTextModel):
     Represent a text into a vector
 
     >>> vector = textmodel['cat']
+    
+    Train a classifier
+    
+    >>> from sklearn.svm import LinearSVC
+    >>> y = [1, 0, 0]
+    >>> textmodel = TextModel().fit(corpus)
+    >>> m = LinearSVC().fit(textmodel.transform(corpus), y)
+    >>> m.predict(textmodel.transform(corpus))
+    array([1, 0, 0])
     """
     def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
                  stopwords=None, **kwargs):
