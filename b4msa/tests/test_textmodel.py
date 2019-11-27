@@ -171,7 +171,7 @@ def test_textmodel_entropy():
     text = TextModel(tw, threshold=0.01)
     assert isinstance(text, TextModel)
     print(len(text.model._w2id))
-    assert len(text.model._w2id) == 299
+    assert len(text.model._w2id) == 36
 
 
 def test_textmodel_token_min_filter():
