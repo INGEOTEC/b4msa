@@ -1,6 +1,6 @@
 package:
   name: b4msa
-  version: "2.1"
+  version: "2.1.1"
 
 requirements:
   build:
