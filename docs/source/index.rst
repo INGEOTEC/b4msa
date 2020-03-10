@@ -21,6 +21,9 @@ b4msa
 .. image:: https://badge.fury.io/py/b4msa.svg
 	:target: https://badge.fury.io/py/b4msa
 
+.. image:: https://anaconda.org/ingeotec/b4msa/badges/downloads.svg
+	:target: https://anaconda.org/ingeotec/b4msa
+
 .. image:: https://readthedocs.org/projects/b4msa/badge/?version=latest		 
         :target: https://b4msa.readthedocs.io/en/latest/?badge=latest
 
