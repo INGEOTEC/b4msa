@@ -1,0 +1,40 @@
+name: Pip
+
+on: 
+  push:
+    branches:
+      - master   
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.8"]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: test
+        auto-update-conda: true
+        python-version: ${{ matrix.python-version }}
+        channels: conda-forge, ingeotec
+        allow-softlinks: true
+        channel-priority: flexible
+        show-channel-urls: true	
+    - name: Install dependencies
+      run: |
+        conda install --yes pip
+        pip install twine
+        conda install --yes numpy scipy scikit-learn nltk nose microtc
+        python setup.py sdist
+    - name: Pip
+      env:
+        TWINE: ${{ secrets.TWINE }}
+      run: |
+        twine upload --skip-existing -u mgraffg -p $TWINE dist/*.tar.gz;
