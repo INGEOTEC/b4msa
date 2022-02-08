@@ -23,7 +23,7 @@ jobs:
         activate-environment: test
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        channels: conda-forge, ingeotec
+        channels: ingeotec
         allow-softlinks: true
         channel-priority: flexible
         show-channel-urls: true	
