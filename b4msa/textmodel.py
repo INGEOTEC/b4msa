@@ -100,7 +100,7 @@ class TextModel(mTCTextModel):
         return self
 
     def get_word_list(self, *args, **kwargs):
-        if self.lang.lang == 'chinese':
+        if self.lang and self.lang.lang == 'chinese':
             return get_word_list_zh(*args, **kwargs)
         return super(TextModel, self).get_word_list(*args, **kwargs)
 
