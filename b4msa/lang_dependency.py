@@ -284,7 +284,7 @@ class LangDependency():
         return text.replace(' ', '~')
 
     def filterStopWords(self, text, stopwords_option):
-        if stopwords_option == 'none':
+        if stopwords_option == OPTION_NONE:
             return text
         sw = self.stopwords
         d = text.split('~')
