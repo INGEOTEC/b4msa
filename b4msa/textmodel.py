@@ -19,6 +19,13 @@ from microtc.utils import load_model, save_model
 from .lang_dependency import LangDependency
 
 
+def get_word_list_zh(text):
+    """Tokenize Chinese using jieba"""
+    import jieba
+    text = text[1:-1]
+    return list(jieba.cut(text))
+
+
 class TextModel(mTCTextModel):
     """
 
@@ -54,8 +61,8 @@ class TextModel(mTCTextModel):
     >>> m.predict(textmodel.transform(corpus))
     array([1, 0, 0])
     """
-    def __init__(self, docs=None, threshold=0, lang=None, negation=None, stemming=None,
-                 stopwords=None, **kwargs):
+    def __init__(self, docs=None, threshold=0, lang=None, negation=False, stemming=False,
+                 stopwords=OPTION_NONE, **kwargs):
         default_parameters = dict(token_list=[-2, -1, 2, 3, 4])
         self._lang_kw = dict(negation=negation, stemming=stemming, stopwords=stopwords)
         if lang:
@@ -91,6 +98,11 @@ class TextModel(mTCTextModel):
             w = Entropy.entropy([self.tokenize(d) for d in X], X, self.model.word2id)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > self._threshold}
         return self
+
+    def get_word_list(self, *args, **kwargs):
+        if self.lang and self.lang.lang == 'chinese':
+            return get_word_list_zh(*args, **kwargs)
+        return super(TextModel, self).get_word_list(*args, **kwargs)
 
     def text_transformations(self, text):
         """Language dependent transformations
@@ -136,9 +148,11 @@ class TextModel(mTCTextModel):
         if lang == 'spanish':
             return dict(token_list=[[2, 1], -1, 2, 3, 4, 5, 6], negation=False, stemming=False, stopwords=OPTION_NONE)
         elif lang == 'english':
-            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option='delete', del_diac=False, negation=False, stemming=False, stopwords=OPTION_NONE)
+            return dict(token_list=[[3, 1], -2, -1, 3, 4], num_option=OPTION_DELETE, del_diac=False, 
+                        negation=False, stemming=False, stopwords=OPTION_NONE)
         elif lang == 'arabic':
-            return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option='delete', stopwords=OPTION_DELETE, negation=False, stemming=False)
+            return dict(token_list=[-1, 2, 3, 4], del_punc=True, ent_option=OPTION_DELETE, 
+                        stopwords=OPTION_DELETE, negation=False, stemming=False)
 
     @classmethod
     def params(cls):

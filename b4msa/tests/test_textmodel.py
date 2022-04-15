@@ -201,3 +201,17 @@ def test_textmodel_default():
     text = TextModel(lang='arabic', stopwords='xxx')
     assert text._lang_kw['stopwords'] == 'xxx'
     
+def test_textmodel_chinese():
+    from b4msa.textmodel import TextModel
+    tm = TextModel(lang='zh')
+    assert tm.lang.lang == 'chinese'
+    tm.tokenize('聊聊呗')
+
+
+def test_textmodel_get_word_list():
+    from b4msa.textmodel import get_word_list_zh
+    text = '~聊聊呗~'
+    for hy, y in zip(get_word_list_zh(text),
+                     ['聊聊', '呗']):
+        assert y == hy
+    

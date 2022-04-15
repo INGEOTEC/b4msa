@@ -23,7 +23,7 @@ jobs:
         activate-environment: test
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        channels: conda-forge, ingeotec
+        channels: ingeotec
         allow-softlinks: true
         channel-priority: flexible
         show-channel-urls: true	
@@ -32,6 +32,7 @@ jobs:
         conda install --yes pip
         pip install coverage
         pip install coveralls
+        pip install jieba
         conda install --yes numpy scipy scikit-learn nltk nose microtc
         python setup.py build_ext --inplace
     - name: Tests on Linux
@@ -40,7 +41,7 @@ jobs:
         which python
         python --version
         which coverage
-        coverage run setup.py nosetests --with-doctest
+        nosetests --verbose --with-coverage --with-doctest --cover-package=b4msa b4msa/tests b4msa
     - name: Tests on macOS and Windows
       if: ${{ runner.os != 'Linux' }}
       run: |

@@ -43,7 +43,9 @@ _sNEUTRAL = "_neu"
 def get_lang(l):
     """Convert language abbr to full names"""
     l = l.strip().lower()
-    h = dict(es='spanish', en='english', ar='arabic', it='italian', de='german')
+    h = dict(es='spanish', en='english',
+             ar='arabic', it='italian', 
+             de='german', zh='chinese')
     return h.get(l, l)
 
 
@@ -75,10 +77,12 @@ class LangDependency():
         self.languages = ["spanish", "english", "italian", "german", "arabic"]
         self.lang = lang
 
-        if self.lang not in SnowballStemmer.languages:
+        if self.lang not in SnowballStemmer.languages and self.lang != 'chinese':
             raise LangDependencyError("Language not supported for stemming: " + lang)
         if self.lang == "english":
             self.stemmer = PorterStemmer()
+        elif self.lang == 'chinese':
+            self.stemmer = None
         else:
             self.stemmer = SnowballStemmer(self.lang)
 
@@ -280,7 +284,7 @@ class LangDependency():
         return text.replace(' ', '~')
 
     def filterStopWords(self, text, stopwords_option):
-        if stopwords_option == 'none':
+        if stopwords_option == OPTION_NONE:
             return text
         sw = self.stopwords
         d = text.split('~')
