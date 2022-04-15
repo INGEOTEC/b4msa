@@ -13,3 +13,4 @@ b4msa.egg-info/*
 *.params
 experiments-*
 run-*
+.vscode/settings.json

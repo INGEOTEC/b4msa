@@ -19,6 +19,13 @@ from microtc.utils import load_model, save_model
 from .lang_dependency import LangDependency
 
 
+def get_word_list_zh(text):
+    """Tokenize Chinese using jieba"""
+    import jieba
+    text = text[1:-1]
+    return list(jieba.cut(text))
+
+
 class TextModel(mTCTextModel):
     """
 
@@ -91,6 +98,11 @@ class TextModel(mTCTextModel):
             w = Entropy.entropy([self.tokenize(d) for d in X], X, self.model.word2id)
             self.model._w2id = {k: v for k, v in self.model._w2id.items() if w[v] > self._threshold}
         return self
+
+    def get_word_list(self, *args, **kwargs):
+        if self.lang.lang == 'chinese':
+            return get_word_list_zh(*args, **kwargs)
+        return super(TextModel, self).get_word_list(*args, **kwargs)
 
     def text_transformations(self, text):
         """Language dependent transformations

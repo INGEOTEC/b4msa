@@ -76,3 +76,9 @@ def test_stopwords():
     text1 = tm.lang.transform(text, stopwords='group')
     print(text1)
     assert text1 == '~_sw~_sw~_sw~carro~'
+
+
+def test_get_lang():
+    from b4msa.lang_dependency import get_lang
+
+    assert get_lang('zh') == 'chinese'
