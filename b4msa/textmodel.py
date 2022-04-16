@@ -23,7 +23,8 @@ def get_word_list_zh(text):
     """Tokenize Chinese using jieba"""
     import jieba
     text = text[1:-1]
-    return list(jieba.cut(text))
+    _ = [x.strip() for x in jieba.cut(text)]
+    return [x for x in _ if len(x)]
 
 
 class TextModel(mTCTextModel):
