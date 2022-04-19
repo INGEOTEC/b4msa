@@ -17,6 +17,7 @@ from microtc.params import OPTION_NONE, get_filename, OPTION_DELETE
 from microtc.weighting import Entropy
 from microtc.utils import load_model, save_model
 from .lang_dependency import LangDependency
+import re
 
 
 def get_word_list_zh(text):
@@ -117,8 +118,7 @@ class TextModel(mTCTextModel):
         text = super(TextModel, self).text_transformations(text)
         if self.lang:
             text = self.lang.transform(text, **self._lang_kw)
-
-        return text
+        return re.sub('~+', '~', text)
 
     @classmethod
     def default_parameters(self, lang=None):
