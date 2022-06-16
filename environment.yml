@@ -1,6 +1,6 @@
 name: b4msa
 channels:
-  - ingeotec
+  - conda-forge
 dependencies:
   - python
   - setuptools

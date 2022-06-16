@@ -2,8 +2,8 @@ name: Pip
 
 on: 
   push:
-    branches:
-      - master   
+    tags:
+      - v*  
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
         activate-environment: test
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        channels: ingeotec
+        channels: conda-forge, ingeotec
         allow-softlinks: true
         channel-priority: flexible
         show-channel-urls: true	
