@@ -18,9 +18,8 @@
 import io
 import re
 import os
-from nltk.stem.snowball import SnowballStemmer
 from b4msa.params import OPTION_NONE
-from nltk.stem.porter import PorterStemmer
+
 idModule = "language_dependency"
 
 
@@ -74,12 +73,15 @@ class LangDependency():
         """
         Initializes the parameters for specific language
         """
+
+        from nltk.stem.snowball import SnowballStemmer
         self.languages = ["spanish", "english", "italian", "german", "arabic"]
         self.lang = lang
 
         if self.lang not in SnowballStemmer.languages and self.lang != 'chinese':
             raise LangDependencyError("Language not supported for stemming: " + lang)
         if self.lang == "english":
+            from nltk.stem.porter import PorterStemmer
             self.stemmer = PorterStemmer()
         elif self.lang == 'chinese':
             self.stemmer = None
