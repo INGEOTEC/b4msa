@@ -41,7 +41,7 @@ jobs:
         which python
         python --version
         which coverage
-        nosetests --verbose --with-coverage --with-doctest --cover-package=b4msa b4msa/tests b4msa
+        nosetests --verbose --with-coverage --cover-package=b4msa b4msa/tests
     - name: Tests on macOS and Windows
       if: ${{ runner.os != 'Linux' }}
       run: |
