@@ -105,7 +105,7 @@ class SVC(object):
 
     def predict(self, Xnew):
         if self.num_terms == 0:
-            return self.le.inverse_transform(np.zeros(len(Xnew), dtype=np.int))
+            return self.le.inverse_transform(np.zeros(len(Xnew), dtype=int))
         Xnew = self.tonp(Xnew)
         ynew = self.svc.predict(Xnew)
         return self.le.inverse_transform(ynew)
@@ -138,7 +138,7 @@ class SVC(object):
 
         le = preprocessing.LabelEncoder().fit(y)
         y = np.array(le.transform(y))
-        hy = np.zeros(len(y), dtype=np.int)
+        hy = np.zeros(len(y), dtype=int)
         if kfolds is None:
             kfolds = StratifiedKFold(n_splits=n_folds, shuffle=True,
                                      random_state=seed).split(X, y)
