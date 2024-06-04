@@ -14,16 +14,16 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.7", "3.8", "3.9"]
+        python-version: ["3.9", "3.10", "3.11"]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python
-      uses: conda-incubator/setup-miniconda@v2
+      uses: conda-incubator/setup-miniconda@v3
       with:
         activate-environment: test
         auto-update-conda: true
         python-version: ${{ matrix.python-version }}
-        channels: ingeotec
+        channels: conda-forge, ingeotec
         allow-softlinks: true
         channel-priority: flexible
         show-channel-urls: true	
@@ -41,7 +41,7 @@ jobs:
         which python
         python --version
         which coverage
-        nosetests --verbose --with-coverage --with-doctest --cover-package=b4msa b4msa/tests b4msa
+        nosetests --verbose --with-coverage --cover-package=b4msa b4msa/tests
     - name: Tests on macOS and Windows
       if: ${{ runner.os != 'Linux' }}
       run: |

@@ -1,4 +1,5 @@
-# Copyright 2013 Mario Graff (https://github.com/mgraffg)
+# Copyright 2024 Sabino Miranda-Jiménez and Daniela Moctezuma
+# with collaborations of Eric S. Tellez
 
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,10 +12,3 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""b4msa extends our work on creating a text classifier (specifically
-:py:class:`microtc.textmodel.TextModel`) by incorporating different
-language dependant techniques.
-
-The starting point is :py:class:`b4msa.textmodel.TextModel`
-"""
-__version__ = "2.2.3"
