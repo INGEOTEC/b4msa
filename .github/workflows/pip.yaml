@@ -2,8 +2,8 @@ name: Pip
 
 on: 
   push:
-    branches:
-      - master   
+    tags:
+      - v*  
 
 jobs:
   build:

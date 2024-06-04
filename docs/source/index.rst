@@ -9,17 +9,20 @@ b4msa
 .. image:: https://github.com/INGEOTEC/b4msa/actions/workflows/test.yaml/badge.svg
 	   :target: https://github.com/INGEOTEC/b4msa/actions/workflows/test.yaml
 
-.. image:: https://coveralls.io/repos/github/INGEOTEC/b4msa/badge.svg?branch=master
-	:target: https://coveralls.io/github/INGEOTEC/b4msa?branch=master
-
-.. image:: https://anaconda.org/ingeotec/b4msa/badges/version.svg
-	:target: https://anaconda.org/ingeotec/b4msa   
+.. image:: https://coveralls.io/repos/github/INGEOTEC/b4msa/badge.svg?branch=develop
+	:target: https://coveralls.io/github/INGEOTEC/b4msa?branch=develop
 
 .. image:: https://badge.fury.io/py/b4msa.svg
 	:target: https://badge.fury.io/py/b4msa
 
-.. image:: https://anaconda.org/ingeotec/b4msa/badges/downloads.svg
-	:target: https://anaconda.org/ingeotec/b4msa
+.. image:: https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/b4msa-feedstock?branchName=main
+	:target: https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16447&branchName=main
+
+.. image:: https://img.shields.io/conda/vn/conda-forge/b4msa.svg
+	:target: https://anaconda.org/conda-forge/b4msa
+
+.. image:: https://img.shields.io/conda/pn/conda-forge/b4msa.svg
+	:target: https://anaconda.org/conda-forge/b4msa
 
 .. image:: https://readthedocs.org/projects/b4msa/badge/?version=latest		 
         :target: https://b4msa.readthedocs.io/en/latest/?badge=latest
@@ -71,7 +74,7 @@ b4msa can be easly install using anaconda
 
 .. code:: bash
 
-	  conda install -c ingeotec b4msa
+	  conda install -c conda-forge b4msa
 
 or can be install using pip, it depends on numpy, scipy and
 scikit-learn.
