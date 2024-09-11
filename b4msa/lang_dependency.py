@@ -41,9 +41,10 @@ _sNEUTRAL = "_neu"
 
 def get_lang(l):
     """Convert language abbr to full names"""
+
     l = l.strip().lower()
     h = dict(es='spanish', en='english',
-             ar='arabic', it='italian', 
+             ar='arabic', it='italian',
              de='german', zh='chinese')
     return h.get(l, l)
 
@@ -95,12 +96,12 @@ class LangDependency():
                 raise LangDependencyError(_)
             if self.lang == "english":
                 from nltk.stem.porter import PorterStemmer
-
-                self.stemmer = PorterStemmer()
+                self._stemmer = PorterStemmer()
             elif self.lang == 'chinese':
-                self.stemmer = None
+                self._stemmer = None
             else:
-                self.stemmer = SnowballStemmer(self.lang)
+                self._stemmer = SnowballStemmer(self.lang)
+            return self._stemmer
 
     @property
     def lang(self):
