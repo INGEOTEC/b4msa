@@ -41,14 +41,17 @@ _sNEUTRAL = "_neu"
 
 def get_lang(l):
     """Convert language abbr to full names"""
+
     l = l.strip().lower()
     h = dict(es='spanish', en='english',
-             ar='arabic', it='italian', 
+             ar='arabic', it='italian',
              de='german', zh='chinese')
     return h.get(l, l)
 
 
 class LangDependencyError(Exception):
+    """Lang Dependency Error"""
+
     def __init__(self, message):
         self.message = message
 
@@ -74,19 +77,31 @@ class LangDependency():
         Initializes the parameters for specific language
         """
 
-        from nltk.stem.snowball import SnowballStemmer
+
         self.languages = ["spanish", "english", "italian", "german", "arabic"]
         self.lang = lang
 
-        if self.lang not in SnowballStemmer.languages and self.lang != 'chinese':
-            raise LangDependencyError("Language not supported for stemming: " + lang)
-        if self.lang == "english":
-            from nltk.stem.porter import PorterStemmer
-            self.stemmer = PorterStemmer()
-        elif self.lang == 'chinese':
-            self.stemmer = None
-        else:
-            self.stemmer = SnowballStemmer(self.lang)
+
+
+    @property
+    def stemmer(self):
+        """stemmer"""
+        from nltk.stem.snowball import SnowballStemmer        
+
+        try:
+            return self._stemmer
+        except AttributeError:
+            if self.lang not in SnowballStemmer.languages and self.lang != 'chinese':
+                _ = f"Language not supported for stemming: {self.lang}"
+                raise LangDependencyError(_)
+            if self.lang == "english":
+                from nltk.stem.porter import PorterStemmer
+                self._stemmer = PorterStemmer()
+            elif self.lang == 'chinese':
+                self._stemmer = None
+            else:
+                self._stemmer = SnowballStemmer(self.lang)
+            return self._stemmer
 
     @property
     def lang(self):

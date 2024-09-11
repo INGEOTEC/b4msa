@@ -15,6 +15,8 @@
 
 
 def test_spanish_stemming():
+    """Spanish Stemming"""
+
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
     r = c.stemming('los~carros~son~veloces')
@@ -22,6 +24,8 @@ def test_spanish_stemming():
         
 
 def test_spanish_negation():
+    """Spanish Negation"""
+
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
     r = c.negation('los carros no son veloces')
@@ -30,6 +34,8 @@ def test_spanish_negation():
 
 
 def test_arabic_stemming():
+    """Arabic Stemming"""
+
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='arabic')
     r = c.stemming('los~carros~no~son~veloces')
@@ -37,6 +43,8 @@ def test_arabic_stemming():
 
 
 def test_stopwords_property():
+    """Stopwords property"""
+
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='spanish')
     print(len(c.stopwords))
@@ -47,6 +55,8 @@ def test_stopwords_property():
 
 
 def test_neg_stopwords_property():
+    """Negation stopwords property"""
+
     from b4msa.lang_dependency import LangDependency, LangDependencyError
     c = LangDependency(lang='spanish')
     print(len(c.neg_stopwords))
@@ -60,12 +70,16 @@ def test_neg_stopwords_property():
 
 
 def test_lang_abbr():
+    """Language abbreviation"""
+
     from b4msa.lang_dependency import LangDependency
     c = LangDependency(lang='es')
     assert c.lang == 'spanish'
 
 
 def test_stopwords():
+    """Stopwords"""
+
     from b4msa.textmodel import TextModel
     tm = TextModel(lang='es', del_dup=False)
     text = tm.text_transformations('como esta mi carro')
@@ -79,6 +93,8 @@ def test_stopwords():
 
 
 def test_get_lang():
+    """get_lang"""
+
     from b4msa.lang_dependency import get_lang
 
     assert get_lang('zh') == 'chinese'
