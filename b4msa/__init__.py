@@ -17,6 +17,6 @@ language dependant techniques.
 
 The starting point is :py:class:`b4msa.textmodel.TextModel`
 """
-__version__ = "2.2.4"
+__version__ = "2.2.5"
 
 from b4msa.textmodel import TextModel

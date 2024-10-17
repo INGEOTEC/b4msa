@@ -12,12 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import os
+import re
 from microtc.textmodel import TextModel as mTCTextModel
 from microtc.params import OPTION_NONE, get_filename, OPTION_DELETE
 from microtc.weighting import Entropy
 from microtc.utils import load_model, save_model
 from .lang_dependency import LangDependency
-import re
 
 
 def get_word_list_zh(text):
